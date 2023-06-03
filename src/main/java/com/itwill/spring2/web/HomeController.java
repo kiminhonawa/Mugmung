@@ -15,5 +15,11 @@ public class HomeController {
         
         return "index";
     }
+    @GetMapping("/test")
+    public String test() {
+        log.info("test()");
+        
+        return "/test";
+    }
 
 }
