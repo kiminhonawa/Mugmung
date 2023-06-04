@@ -6,8 +6,8 @@
 <mapper namespace="com.itwill.spring2.repository.UserRepository">
 <!-- namespace의 값은 PostRepository 인터페이스가 있는 패키지 이름과 인터페이스 이름. -->
     
-    <select id="selectById" resultType="com.itwill.spring2.domain.User">
-        select * from USERS where USERNAME = #{id} and PASSWORD = #{password};
+    <select id="selectByUsernameAndPassword" resultType="com.itwill.spring2.domain.User">
+        select * from USERS where USERNAME = #{username} and PASSWORD = #{password}
     </select>
     
 </mapper>

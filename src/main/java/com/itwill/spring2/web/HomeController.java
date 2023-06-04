@@ -13,7 +13,7 @@ public class HomeController {
     public String home() {
         log.info("home()");
         
-        return "index";
+        return "/main/index";
     }
     @GetMapping("/test")
     public String test() {
