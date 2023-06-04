@@ -8,8 +8,15 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @Controller
 public class HomeController {
+	
+	@GetMapping("/")
+    public String map() {
+        log.info("map()");
+        
+        return "/map/mugmap";
+    }
     
-    @GetMapping("/")
+    @GetMapping("/main")
     public String home() {
         log.info("home()");
         

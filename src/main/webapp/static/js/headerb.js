@@ -8,12 +8,12 @@ document.addEventListener('DOMContentLoaded', () => {
 	
 	// loginBtn 클릭 시 login.jsp로 이동
   	loginBtn.addEventListener('click', () => {
-    window.location.href = '../user/signin';
+    window.location.href = '/mugmung/user/signin';
   	});
 
   // signUpBtn 클릭 시 signUp.jsp로 이동
   	signUpBtn.addEventListener('click', () => {
-    window.location.href = '../join/signup';
+    window.location.href = '/mugmung/join/signup';
   	});
 	
 });

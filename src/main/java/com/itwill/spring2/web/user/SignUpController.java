@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.itwill.spring2.dto.PostCreateDto;
 import com.itwill.spring2.service.PostService;
+import com.itwill.spring2.service.UserService;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -17,7 +18,7 @@ import lombok.extern.slf4j.Slf4j;
 public class SignUpController {
 	
 	@Autowired
-	private PostService postService;
+	private UserService userService;
 	
 	@GetMapping("/signup")
     public String signup() {

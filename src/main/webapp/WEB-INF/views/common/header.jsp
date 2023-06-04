@@ -39,14 +39,19 @@
 <!-- 헤더 좌측 영역 -->      
       <c:url value="/" var="mainPage"></c:url>
         <a href="${mainPage }" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
-          <img src="./static/assets/icons/ggule.png" alt="제주도 맛집! 머그멍">
+          <c:url value="/static/img/test_logo.png" var="test_logo" />
+				<img src="${test_logo }" alt="제주도 맛집! 머그멍">
         </a>
 <!-- 헤더 좌측 영역 end-->
 
 <!-- 헤더 가운데 영역 -->
 		<ul class="logo-cen-ul nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
 			<li>
-				<img src="./static/assets/icons/ggule.png" alt="제주도 맛집! 머그멍">
+				<c:url value="/main" var="mainPage"></c:url>
+				<a href="${mainPage}">
+				<c:url value="/static/img/test_logo.png" var="test_logo" />
+					<img src="${test_logo }" alt="제주도 맛집! 머그멍">
+				</a>
 			</li>
 		</ul>
 <!-- 헤더 가운데 영역 end-->
@@ -56,7 +61,8 @@
 	        <div class="search-container">
 	    		<input type="search" class="form-control search-input" placeholder="Search..." aria-label="Search">
 	    			<button type="submit" value="검색" class="search-button">
-	      				<img src="./static/assets/icons/search-heart.svg" alt="제주도 맛집! 머그멍">
+	    				<c:url value="/static/assets/icons/search-heart.svg" var="searchIcon" />
+	      				<img src="${searchIcon }" alt="검색">
 	    			</button>
 	  		</div>
         </form>
@@ -67,7 +73,8 @@
 	     
 	     	<div class="flex-shrink-0 dropdown">
           		<a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-            		<img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle" style=" margin-left: 30px;  ">
+          			<c:url value="/static/img/user_login_default_img.jpg" var="loginImg"></c:url>
+            		<img src="${loginImg }" alt="mdo" width="32" height="32" class="rounded-circle" style=" margin-left: 30px;  ">
           		</a>
 	          	<ul class="dropdown-menu text-small shadow">
 		           <c:url var="mainPage" value="/" />
@@ -82,7 +89,7 @@
 		            <c:url var="mainPage" value="/" />
 		            <li><hr class="dropdown-divider"></li>
 		            
-		            <c:url var="logout" value="/user/logout" />
+		            <c:url var="logout" value="/user/signout" />
 		            <li><a class="dropdown-item" href="${logout }">로그아웃</a></li>
 	          	</ul>
          	</div> 
@@ -107,11 +114,17 @@
   
 	<main>
 <!-- 네비게이션 바 시작 -->	
-	 <div class="container">
+	 <div class="container" style="padding-bottom: 15px;">
 	  <ul class="nav nav-pills">
+<!-- map -->    		
+	   <c:url var="mugMapPage" value="/" />
+	   <li class="nav-item"><a href="${mugMapPage }" class="nav-link" aria-current="page">머그맵</a></li>
+<!-- map end-->	  
+	  
+	  
 <!-- 홈 -->    		
-	   <c:url var="mainPage" value="/" />
-	   <li class="nav-item"><a href="${mainPage }" class="nav-link active" aria-current="page">홈</a></li>
+	   <c:url var="mainPage" value="/main" />
+	   <li class="nav-item"><a href="${mainPage }" class="nav-link" aria-current="page">홈</a></li>
 <!-- 홈 end-->
 
 <!-- 머그멍 데이 -->        		
@@ -168,10 +181,13 @@
 	        	<ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownMenuLink2">
 	        	<c:url var="announcePage" value="/community/announce" />
 	        		<li><a class="dropdown-item" href="${ announcePage}">공지사항</a></li>
+	        		
         		<c:url var="reviewPage" value="/community/review" />
 	        		<li><a class="dropdown-item" href="${ reviewPage}">리뷰게시판</a></li>
+	        		
         		<c:url var="capturePage" value="/community/capture" />
 	        		<li><a class="dropdown-item" href="${ capturePage}">사진게시판</a></li>
+	        		
 	      		</ul>
         </li>
 <!-- 커뮤니티 end-->
@@ -182,25 +198,28 @@
 	        	<ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownMenuLink2">
 	        	<c:url var="faqsPage" value="/customer/faqs" />
 	        		<li><a class="dropdown-item" href="${ faqsPage }">자주묻는질문</a></li>
+	        		
 	        	<c:url var="makgoraPage" value="/customer/makgora" />	
 	        		<li><a class="dropdown-item" href="${ makgoraPage }">1:1문의</a></li>
+	        		
 	        	<c:url var="partnershipPage" value="/customer/partnership" />	
 	        		<li><a class="dropdown-item" href="${ partnershipPage }">제휴문의</a></li>
+	        		
 	        	<c:url var="proposalPage" value="/customer/proposal" />	
 	        		<li><a class="dropdown-item" href="${ proposalPage }">제안하기</a></li>
 	      		</ul>
         </li>
 <!-- 고객센터 끝-->        
         
-        <c:url var="postListPage" value="/post/list" />
-        <li class="nav-item"><a href="${postListPage }" class="nav-link">선생님 수업</a></li>
+        <%-- <c:url var="postListPage" value="/post/list" />
+        <li class="nav-item"><a href="${postListPage }" class="nav-link">선생님 수업</a></li> --%>
         
       </ul>
   </div>
 <!-- 네비게이션바 끝 -->         
       </main>
      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-     <c:url value="/static/js/headerb.js" var="headerb" /> 
+     <c:url value="/static/js/headerb.js" var="headerb" />
      <script type="text/javascript" src="${headerb }"></script> 
    </body>
 </html>

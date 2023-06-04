@@ -38,16 +38,24 @@
               <li>* 주소 : 서울 강남구 테헤란로 124 삼원타워 </li>
             </ul>
     <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-    <c:url value="/" var="mainPage"></c:url>
+<c:url var="mugMapPage" value="/" />
+	   <li class="nav-item"><a href="${mugMapPage }" class="nav-link" aria-current="page">머그맵</a></li>    
+	   
+    <c:url value="/main" var="mainPage"></c:url>
       <li class="nav-item"><a href="${mainPage }" class="nav-link px-2 text-muted">Home</a></li>
+      
 <c:url var="bestPage" value="/best/best" />     
       <li class="nav-item"><a href="${bestPage }" class="nav-link px-2 text-muted">Best</a></li>
+      
 <c:url var="specialPage" value="/special/special" />      
       <li class="nav-item"><a href="${specialPage }" class="nav-link px-2 text-muted">Special</a></li>
+      
 <c:url var="faqsPage" value="/customer/faqs" />      
       <li class="nav-item"><a href="${faqsPage }" class="nav-link px-2 text-muted">FAQs</a></li>
+      
 <c:url value="/" var="mainPage"></c:url>      
       <li class="nav-item"><a href="${mainPage }" class="nav-link px-2 text-muted">About</a></li>
+      
     </ul>
     <p class="text-center text-muted">© 2023 mugmung, Inc</p>
   </footer>

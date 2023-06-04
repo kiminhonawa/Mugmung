@@ -56,7 +56,7 @@ public class AuthenticationFilter extends HttpFilter implements Filter {
 		}
 		
 		// 로그인 정보가 없으면, 로그인 페이지로 redirect
-		((HttpServletResponse) response).sendRedirect("/mugmung/user/signin");
+		((HttpServletResponse) response).sendRedirect("/mugmung/main/index");
 	}
 
 }

@@ -36,7 +36,7 @@ public class UserSignOutController extends HttpServlet {
 		session.invalidate(); // 세션을 무효화 - 지움. -> 로그아웃
 		
 		// 로그아웃 이후에 로그인 페이지로 이동.
-		response.sendRedirect("/post/user/signin");
+		response.sendRedirect("/mugmung/main");
 	}
 
 }
