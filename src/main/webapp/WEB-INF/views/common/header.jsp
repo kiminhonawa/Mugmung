@@ -179,14 +179,14 @@
         <li class="nav-item dropdown">
         	<a href="#" class=" d-block link-dark text-decoration-none dropdown-toggle nav-link" data-bs-toggle="dropdown" aria-expanded="false">커뮤니티</a>
 	        	<ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownMenuLink2">
-	        	<c:url var="announcePage" value="/community/announce" />
-	        		<li><a class="dropdown-item" href="${ announcePage}">공지사항</a></li>
+	        	<c:url var="announcelistPage" value="/community/announce/announcelist" />
+	        		<li><a class="dropdown-item" href="${ announcelistPage}">공지사항</a></li>
 	        		
-        		<c:url var="reviewPage" value="/community/review" />
-	        		<li><a class="dropdown-item" href="${ reviewPage}">리뷰게시판</a></li>
+        		<c:url var="reviewlistPage" value="/community/review/reviewlist" />
+	        		<li><a class="dropdown-item" href="${ reviewlistPage}">리뷰게시판</a></li>
 	        		
-        		<c:url var="capturePage" value="/community/capture" />
-	        		<li><a class="dropdown-item" href="${ capturePage}">사진게시판</a></li>
+        		<c:url var="capturelistPage" value="/community/capture/capturelist" />
+	        		<li><a class="dropdown-item" href="${ capturelistPage}">사진게시판</a></li>
 	        		
 	      		</ul>
         </li>
