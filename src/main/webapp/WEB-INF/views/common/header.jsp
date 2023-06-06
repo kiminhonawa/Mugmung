@@ -1,0 +1,232 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8" trimDirectiveWhitespaces="true" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>   
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>맛집은! 머그멍</title>
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+      <link href="./static/css/headers.css" rel="stylesheet" />
+      <c:url value="/static/css/dropdowns.css" var="dropdown" /> 
+      <link href="${dropdown }" rel="stylesheet" />
+      <style>
+    .search-container {
+      display: flex;
+      align-items: center;
+    }
+
+    .search-input {
+      flex: 1;
+      margin-right: 10px;
+    }
+
+    .search-button {
+      display: inline-block;
+      padding: 0;
+      border: none;
+      background: none;
+    }
+  </style>
+   </head>
+   <body>
+<!-- 헤더 시작 -->   
+   	<header class="p-3 mb-3 border-bottom">
+<!-- 헤더 컨테이너 -->   	
+   <div class="container">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+<!-- 헤더 좌측 영역 -->      
+      <c:url value="/main" var="mainPage"></c:url>
+        <a href="${mainPage }" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
+          <c:url value="/static/img/test_logo.png" var="test_logo" />
+				<img src="${test_logo }" alt="제주도 맛집! 머그멍">
+        </a>
+<!-- 헤더 좌측 영역 end-->
+
+<!-- 헤더 가운데 영역 -->
+		<ul class="logo-cen-ul nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+			<li>
+				<c:url value="/main" var="mainPage"></c:url>
+				<a href="${mainPage}">
+				<c:url value="/static/img/test_logo.png" var="test_logo" />
+					<img src="${test_logo }" alt="제주도 맛집! 머그멍">
+				</a>
+			</li>
+		</ul>
+<!-- 헤더 가운데 영역 end-->
+
+<!-- 헤더 우측 영역 검색 -->
+        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+	        <div class="search-container">
+	    		<input type="search" class="form-control search-input" placeholder="Search..." aria-label="Search">
+	    			<button type="submit" value="검색" class="search-button">
+	    				<c:url value="/static/assets/icons/search-heart.svg" var="searchIcon" />
+	      				<img src="${searchIcon }" alt="검색">
+	    			</button>
+	  		</div>
+        </form>
+<!-- 헤더 우측 영역 검색 end-->        
+        
+<!-- 로그인한 username이 있는 경우 -->
+	     <c:if test="${not empty signedInUser }">
+	     
+	     	<div class="flex-shrink-0 dropdown">
+          		<a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+          			<c:url value="/static/img/user_login_default_img.png" var="loginImg"></c:url>
+            		<img src="${loginImg }" alt="mdo" width="32" height="32" class="rounded-circle" style=" margin-left: 30px;  ">
+          		</a>
+	          	<ul class="dropdown-menu text-small shadow">
+		           <c:url var="mainPage" value="/" />
+		            <li><a class="dropdown-item" href="#">마이 페이지</a></li>
+		            
+		            <c:url var="mainPage" value="/" />
+		            <li><a class="dropdown-item" href="#">설정</a></li>
+		            
+		            <c:url var="mainPage" value="/" />
+		            <li><a class="dropdown-item" href="#">프로필</a></li>
+		            
+		            <c:url var="mainPage" value="/" />
+		            <li><hr class="dropdown-divider"></li>
+		            
+		            <c:url var="logout" value="/user/signout" />
+		            <li><a class="dropdown-item" href="${logout }">로그아웃</a></li>
+	          	</ul>
+         	</div> 
+         </c:if>
+<!-- 로그인한 username이 있는 경우 end--> 
+
+        
+<!-- 로그인한 username이 없는 경우 -->         
+         <c:if test="${ empty signedInUser }">
+          <div class="col-md-3 text-end">
+       		<button type="button" id="loginBtn" class="btn btn-outline-primary me-2">로그인</button>
+        	<button type="button" id="signUpBtn" class="btn btn-primary">회원가입</button>
+      	  </div>
+      	</c:if>
+<!-- 로그인한 username이 없는 경우 end-->            
+        </div>
+      </div>
+<!-- 헤더 컨테이너 끝 -->      
+  </header>
+<!-- 헤더 끝 -->
+
+  
+	<main>
+<!-- 네비게이션 바 시작 -->	
+	 <div class="container" style="padding-bottom: 15px;">
+	  <ul class="nav nav-pills">
+<!-- map -->    		
+	   <c:url var="mugMapPage" value="/" />
+	   <li class="nav-item"><a href="${mugMapPage }" class="nav-link" aria-current="page">머그맵</a></li>
+<!-- map end-->	  
+	  
+	  
+<!-- 홈 -->    		
+	   <c:url var="mainPage" value="/main" />
+	   <li class="nav-item"><a href="${mainPage }" class="nav-link" aria-current="page">홈</a></li>
+<!-- 홈 end-->
+
+<!-- 머그멍 데이 -->        		
+	   <li class="nav-item dropdown">
+	    <a href="#" class=" d-block link-dark text-decoration-none dropdown-toggle nav-link" data-bs-toggle="dropdown" aria-expanded="false">머그멍 데이</a>
+	    <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownMenuLink2">
+	      <c:url var="dayPage" value="/blog/day" />
+	      <li><a class="dropdown-item" href="${dayPage }">오늘 만이</a></li>
+	        			
+	      <c:url var="monthPage" value="/blog/month" />
+	      <li><a class="dropdown-item" href="${monthPage }">이달엔 꼭</a></li>
+	    </ul>
+	   </li>
+<!-- 머그멍 데이 end-->  
+
+<!-- 머그멍 추천 -->       
+       <li class="nav-item dropdown">
+       	<a href="#" class=" d-block link-dark text-decoration-none dropdown-toggle nav-link" data-bs-toggle="dropdown" aria-expanded="false">머그멍 추천</a>
+        	<ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownMenuLink2">
+        	<c:url var="wordcupPage" value="/recommend/wordcup" />
+        		<li><a class="dropdown-item" href="${wordcupPage }">맛상형 월드컵</a></li>
+        		
+       		<c:url var="goldenbellPage" value="/recommend/goldenbell" />
+        		<li><a class="dropdown-item" href="${goldenbellPage }">맛집 골든벨</a></li>
+        		
+       		<c:url var="analysisPage" value="/recommend/analysis" />
+        		<li><a class="dropdown-item" href="${analysisPage }">취향 OX</a></li>
+        		
+      		</ul>
+       </li>
+<!-- 머그멍 추천 끝-->
+
+        <c:url var="bestPage" value="/best/best" />
+        <li class="nav-item"><a href="${bestPage }" class="nav-link">베스트</a></li>
+        
+        <c:url var="primePage" value="/prime/prime" />
+        <li class="nav-item"><a href="${primePage }" class="nav-link">프라임</a></li>
+        
+        <c:url var="couponPage" value="/coupon/coupon" />
+        <li class="nav-item"><a href="${couponPage }" class="nav-link">쿠폰</a></li>
+        
+        <c:url var="specialPage" value="/special/special" />
+        <li class="nav-item"><a href="${specialPage }" class="nav-link">특전</a></li>
+        
+        <c:url var="innPage" value="/home/inn" />
+        <li class="nav-item"><a href="${innPage }" class="nav-link">집으로</a></li>
+        
+        <c:url var="playPage" value="/play/play" />
+        <li class="nav-item"><a href="${playPage }" class="nav-link">놀거리</a></li>
+
+<!-- 커뮤니티 -->        
+        <li class="nav-item dropdown">
+        	<a href="#" class=" d-block link-dark text-decoration-none dropdown-toggle nav-link" data-bs-toggle="dropdown" aria-expanded="false">커뮤니티</a>
+	        	<ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownMenuLink2">
+	        	<c:url var="announcelistPage" value="/community/announce/announcelist" />
+	        		<li><a class="dropdown-item" href="${ announcelistPage}">공지사항</a></li>
+	        		
+        		<c:url var="reviewlistPage" value="/community/review/reviewlist" />
+	        		<li><a class="dropdown-item" href="${ reviewlistPage}">리뷰게시판</a></li>
+	        		
+        		<c:url var="capturelistPage" value="/community/capture/capturelist" />
+	        		<li><a class="dropdown-item" href="${ capturelistPage}">사진게시판</a></li>
+	        		
+	      		</ul>
+        </li>
+<!-- 커뮤니티 end-->
+
+<!-- 고객센터 -->       
+        <li class="nav-item dropdown">
+        	<a href="#" class=" d-block link-dark text-decoration-none dropdown-toggle nav-link" data-bs-toggle="dropdown" aria-expanded="false">고객센터</a>
+	        	<ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownMenuLink2">
+	        	<c:url var="faqsPage" value="/customer/faqs" />
+	        		<li><a class="dropdown-item" href="${ faqsPage }">자주묻는질문</a></li>
+	        		
+	        	<c:url var="makgoraPage" value="/customer/makgora" />	
+	        		<li><a class="dropdown-item" href="${ makgoraPage }">1:1문의</a></li>
+	        		
+	        	<c:url var="partnershipPage" value="/customer/partnership" />	
+	        		<li><a class="dropdown-item" href="${ partnershipPage }">제휴문의</a></li>
+	        		
+	        	<c:url var="proposalPage" value="/customer/proposal" />	
+	        		<li><a class="dropdown-item" href="${ proposalPage }">제안하기</a></li>
+	      		</ul>
+        </li>
+<!-- 고객센터 끝-->        
+
+<c:if test="${fn:contains(signedInUser, 'admin')}">
+<!-- 어드민 관련 로그인 시 보여짐 -->
+		<c:url var="adminMainPage" value="/admin/main" />
+        <li class="nav-item"><a href="${adminMainPage }" class="nav-link">어드민 페이지</a></li>        
+<!-- 어드민 관련 로그인 시 보여짐 -->        
+</c:if>        
+        <%-- <c:url var="postListPage" value="/post/list" />
+        <li class="nav-item"><a href="${postListPage }" class="nav-link">선생님 수업</a></li> --%>
+        
+      </ul>
+  </div>
+<!-- 네비게이션바 끝 -->         
+      </main>
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+     <c:url value="/static/js/headerb.js" var="headerb" />
+     <script type="text/javascript" src="${headerb }"></script> 
+   </body>
+</html>
