@@ -24,7 +24,7 @@
           <c:url value="/static/img/ggule.png" var="test_logo" />
 				<img class="mb-4" src="${test_logo }" alt="제주도 맛집! 머그멍" width="72" height="57">
         </a>
-    <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+    <h1 class="h3 mb-3 fw-normal">로그인</h1>
 
     <div class="form-floating">
       <input type="text" class="form-control" id="floatingInput" name="username" placeholder="id" required="required" autofocus="autofocus">

@@ -94,19 +94,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // 연속되는 숫자 확인
       if (/(\d)\1/.test(username)) {
-        alert('연속되는 숫자는 사용할 수 없습니다.<br>');
+        alert('연속되는 숫자는 사용할 수 없습니다.');
         return;
       }
 
       // 특수문자 확인
       if (/[!@#$%^&*(),.?":{}|<>]/.test(username)) {
-        alert('특수문자는 사용할 수 없습니다.<br>');
+        alert('특수문자는 사용할 수 없습니다.');
         return;
       }
 
       // 공백 확인
       if (username.includes(' ')) {
-        alert('공백은 사용할 수 없습니다.<br>');
+        alert('공백은 사용할 수 없습니다.');
         return;
       } 
         
