@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" trimDirectiveWhitespaces="true" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>   
 <!DOCTYPE html>
 <html>
    <head>
@@ -210,7 +211,13 @@
 	      		</ul>
         </li>
 <!-- 고객센터 끝-->        
-        
+
+<c:if test="${fn:contains(signedInUser, 'admin')}">
+<!-- 어드민 관련 로그인 시 보여짐 -->
+		<c:url var="adminMainPage" value="/admin/main" />
+        <li class="nav-item"><a href="${adminMainPage }" class="nav-link">어드민 페이지</a></li>        
+<!-- 어드민 관련 로그인 시 보여짐 -->        
+</c:if>        
         <%-- <c:url var="postListPage" value="/post/list" />
         <li class="nav-item"><a href="${postListPage }" class="nav-link">선생님 수업</a></li> --%>
         

@@ -28,11 +28,11 @@
 
     <div class="form-floating">
       <input type="text" class="form-control" id="floatingInput" name="username" placeholder="id" required="required" autofocus="autofocus">
-      <label for="floatingInput">Email address</label>
+      <label for="floatingInput">아이디</label>
     </div>
     <div class="form-floating">
       <input type="password" class="form-control" id="floatingPassword" name="password" placeholder="Password" required="required">
-      <label for="floatingPassword">Password</label>
+      <label for="floatingPassword">비밀번호</label>
     </div>
 
     <div class="checkbox mb-3">
@@ -40,7 +40,7 @@
       </label>
     </div>
 
-    <button typ class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+    <button typ class="w-100 btn btn-lg btn-primary" type="submit">로그인</button>
     <p class="mt-5 mb-3 text-muted">© mugmung</p>
   </form>
 </main>
