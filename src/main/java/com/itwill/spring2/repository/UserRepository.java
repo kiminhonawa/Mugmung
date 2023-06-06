@@ -14,4 +14,6 @@ public interface UserRepository {
 	// 아규먼트 user 객체의 username과 password가 일치하는 정보를 찾으면 null이 아닌 값,
     // 일치하는 정보를 찾을 수 없으면 null을 리턴.
     User selectByUsernameAndPassword(User user);
+
+	User selectByUsername(String username);
 }

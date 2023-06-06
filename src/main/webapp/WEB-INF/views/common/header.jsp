@@ -37,7 +37,7 @@
    <div class="container">
       <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
 <!-- 헤더 좌측 영역 -->      
-      <c:url value="/" var="mainPage"></c:url>
+      <c:url value="/main" var="mainPage"></c:url>
         <a href="${mainPage }" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
           <c:url value="/static/img/test_logo.png" var="test_logo" />
 				<img src="${test_logo }" alt="제주도 맛집! 머그멍">

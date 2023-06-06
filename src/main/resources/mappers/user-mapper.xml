@@ -10,4 +10,8 @@
         select * from USERS where USERNAME = #{username} and PASSWORD = #{password}
     </select>
     
+    <select id="selectByUsername" resultType="com.itwill.spring2.domain.User">
+        select username from USERS where USERNAME = #{username}
+    </select>
+    
 </mapper>

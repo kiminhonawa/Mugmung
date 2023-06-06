@@ -16,38 +16,53 @@
         <main class="my-2">
             <div class="card">
             <c:url value="/join/signup" var="signupPage"></c:url>
-                <form method="post" action="${signupPage }">
+                <form id="signupForm" method="post" action="${signupPage }">
                     <div class="card-body">
                         <div class="my-2">
                             <label class="form-label" for="id">아이디</label>
                             <input class="form-control" 
-                                type="text" id="id" name="id" required autofocus />
+                                type="text" id="username" name="username" required autofocus />
                         </div>
+                        
+                        <div class="bd-example">
+					        <p class="lead" id="usernameConfirmLabel" style="font-size: 15px; color: #e55;">
+					          
+					        </p>
+				        </div>
+                        
                         <div class="my-2">
                             <label class="form-label" for="password">비밀번호</label>
-                            <textarea class="form-control"
-                                id="password" name="password" required></textarea>
+                            <input type="password" class="form-control"
+                                id="password" name="password" required />
                         </div>
                         <div class="my-2">
                             <label class="form-label" for="passwordConfirm">비밀번호 확인</label>
-                            <textarea class="form-control"
-                                id="passwordConfirm" name="passwordConfirm" required></textarea>
+                            <input type="password" class="form-control"
+                                id="passwordConfirm" name="passwordConfirm" required>
                         </div>
+                        <div class="bd-example">
+					        <p class="lead" id="pwconfirmLabel" style="font-size: 15px; color: #e55;">
+					          
+					        </p>
+				        </div>
                         <div class="my-2">
-                            <label class="form-label" for="email">작성자 아이디</label>
+                            <label class="form-label" for="email">이메일</label>
                             <input class="form-control" 
                                 type="text" id="email" name="email" required />
                         </div>
                     </div>
                     <div class="card-footer my-2">
-                        <input class="form-control btn btn-outline-primary" 
+                        <input id="btnSignup" class="form-control btn btn-outline-primary" 
                             type="submit" value="작성 완료" />
                     </div>
-                </form>
+                </form>ss
             </div>
             <%@ include file="../../views/common/footer.jsp" %>
         </main>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <c:url value="/static/js/join-signup.js" var="signup"></c:url>
+    <script type="text/javascript" src="${signup }"></script>
     </body>
 </html>

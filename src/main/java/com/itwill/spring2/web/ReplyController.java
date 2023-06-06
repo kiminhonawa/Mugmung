@@ -23,7 +23,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/api/reply")
+@RequestMapping("/api/reply") 
 public class ReplyController {
     
     private final ReplyService replyService;
@@ -56,7 +56,7 @@ public class ReplyController {
         return ResponseEntity.ok(result);
     }
     
-    @GetMapping("/{id}")
+    @GetMapping("/{id}") 
     public ResponseEntity<ReplyReadDto> readById(@PathVariable long id) {
         log.info("readById(id={})", id);
         

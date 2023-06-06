@@ -20,4 +20,8 @@ public class UserService {
 		return userRepository.selectByUsernameAndPassword(user);
 				
 	}
+	public User confirmId(String username) {
+		log.info("confirmId(id={})", username);
+		return userRepository.selectByUsername(username);
+	}
 }

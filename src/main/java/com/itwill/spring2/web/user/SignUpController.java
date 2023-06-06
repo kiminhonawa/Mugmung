@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.itwill.spring2.domain.User;
 import com.itwill.spring2.dto.PostCreateDto;
 import com.itwill.spring2.service.PostService;
 import com.itwill.spring2.service.UserService;
@@ -26,16 +27,4 @@ public class SignUpController {
         
         return "/join/signup";
     }
-    
-//    @PostMapping("/signup")
-//    public String signup(UserCreateDto dto) {
-//        log.info("POST: signup({})", dto);
-//        
-//        // 서비스 계층의 메서드를 호출 - 새 포스트 등록
-//        int result = postService.create(dto);
-//        log.info("포스트 등록 결과 = {}", result);
-//        
-//        // Post - Redirect - Get
-//        return "redirect:/post/list";
-//    }
 }

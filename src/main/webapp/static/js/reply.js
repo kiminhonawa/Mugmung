@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // 삭제할 댓글 아이디:
         const id = e.target.getAttribute('data-id');
         // 삭제 요청 URL
-        const reqUrl = `/spring2/api/reply/${id}`;
+        const reqUrl = `/mugmung/api/reply/${id}`;
         // 삭제 요청을 Ajax 방식으로 보냄.
         axios.delete(reqUrl)
             .then((response) => {
@@ -48,7 +48,8 @@ document.addEventListener('DOMContentLoaded', () => {
         // console.log(e); // e: 이벤트 객체
         // console.log(e.target); // e.target: 이벤트가 발생한 타겟. 여기서는 수정 버튼.
         const id = e.target.getAttribute('data-id');
-        const reqUrl = `/spring2/api/reply/${id}`;
+        const reqUrl = `/mugmung/api/reply/${id}`;
+        console.log('reqUrl : '+reqUrl);
         axios.get(reqUrl) // 서버로 GET 방식의 Ajax 요청을 보냄
             .then((response) => {
                 // reponse에 포함된 data 객체에서 id, replyText 값을 찾음.
@@ -70,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // 수정할 댓글 내용
         const replyText = modalTextarea.value;
         // PUT 방식의 Ajax 요청을 보냄.
-        const reqUrl = `/spring2/api/reply/${id}`;
+        const reqUrl = `/mugmung/api/reply/${id}`;
         const data = { replyText }; // { key: value }, { replyText: replyText }
         // Ajax 요청에 대한 성공/실패 콜백 등록.
         axios.put(reqUrl, data)
@@ -147,8 +148,8 @@ document.addEventListener('DOMContentLoaded', () => {
         // 댓글 목록을 요청하기 위한 포스트 번호(아이디)
         const postId = document.querySelector('input#id').value;
         // 댓글 목록을 요청할 URL
-        const reqUrl = `/spring2/api/reply/all/${postId}`;
-        
+        const reqUrl = `/mugmung/api/reply/all/${postId}`;
+        console.log('reqUrl : '+reqUrl);
         // Ajax 요청을 보내고 응답을 기다림.
         try {
             const response = await axios.get(reqUrl);
@@ -199,7 +200,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         const data = { postId, replyText, writer, };
         
-        axios.post('/spring2/api/reply', data) // POST 방식의 Ajax 요청 보냄.
+        axios.post('/mugmung/api/reply', data) // POST 방식의 Ajax 요청 보냄.
             .then((response) => {
                 alert(`댓글 등록 성공(${response.data})`);
                 
