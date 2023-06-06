@@ -19,6 +19,8 @@ document.addEventListener('DOMContentLoaded', () => {
 	const pwconfirmLabel = document.querySelector('#pwconfirmLabel');
 	
 	const confirmUsername = (e) =>{
+		
+		
 		const usernameInput = document.querySelector('input#username')
 		console.log('username focusout');
 		console.log('username ='+usernameInput.value);
@@ -43,11 +45,8 @@ document.addEventListener('DOMContentLoaded', () => {
 					return;
 				}
                 
-                
-                
             }) // 성공 응답이 왔을 때 실행할 콜백을 등록
-            .catch((error) => console.log(error));
-		
+            .catch((error) => console.log(error));		      		
 	};
 	
 	
@@ -79,37 +78,45 @@ document.addEventListener('DOMContentLoaded', () => {
 	    
 	});
         
-/*    btnSignup.addEventListener('click', (e) => {
+    btnSignup.addEventListener('click', (e) => {
 		e.preventDefault();
-        
-        if (username === '' ) {
-            alert('아이디는 반드시 입력해 주세요.');
-            return; // 함수 종료
-        }
-        
-        if (password === '' || passwordConfirm === '') {
-            alert('비밀번호는 반드시 입력해 주세요.');
-            return; // 함수 종료
-        }
-        
-        if (email === '' ) {
-            alert('이메일은 반드시 입력해 주세요.');
-            return; // 함수 종료
-        }
-        
-        if (!(password === passwordConfirm) ) {
-            alert('비밀번호가 일치하지 않습니다. 다시 확인해 주세요.');
-            return; // 함수 종료
-        }
-        
+      const username = document.querySelector('input#username').value;  
+        // 8자 이상인지 확인
+      if (username.length < 8) {
+        alert('id는 8자 이상 입력해야 합니다');
+        return;
+      }
+        // "admin" 단어 포함되는지 확인
+      if (username.includes('admin')) {
+        alert('id에 "admin"은 사용할 수 없습니다.');
+        return;
+      }
+
+      // 연속되는 숫자 확인
+      if (/(\d)\1/.test(username)) {
+        alert('연속되는 숫자는 사용할 수 없습니다.<br>');
+        return;
+      }
+
+      // 특수문자 확인
+      if (/[!@#$%^&*(),.?":{}|<>]/.test(username)) {
+        alert('특수문자는 사용할 수 없습니다.<br>');
+        return;
+      }
+
+      // 공백 확인
+      if (username.includes(' ')) {
+        alert('공백은 사용할 수 없습니다.<br>');
+        return;
+      } 
         
         const check = confirm('변경 내용을 저장할까요?');
         if (check) {
-            modifyForm.action = './update'; // 폼 요청 주소
-            modifyForm.method = 'post'; // 폼 요청 방식
-            modifyForm.submit();
+            signupForm.action = './signup'; // 폼 요청 주소
+            signupForm.method = 'post'; // 폼 요청 방식
+            signupForm.submit();
         }
         
-    });*/
+    });
     
 });

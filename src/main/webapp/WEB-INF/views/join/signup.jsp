@@ -55,7 +55,7 @@
                         <input id="btnSignup" class="form-control btn btn-outline-primary" 
                             type="submit" value="작성 완료" />
                     </div>
-                </form>ss
+                </form>
             </div>
             <%@ include file="../../views/common/footer.jsp" %>
         </main>
