@@ -73,7 +73,7 @@
 	     
 	     	<div class="flex-shrink-0 dropdown">
           		<a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-          			<c:url value="/static/img/user_login_default_img.jpg" var="loginImg"></c:url>
+          			<c:url value="/static/img/user_login_default_img.png" var="loginImg"></c:url>
             		<img src="${loginImg }" alt="mdo" width="32" height="32" class="rounded-circle" style=" margin-left: 30px;  ">
           		</a>
 	          	<ul class="dropdown-menu text-small shadow">

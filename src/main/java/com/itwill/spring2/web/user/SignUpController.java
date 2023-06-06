@@ -27,4 +27,13 @@ public class SignUpController {
         
         return "/join/signup";
     }
+	
+	@PostMapping("/signup")
+    public String signup(User user) {
+        log.info("GET: signup(user={})",user);
+        
+        int result = userService.create(user);
+        
+        return "redirect:/";
+    }
 }

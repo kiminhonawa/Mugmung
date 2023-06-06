@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	    
 	});
         
-    btnSignup.addEventListener('click', (e) => {
+/*    btnSignup.addEventListener('click', (e) => {
 		e.preventDefault();
         
         if (username === '' ) {
@@ -103,13 +103,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         
         
-        /*const check = confirm('변경 내용을 저장할까요?');
+        const check = confirm('변경 내용을 저장할까요?');
         if (check) {
             modifyForm.action = './update'; // 폼 요청 주소
             modifyForm.method = 'post'; // 폼 요청 방식
             modifyForm.submit();
-        }*/
+        }
         
-    });
+    });*/
     
 });

@@ -16,4 +16,6 @@ public interface UserRepository {
     User selectByUsernameAndPassword(User user);
 
 	User selectByUsername(String username);
+
+	int insertUser(User user);
 }

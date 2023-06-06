@@ -24,4 +24,9 @@ public class UserService {
 		log.info("confirmId(id={})", username);
 		return userRepository.selectByUsername(username);
 	}
+	public int create(User user) {
+		log.info("confirmId(user={})", user);
+		
+		return userRepository.insertUser(user);
+	}
 }

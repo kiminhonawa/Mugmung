@@ -48,7 +48,7 @@
                         <div class="my-2">
                             <label class="form-label" for="email">이메일</label>
                             <input class="form-control" 
-                                type="text" id="email" name="email" required />
+                                type="email" id="email" name="email" required />
                         </div>
                     </div>
                     <div class="card-footer my-2">
