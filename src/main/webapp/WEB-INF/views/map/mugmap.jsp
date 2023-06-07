@@ -15,23 +15,21 @@
 	rel="stylesheet"
 	integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
 	crossorigin="anonymous">
-<c:url value="/static/css/carousel.css" var="carousel" />
-<link rel="stylesheet" href="carousel">
-<c:url value="/static/css/carouselrtl.css" var="carouselrtl" />
-<link rel="stylesheet" href="carouselrtl">
-<style>
-.jeju {
-	box-shadow: 0 0 40px rgba(0, 0, 0, 0.3);
-	border-radius: 30px;
-	
-}
-</style>
+
+<c:url value="/static/css/map.css" var="map" />
+<link rel="stylesheet" href="${ map }">
 </head>
 <body>
 	<main>
+		<div style="height: 10px;"></div>
 		<div style="text-align: center;">
 			<c:url value="/static/img/jejumap.jpeg" var="titleMap" />
 			<img src="${titleMap }" class="jeju" alt="제주도 맛집! 머그멍" width="1200">
+		</div>
+		<div id="buttonContainer">
+			<button class="btn1" type="button"
+				onclick="javascript:sensorBtnClick('btn1');"></button>
+			
 		</div>
 
 		<%@ include file="../../views/common/footer.jsp"%>
