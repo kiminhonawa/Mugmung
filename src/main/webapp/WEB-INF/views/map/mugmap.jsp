@@ -24,7 +24,7 @@
 		<div class="container-fluid">
 			<div class="btn-group" role="group">
 				<div style="height: 10px;"></div>
-				<div style="text-align: center;">
+				<div style="text-align: center; position: relative;">
 					<c:url value="/static/img/jejumap.jpeg" var="titleMap" />
 					<img src="${titleMap }" class="jeju" alt="제주도 맛집! 머그멍" width="90%">
 				</div>

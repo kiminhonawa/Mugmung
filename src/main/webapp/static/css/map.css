@@ -8,21 +8,17 @@
 button.btn1 {
 	/* 기본 스타일 */
 	position: absolute;
-	top: 235px;
-	left: 1px;
-	margin-top: 136px;
-	margin-bottom: 0px;
-	margin-left: 237px;
-	padding-left: 6px;
-	height: 42px;
-	width: 80px;
+	top: 60%; 
+	left: 16.8%;
+	height: 43px;
+	width: 84px;
 	/* 마우스 오버 효과 */
-	background-color: transparent;
+	background-color: white;
 	color: white;
 	border: none;
 	transition: background-color 0.3s ease;
 }
-
+ 
 button.btn1:hover {
 	background-color: rgba(255, 255, 255, 0.3);
 }
