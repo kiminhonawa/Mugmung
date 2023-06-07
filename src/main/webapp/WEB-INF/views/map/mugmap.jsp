@@ -21,17 +21,20 @@
 </head>
 <body>
 	<main>
-		<div style="height: 10px;"></div>
-		<div style="text-align: center;">
-			<c:url value="/static/img/jejumap.jpeg" var="titleMap" />
-			<img src="${titleMap }" class="jeju" alt="제주도 맛집! 머그멍" width="1200">
-		</div>
-		<div id="buttonContainer">
-			<button class="btn1" type="button"
-				onclick="javascript:sensorBtnClick('btn1');"></button>
-			
-		</div>
+		<div class="container-fluid">
+			<div class="btn-group" role="group">
+				<div style="height: 10px;"></div>
+				<div style="text-align: center;">
+					<c:url value="/static/img/jejumap.jpeg" var="titleMap" />
+					<img src="${titleMap }" class="jeju" alt="제주도 맛집! 머그멍" width="90%">
+				</div>
+				<div id="buttonContainer">
+					<button class="btn1" type="button"
+						onclick="javascript:sensorBtnClick('btn1');"></button>
 
+				</div>
+			</div>
+		</div>
 		<%@ include file="../../views/common/footer.jsp"%>
 	</main>
 	<script
