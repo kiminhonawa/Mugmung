@@ -31,7 +31,28 @@
 				<div id="buttonContainer">
 					<button class="btn1" type="button"
 						onclick="javascript:sensorBtnClick('btn1');"></button>
-
+					<button class="btn2" type="button"
+						onclick="javascript:sensorBtnClick('btn1');"></button>
+					<button class="btn3" type="button"
+						onclick="javascript:sensorBtnClick('btn1');"></button>	
+					<button class="btn4" type="button"
+						onclick="javascript:sensorBtnClick('btn1');"></button>
+					<button class="btn5" type="button"
+						onclick="javascript:sensorBtnClick('btn1');"></button>
+					<button class="btn6" type="button"
+						onclick="javascript:sensorBtnClick('btn1');"></button>
+					<button class="btn7" type="button"
+						onclick="javascript:sensorBtnClick('btn1');"></button>
+					<button class="btn8" type="button"
+						onclick="javascript:sensorBtnClick('btn1');"></button>			
+					<button class="btn9" type="button"
+						onclick="javascript:sensorBtnClick('btn1');"></button>
+					<button class="btn10" type="button"
+						onclick="javascript:sensorBtnClick('btn1');"></button>
+					<button class="btn11" type="button"
+						onclick="javascript:sensorBtnClick('btn1');"></button>
+					<button class="btn12" type="button"
+						onclick="javascript:sensorBtnClick('btn1');"></button>		
 				</div>
 			</div>
 		</div>
