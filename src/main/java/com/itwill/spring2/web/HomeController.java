@@ -32,10 +32,12 @@ public class HomeController {
     public String home(Model model) {
         log.info("home()");
             
-        //List<IndexListDto> list = indexService.read();
+        List<IndexListDto> list = indexService.read();
+        
+        log.info("listaslkdfjalsdkf = {}",list);
         
         // 뷰에 보여줄 데이터를 Model에 저장.
-        //model.addAttribute("posts", list);
+        model.addAttribute("indexLists", list);
         
         return "/main/index";
     }

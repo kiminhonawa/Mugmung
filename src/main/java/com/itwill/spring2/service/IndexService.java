@@ -19,7 +19,10 @@ public class IndexService {
 	
 	public List<IndexListDto> read() {
 		log.info("read()");
+		List<IndexListDto> list = indexRepository.indexListRead();
 		
-		return indexRepository.selectRead();
+		log.info("list={}", list);
+		
+		return list;
 	}
 }
