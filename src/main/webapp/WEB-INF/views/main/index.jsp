@@ -17,7 +17,7 @@
       <link rel="stylesheet" href="${carouselrtl }">
    </head>
    <body>
-	<main>
+	<main> 
 		<div>
 <!-- carousel 시작 -->
 	<main>
