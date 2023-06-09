@@ -15,13 +15,14 @@
    </head>
    <body>
       <div>
-         리뷰 게시판이랑 똑같음 근데 사진 크게 보임 그게 끝임 페이지 늘리기 페이지 입니다.
+         맛집 등록
          
          <script 
            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" 
            integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" 
            crossorigin="anonymous">
            </script>
+           
       </div>
    </body>
 </html>
