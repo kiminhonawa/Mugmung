@@ -18,4 +18,6 @@ public class BestController {
         
         return "/best/best";
     }
+	
+	
 }

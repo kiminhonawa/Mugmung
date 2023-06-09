@@ -17,6 +17,7 @@
       <link rel="stylesheet" href="${carouselrtl }">
    </head>
    <body>
+	<main> 
    <style>
     @font-face {
     font-family: 'EF_jejudoldam';
@@ -26,6 +27,7 @@
 }
    </style>
 	<main>
+
 		<div>
 <!-- carousel 시작 -->
 	<main>

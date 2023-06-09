@@ -24,7 +24,7 @@
    <h4 align="center">연령별 / 성별 인기도</h4>
    <div class="container">
       <div class="row">
-         <div class="col-md-2" style="padding-left: 0; width: 130px;">
+         <div class="col-md-2" style="padding-left: 0; width: 150px;">
             <div class="sidebar">
                <ul class="nav flex-column">
                   <li class="nav-item">
