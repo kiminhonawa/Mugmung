@@ -2,7 +2,9 @@ package com.itwill.spring2.web.customer;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
 
 import com.itwill.spring2.service.PostService;
 import com.itwill.spring2.web.PostController;
@@ -33,6 +35,13 @@ public class CustomerController {
         
         return "/customer/partnership";
     }
+	
+	@PostMapping("/partnership")
+	public String partnership1() {
+	    log.info("partnershipPost()");
+	    return "redirect:/main";
+	}
+	
 	@GetMapping("/proposal")
     public String proposal() {
         log.info("proposal()");
