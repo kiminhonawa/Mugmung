@@ -1,0 +1,196 @@
+@charset "UTF-8";
+
+.jeju {
+	box-shadow: 0 0 40px rgba(0, 0, 0, 0.3);
+	border-radius: 30px;
+}
+
+#buttonContainer:hover {background-color: rgba(255, 255, 255, 0.3);}
+
+button.btn1:hover, button.btn2:hover, button.btn3:hover, button.btn4:hover, button.btn5:hover, 
+button.btn6:hover, button.btn7:hover, button.btn8:hover, button.btn9:hover, button.btn10:hover,
+button.btn11:hover, button.btn12:hover {
+	background-color: rgba(255, 255, 255, 0.3);
+}
+
+button.btn1 {
+	/* 기본 스타일 */
+	position: absolute;
+	top: 60%; 
+	left: 16.8%;
+	height: 7%;
+	width: 7%;
+	/* 마우스 오버 효과 */
+	background-color: transparent;
+	color: white;
+	border: none;
+	transition: background-color 0.3s ease;
+}
+ 
+button.btn2 {
+	/* 기본 스타일 */
+	position: absolute;
+	top: 48%; 
+	left: 23%;
+	height: 7%;
+	width: 7%;
+	/* 마우스 오버 효과 */
+	background-color: transparent;
+	color: white;
+	border: none;
+	transition: background-color 0.3s ease;
+}
+ 
+button.btn3 {
+	/* 기본 스타일 */
+	position: absolute;
+	top: 33.5%; 
+	left: 30.5%;
+	height: 7%;
+	width: 7%;
+	/* 마우스 오버 효과 */
+	background-color: transparent;
+	color: white;
+	border: none;
+	transition: background-color 0.3s ease;
+}
+
+button.btn4 {
+	/* 기본 스타일 */
+	position: absolute;
+	top: 23.6%; 
+	left: 43%;
+	height: 7%;
+	width: 7%;
+	/* 마우스 오버 효과 */
+	background-color: transparent;
+	color: white;
+	border: none;
+	transition: background-color 0.3s ease;
+}
+
+button.btn5 {
+	/* 기본 스타일 */
+	position: absolute;
+	top: 19%; 
+	left: 55.3%;
+	height: 7%;
+	width: 7%;
+	/* 마우스 오버 효과 */
+	background-color: transparent;
+	color: white;
+	border: none;
+	transition: background-color 0.3s ease;
+}
+
+button.btn6 {
+	/* 기본 스타일 */
+	position: absolute;
+	top: 18.5%; 
+	left: 68%;
+	height: 7%;
+	width: 7%;
+	/* 마우스 오버 효과 */
+	background-color: transparent;
+	color: white;
+	border: none;
+	transition: background-color 0.3s ease;
+}
+
+button.btn7 {
+	/* 기본 스타일 */
+	position: absolute;
+	top: 75%; 
+	left: 20.5%;
+	height: 7%;
+	width: 7%;
+	/* 마우스 오버 효과 */
+	background-color: transparent;
+	color: white;
+	border: none;
+	transition: background-color 0.3s ease;
+}
+
+button.btn8 {
+	/* 기본 스타일 */
+	position: absolute;
+	top: 75%; 
+	left: 29.7%;
+	height: 7%;
+	width: 7%;
+	/* 마우스 오버 효과 */
+	background-color: transparent;
+	color: white;
+	border: none;
+	transition: background-color 0.3s ease;
+}
+
+button.btn8 {
+	/* 기본 스타일 */
+	position: absolute;
+	top: 75%; 
+	left: 29.8%;
+	height: 7%;
+	width: 7%;
+	/* 마우스 오버 효과 */
+	background-color: trasparent;
+	color: white;
+	border: none;
+	transition: background-color 0.3s ease;
+} 
+
+button.btn9 {
+	/* 기본 스타일 */
+	position: absolute;
+	top: 75%; 
+	left: 40.7%;
+	height: 7%;
+	width: 9%;
+	/* 마우스 오버 효과 */
+	background-color: transparent;
+	color: white;
+	border: none;
+	transition: background-color 0.3s ease;
+}
+
+button.btn10 {
+	/* 기본 스타일 */
+	position: absolute;
+	top: 67%;
+	left: 54%;
+	height: 7%;
+	width: 7%;
+	/* 마우스 오버 효과 */
+	background-color: transparent;
+	color: white;
+	border: none;
+	transition: background-color 0.3s ease;
+}
+
+button.btn11 {
+	/* 기본 스타일 */
+	position: absolute;
+	top: 57%;
+	left: 64%;
+	height: 7%;
+	width: 7%;
+	/* 마우스 오버 효과 */
+	background-color: transparent;
+	color: white;
+	border: none;
+	transition: background-color 0.3s ease;
+} 
+
+button.btn12 {
+	/* 기본 스타일 */
+	position: absolute;
+	top: 40%;
+	left: 74%;
+	height: 7%;
+	width: 7%;
+	/* 마우스 오버 효과 */
+	background-color: transparent;
+	color: white;
+	border: none;
+	transition: background-color 0.3s ease;
+}       
