@@ -19,21 +19,21 @@ public class TastyRoadService {
 	@Autowired
 	private TastyRoadRepository tastyRoadRepository;
 
-//	public List<TastyListDto> read() {
-//		
-//		List<TastyStore> list = tastyRoadRepository.selectAll();
-//		log.info("read()={}", list);
-//		
-//		List<TastyListDto> result = new ArrayList<>();
-//		for (TastyStore tastyStore : list) {
-//			result.add(TastyListDto.fromEntity(tastyStore));
-//		}
-//		
-//		
-//		return result;
-//		
-//		
-//	}
+	public List<TastyListDto> read() {
+		
+		List<TastyStore> list = tastyRoadRepository.selectAll();
+		log.info("read()={}", list);
+		
+		List<TastyListDto> result = new ArrayList<>();
+		for (TastyStore tastyStore : list) {
+			result.add(TastyListDto.fromEntity(tastyStore));
+		}
+		
+		
+		return result;
+		
+		
+	}
 	
 
 }

@@ -26,8 +26,13 @@ public class TastyRoadController {
 	private TastyRoadService tastyRoadService;
 	
 	@GetMapping("/booking")
-	public void bookingPage() {
+	public void bookingPage(Model model) {
 		log.info("GET: booking()");
+		
+		List<TastyListDto> dto = tastyRoadService.read();
+		
+		model.addAttribute(dto);
+		
 	}
 	
 	@GetMapping("/list")
