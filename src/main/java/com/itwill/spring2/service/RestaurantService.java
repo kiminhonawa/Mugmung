@@ -18,6 +18,6 @@ public class RestaurantService {
         log.info("read(id={})",id);
         
         RestaurantDto entity = RestaurantRepository.selectById(id);
-        
+        return null;
     }
 }
