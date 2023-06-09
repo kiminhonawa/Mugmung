@@ -13,6 +13,7 @@ import com.itwill.spring2.dto.PostDetailDto;
 import com.itwill.spring2.dto.PostListDto;
 import com.itwill.spring2.dto.PostUpdateDto;
 import com.itwill.spring2.service.PostService;
+import com.itwill.spring2.dto.PostReviewDto;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
