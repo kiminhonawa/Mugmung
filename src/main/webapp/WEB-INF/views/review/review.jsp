@@ -18,16 +18,22 @@
             <link rel="shortcut_icon" href="../static/img/camera.png" />
     </head>
     <body>
-        
+     <style> 
+     @font-face {
+    font-family: 'EF_jejudoldam';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-EF@1.0/EF_jejudoldam.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;} </style>   
 
     <main class="my-2">
+        
         <div class="card">
             <form method="post">
 
                 <div class="ReviewWritingPage__Row">
-                <strong class="RestaurantSubMessage__RestaurantName">남부</strong>
+                <strong class="RestaurantSubMessage__RestaurantName" style="font-family: 'EF_jejudoldam'";>남부</strong>
                 <div class="RestaurantSubMessage__SubMessageWrap">
-                <span class="RestaurantSubMessage__SubMessage">에 대한 솔직한 리뷰를 써주세요.</span>
+                <span class="RestaurantSubMessage__SubMessage" style="font-family: 'EF_jejudoldam';">에 대한 솔직한 리뷰를 써주세요.</span>
                 </div>
         <div class="review_rating">
             
@@ -84,7 +90,6 @@
                 <label>이미지 파일 첨부</label>
                     
                     <input type="file" name="imgFile" onchange="readURL(this);"/>
-                    여기해야돼 아이콘으로 누를 수 있게 만들어
                     <img id="preview" src="#" width=200 height=150 alt="선택된 이미지가 없습니다" style="align-content: flex-end; ">
             </div>
         </form>
@@ -109,7 +114,7 @@
                 <button class="DraggablePictureContainer__AddButton"
                         style="opacity: 1; transform: scale(1);">
                 <i class="DraggablePictureContainer__AddIcon"></i>
-                </button>
+                저장</button>
             </li>
         </ul>
 
@@ -125,11 +130,11 @@
 
     <div class="find-btn">
         <button type="button" class="btn btn-navy navbar-btn find-btn1"
-                onclick="location.href='/login'">임시저장</button>
+                onclick="location.href='/login'" style="font-family: 'EF_jejudoldam';">임시저장</button>
         <button type="button" class="btn btn-navy navbar-btn find-btn1"
-                onclick="location.href='/login'">저장</button>
+                onclick="location.href='/login'" style="font-family: 'EF_jejudoldam';">저장</button>
         <button type="button" class="btn btn-grey navbar-btn find-btn1"
-                onclick="location.href='/findIdPw'">취소</button>
+                onclick="location.href='/findIdPw'" style="font-family: 'EF_jejudoldam';">취소</button>
     </div>
 
  
