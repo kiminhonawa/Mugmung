@@ -16,6 +16,7 @@
       <c:url value="/static/css/carousel.rtl.css" var="carouselrtl" />
       <link rel="stylesheet" href="${carouselrtl }">
    </head>
+
    <body>
 
 	<main> 
