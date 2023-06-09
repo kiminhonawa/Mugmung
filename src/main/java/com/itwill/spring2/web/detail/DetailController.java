@@ -17,8 +17,8 @@ import lombok.extern.slf4j.Slf4j;
 public class DetailController {
  // 페이지 클릭 시, 상세보기 페이지
     @GetMapping("/detail")
-    public String detail(long id, Model model) {
-        log.info("detail()", id);
+    public String detail() {
+        log.info("detail()");
         
       
         return "/detail/detail";
