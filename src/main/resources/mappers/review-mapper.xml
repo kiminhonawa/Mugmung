@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itwill.spring2.repository.PostReviewRepository">
+
+<!-- 리뷰 sql문 -->
+<select id="ReviewsByRestaurantId" resultType="com.itwill.spring2.domain.Review">
+  SELECT w.REPLY_TEXT, w.WRITER, w.CREATED_TIME, w.MODIFIED_TIME
+  FROM review w, restaurant r
+  WHERE r.ID = w.RESTAURANT_ID
+        and w.RESTAURANT_ID = #{RESTAURANT_ID}
+  ORDER BY modified_time desc
+</select>
+
+<select id="ReviewCountWithPostId" resultType="java.lang.Long">
+    SELECT COUNT(id) FROM REVIEWS
+    WHERE restaurant_id = #{RESTAURANT_ID}
+</select>
+
+</mapper>
