@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8" trimDirectiveWhitespaces="true"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ include file="../../views/common/header.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,48 +24,43 @@
 </head>
 <body class="p-3 m-0 border-0 bd-example bd-example-row">
 
-<style>
-	@font-face {
-    font-family: 'EF_jejudoldam';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-EF@1.0/EF_jejudoldam.woff2') format('woff2');
-    font-weight: normal;
-    font-style: normal;
+	<style>
+@font-face {
+	font-family: 'EF_jejudoldam';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-EF@1.0/EF_jejudoldam.woff2')
+		format('woff2');
+	font-weight: normal;
+	font-style: normal;
 }
 </style>
-	
-	<h2 style="font-family: 'EF_jejudoldam'";>숙성도 예약페이지</h2>
+
+	<h2 style="font-family: 'EF_jejudoldam'";>예약페이지 </h2>
 
 	<div class="container">
 		<div class="row align-items-center">
 			<div class="container text-center">
 				<div class="row justify-content-md-center">
-					<div class="col col-lg-2">
-					<dt>리스트</dt>
-						<div class="scroll">
-						  <div name="tastyForm" id="tastyForm">
-						    <c:forEach items="${tastystore}" var="tastystore">
-						      <div id="tastyList" name="tastyList">
-						        <ul class="listbtn-list">
-						        	<li>
-						        	<button type="button" name="storename" class="listbtn" id="button-${tastystore.storename}" onclick="toggleStore('${tastystore.storename}')">
-						          ${tastystore.storename}
-						        </button>
-						        	</li>
-						      </div>
-						    </c:forEach>
-						  </div>
-						</div>
-						
-					</div>
+					
 
 					<div class="col-md-auto">
 						<dt>날짜</dt>
+						<br />
 						<div class="calendar">
 							<!-- <div class="header"> -->
-							<button id="prevButton">prev</button>
+							<button type="button" class="btn btn-light" id="prevButton">
+                        	<img id="prevBtnIcon" 
+                            src="../static/icon/caret-left.svg" 
+                            alt="caret-left" width="25"/>
+                  			</button>
+							
 							<span id="monthYear"></span>
-							<button id="nextButton">next</button>
-							<!-- </div> -->
+							<button type="button" class="btn btn-light" id="nextButton">
+							<img id="nextBtnIcon" 
+                            src="../static/icon/caret-right.svg" 
+                            alt="caret-right" width="25"/>
+							</button>
+							
 							<ul class="weekdays">
 								<li>일</li>
 								<li>월</li>
@@ -87,6 +83,7 @@
 						<dl>
 							<dt>인원</dt>
 						</dl>
+						<br />
 						<div>
 							<input class="form-check-input" type="radio" name="radioNoLabel"
 								id="radioNoLabel1" value="" aria-label="..." onclick="selectNumberOfPeople(2)"> 2명
@@ -151,48 +148,48 @@
 		</div>
 	</div>
 
-	
-<br/>
+
+	<br />
 
 
-		<div>
-			<nav class="text-center">
-				<ul>
-					<!-- Button trigger modal -->
-					<button type="button" class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#staticBackdrop">예약하기</button>
-					<button type="button" class="btn btn-outline-success">취소하기</button>
-				</ul>
-			</nav>
-		</div>	
+	<div>
+		<nav class="text-center">
+			<ul>
+				<!-- Button trigger modal -->
+				<button type="button" class="btn btn-outline-warning"
+					data-bs-toggle="modal" data-bs-target="#staticBackdrop">예약하기</button>
+				<button type="button" class="btn btn-outline-success">취소하기</button>
+			</ul>
+		</nav>
+	</div>
 
-
-
-
-<!-- Modal -->
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">예약 확인</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        예약확인 되었습니다.
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">확인</button>
-        <button type="button" class="btn btn-primary">마이페이지</button>
-      </div>
-    </div>
-  </div>
-</div>
+	<!-- Modal -->
+	<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static"
+		data-bs-keyboard="false" tabindex="-1"
+		aria-labelledby="staticBackdropLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="staticBackdropLabel">예약 확인</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal"
+						aria-label="Close"></button>
+				</div>
+				<div class="modal-body">예약확인 되었습니다.</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary"
+						data-bs-dismiss="modal">확인</button>
+					<button type="button" class="btn btn-primary">마이페이지</button>
+				</div>
+			</div>
+		</div>
+	</div>
 
 
 	<!-- 자바스크립트 경로지정 -->
 	<script type="text/javascript" src="../static/js/calendar.js"></script>
 	<script type="text/javascript" src="../static/js/reserve.js"></script>
-	
 
+	<%@ include file="../../views/common/footer.jsp"%>
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
