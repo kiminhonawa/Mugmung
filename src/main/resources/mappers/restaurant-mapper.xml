@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.itwill.spring2.repository.RestaurantRepository">
+
+<select id="selectById" resultType="com.itwill.spring2.dto.RestaurantDto">
+   select 
+r.ID                                      
+,r.MENU_ID                                 
+,r.MAP_ID                                  
+,r.NAME                          
+,r.NAME_INFO                     
+,r.ADDRESS_ID                              
+,r.PHONE_NUM                     
+,r.FOOD_TYPE1                      
+,r.FOOD_TYPE2                      
+,r.FOOD_TYPE3                      
+,r.BUSINESS_START_HOUR                     
+,r.BUSINESS_END_HOUR                       
+,r.LAST_ORDER                    
+,r.HOLIDAY                       
+,r.WEB_LINK                      
+,r.LOW_PRICE_RANGE                         
+,r.HIGH_PRICE_RANGE                        
+,r.MAX_MEMBERS
+,m.x
+,m.y
+,u.MENU1_NAME             
+,u.MENU1_PRICE                       
+,u.MENU2_NAME             
+,u.MENU2_PRICE                       
+,u.MENU3_NAME             
+,u.MENU3_PRICE                       
+,u.MENU4_NAME             
+,u.MENU4_PRICE                       
+,u.MENU5_NAME             
+,u.MENU5_PRICE                       
+,u.MENU6_NAME             
+,u.MENU6_PRICE                       
+,u.MENU7_NAME             
+,u.MENU7_PRICE                       
+,u.MENU8_NAME             
+,u.MENU8_PRICE                       
+,u.MENU9_NAME             
+,u.MENU9_PRICE                       
+,u.MENU10_NAME            
+,u.MENU10_PRICE                      
+,u.MENU_IMAGE_ID          
+,a.address1
+,a.address2
+from restaurant r, maps m, menus u, address a
+where r.id = m.RESTAURANT_ID 
+    and r.id = u.RESTAURANT_ID 
+    and r.id = a.RESTAURANT_ID
+and r.id = #{id}
+</select>
+
+
+
+</mapper>
