@@ -15,9 +15,11 @@
       <link rel="stylesheet" href="${carousel }">
       <c:url value="/static/css/carousel.rtl.css" var="carouselrtl" />
       <link rel="stylesheet" href="${carouselrtl }">
+
       
       <style>
    
+
     @font-face {
     font-family: 'EF_jejudoldam';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-EF@1.0/EF_jejudoldam.woff2') format('woff2');
