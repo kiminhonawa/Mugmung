@@ -15,10 +15,9 @@
       <link rel="stylesheet" href="${carousel }">
       <c:url value="/static/css/carousel.rtl.css" var="carouselrtl" />
       <link rel="stylesheet" href="${carouselrtl }">
-   </head>
-   <body>
-	<main> 
-   <style>
+      
+      <style>
+   
     @font-face {
     font-family: 'EF_jejudoldam';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-EF@1.0/EF_jejudoldam.woff2') format('woff2');
@@ -26,11 +25,15 @@
     font-style: normal;
 }
    </style>
+   </head>
+   <body>
+	
+	
+   
 	<main>
 
 		<div>
 <!-- carousel 시작 -->
-	<main>
 
   <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-indicators">
@@ -118,52 +121,41 @@
     <!-- START THE FEATURETTES -->
 
     <hr class="featurette-divider">
-<c:forEach items="${indexLists }" var="list">
-    <div class="row featurette">
+<c:forEach items="${indexLists}" var="list" varStatus="loop">
+  <div class="row featurette">
+    <c:if test="${loop.index % 2 == 0}">
       <div class="col-md-7">
-        <h2 class="featurette-heading fw-normal lh-1">${ list.name }<span class="text-muted"></span></h2>
+        <h2 class="featurette-heading fw-normal lh-1" style="font-family: 'EF_jejudoldam';">${list.name}<span class="text-muted"></span></h2>
         <p class="lead">
-        	<c:url value="/detail/detail?id=${list.id }" var="detailPage"></c:url>
-        	<a href="${detailPage }">Some great placeholder content for the first featurette here. Imagine some exciting prose here.</a>
-        
+          <c:url value="/detail/detail?id=${list.id}" var="detailPage"></c:url>
+          <a href="${detailPage}">Some great placeholder content for the featurette here. Imagine some exciting prose here.</a>
         </p>
-        
       </div>
       <div class="col-md-5">
-        <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"></rect><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
-
+        <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false">
+          <title>Placeholder</title>
+          <rect width="100%" height="100%" fill="#eee"></rect>
+          <text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text>
+        </svg>
       </div>
-    </div>
-
-    <hr class="featurette-divider">
-</c:forEach>
-
-
-    <div class="row featurette">
+    </c:if>
+    <c:if test="${loop.index % 2 != 0}">
+      <div class="col-md-5 order-md-1">
+        <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false">
+          <title>Placeholder</title>
+          <rect width="100%" height="100%" fill="#eee"></rect>
+          <text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text>
+        </svg>
+      </div>
       <div class="col-md-7 order-md-2">
-        <h2 class="featurette-heading fw-normal lh-1">${ list.name } <span class="text-muted">See for yourself.</span></h2>
+        <h2 class="featurette-heading fw-normal lh-1" style="font-family: 'EF_jejudoldam';">${list.name}<span class="text-muted"></span></h2>
         <p class="lead">Another featurette? Of course. More placeholder content here to give you an idea of how this layout would work with some actual real-world content in place.</p>
       </div>
-      <div class="col-md-5 order-md-1">
-        <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"></rect><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
+    </c:if>
+  </div>
+  <hr class="featurette-divider">
+</c:forEach>
 
-      </div>
-    </div>
-
-    <hr class="featurette-divider">
-
-    <div class="row featurette">
-      <div class="col-md-7">
-        <h2 class="featurette-heading fw-normal lh-1">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
-        <p class="lead">And yes, this is the last block of representative placeholder content. Again, not really intended to be actually read, simply here to give you a better view of what this would look like with some actual content. Your content.</p>
-      </div>
-      <div class="col-md-5">
-        <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"></rect><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
-
-      </div>
-    </div>
-
-    <hr class="featurette-divider">
 
     <!-- /END THE FEATURETTES -->
 
@@ -171,7 +163,7 @@
 
 <!-- carousel 끝 -->		
 		<nav aria-label="Page navigation example">
-  <ul class="pagination justify-content-center">
+  <ul class="pagination justify-content-center" id="pages">
     <li class="page-item">
       <a class="page-link" href="#" aria-label="Previous">
         <span aria-hidden="true">&laquo;</span>

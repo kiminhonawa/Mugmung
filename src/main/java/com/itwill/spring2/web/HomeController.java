@@ -7,9 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import com.itwill.spring2.dto.IndexListDto;
-import com.itwill.spring2.dto.PostListDto;
 import com.itwill.spring2.service.IndexService;
-import com.itwill.spring2.service.PostService;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

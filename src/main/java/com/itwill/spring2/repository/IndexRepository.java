@@ -7,7 +7,7 @@ import com.itwill.spring2.dto.IndexListDto;
 public interface IndexRepository {
 	List<IndexListDto> indexListRead();
 	
-	
+	List<IndexListDto> bestListRead();
 	
 	
 }
