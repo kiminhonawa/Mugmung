@@ -9,21 +9,12 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class IndexListDto {
-	
-//	r.id
-//    , r.name
-//    , i.images_loc
-//    , a.address1
-//    , a.address2
-//    , v.star_score
-	
+public class BestListDto {
 	private long id;
 	private String name;
 	private String images_loc;
-	private String address1;
-	private String address2;
+	private String adress1;
+	private String adress2;
 	private long star_score;
 
-	
 }
