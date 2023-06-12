@@ -44,7 +44,24 @@
   /**
  *  4. 예약하기
  */
+function reserve() {
+  // Retrieve the selected values
+  var selectedDate = document.getElementById("monthYear").textContent;
+  var selectedPeople = document.querySelector('input[name="radioNoLabel"]:checked').value;
+  var selectedTime = document.querySelector('.timebtn-list .active').textContent;
   
+  // Perform further processing or store the values as needed
+  // For example, you can make an AJAX request to send the data to the server or store it in hidden input fields
+
+  // Example: Store the values in hidden input fields
+  document.getElementById("selectedDate").value = selectedDate;
+  document.getElementById("selectedPeople").value = selectedPeople;
+  document.getElementById("selectedTime").value = selectedTime;
+
+  // Trigger the modal or perform other actions
+  // ...
+}
+
 
 
   

@@ -150,14 +150,17 @@
 
 
 	<br />
-
+	<input type="hidden" id="selectedDate" name="selectedDate">
+	<input type="hidden" id="selectedPeople" name="selectedPeople">
+	<input type="hidden" id="selectedTime" name="selectedTime">
+	
 
 	<div>
 		<nav class="text-center">
 			<ul>
 				<!-- Button trigger modal -->
 				<button type="button" class="btn btn-outline-warning"
-					data-bs-toggle="modal" data-bs-target="#staticBackdrop">예약하기</button>
+					data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="reserve()">예약하기</button>
 				<button type="button" class="btn btn-outline-success">취소하기</button>
 			</ul>
 		</nav>
