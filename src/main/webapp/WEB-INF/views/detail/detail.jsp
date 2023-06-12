@@ -126,17 +126,17 @@
        <label for="name_info" style="font-family: 'EF_jejudoldam';">가게
         정보</label> <input type="text" id="name_info"
         value="${ detail.name_info }" name="name_info" readonly
-        class="no-border" style="width: 500px; height: 100px;" />
+        class="no-border" style="width: 500px;" />
       </div>
       <div class="my-2">
        <label for="address_id" style="font-family: 'EF_jejudoldam';">주소</label>
        <input type="text" id="address_id" value="${ detail.address_id }"
-        name="address_id" readonly class="no-border" />
+        name="address_id" readonly class="no-border" style="width: 400px;" />
       </div>
       <div class="my-2">
        <label for="phone_num" style="font-family: 'EF_jejudoldam';">전화번호</label>
        <input type="text" id="phone_num" value="${ detail.phone_num }"
-        name="phone_num" readonly class="no-border" />
+        name="phone_num" readonly class="no-border" style="width: 400px;" />
       </div>
       <!-- 음식타입3가지 -->
       <div class="my-2">
@@ -172,11 +172,10 @@
         name="holiday" readonly class="no-border" />
       </div>
       <div class="my-2">
-       <label for="web_link" style="font-family: 'EF_jejudoldam';">웹
-        사이트</label> <input type="text" id="web_link"
-        value="${ detail.web_link }" name="web_link" readonly
-        class="no-border" />
-      </div>
+       <label for="web_link" style="font-family: 'EF_jejudoldam';">웹 사이트</label>  
+        <a href="${detail.web_link}" target="_blank">${detail.web_link}</a>
+    </div>
+      
       <!-- 메뉴 id -->
       <div class="my-2">
        <label for="menu_id" style="font-family: 'EF_jejudoldam';">메뉴</label>
