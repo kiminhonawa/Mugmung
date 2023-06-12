@@ -13,8 +13,8 @@
     r.id
     , r.name
     , i.images_loc
-    , a.adress1
-    , a.adress2
+    , a.address1
+    , a.address2
     , v.star_score
 from restaurant r, images i, address a, reviews v
 where r.id = i.RESTAURANT_ID and r.id = a.RESTAURANT_ID and r.id = v.RESTAURANT_ID
@@ -28,8 +28,8 @@ where r.id = i.RESTAURANT_ID and r.id = a.RESTAURANT_ID and r.id = v.RESTAURANT_
     r.id
     , r.name
     , i.images_loc
-    , a.adress1
-    , a.adress2
+    , a.address1
+    , a.address2
     , v.star_score
 from restaurant r, images i, address a, reviews v
 where r.id = i.RESTAURANT_ID and r.id = a.RESTAURANT_ID and r.id = v.RESTAURANT_ID 

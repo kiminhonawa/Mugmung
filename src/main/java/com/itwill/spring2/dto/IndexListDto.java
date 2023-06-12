@@ -14,15 +14,15 @@ public class IndexListDto {
 //	r.id
 //    , r.name
 //    , i.images_loc
-//    , a.adress1
-//    , a.adress2
+//    , a.address1
+//    , a.address2
 //    , v.star_score
 	
 	private long id;
 	private String name;
 	private String images_loc;
-	private String adress1;
-	private String adress2;
+	private String address1;
+	private String address2;
 	private long star_score;
 
 	
