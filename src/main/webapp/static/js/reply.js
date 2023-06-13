@@ -143,7 +143,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         
     };
-    
+        
     const getRepliesWithPostId = async () => {
         // 댓글 목록을 요청하기 위한 포스트 번호(아이디)
         const postId = document.querySelector('input#id').value;
