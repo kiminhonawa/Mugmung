@@ -75,7 +75,7 @@ public class CustomerController  {
 	@PostMapping("/partnership")
 	public String partnership1() {
 	    log.info("partnershipPost()");
-	    return "redirect:/main";
+	    return "redirect:/mugmung/main";
 	}
 	
 	@GetMapping("/proposal")
@@ -84,4 +84,11 @@ public class CustomerController  {
         
         return "/customer/proposal";
     }
+	
+	@PostMapping("/proposal")
+	public String proposal1() {
+	    log.info("proposalPost()");
+	    
+	    return "redirect:/mugmung/main";
+	}
 }
