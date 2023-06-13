@@ -86,39 +86,39 @@
 						<br />
 						<div>
 							<input class="form-check-input" type="radio" name="radioNoLabel"
-								id="radioNoLabel1" value="" aria-label="..." onclick="selectNumberOfPeople(2)"> 2명
+								id="radioNoLabel1" value="2" aria-label="..." onclick="selectNumberOfPeople(2)"> 2명
 						</div>
 						<div>
 							<input class="form-check-input" type="radio" name="radioNoLabel"
-								id="radioNoLabel1" value="" aria-label="..." onclick="selectNumberOfPeople(3)"> 3명
+								id="radioNoLabel1" value="3" aria-label="..." onclick="selectNumberOfPeople(3)"> 3명
 						</div>
 						<div>
 							<input class="form-check-input" type="radio" name="radioNoLabel"
-								id="radioNoLabel1" value="" aria-label="..." onclick="selectNumberOfPeople(4)"> 4명
+								id="radioNoLabel1" value="4" aria-label="..." onclick="selectNumberOfPeople(4)"> 4명
 						</div>
 						<div>
 							<input class="form-check-input" type="radio" name="radioNoLabel"
-								id="radioNoLabel1" value="" aria-label="..." onclick="selectNumberOfPeople(5)"> 5명
+								id="radioNoLabel1" value="5" aria-label="..." onclick="selectNumberOfPeople(5)"> 5명
 						</div>
 						<div>
 							<input class="form-check-input" type="radio" name="radioNoLabel"
-								id="radioNoLabel1" value="" aria-label="..." onclick="selectNumberOfPeople(6)"> 6명
+								id="radioNoLabel1" value="6" aria-label="..." onclick="selectNumberOfPeople(6)"> 6명
 						</div>
 						<div>
 							<input class="form-check-input" type="radio" name="radioNoLabel"
-								id="radioNoLabel1" value="" aria-label="..." onclick="selectNumberOfPeople(7)"> 7명
+								id="radioNoLabel1" value="7" aria-label="..." onclick="selectNumberOfPeople(7)"> 7명
 						</div>
 						<div>
 							<input class="form-check-input" type="radio" name="radioNoLabel"
-								id="radioNoLabel1" value="" aria-label="..." onclick="selectNumberOfPeople(8)"> 8명
+								id="radioNoLabel1" value="8" aria-label="..." onclick="selectNumberOfPeople(8)"> 8명
 						</div>
 						<div>
 							<input class="form-check-input" type="radio" name="radioNoLabel"
-								id="radioNoLabel1" value="" aria-label="..." onclick="selectNumberOfPeople(9)"> 9명
+								id="radioNoLabel1" value="9" aria-label="..." onclick="selectNumberOfPeople(9)"> 9명
 						</div>
 						<div>
 							<input class="form-check-input" type="radio" name="radioNoLabel"
-								id="radioNoLabel1" value="" aria-label="..." onclick="selectNumberOfPeople(10)"> 10명
+								id="radioNoLabel1" value="10" aria-label="..." onclick="selectNumberOfPeople(10)"> 10명
 						</div>
 					</div>
 
@@ -128,7 +128,7 @@
 							<dt>시간</dt>
 							<br />
 								 <ul class="timebtn-list">
-								      <li><button type="button" class="timebtn" onclick="toggleTime('10:00')" id="button-10:00">10:00</button></li>
+								      <li><button type="button" class="timebtn" onclick="toggleTime('10:00')" id="button-10:00" >10:00</button></li>
 								      <li><button type="button" class="timebtn" onclick="toggleTime('11:00')" id="button-11:00">11:00</button></li>
 								      <li><button type="button" class="timebtn" onclick="toggleTime('12:00')" id="button-12:00">12:00</button></li>
 								      <li><button type="button" class="timebtn" onclick="toggleTime('13:00')" id="button-13:00">13:00</button></li>
@@ -150,9 +150,6 @@
 
 
 	<br />
-	<input type="hidden" id="selectedDate" name="selectedDate">
-	<input type="hidden" id="selectedPeople" name="selectedPeople">
-	<input type="hidden" id="selectedTime" name="selectedTime">
 	
 
 	<div>
@@ -165,6 +162,10 @@
 			</ul>
 		</nav>
 	</div>
+
+	
+	<div id="warning" style="display: none;">Please select all the required fields.</div>
+
 
 	<!-- Modal -->
 	<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static"
@@ -190,7 +191,6 @@
 
 	<!-- 자바스크립트 경로지정 -->
 	<script type="text/javascript" src="../static/js/calendar.js"></script>
-	<script type="text/javascript" src="../static/js/reserve.js"></script>
 
 	<%@ include file="../../views/common/footer.jsp"%>
 	<script

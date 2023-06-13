@@ -15,17 +15,10 @@ public class ReserveService {
 	
 	private final ReserveRepository reserveRepository;
 	
-	
-	
-	
 	public int reserve(ReserveDto dto) {
 		log.info("reserve({})", dto);
 		
-		
+		// 예약 정보를 ReserveDto 객체로 전달하여 처리
 		return reserveRepository.insert(dto.toEntity());
 	}
-		
-	
-	
-	
 }

@@ -44,6 +44,8 @@ public class CommunityController {
         log.info("capturelist()");
     }
 
+	
+	
 // 리뷰 시작
 	/**
 	 * 리뷰 게시판 리스트 노출
