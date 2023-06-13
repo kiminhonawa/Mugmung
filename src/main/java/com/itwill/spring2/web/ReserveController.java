@@ -25,8 +25,16 @@ public class ReserveController {
 		log.info("POST: reserve({})", dto);
 		
 		 int result = reserveService.reserve(dto);
-		model.addAttribute("reserve", dto);
+		 model.addAttribute("reserve", dto);
 		
+	}
+	
+	@GetMapping("booking")
+	public String booking() {
+	    log.info("booking()");
+	    
+	    return "/reserve/booking";
+	    
 	}
 	
 	

@@ -50,14 +50,14 @@
 							<!-- <div class="header"> -->
 							<button type="button" class="btn btn-light" id="prevButton">
                         	<img id="prevBtnIcon" 
-                            src="../static/icon/caret-left.svg" 
+                            src="../static/img/caret-left.svg" 
                             alt="caret-left" width="25"/>
                   			</button>
 							
 							<span id="monthYear"></span>
 							<button type="button" class="btn btn-light" id="nextButton">
 							<img id="nextBtnIcon" 
-                            src="../static/icon/caret-right.svg" 
+                            src="../static/img/caret-right.svg" 
                             alt="caret-right" width="25"/>
 							</button>
 							

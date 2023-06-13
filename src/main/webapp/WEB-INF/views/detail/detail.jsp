@@ -96,9 +96,16 @@
       <div id="title" class="mb-4" style="font-family: 'EF_jejudoldam';">
        <h2>${detail.name}
 
-        <!-- 리뷰, 즐겨찾기 버튼 -->
+        <!-- 예약하기, 리뷰, 즐겨찾기 버튼 -->
+        <button class="btn" id="btnReserve" type="button" onclick="location.href='/mugmung/reserve/booking'">
+         <img id="reserveBtn"
+          src="../static/assets/icons/reserve.png"
+          alt="reserve-Btn" width="50" /> <br>
+          <span class="review_button_text">예약하기</span>
+        </button>
 
-        <button class="btn" id="btnReview">
+
+        <button class="btn" id="btnReview" type="button" onclick="location.href='/mugmung/review/review'">
          <img id="reviewBtn" src="../static/assets/icons/reviewBtn.png"
           alt="review-Btn" width="50" /> <br> <span
           class="review_button_text">리뷰쓰기</span>
@@ -110,7 +117,7 @@
           alt="bookmark-off" width="50" /> <br> <span
           class="review_button_text">북마크</span>
         </button>
-       </h2>
+        </h2>       
 
        <hr>
       </div>
@@ -126,17 +133,17 @@
        <label for="name_info" style="font-family: 'EF_jejudoldam';">가게
         정보</label> <input type="text" id="name_info"
         value="${ detail.name_info }" name="name_info" readonly
-        class="no-border" style="width: 500px;" />
+        class="no-border" style="width: 500px; pointer-events: none;" />
       </div>
       <div class="my-2">
        <label for="address_id" style="font-family: 'EF_jejudoldam';">주소</label>
        <input type="text" id="address_id" value="${ detail.address_id }"
-        name="address_id" readonly class="no-border" style="width: 400px;" />
+        name="address_id" readonly class="no-border" style="width: 400px; pointer-events: none;" />
       </div>
       <div class="my-2">
        <label for="phone_num" style="font-family: 'EF_jejudoldam';">전화번호</label>
        <input type="text" id="phone_num" value="${ detail.phone_num }"
-        name="phone_num" readonly class="no-border" style="width: 400px;" />
+        name="phone_num" readonly class="no-border" style="width: 400px; pointer-events: none;" />
       </div>
       <!-- 음식타입3가지 -->
       <div class="my-2">
@@ -144,32 +151,32 @@
         종류</label> <input type="text" id="food_type"
         value="${ detail.food_type1 } / ${ detail.food_type2 } / ${ detail.food_type3 }"
         name="food_type" readonly class="no-border"
-        style="width: 400px;" />
+        style="width: 400px; pointer-events: none;" />
       </div>
       <!-- 최소 ~ 최대 금액 -->
       <div class="my-2">
        <label for="price" style="font-family: 'EF_jejudoldam';">가격대</label>
        <input type="text" id="price"
         value="${ detail.low_price_range }만원 - ${ detail.high_price_range }만원"
-        name="price" readonly class="no-border" style="width: 400px;"/>
+        name="price" readonly class="no-border" style="width: 400px; pointer-events: none;"/>
       </div>
       <!-- 영업시작시간 ~ 영업종료시간 -->
       <div class="my-2">
        <label for="business_hour" style="font-family: 'EF_jejudoldam';">영업
         시간</label> <input type="text" id="business_hour"
         value="${ detail.business_start_hour } - ${ detail.business_end_hour }"
-        name="business_hour" readonly class="no-border" />
+        name="business_hour" readonly class="no-border" style="width: 400px; pointer-events: none;" />
       </div>
       <div class="my-2">
        <label for="last_order" style="font-family: 'EF_jejudoldam';">마지막
         주문</label> <input type="text" id="last_order"
         value="${ detail.last_order }" name="last_order" readonly
-        class="no-border" />
+        class="no-border" style="width: 400px; pointer-events: none;"/>
       </div>
       <div class="my-2">
        <label for="holiday" style="font-family: 'EF_jejudoldam';">휴일</label>
        <input type="text" id="holiday" value="${ detail.holiday }"
-        name="holiday" readonly class="no-border" />
+        name="holiday" readonly class="no-border" style="width: 400px; pointer-events: none;" />
       </div>
       <div class="my-2">
        <label for="web_link" style="font-family: 'EF_jejudoldam';">웹 사이트</label>  
@@ -180,7 +187,7 @@
       <div class="my-2">
        <label for="menu_id" style="font-family: 'EF_jejudoldam';">메뉴</label>
        <input type="text" id="menu_id" value="${ detail.menu_id }"
-        name="menu_id" readonly class="no-border" />
+        name="menu_id" readonly class="no-border" style="width: 400px; pointer-events: none;" />
       </div>
       </form>
       </section>
