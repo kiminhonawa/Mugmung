@@ -31,11 +31,15 @@
                      <a class="nav-link" href="#">공지사항</a>
                   </li>
                   <li class="nav-item">
-                     <a class="nav-link" href="#">새 매장 등록</a>
+                     <a class="nav-link" href="/mugmung/admin/main">매장 정보</a>
                   </li>
                   <li class="nav-item">
-                     <a class="nav-link" href="#">리뷰 관리</a>
-                  </li>                   
+                     <a class="nav-link" href="#">새 매장 등록</a>
+                  </li>
+                  <c:url var="adminReviewPage" value="/admin/main/review"/>
+				  <li class="nav-item">			
+  				  <a href="${adminReviewPage}" class="nav-link">리뷰 관리</a>
+				  </li>     
                </ul>
             </div>
          </div>
