@@ -18,7 +18,9 @@ public class ReserveDto {
 	private long id;
 	private long restaurant_id;
 	private Timestamp reserve_date;
-	private long number;
+	private long members;
+	private Timestamp reserve_time;
+
 	
 		
 	public Reserve toEntity() {
@@ -27,7 +29,8 @@ public class ReserveDto {
 				.id(id)
 				.restaurant_id(restaurant_id)
 				.reserve_date(reserve_date)
-				.number(number)
+				.members(members)
+				.reserve_time(reserve_time)
 				.build();
 	}
 	
