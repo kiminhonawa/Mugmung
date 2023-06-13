@@ -11,11 +11,11 @@ import lombok.NoArgsConstructor;
 @Builder
 public class MakgoraDto {
 	
+	private long id;
 	private String type;
 	private String product;
 	private String title;
 	private String content;
-	
 	
 	
 }

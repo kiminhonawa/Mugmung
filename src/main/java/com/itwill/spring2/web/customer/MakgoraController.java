@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.itwill.spring2.dto.MakgoraDto;
+import com.itwill.spring2.service.MakgoraService;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -14,10 +15,15 @@ import lombok.extern.slf4j.Slf4j;
 @Controller
 public class MakgoraController {
 	
-	
+	private final MakgoraService makgoraService;
 	
 	public String create(MakgoraDto dto) {
 		log.info("POST: create({})", dto);
-		return null;
+		
+		int result = makgoraService.create(dto);
+		log.info("1:1문의 결과={}", result);
+		
+		
+		return "redirect:/mugmung/main";
 	}
 }
