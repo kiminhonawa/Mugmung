@@ -11,6 +11,70 @@ const showDetail = (e) =>{
 	const id = e.target.getAttribute('data-id');
 	location.href = '/mugmung/detail/detail?id='+id;
 }; 
+const makeStarscoreElements = (data) => {
+        // 댓글 개수 업데이트
+        /*replyCountSpan.innerHTML = data.length; // 배열 길이(원소 개수)*/
+        
+        tableLists.innerHTML = ''; // <div>의 컨텐트를 지움.
+        
+        let htmlStr = '';
+        // for (let i = 0; i < data.length; i++) {}
+        // for (let x in data) {} -> 인덱스 iteration
+        for (let reply of data) {
+            console.log('asdf : '+reply.id);
+            
+            // Timestamp 타입 값을 날짜/시간 타입 문자열로 변환:
+            const modified = new Date(reply.modifiedTime).toLocaleString();
+            
+            // 댓글 1개를 표시할 HTML 코드:
+            htmlStr += `
+                 <tr>
+                <td>${reply.name}</td>
+                <td>
+                    ${reply.name_info} 
+                </td>
+                <td>
+                   ${reply.star_score}
+                </td>
+            </tr>
+            `;
+            tableLists.innerHTML = htmlStr;
+        }
+        
+};
+// 댓글 목록 HTML을 작성하고 replies 영역에 추가하는 함수.
+    // argument data: Ajax 요청의 응답으로 전달받은 데이터.
+    const makeBookmarkElements = (data) => {
+        // 댓글 개수 업데이트
+        /*replyCountSpan.innerHTML = data.length; // 배열 길이(원소 개수)*/
+        
+        tableLists.innerHTML = ''; // <div>의 컨텐트를 지움.
+        
+        let htmlStr = '';
+        // for (let i = 0; i < data.length; i++) {}
+        // for (let x in data) {} -> 인덱스 iteration
+        for (let reply of data) {
+            console.log('asdf : '+reply.id);
+            
+            // Timestamp 타입 값을 날짜/시간 타입 문자열로 변환:
+            const modified = new Date(reply.modifiedTime).toLocaleString();
+            
+            // 댓글 1개를 표시할 HTML 코드:
+            htmlStr += `
+                 <tr>
+                <td>${reply.id}</td>
+                <td>
+                    ${reply.name}
+                </td>
+                <td>
+                   ${reply.name_info} 
+                </td>
+            </tr>
+            `;
+            tableLists.innerHTML = htmlStr;
+        }
+        
+};
 
 	// 댓글 목록 HTML을 작성하고 replies 영역에 추가하는 함수.
     // argument data: Ajax 요청의 응답으로 전달받은 데이터.
@@ -186,6 +250,22 @@ reviewed.addEventListener('click', (e) => {
      
 });//addEventListener end
 
+
+const getBookmarked = async () => {	    
+	      
+        const reqUrl = `/mugmung/mypage/api/bookmarked`;
+        console.log('reqUrl : '+reqUrl);
+        // Ajax 요청을 보내고 응답을 기다림.
+        try {
+            const response = await axios.get(reqUrl);
+            console.log(response);
+            // 댓글 개수 업데이트 & 댓글 목록 보여주기
+            makeBookmarkElements(response.data);
+        } catch (error) {
+            console.log(error);
+        }
+    }; 
+
 const bookmarked = document.querySelector('a#bookmarked');
 
 bookmarked.addEventListener('click', (e) => {
@@ -201,8 +281,25 @@ bookmarked.addEventListener('click', (e) => {
     // 클릭한 링크에 'active' 클래스를 추가하고, aria-current="page" 속성을 적용합니다.
     bookmarked.classList.add('active');
     bookmarked.setAttribute('aria-current', 'page'); 
+    
+    getBookmarked();
      
 });
+
+const getStarscore = async () => {	    
+	      
+        const reqUrl = `/mugmung/mypage/api/starscore`;
+        console.log('reqUrl : '+reqUrl);
+        // Ajax 요청을 보내고 응답을 기다림.
+        try {
+            const response = await axios.get(reqUrl);
+            console.log(response);
+            // 댓글 개수 업데이트 & 댓글 목록 보여주기
+            makeStarscoreElements(response.data);
+        } catch (error) {
+            console.log(error);
+        }
+    }; 
 
 const starscore = document.querySelector('a#starscore');
 
@@ -219,6 +316,8 @@ starscore.addEventListener('click', (e) => {
     // 클릭한 링크에 'active' 클래스를 추가하고, aria-current="page" 속성을 적용합니다.
     starscore.classList.add('active');
     starscore.setAttribute('aria-current', 'page'); 
+    
+    getStarscore();
      
 });
 
@@ -294,18 +393,5 @@ links.forEach(link => {
   });
 };
 */
-
-
-
-
-
-
-
-
-
-
-
-
-
     
 });

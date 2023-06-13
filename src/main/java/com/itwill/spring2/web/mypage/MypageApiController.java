@@ -10,8 +10,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.itwill.spring2.dto.MyPageBookmarkedDto;
 import com.itwill.spring2.dto.MyPagePurchasedDto;
 import com.itwill.spring2.dto.MyPageReviewedDto;
+import com.itwill.spring2.dto.MyPageStarScoreDto;
 import com.itwill.spring2.dto.ReplyReadDto;
 import com.itwill.spring2.service.MyPageService;
 import com.itwill.spring2.service.PostService;
@@ -78,23 +80,34 @@ public class MypageApiController extends HttpServlet{
 		
 		return ResponseEntity.ok(list);
 	}
-	
 	@GetMapping("/bookmarked")
-	public String bookmarked(String id) {
+	public ResponseEntity<List<MyPageBookmarkedDto>> bookmarked(HttpServletRequest request) {
 		log.info("get bookmarked");
 
-//		2. 11-(9)-내가 작성한 리뷰 탭,내가 장성한 리뷰 보기
-
-		return "/mypage/mypage";
+		HttpSession session = ((HttpServletRequest) request).getSession();
+		
+		String username = (String) session.getAttribute("signedInUser");
+		log.info("username = {}",username);
+		
+		List<MyPageBookmarkedDto> list = myPageService.readBookmarkedByUsername(username);
+        log.info("# of replies = {}", list.size());
+		
+		return ResponseEntity.ok(list);
 	}
 	
 	@GetMapping("/starscore")
-	public String starscore(String id) {
+	public ResponseEntity<List<MyPageStarScoreDto>> starscore(HttpServletRequest request) {
 		log.info("get starscore");
-
-//		3. 10-(8)-내가 북마크 한 상품
-
-		return "/mypage/mypage";
+		
+		HttpSession session = ((HttpServletRequest) request).getSession();
+		
+		String username = (String) session.getAttribute("signedInUser");
+		log.info("username = {}",username);
+		
+		List<MyPageStarScoreDto> list = myPageService.readStarscoreByUsername(username);
+        log.info("# of replies = {}", list.size());
+		
+		return ResponseEntity.ok(list);
 	}
 	@GetMapping("/makgora")
 	public String makgora(String id) {

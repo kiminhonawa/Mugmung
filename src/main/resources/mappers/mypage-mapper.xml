@@ -10,6 +10,7 @@
 	from restaurant r, reviews v
 	where r.id=v.restaurant_id
 	and v.writer = #{username}
+	order by r.id desc
 </select>
 
 <select id="readPurchaseByUsername" resultType="com.itwill.spring2.dto.MyPagePurchasedDto">
@@ -17,6 +18,25 @@
 	from restaurant r, reserve s
 	where r.id=s.restaurant_id
 	and s.username = #{username}
+	order by r.id desc
+</select>
+
+
+
+<select id="readBookmarkedByUsername" resultType="com.itwill.spring2.dto.MyPageBookmarkedDto">
+	select r.id, r.name, r.name_info 
+	from restaurant r, bookmark b
+	where r.id = b.restaurant_id
+	and b.username = #{username}
+	order by r.id desc
+</select>
+
+<select id="readStarscoreByUsername" resultType="com.itwill.spring2.dto.MyPageStarScoreDto">
+	select r.id, r.name, r.name_info, v.reply_text, v.star_score
+	from restaurant r, reviews v
+	where r.id=v.restaurant_id
+	and v.writer = 'chklee1'
+	order by r.id desc
 </select>
 
 </mapper>
