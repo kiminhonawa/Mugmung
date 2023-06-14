@@ -37,6 +37,7 @@ public class MypageController extends HttpServlet{
 		List<MyPagePurchasedDto> list = myPageService.readPurchaseByUsername(username);
 		
 		model.addAttribute("lists", list);
+		model.addAttribute("username", username);
 		
 		log.info("list={}",list);
 		
