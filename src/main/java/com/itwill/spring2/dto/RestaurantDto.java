@@ -1,6 +1,5 @@
 package com.itwill.spring2.dto;
 
-import java.util.List;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -18,9 +17,9 @@ public class RestaurantDto {
 //    private long menu_id;
 //    private long map_id;
 //    private long address_id;
-    private MenuDto menu;
-    private MapDto map;
-    private AddressDto address; 
+    private MenuDto menu_id;
+    private MapDto map_id;
+    private AddressDto address_id; 
     
     private long business_start_hour;
     private long business_end_hour;
@@ -40,9 +39,9 @@ public class RestaurantDto {
     public RestaurantDto toEntity() {
         return RestaurantDto.builder()
                 .id(id)
-                .menu(menu)
-                .map(map)
-                .address(address)
+                .menu_id(menu_id)
+                .map_id(map_id)
+                .address_id(address_id)
                 .business_start_hour(business_start_hour)
                 .business_end_hour(business_end_hour)
                 .low_price_range(low_price_range)
@@ -58,6 +57,7 @@ public class RestaurantDto {
                 .holiday(holiday)
                 .web_link(web_link)
                 .build();
+        
     }
     
     

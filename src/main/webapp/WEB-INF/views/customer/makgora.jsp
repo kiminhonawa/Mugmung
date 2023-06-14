@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" trimDirectiveWhitespaces="true"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ include file="../../views/common/header.jsp" %>
 <!DOCTYPE html>
 <html>
    <head>
@@ -14,8 +16,32 @@
       
    </head>
    <body>
+   <header class="my-2 p-5 text-center text-bg-dark">
+            <h1>1:1 문의 게시판</h1>
+        </header>
       <div>
-         1:1 문의
+         
+         
+         
+         <main class="my-2">
+            <div class="card">
+            <c:url value="/customer/makgora" var="makgoraPage"></c:url>
+            
+            <%-- 서블릿에 요청해 파일을 업로드 함 --%>
+	<form action="${makgoraPage }" method="post" enctype="multipart/form-data">
+    <input type="file" name="file" />
+    <input type="submit" value="Upload" />
+</form>
+            
+            
+            
+                <!-- <form method="post" action="makgoraPage" enctype="multipart/form-data">
+    	Choose a file: <input type="file" name="multiPartServlet" />
+    				<input type="submit" value="Upload" />
+</form> -->
+            </div>
+            <%@ include file="../../views/common/footer.jsp" %>
+        </main>
          
          <script 
            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" 

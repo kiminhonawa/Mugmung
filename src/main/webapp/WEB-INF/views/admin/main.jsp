@@ -15,14 +15,11 @@
       <link rel="stylesheet" href="carousel">
       <c:url value="/static/css/carouselrtl.css" var="carouselrtl" />
       <link rel="stylesheet" href="carouselrtl">
-<<<<<<< HEAD
-      
-=======
+
       <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
->>>>>>> refs/remotes/origin/inho
    </head>
    <body>
-<<<<<<< HEAD
+
 	<main>
 		<!-- 파일 업로드에서는 enctype(인코딩타입)을 multipart/form-data로 반드시 설정 -->
     <form action="upload_ok" method="post" enctype="multipart/form-data"> <!-- 폼요소가 파일이나 이미지 전송할때 사용 -->
@@ -43,12 +40,20 @@
                      <a class="nav-link" href="#">공지사항</a>
                   </li>
                   <li class="nav-item">
+<<<<<<< HEAD
                      <c:url var="storecreatePage" value="/admin/storecreate" />
                     <a class="nav-link" href="${ storecreatePage }">새 매장 등록</a>
+=======
+                     <a class="nav-link" href="/mugmung/admin/main">매장 정보</a>
+>>>>>>> refs/remotes/origin/main
                   </li>
                   <li class="nav-item">
-                     <a class="nav-link" href="#">리뷰 관리</a>
-                  </li>                   
+                     <a class="nav-link" href="#">새 매장 등록</a>
+                  </li>
+                  <c:url var="adminReviewPage" value="/admin/main/review"/>
+				  <li class="nav-item">			
+  				  <a href="${adminReviewPage}" class="nav-link">리뷰 관리</a>
+				  </li>     
                </ul>
             </div>
          </div>

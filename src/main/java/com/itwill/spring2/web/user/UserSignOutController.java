@@ -32,6 +32,7 @@ public class UserSignOutController extends HttpServlet {
 		
 		// Request 객체에서 Session 정보를 찾음.
 		HttpSession session = request.getSession();
+	
 		
 		session.invalidate(); // 세션을 무효화 - 지움. -> 로그아웃
 		

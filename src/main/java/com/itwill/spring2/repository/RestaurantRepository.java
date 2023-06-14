@@ -4,6 +4,8 @@ import com.itwill.spring2.dto.RestaurantDto;
 
 public interface RestaurantRepository {
 
-	RestaurantDto selectById(long id);
+
+    RestaurantDto selectById(long id);
+
 
 }

@@ -7,9 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import com.itwill.spring2.dto.IndexListDto;
-import com.itwill.spring2.dto.PostListDto;
 import com.itwill.spring2.service.IndexService;
-import com.itwill.spring2.service.PostService;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -32,10 +30,12 @@ public class HomeController {
     public String home(Model model) {
         log.info("home()");
             
-        //List<IndexListDto> list = indexService.read();
+        List<IndexListDto> list = indexService.read();
+        
+        log.info("listaslkdfjalsdkf = {}",list);
         
         // 뷰에 보여줄 데이터를 Model에 저장.
-        //model.addAttribute("posts", list);
+        model.addAttribute("indexLists", list);
         
         return "/main/index";
     }

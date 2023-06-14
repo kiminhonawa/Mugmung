@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.itwill.spring2.repository.IndexRepository">
+
+<!-- namespace의 값은 PostRepository 인터페이스가 있는 패키지 이름과 인터페이스 이름. -->
+    
+    <select id="indexListRead"
+        resultType="com.itwill.spring2.dto.IndexListDto">
+        select 
+    r.id
+    , r.name
+    , i.images_loc
+    , a.address1
+    , a.address2
+    , v.star_score
+from restaurant r, images i, address a, reviews v
+where r.id = i.RESTAURANT_ID and r.id = a.RESTAURANT_ID and r.id = v.RESTAURANT_ID
+    </select>
+    
+  
+
+	<select id="bestListRead"
+        resultType="com.itwill.spring2.dto.IndexListDto">
+        select 
+    r.id
+    , r.name
+    , i.images_loc
+    , a.address1
+    , a.address2
+    , v.star_score
+from restaurant r, images i, address a, reviews v
+where r.id = i.RESTAURANT_ID and r.id = a.RESTAURANT_ID and r.id = v.RESTAURANT_ID 
+order by v.star_score desc
+    </select> 
+</mapper>
