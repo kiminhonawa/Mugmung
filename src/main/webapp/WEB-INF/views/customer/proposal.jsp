@@ -1,28 +1,116 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" trimDirectiveWhitespaces="true"%>
+ pageEncoding="UTF-8" trimDirectiveWhitespaces="true"%>
+<%@ include file="../../views/common/header.jsp"%>
+
+
 <!DOCTYPE html>
 <html>
-   <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <title>맛집은!머그멍</title>
-      <link  
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" 
-        rel="stylesheet" 
-        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" 
-        crossorigin="anonymous">
-      
-   </head>
-   <body>
-      <div>
-         제안하기 대충 form 맞춰서 submit 하게 하자<br>
-         https://front.wd.wemakeprice.com/cs/proposal<br>
-         
-         <script 
-           src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" 
-           integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" 
-           crossorigin="anonymous">
-           </script>
-      </div>
-   </body>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>맛집은!머그멍</title>
+<link
+ href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+ rel="stylesheet"
+ integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+ crossorigin="anonymous">
+
+</head>
+<body>
+ <div class="container">
+
+  <main>
+   <br> <br>
+   <div class="col-md-7 col-lg-8">
+    <div class="proposal_write_tbl">    
+    <h4 class="proposal_write_tit mb-4">제안하기</h4>
+    <hr>
+     <table class="table_info" method="post">
+      <colgroup>
+       <col width="163" />
+       <col width="*" />
+      </colgroup>
+      <tbody>
+       <tr>
+        <th><label for="ipt_id" class="lb_tit">아이디</label></th>
+        <td><div class="input_area">
+          <input type="text" id="ipt_id" class="inpt_default form-control mb-3"
+           readonly="" value="${sessionScope.username}" />
+         </div></td>
+       </tr>
+       <tr>
+        <th><label for="ipt_email" class="lb_tit">이메일</label></th>
+        <td><div class="input_area">
+          <input type="text" id="ipt_email" class="inpt_default form-control mb-3"
+           readonly="" value="${sessionScope.email}" />
+         </div></td>
+       </tr>
+       <tr>
+        <th><label for="ipt_tit" class="lb_tit">제목</label></th>
+        <td><div class="input_area ipt_tit_area">
+          <input type="text" id="ipt_tit" class="inpt_default form-control mb-3"
+           name="title" maxLength="51" value="" />
+         </div></td>
+       </tr>
+       <tr>
+        <th><label for="ipt_ctt" class="lb_tit">내용</label></th>
+        <td><div class="input_area input_txtarea">
+          <textarea id="ipt_ctt" class="inpt_default form-control mb-3" name="desc"
+           rows="18" style="resize: none;"
+           placeholder="본 게시판은 제안게시판으로 작성 글에 대한 답변은 제공하지 않습니다.
+답변이 필요하신 경우 마이페이지 내 1:1문의 서비스를 이용하시기 바랍니다."></textarea>
+         </div></td>
+       </tr>
+
+       <tr>
+        <th>파일첨부(선택)</th>
+        <td><div class="ipt_file_area">
+        <br>
+          <label for="ipt_file" class="btn_sys mid_d"><span>파일첨부</span></label><input
+           type="file" id="ipt_file" class="blind" />
+          <ul class="file_list"></ul>
+         </div>
+         <ul class="list_type">
+          <li>최대용량 2MB, 첨부 가능 파일: <!-- -->PNG, JPG, JPEG, GIF, XLS,
+           XLSX, PDF
+          </li>
+          <li>제안하기 등록 시 개인정보는 기재/첨부되지 않도록 주의 바랍니다.</li>
+         </ul></td>
+       </tr>
+      </tbody>
+     </table>
+     <hr>
+     <ul class="list_type">
+      <li>입력하신 정보는 제안내용에 대한 확인 및 보상을 위해 처리기간 동안만 보관하며, 마케팅 등 다른
+       목적으로 사용되지 않습니다</li>
+     </ul>
+     <div class="btn_area text-center">
+      <button class="btn btn-primary btn-lg" type="submit"
+      value="제안하기" id="btnSuggest">
+       <span>제안하기</span>
+      </button>
+      <button class="btn btn-primary btn-lg" type="submit"
+      value="취소" id="btnCancel">
+       <span>취소</span>
+      </button>
+     </div>
+    </div>
+    </div>
+  </main>
+ </div>
+
+
+
+
+
+
+
+ <%@ include file="../../views/common/footer.jsp"%>
+ <script
+  src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+  crossorigin="anonymous"></script>
+   <script src="../static/js/proposal.js"></script>
+ </div>
+</body>
 </html>

@@ -78,8 +78,8 @@
             		<img src="${loginImg }" alt="mdo" width="32" height="32" class="rounded-circle" style=" margin-left: 30px;  ">
           		</a>
 	          	<ul class="dropdown-menu text-small shadow">
-		           <c:url var="mainPage" value="/" />
-		            <li><a class="dropdown-item" href="#">마이 페이지</a></li>
+		           <c:url var="myPage" value="/mypage/mypage" />
+		            <li><a class="dropdown-item" href="${myPage }">마이 페이지</a></li>
 		            
 		            <c:url var="mainPage" value="/" />
 		            <li><a class="dropdown-item" href="#">설정</a></li>

@@ -1,0 +1,109 @@
+@charset "UTF-8";
+
+/* 부트스트랩 그리드 스타일 수정 */
+
+.bd-example-row [class^="col"],
+.bd-example-cssgrid .grid > * {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  background-color: #ffffff; /* 흰색으로 변경 */
+  border: 1px solid #808080; /* 진회색(회색)으로 변경 */
+  border-radius: 10px; /* 테두리를 둥글게 변경 */
+}
+
+/*
+	1.캘린더 스타일
+*/
+.calendar {
+  font-family: Arial, sans-serif;
+  width: 300px;
+}
+
+.calendar .header {
+  color: black;
+  text-align: center;
+  padding: 10px;
+}
+
+.calendar .days {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.calendar .days li {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.calendar .days li.active {
+  background-color: #ff0000; /* Change the background color of active days in the calendar */
+  color: #fff; /* Change the text color of active days in the calendar */
+}
+
+.calendar .days li.active:hover {
+  background-color: #00ff00; /* Change the background color of active days on hover in the calendar */
+}
+
+.calendar .weekdays {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px;
+  margin-bottom: 5px;
+}
+
+.calendar .weekdays li {
+  width: 40px;
+  list-style-type: none; /* 마침표 제거 */
+}
+
+/* 선택된 날짜 스타일 */
+.days .selected {
+  background-color: orange;
+  color: #fff;
+}
+
+.days li.active {
+  background-color: #ccc; /* Change the background color of active days */
+  color: #fff; /* Change the text color of active days */
+}
+
+
+/*
+	2.인원 스타일
+*/
+
+.form-check-input[type="radio"]:checked {
+  background-color: orange;
+  border-color: orange;
+}
+/*
+	4.시간 스타일
+*/
+.timebtn-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.timebtn-list li {
+  list-style: none;
+  flex-basis: 100%;
+  margin-bottom: 0px;
+}
+
+.timebtn {
+  background-color: #ccc;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  margin-right: 3px;
+}
+
+.timebtn.selected {
+  background-color: orange;
+}

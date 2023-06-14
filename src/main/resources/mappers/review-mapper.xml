@@ -29,3 +29,4 @@
         delete from POSTS where ID = #{id}
     </delete> -->
 </mapper>
+

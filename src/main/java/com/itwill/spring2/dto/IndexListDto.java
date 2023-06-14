@@ -10,10 +10,20 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 public class IndexListDto {
+	
+//	r.id
+//    , r.name
+//    , i.images_loc
+//    , a.address1
+//    , a.address2
+//    , v.star_score
+	
 	private long id;
 	private String name;
-//	이미지, 타이틀, 주소, 별점
-	
-	// 
+	private String images_loc;
+	private String address1;
+	private String address2;
+	private long star_score;
+
 	
 }

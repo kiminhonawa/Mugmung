@@ -23,7 +23,8 @@ import org.slf4j.LoggerFactory;
 @WebFilter(
         filterName = "authenticationFilter",
         urlPatterns = {
-                "/customer/makgora", "/customer/proposal"
+//                "/customer/makgora", "/customer/proposal"
+                ""
         } // 로그인이 필요한 기능(요청 주소)들.
 )
 // urlPatterns에 설정된 요청 주소들에 대해서,
@@ -56,7 +57,7 @@ public class AuthenticationFilter extends HttpFilter implements Filter {
 		}
 		
 		// 로그인 정보가 없으면, 로그인 페이지로 redirect
-		((HttpServletResponse) response).sendRedirect("/mugmung/main/index");
+		((HttpServletResponse) response).sendRedirect("/mugmung/user/signin");
 	}
 
 }

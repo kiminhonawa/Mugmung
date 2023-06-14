@@ -6,7 +6,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     // 댓글 개수 표시 영역(span)
-    const replyCountSpan = document.querySelector('span#replyCount');
+    const reviewCountSpan = document.querySelector('span#reviewCount');
     // 댓글 목록 표시 영역(div)
     const replies = document.querySelector('div#replies');
     
@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // argument data: Ajax 요청의 응답으로 전달받은 데이터.
     const makeReplyElements = (data) => {
         // 댓글 개수 업데이트
-        replyCountSpan.innerHTML = data.length; // 배열 길이(원소 개수)
+        reviewCountSpan.innerHTML = data.length; // 배열 길이(원소 개수)
         
         replies.innerHTML = ''; // <div>의 컨텐트를 지움.
         
@@ -108,6 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div>
                     <span class="d-none">${reply.id}</span>
                     <span class="fw-bold">${reply.writer}</span>
+                    <span class="fw-bold">${reply.reply_text}</span>
                     <span class="text-secondary">${modified}</span>
                 </div>
                 <div>
