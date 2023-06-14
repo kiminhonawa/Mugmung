@@ -13,17 +13,10 @@ import lombok.NoArgsConstructor;
 @Builder
 public class PostReviewDto {
 
-    private String title;
-    private String content;
-    private String author;
+    private long id;
+    private long restaurant_id;
+    private long star_score;
+    private String reply_text;
+    private String writer;
     
-    public Post toEntity() {
-        // return new Post(0, title, content, author, null, null);
-        
-        return Post.builder()
-                .title(title)
-                .content(content)
-                .author(author)
-                .build();
-    }
 }
