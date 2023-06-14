@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.itwill.spring2.domain.Criteria;
 import com.itwill.spring2.dto.IndexListDto;
 import com.itwill.spring2.repository.IndexRepository;
 
@@ -20,6 +21,19 @@ public class IndexService {
 	public List<IndexListDto> read() {
 		log.info("read()");
 		List<IndexListDto> list = indexRepository.indexListRead();
+		
+		
+		
+		log.info("list={}", list);
+		
+		return list;
+	}
+	
+	public List<IndexListDto> read(Criteria cri) {
+		log.info("read()");
+		List<IndexListDto> list = indexRepository.getListWithPaging(cri);
+		
+		
 		
 		log.info("list={}", list);
 		

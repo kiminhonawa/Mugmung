@@ -82,6 +82,12 @@
     font-weight: normal;
     font-style: normal;
 }
+		@font-face {
+    font-family: 'SUITE-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/SUITE-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+}
     </style>
 
     
@@ -96,7 +102,7 @@
     <div class="row py-lg-5" >
       <div class="col-lg-6 col-md-8 mx-auto">
         <h1 class="fw-light" style="font-family: 'EF_jejudoldam';">유튜버가 사랑한 제주도 젶</h1>
-        <p class="lead text-muted" >유튜버들이 뽑은 제주도 맛집 TOP 9를 알아보자!!!</p>
+        <p class="lead text-muted" >유튜버들이 뽑은 제주도 맛집을 알아보자!!!</p>
         <p>
           <a href="#" class="btn btn-primary my-2">Main call to action</a>
           <a href="#" class="btn btn-secondary my-2">Secondary action</a>
@@ -111,17 +117,10 @@
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
         <div class="col">
           <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-
+           <iframe width="100%" height="225" src="https://www.youtube.com/embed/F7PN-1EmJbI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                </div>
-                <small class="text-muted">9 mins</small>
-              </div>
+              <p class="card-text" style="font-family: 'EF_jejudoldam'; font-size:20px;">풍자 / 또간집</p>
+              <p class="card-text" style="font-family: 'SUITE-Regular';">제주도민들은 여기만 갑니다. 육지것들은 모르는 찐로컬 제주 맛집|또간집 EP.27 </p>
             </div>
           </div>
         </div>
