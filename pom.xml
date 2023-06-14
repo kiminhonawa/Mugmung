@@ -142,7 +142,7 @@
         <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
-            <version>2.4</version>
+            <version>2.6</version>
         </dependency>
     </dependencies>
     <!-- 프로젝트 빌드 플러그인 설정 -->

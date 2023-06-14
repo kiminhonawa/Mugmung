@@ -32,9 +32,8 @@
             </ul>
         </nav>
         
-            <div class="card">
-            
-                <form method="post" >
+            <div class="card">            
+                <form method="post">
                     <div class="card-body">
                         <div class="my-2">
                             <label class="form-label" for="title">제목</label>
