@@ -22,9 +22,9 @@ const makeBookmarkElements = (data) => {
 }
 
 
-const getBookmarkPostId = async () => {
-    const postId = document.querySelector('input#id').value;
-    const reqUrl = `/spring2/api/post/all/${postId}`;
+const getBookmarkrestaurantId = async () => {
+    const restaurantId = document.querySelector('input#id').value;
+    const reqUrl = `/spring2/api/post/all/${restaurant_id}`;
     
     try {
         const response = await axios.get(reqUrl);
@@ -53,7 +53,7 @@ const getBookmarkPostId = async () => {
          bookmarkBtn.alt = 'bookmarkOn';
          
          // 즐겨찾기 목록 서버에 요청하고, 응답이 오면 화면 갱신.
-         getBookmarkPostId();
+         getBookmarkRestaurantId();
      } else {
          bookmarkBtn.src = '../static/assets/icons/bookmarkOff.png';
          bookmarkBtn.alt = 'bookmarkOff';

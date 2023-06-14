@@ -1,6 +1,6 @@
 
 // 문의구분에 따른 다른 카테고리
-function inquiryChang(e){
+/*function inquiryChang(e){
     var Partnership = ["배송 상품", "서비스 상품", "기타"];
     var Affiliation = ["마케팅 제휴", "광고 문의"]
     var Api = ["API연동 문의"];
@@ -18,7 +18,7 @@ function inquiryChang(e){
         opt.innerHTML = result[x];
         target.appendChild(opt);
     }
-}
+}*/
 
 
 document.addEventListener('DOMContentLoaded', () => {
