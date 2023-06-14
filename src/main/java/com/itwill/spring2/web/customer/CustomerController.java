@@ -30,33 +30,33 @@ import lombok.extern.slf4j.Slf4j;
 
 public class CustomerController  {
 	
-	@GetMapping("/makgora")
-    public String makgoraPost() {
-        log.info("makgora()");
-        
-        return "/customer/makgora";
-    }
+//	@GetMapping("/makgora")
+//    public String makgoraPost() {
+//        log.info("makgora()");
+//        
+//        return "/customer/makgora";
+//    }
 	
-	@PostMapping("/makgora")
-    public String makgora(@RequestParam("file") MultipartFile file) throws Exception {
-        log.info("post makgora()");
-        
-     // Get the file name.
-        String fileName = file.getOriginalFilename();
-        log.info("fileName = {}",fileName);
-        // Generate a random file name.
-        String randomFileName = UUID.randomUUID().toString() + "_" + fileName;
-        log.info("randomFileName = {}",randomFileName);
-        // Create a new file in the C:/mugmung/img/title path.
-        File newFile = new File(new File("C:/mugmung/img/title"), randomFileName);
-        log.info("newFile = {}",newFile);
-        // Write the file to the disk.
-        file.transferTo(newFile);
-
-        // Redirect the user back to the upload page.
-        
-        return "redirect:/main";
-    }
+//	@PostMapping("/makgora")
+//    public String makgora(@RequestParam("file") MultipartFile file) throws Exception {
+//        log.info("post makgora()");
+//        
+//     // Get the file name.
+//        String fileName = file.getOriginalFilename();
+//        log.info("fileName = {}",fileName);
+//        // Generate a random file name.
+//        String randomFileName = UUID.randomUUID().toString() + "_" + fileName;
+//        log.info("randomFileName = {}",randomFileName);
+//        // Create a new file in the C:/mugmung/img/title path.
+//        File newFile = new File(new File("C:/mugmung/img/title"), randomFileName);
+//        log.info("newFile = {}",newFile);
+//        // Write the file to the disk.
+//        file.transferTo(newFile);
+//
+//        // Redirect the user back to the upload page.
+//        
+//        return "redirect:/main";
+//    }
 	
 	@GetMapping("/faqs")
     public String faqs() {

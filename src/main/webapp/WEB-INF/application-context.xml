@@ -16,8 +16,8 @@
             value="oracle.jdbc.OracleDriver" />
         <property name="jdbcUrl"
             value="jdbc:oracle:thin:@192.168.20.30:1521:xe" />
-        <property name="username" value="scott" />
-        <property name="password" value="tiger" />
+        <property name="username" value="mugmung" />
+        <property name="password" value="mugmung" />
     </bean>
 
     <!-- HikariDataSource dataSource = new HikariDataSource(hikariConfig); -->

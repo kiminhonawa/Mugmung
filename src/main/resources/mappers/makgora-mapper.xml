@@ -6,8 +6,8 @@
 <mapper namespace="com.itwill.spring2.repository.MakgoraRepository">
 <!-- namespace의 값은 PostRepository 인터페이스가 있는 패키지 이름과 인터페이스 이름. -->
     <insert id="insert">
-    	insert into MAKGORA (TYPE), PRODUCT, TITLE, CONTENT)
-    	values (#{type}, #{product}, #{title}, #{content})
+    	insert into MAKGORA (TITLE, CONTENT, MAKGORA_IMAGE_ID, WRITER, MAKGORA_TYPE)
+    	values (#{title}, #{content}, #{makgora_image_id}, #{writer}, #{makgora_type}) 
     </insert>
 	
 	

@@ -1,19 +1,17 @@
-package com.itwill.spring2.dto;
+package com.itwill.spring2.domain;
 
 import java.time.LocalDateTime;
-
-import com.itwill.spring2.domain.Makgora;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class MakgoraDto {
+@Data
+public class Makgora {
 	
 	
 	private long id;
@@ -24,8 +22,4 @@ public class MakgoraDto {
 	private LocalDateTime created_time;
 	private LocalDateTime modified_time;
 	private String makgora_type;
-
-	
-	
-
 }
