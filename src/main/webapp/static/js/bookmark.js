@@ -49,7 +49,7 @@ const getBookmarkPostId = async () => {
  btnToggelBookmark.addEventListener('click', () => {
 
      if(bookmarkBtn.alt === 'bookmarkOff') {
-         bookmarkBtn.src = '../static/assets/icons.bookmarkOn.png';
+         bookmarkBtn.src = '../static/assets/icons/bookmarkOn.png';
          bookmarkBtn.alt = 'bookmarkOn';
          
          // 즐겨찾기 목록 서버에 요청하고, 응답이 오면 화면 갱신.

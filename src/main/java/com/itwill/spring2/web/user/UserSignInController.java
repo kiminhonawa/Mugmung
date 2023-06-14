@@ -8,6 +8,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import lombok.extern.slf4j.Slf4j;
 
+import java.io.Console;
 import java.io.IOException;
 
 import org.slf4j.Logger;
@@ -97,19 +98,21 @@ public class UserSignInController extends HttpServlet {
         User result = userService.signIn(user);
         log.info("일치 결과 = {}", result);
         
-        if (user == null) { // username 또는 password가 일치하지 않는 경우 - 로그인 실패
+        if (result == null) { // username 또는 password가 일치하지 않는 경우 - 로그인 실패
 		    // 로그인 페이지로 이동(redirect)
-		    
+		    log.info("로그인 실패");
 		    return "redirect:/user/signin";
+		} else {
+			log.info("로그인 성공");
+			// 로그인 성공
+			// (1) 세션(session)에 로그인 정보를 저장.
+			HttpSession session = request.getSession(); // 세션 객체 찾기
+			session.setAttribute("signedInUser", user.getUsername()); // 세션 객체에 로그인 username만 저장.
+			
+			// 호출한 페이지로 세션 가지고 이동
+			return "redirect:/";
 		}
         
-     // 로그인 성공
-     		// (1) 세션(session)에 로그인 정보를 저장.
-     		HttpSession session = request.getSession(); // 세션 객체 찾기
-     		session.setAttribute("signedInUser", user.getUsername()); // 세션 객체에 로그인 username만 저장.
-     		
-     		// 호출한 페이지로 세션 가지고 이동
-     		return "redirect:/";
         
         
         

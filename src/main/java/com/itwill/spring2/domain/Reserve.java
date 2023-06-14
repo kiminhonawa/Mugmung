@@ -16,7 +16,8 @@ public class Reserve {
 	private long id;
 	private long restaurant_id;
 	private Timestamp reserve_date;
-	private long number;
+	private long members;
+	private Timestamp reserve_time;
 	
 	
 	

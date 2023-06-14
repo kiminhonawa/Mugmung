@@ -6,8 +6,8 @@
 <mapper namespace="com.itwill.spring2.repository.ReserveRepository">
 <!-- namespace의 값은 PostRepository 인터페이스가 있는 패키지 이름과 인터페이스 이름. -->
     <insert id="insert">
-    	insert into RESERVE (RESTAURANT_ID, RESERVE_DATE, MEMBERS)
-    	values (#{restaurant_id}, #{reserve_date}, #{members})
+    	insert into RESERVE (RESTAURANT_ID, RESERVE_DATE, MEMBERS, RESERVE_TIME)
+    	values (#{restaurant_id}, #{reserve_date}, #{members}, #{reserve_time})
     </insert>
 	
 	
