@@ -5,6 +5,8 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 	
+const settingInfoBtn = document.querySelector('buttton#settingInfoBtn');
+	
 const tableLists = document.querySelector('tbody#tableLists');
 
 const showDetail = (e) =>{

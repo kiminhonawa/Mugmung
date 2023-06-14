@@ -15,6 +15,10 @@ import lombok.extern.slf4j.Slf4j;
 public class MakgoraController {
 	
 	public String create(MakgoraDto dto) {
-		log.info("POST: create({})", dto)
+		
+		log.info("POST: create({})", dto);
+		
+		return "";
+		
 	}
 }

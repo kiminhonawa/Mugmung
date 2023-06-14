@@ -55,13 +55,13 @@
 				        <div>
 				        	<label class="form-label" for="flexRadioDefault1">성별</label>
 				        <div class="form-check">
-						  <input class="form-check-input" type="radio" name="gender" id="genderM" value="1">
+						  <input class="form-check-input" type="radio" name="gender" id="gender" value="1">
 						  <label class="form-check-label" for="genderM">
 						    남성
 						  </label>
 						</div>
 						<div class="form-check">
-						  <input class="form-check-input" type="radio" name="gender" id="genderF" value="0">
+						  <input class="form-check-input" type="radio" name="gender" id="gender" value="0">
 						  <label class="form-check-label" for="genderF">
 						    여성
 						  </label>

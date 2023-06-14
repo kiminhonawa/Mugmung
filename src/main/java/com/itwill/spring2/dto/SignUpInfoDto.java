@@ -18,6 +18,5 @@ public class SignUpInfoDto {
     private String password;
     private String email;
     private int gender;
-    private Timestamp birth_day;
     
 }

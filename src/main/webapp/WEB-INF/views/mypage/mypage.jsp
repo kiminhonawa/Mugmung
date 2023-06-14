@@ -17,13 +17,58 @@
       <link rel="stylesheet" href="${carouselrtl }">
       <c:url value="/static/css/grid.css" var="grid" />
       <link rel="stylesheet" href="${grid }">
+      
+      <style>
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    
+    .image {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 10px;
+    }
+    
+    .label {
+      margin-bottom: 10px;
+    }
+    
+    .button {
+      margin-bottom: 10px;
+    }
+    
+    
+  </style>
+      
    </head>
    <body>
 	<main>
 		<div>
 <div class="row mb-3 text-center">
 
-	<div class="col-md-4 themed-grid-col">.col-md-4ㅁ</div>
+	<div class="col-md-4 themed-grid-col">
+		<div class="container">
+    <div class="image">
+    <c:url value="/static/img/ggule.png" var="ggule"></c:url>
+      <img src="${ggule }" alt="이미지">
+    </div>
+    <div class="label">
+      <p>${username } </p>님 안녕하세요.
+    </div>
+    
+    <button id="settingInfoBtn" name="settingInfoBtn" class="settingInfoBtn">설정</button>
+    
+    <div class="button">
+      <button>버튼 1</button>
+      <button>버튼 2</button>
+    </div>
+    
+    
+  </div>
+	</div>
 
     <div class="col-md-8 themed-grid-col">
       <div class="container">
@@ -71,13 +116,11 @@
                     </thead>
                     <tbody id="tableLists">
                     
-                    
-            
-            
-            
-                        
-                        
-                        
+                    <tr>
+                    	<td>1</td>
+                    	<td>2</td>
+                    	<td>3</td>
+                    </tr>
                     
                     </tbody>
                 </table>
