@@ -35,7 +35,13 @@
 }
 </style>
 
-	<h2 style="font-family: 'EF_jejudoldam'";>예약페이지 </h2>
+	<br />
+	<br />
+	<br />
+	<h2 style="font-family: 'EF_jejudoldam'; text-align: center;" > 숙성도 젲 </h2>
+	<h6 style="font-family: 'SUITE-Regular'; text-align: center;">예약페이지</h6>
+	<br />
+	<br />
 
 	<div class="container">
 		<div class="row align-items-center">
