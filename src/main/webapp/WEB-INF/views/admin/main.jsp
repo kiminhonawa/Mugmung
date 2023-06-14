@@ -43,7 +43,8 @@
                      <a class="nav-link" href="#">공지사항</a>
                   </li>
                   <li class="nav-item">
-                     <a class="nav-link" href="#">새 매장 등록</a>
+                     <c:url var="storecreatePage" value="/admin/storecreate" />
+                    <a class="nav-link" href="${ storecreatePage }">새 매장 등록</a>
                   </li>
                   <li class="nav-item">
                      <a class="nav-link" href="#">리뷰 관리</a>
