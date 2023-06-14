@@ -14,6 +14,7 @@
             crossorigin="anonymous">
     </head>
     <body>
+    
     <div class="container-fluid">
         <header class="my-2 p-5 text-center text-bg-dark">
             <h1>포스트 작성</h1>
