@@ -51,7 +51,7 @@
 		
 		<div id="sform">
 		<c:url value="/customer/makgora" var="makgora"></c:url>
-		<form class="my-form" method="post" action="${ makgora }">
+		<form class="my-form" method="post" action="${ makgora }" style="padding-left: 220px;">
 			<div class="row mb-3">
 				<label class="col-sm-2 col-form-label">문의상품 유형</label>
 				<div class="col-sm-6">
@@ -80,10 +80,20 @@
 						name="content" placeholder="내용을 입력해주세요" required></textarea>
 				</div>
 			</div>
-
+			<div class="row mb-3">
+			  <label class="col-sm-2 col-form-label">파일첨부</label>
+			  <div class="col-sm-6">
+			    <div class="form-group uploadDiv">
+			      <input type="file" name="uploadFile" id="uploadFile" multiple />
+			    </div>
+			    <div class="uploadResult">
+			      <ul></ul>
+			    </div>  
+			  </div>
+			</div>
 			<div class="row">
 				<div class="col-sm-2"></div>
-				<div class="col-sm-6 text-center">
+				<div class="col-sm-6">
 					<input class="btn btn-warning" type="submit" value="등록하기" />
 					<input class="btn btn-light" type="submit" value="취소하기" />
 				</div>
