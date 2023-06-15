@@ -1,6 +1,6 @@
 
 // 문의구분에 따른 다른 카테고리
-function inquiryChang(e){
+/*function inquiryChang(e){
     var Partnership = ["배송 상품", "서비스 상품", "기타"];
     var Affiliation = ["마케팅 제휴", "광고 문의"]
     var Api = ["API연동 문의"];
@@ -18,7 +18,7 @@ function inquiryChang(e){
         opt.innerHTML = result[x];
         target.appendChild(opt);
     }
-}
+}*/
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -26,14 +26,17 @@ document.addEventListener('DOMContentLoaded', () => {
     btnInquiry.addEventListener('click', () => {
         if (confirm("문의하시겠습니까?") == true) {
             //true는 확인버튼을 눌렀을 때 코드 작성
-            console.log("완료되었습니다.");
+            alert("완료되었습니다.");
+            location.href = '/mugmung/main';
         } else {
             // false는 취소버튼을 눌렀을 때, 취소됨
-            console.log("취소되었습니다");
+             alert("취소되었습니다.");
         }
         
     })
 });
+
+
 
 
 

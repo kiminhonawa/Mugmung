@@ -7,19 +7,19 @@
 
     <!-- 게시글 북마크 등록 -->
     <insert id="BookmarkOn">
-        insert into BOOKMARK (bookmark_id, post_id, user_id)
-        values (BOOKMARK_seq.nextval, #{post_id}, #{user_id})
+        insert into BOOKMARK (id, restaurant_id, username)
+        values (BOOKMARK_seq.nextval, #{restaurant_id}, #{username})
     </insert>
     
     <!-- 게시글 북마크 상태 -->
     <select id="MyBookmark" resultType="com.itwill.spring2.dto.PostListDto">
         select count(*) from BOOKMARK 
-        where post_id = #{post_id} and user_id = #{user_id}
+        where restaurant_id = #{restaurant_id} and username = #{username}
     </select> 
     
     <!-- 게시글 북마크 취소 -->
     <delete id="BookmarkOff">
         delete from BOOKMARK 
-        where post_id = #{post_id} and user_id = #{user_id}
+        where restaurant_id = #{restaurant_id} and username = #{username}
     </delete>
 </mapper>

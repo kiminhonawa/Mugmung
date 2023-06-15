@@ -12,6 +12,9 @@ import com.itwill.spring2.domain.Reserve;
 import com.itwill.spring2.dto.ReserveDto;
 import com.itwill.spring2.service.ReserveService;
 
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
@@ -19,7 +22,7 @@ import lombok.extern.slf4j.Slf4j;
 @RequiredArgsConstructor
 @RequestMapping("/reserve")
 @Controller
-public class ReserveController {
+public class ReserveController extends HttpServlet{
 	
 	private final ReserveService reserveService;
 	
@@ -31,9 +34,8 @@ public class ReserveController {
 	
 	
 	
-	
 	@PostMapping("/booking")
-	public ResponseEntity<String> reserve(@RequestBody ReserveDto dto) {
+	public ResponseEntity<String> reserve(@RequestBody ReserveDto dto, Model model, HttpServletRequest request) {
 	    log.info("POST: reserve({})", dto);
 	    
 	    // Create a ReserveDto object and set the reservation information
@@ -41,6 +43,13 @@ public class ReserveController {
 	    reserveDto.setReserve_date(dto.getReserve_date());
 	    reserveDto.setMembers(dto.getMembers());
 	    reserveDto.setReserve_time(dto.getReserve_time());
+	    
+	    HttpSession session = ((HttpServletRequest) request).getSession();
+		
+		String username = (String) session.getAttribute("signedInUser");
+		log.info("username = {}",username);
+		
+		model.addAttribute("username", username);
 	    
 	    // Call the reserve method of ReserveService with the ReserveDto object
 	    int result = reserveService.reserve(reserveDto);

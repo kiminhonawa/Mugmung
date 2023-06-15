@@ -2,7 +2,8 @@ package com.itwill.spring2.service;
 
 import org.springframework.stereotype.Service;
 
-import com.itwill.spring2.domain.Bookmark;
+
+import com.itwill.spring2.dto.BookmarkDto;
 import com.itwill.spring2.repository.BookmarkRepository;
 import com.itwill.spring2.repository.PostRepository;
 import com.itwill.spring2.repository.UserRepository;
@@ -22,10 +23,10 @@ public class BookmarkService {
     
     
     // 게시글 북마크 등록
-    public void bookmarkOn(Bookmark param) {
+    public void bookmarkOn(BookmarkDto param) {
         int myBookmark = MyBookmark(param);
         if(myBookmark > 0) {
-            bookmarkRepository.BookmarkOff(param.getPost_id(), param.getUser_id());
+            bookmarkRepository.BookmarkOff(param.getRestaurant_id(), param.getUsername());
         } else {
             bookmarkRepository.BookmarkOn(param);
         }
@@ -35,7 +36,7 @@ public class BookmarkService {
     
     
     
-    public int MyBookmark(Bookmark param) {
+    public int MyBookmark(BookmarkDto param) {
         return bookmarkRepository.MyBookmark(param);
     }
 

@@ -15,9 +15,18 @@
       <link rel="stylesheet" href="carousel">
       <c:url value="/static/css/carouselrtl.css" var="carouselrtl" />
       <link rel="stylesheet" href="carouselrtl">
+
       <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
    </head>
    <body>
+
+	<main>
+		<!-- 파일 업로드에서는 enctype(인코딩타입)을 multipart/form-data로 반드시 설정 -->
+    <form action="upload_ok" method="post" enctype="multipart/form-data"> <!-- 폼요소가 파일이나 이미지 전송할때 사용 -->
+        파일 선택 : <input type="file" name="file">
+        <input type="submit" value="전송">
+    </form>
+=======
    <main>
    <hr>
    <p align="left" style="padding-left: 80px; font-weight: bold; font-size: large;">${username}님 안녕하세요.</p>
@@ -32,7 +41,12 @@
                   <c:url var="adminNoticePage" value="/admin/main/notice" />
                         <li class="nav-item"><a href="${adminNoticePage}" class="nav-link">공지사항</a></li>
                   <li class="nav-item">
+<<<<<<< HEAD
+                     <c:url var="storecreatePage" value="/admin/storecreate" />
+                    <a class="nav-link" href="${ storecreatePage }">새 매장 등록</a>
+=======
                      <a class="nav-link" href="/mugmung/admin/main">매장 정보</a>
+>>>>>>> refs/remotes/origin/main
                   </li>
                   <li class="nav-item">
                      <a class="nav-link" href="#">새 매장 등록</a>
@@ -56,7 +70,18 @@
          </div>
       </div>
    </div>
+>>>>>>> refs/remotes/origin/inho
 
+<<<<<<< HEAD
+    <div id="imagePreview"></div>
+		<%@ include file="../../views/common/footer.jsp" %>
+	</main>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <script src="../static/js/picture-upload.js"></script>
+
+   </body>
+</html>
+=======
    <%@ include file="../../views/common/footer.jsp" %>
 </main>
 <script>
@@ -133,3 +158,4 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 </body>
 </html>
+>>>>>>> refs/remotes/origin/inho
