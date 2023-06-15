@@ -20,6 +20,8 @@
    <body>
    <main>
    <hr>
+   <p align="left" style="padding-left: 80px; font-weight: bold; font-size: large;">${username}님 안녕하세요.</p>
+   <br>
    <h1 align="center">매장 정보</h1>
    <h4 align="center">연령별 / 성별 인기도</h4>
    <div class="container">
@@ -27,9 +29,8 @@
          <div class="col-md-2" style="padding-left: 0; width: 150px;">
             <div class="sidebar">
                <ul class="nav flex-column">
-                  <li class="nav-item">
-                     <a class="nav-link" href="#">공지사항</a>
-                  </li>
+                  <c:url var="adminNoticePage" value="/admin/main/notice" />
+                        <li class="nav-item"><a href="${adminNoticePage}" class="nav-link">공지사항</a></li>
                   <li class="nav-item">
                      <a class="nav-link" href="/mugmung/admin/main">매장 정보</a>
                   </li>

@@ -23,35 +23,26 @@
 	<main>
 		<div class="container-fluid">
 			<div class="btn-group" role="group">
+				
 				<div style="height: 10px;"></div>
 				<div style="text-align: center; position: relative;">
 					<c:url value="/static/img/jejumap.jpeg" var="titleMap" />
 					<img src="${titleMap }" class="jeju" alt="제주도 맛집! 머그멍" width="90%">
 				</div>
 				<div id="buttonContainer">
-					<button class="btn1 cityBtn" id="hangyeong" name="hangyeong" type="button"></button>
-					<button class="btn2 cityBtn" id="hanlim" name="hanlim" type="button"
-						onclick="javascript:sensorBtnClick('btn2');"></button>
-					<button class="btn3 cityBtn" id="aewol" name="aewol" type="button"
-						onclick="javascript:sensorBtnClick('btn3');"></button>	
-					<button class="btn4 cityBtn" id="jeju" name="jeju" type="button"
-						onclick="javascript:sensorBtnClick('btn1');"></button>
-					<button class="btn5 cityBtn" id="jochun" name="jochun" type="button"
-						onclick="javascript:sensorBtnClick('btn1');"></button>
-					<button class="btn6 cityBtn" id="gujwa" name="gujwa" type="button"
-						onclick="javascript:sensorBtnClick('btn1');"></button>
-					<button class="btn7 cityBtn" id="daejeong" name="daejeong" type="button"
-						onclick="javascript:sensorBtnClick('btn1');"></button>
-					<button class="btn8 cityBtn" id="anduck" name="anduck" type="button"
-						onclick="javascript:sensorBtnClick('btn1');"></button>			
-					<button class="btn9 cityBtn" id="seogwipo" name="seogwipo" type="button"
-						onclick="javascript:sensorBtnClick('btn1');"></button>
-					<button class="btn10 cityBtn" id="namwon" name="namwon" type="button"
-						onclick="javascript:sensorBtnClick('btn1');"></button>
-					<button class="btn11 cityBtn" id="pyosun" name="sungsan" type="button"
-						onclick="javascript:sensorBtnClick('btn1');"></button>
-					<button class="btn12 cityBtn" id="sungsan" name="sungsan" type="button"
-						onclick="javascript:sensorBtnClick('btn1');"></button>		
+				
+					<button class="btn1 cityBtn" id="한경면" name="hangyeong" type="button"></button>
+					<button class="btn2 cityBtn" id="2" name="hanlim" type="button"></button>
+					<button class="btn3 cityBtn" id="3" name="aewol" type="button"></button>	
+					<button class="btn4 cityBtn" id="4" name="jeju" type="button"></button>
+					<button class="btn5 cityBtn" id="5" name="jochun" type="button"></button>
+					<button class="btn6 cityBtn" id="6" name="gujwa" type="button"></button>
+					<button class="btn7 cityBtn" id="7" name="daejeong" type="button"></button>
+					<button class="btn8 cityBtn" id="8" name="anduck" type="button"></button>			
+					<button class="btn9 cityBtn" id="9" name="seogwipo" type="button"></button>
+					<button class="btn10 cityBtn" id="10" name="namwon" type="button"></button>
+					<button class="btn11 cityBtn" id="11" name="sungsan" type="button"></button>
+					<button class="btn12 cityBtn" id="12" name="sungsan" type="button"></button>		
 				</div>
 			</div>
 		</div>
