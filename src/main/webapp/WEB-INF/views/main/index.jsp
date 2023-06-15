@@ -191,7 +191,7 @@
     </c:forEach>
     <c:if test="${pageMaker.next}">
     <li class="page-item">
-      <a class="page-link" href="${pageMaker.endPage +1}" aria-label="Next">
+      <a class="page-link" href="${pageMaker.cri.pageNum+1}" aria-label="Next">
         <span aria-hidden="true">&raquo;</span>
       </a>
     </li>
@@ -234,9 +234,10 @@ actionForm.submit();
 
 
 });
+$(document).ready(function(){
 
-
-
+	$(".page-link").focus();
+});
 
 });
 

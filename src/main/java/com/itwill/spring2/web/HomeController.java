@@ -31,6 +31,7 @@ public class HomeController {
     @GetMapping("/main")
     public String home(Model model, Criteria cri) {
         log.info("home()");
+        
             
         List<IndexListDto> list = indexService.read();
         
@@ -43,10 +44,7 @@ public class HomeController {
         return "/main/index";
     }
     
-    
-    
-    
-    
+   
     
     
     @GetMapping("/test")
