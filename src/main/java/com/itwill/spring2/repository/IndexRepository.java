@@ -6,7 +6,7 @@ import com.itwill.spring2.domain.Criteria;
 import com.itwill.spring2.dto.IndexListDto;
 
 public interface IndexRepository {
-	List<IndexListDto> indexListRead();
+	List<IndexListDto> indexListRead(String id);
 	
 	List<IndexListDto> bestListRead();
 	

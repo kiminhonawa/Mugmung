@@ -31,9 +31,9 @@
 				</div>
 				<div id="buttonContainer">
 				
-					<button class="btn1 cityBtn" id="한경면" name="hangyeong" type="button"></button>
-					<button class="btn2 cityBtn" id="2" name="hanlim" type="button"></button>
-					<button class="btn3 cityBtn" id="3" name="aewol" type="button"></button>	
+					<button class="btn1 cityBtn" id="강서구" name="hangyeong" type="button"></button>
+					<button class="btn2 cityBtn" id="관악구" name="hanlim" type="button"></button>
+					<button class="btn3 cityBtn" id="강남구" name="aewol" type="button"></button>	
 					<button class="btn4 cityBtn" id="4" name="jeju" type="button"></button>
 					<button class="btn5 cityBtn" id="5" name="jochun" type="button"></button>
 					<button class="btn6 cityBtn" id="6" name="gujwa" type="button"></button>

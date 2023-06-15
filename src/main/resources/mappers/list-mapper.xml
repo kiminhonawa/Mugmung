@@ -41,15 +41,15 @@ order by v.star_score desc
 <![CDATA[
         select * from
 (select /*+ INDEX_DESC */ rownum rn,
-    r.MENU_ID
+    r.id
     , r.name
     , i.images_loc
     , a.address1
     , a.address2
     , v.star_score
 from restaurant r, images i, address a, reviews v
-where r.MENU_ID = i.RESTAURANT_ID and r.MENU_ID = a.RESTAURANT_ID and r.MENU_ID = v.RESTAURANT_ID and
-r.id >0 and rownum <= (#{pageNum}*#{amount}))
+where r.id = i.RESTAURANT_ID and r.id = a.RESTAURANT_ID and r.id = v.RESTAURANT_ID and
+r.id >0 and a.address1 like '%' || #{id} || '%' and rownum <= (#{pageNum}*#{amount}))
 where rn > (#{pageNum}-1)*#{amount}
 ]]>
     </select> 
