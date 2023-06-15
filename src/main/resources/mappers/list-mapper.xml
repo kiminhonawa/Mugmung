@@ -10,14 +10,14 @@
     <select id="indexListRead"
         resultType="com.itwill.spring2.dto.IndexListDto">
         select 
-    r.ID
+    r.id
     , r.name
     , i.images_loc
     , a.address1
     , a.address2
     , v.star_score
 from restaurant r, images i, address a, reviews v
-where r.ID = i.RESTAURANT_ID and r.ID = a.RESTAURANT_ID and r.ID = v.RESTAURANT_ID
+where r.id = i.RESTAURANT_ID and r.id = a.RESTAURANT_ID and r.id = v.RESTAURANT_ID
     </select>
     
   
@@ -49,7 +49,7 @@ order by v.star_score desc
     , v.star_score
 from restaurant r, images i, address a, reviews v
 where r.id = i.RESTAURANT_ID and r.id = a.RESTAURANT_ID and r.id = v.RESTAURANT_ID and
-r.id >0 and rownum <= (#{pageNum}*#{amount}))
+r.id >0 and a.address1 like '%' || #{id} || '%' and rownum <= (#{pageNum}*#{amount}))
 where rn > (#{pageNum}-1)*#{amount}
 ]]>
     </select> 

@@ -21,7 +21,7 @@
    <main>
     <hr>
     <br>
-    <h1 align="center">리뷰 관리</h1>
+    <h1 align="center">공지사항</h1>
     <br>
     <div class="container">
         <div class="row">
@@ -42,22 +42,38 @@
                 </div>
             </div>
 
-            <div class="col-md-10 ">
-                <table class="card-body table table-hover">
+            <div class="col-md-10">
+                <table class="card-body table table-hover text-center">
                     <thead>
                         <tr class="table-warning">
                           
-                            <th class="text-center">내용</th>
+                            <th>내용</th>
                             <th>작성자</th>
+                            <th>작성시간</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <c:forEach items="${ lists }" var="post">
                             <tr>                            
-                                <td class="text-center">${ post.reply_text }</td>
-                                <td>${ post.writer }</td>
+                                <td>서비스 이용약관 개정 안내 (6월 20일 시행)</td>
+                                <td>관리자</td>
+                                <td>2023.06.14</td>
                             </tr>
-                        </c:forEach>
+                            <tr>                            
+                                <td>긴급점검 안내</td>
+                                <td>관리자</td>
+                                <td>2023.06.09</td>
+                            </tr>
+                            <tr>                            
+                                <td>고객센터 전화상담 일시 중단 안내 (6월6일 시행)</td>
+                                <td>관리자</td>
+                                <td>2023.06.02</td>
+                            </tr>
+                            <tr>                            
+                                <td>(필독) 새 매장 등록 시 주의사항</td>
+                                <td>관리자</td>
+                                <td>2023.05.09</td>
+                            </tr>
+                       
                     </tbody>
                 </table>
             </div>

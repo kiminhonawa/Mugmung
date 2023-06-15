@@ -28,16 +28,17 @@ public class HomeController {
         return "/map/mugmap";
     }
     
-    @GetMapping("/main")
-    public String home(Model model, Criteria cri) {
+	@GetMapping("/main")
+    public String home(Model model, Criteria cri, String id) {
         log.info("home()");
-        
-            
-        List<IndexListDto> list = indexService.read();
+        log.info("id({})", id);
+          
+        List<IndexListDto> list = indexService.read(id);
         
         log.info("listaslkdfjalsdkf = {}",list);
         
         // 뷰에 보여줄 데이터를 Model에 저장.
+        cri.setId(id);
         model.addAttribute("indexLists", list=indexService.read(cri));
         model.addAttribute("pageMaker", new PageDto(cri, 10));
         
