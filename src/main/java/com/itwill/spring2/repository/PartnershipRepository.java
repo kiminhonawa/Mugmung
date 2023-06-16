@@ -1,8 +1,8 @@
 package com.itwill.spring2.repository;
 
-import com.itwill.spring2.dto.PartnershipDto;
+import com.itwill.spring2.domain.Partnership;
 
 public interface PartnershipRepository {
 
-    int insert(PartnershipDto id);
+    int insert(Partnership partnership);
 }
