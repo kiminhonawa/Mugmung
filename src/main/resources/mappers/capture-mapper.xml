@@ -6,9 +6,26 @@
 
 <mapper namespace="com.itwill.spring2.repository.CaptureRepository">
 
-<!-- id의 값은 PostRepository 인터페이스에서 선언하는 메서드 이름. -->
+<!-- id의 값은 Repository 인터페이스에서 선언하는 메서드 이름. -->
+
+    <select id="selectWithReplyCount" 
+        resultType="com.itwill.spring2.dto.CaptureListDto">
+        select c.id, c.content, c.capture_image_id, c.writer, c.created_time
+        from capture c
+    </select>
+    
     <insert id="insert">
-        insert into CAPTURE (REPLY_TEXT,CAPTURE_IMAGES_ID ,WRITER,CREATED_TIME, MODIFIED_TIME)
-        values (#{reply_text},#{capture_images_id} ,#{writer}, systimestamp, systimestamp)
+        insert into CAPTURE (CONTENT, CAPTURE_IMAGE_ID, WRITER, CREATED_TIME, MODIFIED_TIME)
+        values (#{content},#{capture_image_id} ,#{writer}, systimestamp, systimestamp)
     </insert>
+    
+    <select id="selectById" 
+        resultType="com.itwill.spring2.domain.Capture">
+        select * from CAPTURE where ID = #{id}
+    </select>
+    
+    
+    <delete id="deleteById">
+        delete from CAPTURE where ID = #{id}
+    </delete>
 </mapper>
