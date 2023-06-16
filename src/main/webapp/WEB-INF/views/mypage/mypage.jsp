@@ -45,26 +45,63 @@
       
    </head>
    <body>
+   
+   <script>
+    // 이미지 요청 함수
+    function requestImage() {
+        // XMLHttpRequest 객체 생성
+        var xhr = new XMLHttpRequest();
+        
+        // GET 요청 설정
+        xhr.open('GET', '/mugmung/mypage/your-image-url', true);
+        
+        // 응답 처리
+        xhr.onload = function() {
+            if (xhr.status === 200) {
+                // 응답을 이미지로 설정
+                var blob = xhr.response;
+                var url = URL.createObjectURL(blob);
+                document.getElementById('myImage').src = url;
+            }
+        };
+        
+        // 요청 전송
+        xhr.send();
+    }
+</script>
+
+<!-- 이미지 표시 -->
+<img id="myImage" src="" alt="이미지">
+
+<!-- 버튼 클릭 시 이미지 요청 -->
+<button onclick="requestImage()">이미지 요청</button>
+   
+   
 	<main>
+		<input type="hidden" id="mymyImage" name="mymyImage" value="${img_loc}">
 		<div>
 <div class="row mb-3 text-center">
 
 	<div class="col-md-4 themed-grid-col">
 		<div class="container">
     <div class="image">
-    <c:url value="/static/img/ggule.png" var="ggule"></c:url>
-      <img src="${ggule }" alt="이미지">
+		<img id="myImgUrl" src="" alt="이미지" style="width: 200px; height: 200px;">
     </div>
     <div class="label">
       <p>${username } </p>님 안녕하세요.
     </div>
     
     <button id="settingInfoBtn" name="settingInfoBtn" class="settingInfoBtn">설정</button>
-    
-    <div class="button">
-      <button>버튼 1</button>
-      <button>버튼 2</button>
-    </div>
+    <br/>
+    <div>
+      <label for="bookmarkCnt">북마크 수 : ${cntDto.bookmarkCnt }</label>
+     </div>
+     <div >
+      <label for="reviewCnt">리뷰 수 : ${cntDto.reviewCnt }</label>
+      </div>
+      <div >
+      <label for="reviewCnt">예약자 수 : ${cntDto.reserveCnt }</label>
+      </div>
     
     
   </div>

@@ -48,7 +48,7 @@ public class CustomerController  {
         String randomFileName = UUID.randomUUID().toString() + "_" + fileName;
         log.info("randomFileName = {}",randomFileName);
         // Create a new file in the C:/mugmung/img/title path.
-        File newFile = new File(new File("C:/mugmung/img/title"), randomFileName);
+        File newFile = new File(new File("C:\\workspace\\spring2\\src\\main\\webapp\\static\\img\\"), randomFileName);
         log.info("newFile = {}",newFile);
         // Write the file to the disk.
         file.transferTo(newFile);

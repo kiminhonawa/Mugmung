@@ -18,5 +18,5 @@ public class SignUpInfoDto {
     private String password;
     private String email;
     private int gender;
-    
+    private String user_image;
 }

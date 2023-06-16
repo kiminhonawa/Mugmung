@@ -15,7 +15,7 @@
     </select>
     
     <insert id="insertUser">
-    	insert into users(username, password, email, birth_day, gender) values (#{username},#{password},#{email},#{birth_day}, #{gender})
+    	insert into users(username, password, email, birth_day, gender, USER_IMAGE) values (#{username},#{password},#{email},#{birth_day}, #{gender}, #{user_image})
     </insert>
     
 </mapper>

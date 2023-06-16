@@ -15,6 +15,17 @@
     <div class="container-fluid">                 
         <main class="my-2">
             <div class="card">
+            
+            
+            
+            
+<%-- 서블릿에 요청해 파일을 업로드 함 --%>
+			<c:url value="/upload/imgUpload" var="upload"></c:url>
+			<form id="signUploadForm" action="${upload}" method="post" enctype="multipart/form-data">
+    <input type="file" class="myfile" id="file" name="file" />
+    <input type="button" id="btnUpload" value="Upload" />
+</form>
+			
             <c:url value="/join/signup" var="signupPage"></c:url>
                 <form id="signupForm" method="post" action="${signupPage }">
                     <div class="card-body">
@@ -26,7 +37,6 @@
                         
                         <div class="bd-example">
 					        <p class="lead" id="usernameConfirmLabel" style="font-size: 15px; color: #e55;">
-					          
 					        </p>
 				        </div>
                         
@@ -45,27 +55,27 @@
 					          
 					        </p>
 				        </div>
-				        
-				        
 				        <p>
 					      	<label for="date">생년 월일</label>
-					      <input type="date" id="birth_day" name="birth_day">
+							<input type="date" id="birth_day" name="birth_day">
 					    </p>
-				        
 				        <div>
 				        	<label class="form-label" for="flexRadioDefault1">성별</label>
 				        <div class="form-check">
-						  <input class="form-check-input" type="radio" name="gender" id="gender" value="1">
+						  <input class="form-check-input" type="radio" name="gender" id="genderM" value="1">
 						  <label class="form-check-label" for="genderM">
 						    남성
 						  </label>
 						</div>
 						<div class="form-check">
-						  <input class="form-check-input" type="radio" name="gender" id="gender" value="0">
+						  <input class="form-check-input" type="radio" name="gender" id="genderF" value="0">
 						  <label class="form-check-label" for="genderF">
 						    여성
 						  </label>
 						</div>
+						
+						<input type="text" id="user_image" name="user_image">
+						
 				        </div>
                         <div class="my-2">
                             <label class="form-label" for="email">이메일</label>
@@ -78,6 +88,7 @@
                             type="submit" value="작성 완료" />
                     </div>
                 </form>
+                
             </div>
             <%@ include file="../../views/common/footer.jsp" %>
         </main>
