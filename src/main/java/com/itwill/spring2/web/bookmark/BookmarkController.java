@@ -8,8 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.itwill.spring2.domain.Bookmark;
+
 import com.itwill.spring2.domain.User;
+import com.itwill.spring2.dto.BookmarkDto;
 import com.itwill.spring2.service.BookmarkService;
 
 import jakarta.servlet.http.HttpSession;
@@ -26,7 +27,7 @@ public class BookmarkController {
     
     // 게시글 북마크 등록
     @PostMapping("/bookmark/mypage")
-    public HashMap<String, Object> bookmarkOn(Bookmark param, HttpSession session){
+    public HashMap<String, Object> bookmarkOn(BookmarkDto param, HttpSession session){
         User sessionUser = (User) session.getAttribute("sessionUser");
         if(sessionUser == null) {
             data.put("result", "error");
@@ -34,8 +35,8 @@ public class BookmarkController {
             return data;
         }
        
-        long user_id = sessionUser.getId();
-        param.setUser_id(user_id);
+        String user_id = sessionUser.getUsername();
+        param.setUsername(user_id);
         
         int mybookmark = bookmarkService.MyBookmark(param);
         

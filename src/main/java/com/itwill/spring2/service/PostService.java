@@ -71,7 +71,7 @@ public class PostService {
     
     // 새 포스트 작성 페이지
     public int create(PostCreateDto dto) {
-        log.info("crate({})", dto);
+        log.info("create({})", dto);
         
         // PostCreateDto 타입을 Post 타입으로 변환해서
         // 리포지토리 계층의 메서드를 호출 - DB Insert.
@@ -92,4 +92,5 @@ public class PostService {
         return postRepository.deleteById(id);
     }
     
+
 }

@@ -42,14 +42,14 @@ public class MypageController extends HttpServlet{
 		
 		model.addAttribute("lists", list);
 		model.addAttribute("cntDto", cntDto);
-		model.addAttribute("username",username);
 		
 		String img_loc = myPageService.createMyPageImgLoc(username); 
 		
 		log.info("img_loc : ", img_loc);
 		
 		model.addAttribute("img_loc", img_loc);
-		
+		model.addAttribute("username",username);
+
 		log.info("list={}",list);
 		
 		return "/mypage/mypage";
@@ -72,15 +72,5 @@ public class MypageController extends HttpServlet{
 		return ResponseEntity.ok(list);
 		
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 }

@@ -4,5 +4,5 @@ import com.itwill.spring2.dto.MakgoraDto;
 
 public interface MakgoraRepository {
 	
-	int insert(MakgoraDto makgora);
+	int insert(MakgoraDto dto);
 }

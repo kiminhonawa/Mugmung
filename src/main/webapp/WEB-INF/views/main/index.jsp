@@ -123,14 +123,26 @@
     <!-- START THE FEATURETTES -->
 
     <hr class="featurette-divider">
+    <div class="container my-3">
+    <div class="row justify-content-between my-3">
+    <div class="col-2">
+    	<select class="form-control so">
+    		<option value="recent">최신순</option>
+    		<option value="old">오래된순</option>
+    		<option value="popular">인기순</option>
+    	</select>
+    	
+    </div>
+    </div>
 <c:forEach items="${indexLists}" var="list" varStatus="loop">
   <div class="row featurette">
     <c:if test="${loop.index % 2 == 0}">
       <div class="col-md-7">
-        <h2 class="featurette-heading fw-normal lh-1" style="font-family: 'EF_jejudoldam';">${list.name}<span class="text-muted"></span></h2>
-        <p class="lead">
+        <h2 class="featurette-heading fw-normal lh-1" style="font-family: 'EF_jejudoldam'; text-align:right; margin-right: 100px">${list.name}<span class="text-muted"></span></h2>
+        <p class="lead" style="margin-left: 100px; margin-right: 100px; text-align:right;">
           <c:url value="/detail/detail?id=${list.id}" var="detailPage"></c:url>
-          <a href="${detailPage}">Some great placeholder content for the featurette here. Imagine some exciting prose here.</a>
+          <a href="${detailPage}">${list.address1} ${list.address2}</a><br>
+          <a>${list.star_score}</a>
         </p>
       </div>
       <div class="col-md-5">
@@ -150,8 +162,8 @@
         </svg>
       </div>
       <div class="col-md-7 order-md-2">
-        <h2 class="featurette-heading fw-normal lh-1" style="font-family: 'EF_jejudoldam';">${list.name}<span class="text-muted"></span></h2>
-        <p class="lead">Another featurette? Of course. More placeholder content here to give you an idea of how this layout would work with some actual real-world content in place.</p>
+        <h2 class="featurette-heading fw-normal lh-1" style="font-family: 'EF_jejudoldam'; margin-left: 100px;">${list.name}<span class="text-muted"></span></h2>
+        <p class="lead" style="margin-left: 100px; margin-right: 100px;">Another featurette? Of course. More placeholder content here to give you an idea of how this layout would work with some actual real-world content in place.</p>
       </div>
     </c:if>
   </div>
@@ -164,27 +176,72 @@
   </div><!-- /.container -->
 
 <!-- carousel 끝 -->		
+<div id="pagination">
 		<nav aria-label="Page navigation example">
   <ul class="pagination justify-content-center" id="pages">
+  <c:if test="${pageMaker.prev}">
     <li class="page-item">
-      <a class="page-link" href="#" aria-label="Previous">
+      <a class="page-link" href="${ pageMaker.cri.pageNum > 1 ? pageMaker.cri.pageNum-1 : 1 }" aria-label="Previous">
         <span aria-hidden="true">&laquo;</span>
       </a>
     </li>
-    <li class="page-item"><a class="page-link" href="#">1</a></li>
-    <li class="page-item"><a class="page-link" href="#">2</a></li>
-    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    </c:if>
+    <c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="num">
+    <li class="page-item ${pageMaker.cri.pageNum == num? "active" :"" }"><a class="page-link" href="${num}">${num}</a></li>
+    </c:forEach>
+    <c:if test="${pageMaker.next}">
     <li class="page-item">
-      <a class="page-link" href="#" aria-label="Next">
+      <a class="page-link" href="${pageMaker.cri.pageNum+1}" aria-label="Next">
         <span aria-hidden="true">&raquo;</span>
       </a>
     </li>
+    </c:if>
+    
   </ul>
 </nav>
+<form id='actionForm' action="/mugmung/main" method='get'>
+	<input type='hidden' name='pageNum' value ='${pageMaker.cri.pageNum}'>
+	<input type='hidden' name='amount' value='${pageMaker.cri.amount}'>
+</form>
 		
+		</div>
 		</div>
 		<%@ include file="../../views/common/footer.jsp" %>
 	</main>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <script src="../static/js/main.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script type="text/javascript">
+
+$(document).ready(function() {
+
+var actionForm = $("#actionForm");
+
+
+$(".page-link").on("click", function(e){
+
+e.preventDefault();
+
+
+var targetPage = $(this).attr("href");
+
+console.log(targetPage);
+
+
+actionForm.find("input[name='pageNum']").val(targetPage);
+
+actionForm.submit();
+
+
+});
+$(document).ready(function(){
+
+	$(".page-link").focus();
+});
+
+});
+
+
+</script>
    </body>
 </html>
