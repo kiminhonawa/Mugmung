@@ -49,8 +49,7 @@
 
         <div class="container">
           <div class="carousel-caption text-start" >
-            <img src="./static/img/solo.jpg" sizes="32x32" style="margin-left: 200px"/>
-            <p style="margin-left: 800px"><a class="btn btn-lg btn-primary" href="#">식당 들어가기</a></p>
+            <img src="./static/img/animal.jpeg" style="width: 100%; height: 100;"/>
           </div>
         </div>
       </div>
