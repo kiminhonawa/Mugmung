@@ -39,24 +39,22 @@ const getBookmarkrestaurantId = async () => {
 
 
 
-
  // 즐겨찾기 토글 처리
  
- // 버튼 아이콘 이미지
  const bookmarkBtn = document.querySelector('img#bookmarkBtn');
  
  const btnToggelBookmark = document.querySelector('button#btnToggelBookmark');
  btnToggelBookmark.addEventListener('click', () => {
 
-     if(bookmarkBtn.alt === 'bookmarkOff') {
+     if(bookmarkBtn.alt === 'bookmark-off') {
          bookmarkBtn.src = '../static/assets/icons/bookmarkOn.png';
-         bookmarkBtn.alt = 'bookmarkOn';
+         bookmarkBtn.alt = 'bookmark-on';
          
          // 즐겨찾기 목록 서버에 요청하고, 응답이 오면 화면 갱신.
-         getBookmarkRestaurantId();
+        getBookmarkrestaurantId();
      } else {
          bookmarkBtn.src = '../static/assets/icons/bookmarkOff.png';
-         bookmarkBtn.alt = 'bookmarkOff';
+         bookmarkBtn.alt = 'bookmark-off';
      }
  });
  

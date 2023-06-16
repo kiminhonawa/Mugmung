@@ -31,12 +31,12 @@
 
   
    <br> <br>
-   <div class="row justify-content-center">
+   <div class="row justify-content-center"  style="font-family: 'SUITE-Regular';" >
     <div class="col-md-7 col-lg-8">
      <div class="proposal_write_tbl">
-      <h4 class="proposal_write_tit mb-4" style="font-family: 'SUITE-Regular';">제안하기</h4>
+      <h4 class="proposal_write_tit mb-4">제안하기</h4>
       <hr>
-      <form method="post">
+      <form method="post" >
        <table class="table_info">
         <colgroup>
          <col width="163" />
@@ -61,9 +61,9 @@
          </tr>
 
          <tr>
-          <th><label for="inquiry" class="form-label">제안구분</label></th>
-          <td><select class="form-select mb-3" id="inquiry"
-           name="inquiry" onchange="inquiryChang(this)" required>
+          <th><label for="proposal_type" class="form-label">제안구분</label></th>
+          <td><select class="form-select mb-3" id="proposal_type"
+           name="proposal_type" onchange="proposal_typeChang(this)"  required>
             <option>선택하세요.</option>
             <option value="신메뉴 제안">신메뉴 제안</option>
             <option value="서비스 개선 제안">서비스 개선 제안</option>
@@ -77,18 +77,18 @@
 
 
          <tr>
-          <th><label for="ipt_tit" class="lb_tit">제목</label></th>
+          <th><label for="title" class="lb_tit">제목</label></th>
           <td><div class="input_area ipt_tit_area">
-            <input type="text" id="ipt_tit"
+            <input type="text" id="title"
              class="inpt_default form-control mb-3" name="title"
              maxLength="51" value="" />
            </div></td>
          </tr>
          <tr>
-          <th><label for="ipt_ctt" class="lb_tit">내용</label></th>
+          <th><label for="content" class="lb_tit">내용</label></th>
           <td><div class="input_area input_txtarea">
-            <textarea id="ipt_ctt"
-             class="inpt_default form-control mb-3" name="desc"
+            <textarea id="content"
+             class="inpt_default form-control mb-3" name="content"
              rows="18" style="resize: none;"
              placeholder="본 게시판은 제안게시판으로 작성 글에 대한 답변은 제공하지 않습니다.
 답변이 필요하신 경우 마이페이지 내 1:1문의 서비스를 이용하시기 바랍니다."></textarea>
@@ -121,7 +121,7 @@
          value="제안하기" id="btnSuggest">
          <span>제안하기</span>
         </button>
-        <button class="btn btn-primary btn-lg" type="submit" value="취소"
+        <button class="btn btn-primary btn-lg =" type="submit" value="취소"
          id="btnCancel">
          <span>취소</span>
         </button>

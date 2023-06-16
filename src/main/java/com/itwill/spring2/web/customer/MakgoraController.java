@@ -20,7 +20,6 @@ import lombok.extern.slf4j.Slf4j;
 @RequestMapping("/customer")
 @Controller
 public class MakgoraController extends HttpServlet {
-	
 
 	private final MakgoraService makgoraService;
 	
@@ -48,7 +47,6 @@ public class MakgoraController extends HttpServlet {
 		int result = makgoraService.create(dto);
 		log.info("1:1문의 결과={}", result);
 		return "redirect:/mugmung/main";
-
 
 	}
 }

@@ -34,6 +34,12 @@
         </nav>
         
         <main class="my-2">
+        <c:url value="/post/makgora" var="makgoraPage"></c:url>
+<%-- 서블릿에 요청해 파일을 업로드 함 --%>
+	<form action="${makgoraPage }" method="post" enctype="multipart/form-data">
+<input type="file" name="file" />
+<input type="submit" value="Upload" />
+</form>
             <div class="card">
                 <form method="post">
                     <div class="card-body">

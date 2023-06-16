@@ -49,6 +49,15 @@
     </div>
   </div>
 </div>
+<style>
+@font-face {
+    font-family: 'SUITE-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/SUITE-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+}
+</style>
+
 
 
 
@@ -58,22 +67,27 @@
 
   <main>
    <br> <br>
-   <div class="row justify-content-center">
+   <div class="row justify-content-center" style="font-family: 'SUITE-Regular';">
    <div class="col-md-7 col-lg-8">
-    <h4 class="mb-4">입점/제휴 문의내용</h4>
+    <h4 class="mb-4"> 입점/제휴 문의내용</h4>
     <hr>
-    <form class="checkValidity" method="post">
+    <form class="checkValidity" method="post" >
     
     <div class="input_area col-md-6">
-        <label for="username" class="form-label">아이디</label> 
+        <label for="username" class="form-label" >아이디</label> 
         <input type="text" id="username" class="form-control mb-3"
-         readonly="" value="${sessionScope.username}" />
+         readonly="" value="${username}" />
+       </div>
+       
+       <div class="input_area col-md-6">
+        <label for="title" class="form-label" >가게명 / 회사명</label> 
+        <input style="resize: none;" id="title" class="form-control mb-1" name="title" ></input>
        </div>
 
 
      <!-- 문의하기 -->
      <div class="form-group col-md-6">
-      <label for="partner_type" class="form-label">문의구분</label> <select
+      <label for="partner_type" class="form-label">문의 구분</label> <select
        class="form-select mb-3" id="partner_type" name="partner_type"
        onchange="inquiryChang(this)" required>
        <option>선택하세요.</option>
@@ -108,7 +122,7 @@
      <br> <br>
      <div class="btn_area text-center">
     <button class="form-control btn btn-primary" style="width: 200px;" type="submit"
-     value="작성 완료">문의하기</button>
+     value="작성 완료" id="btnInquiry">문의하기</button>
      </div>
      </form>
      </div>
