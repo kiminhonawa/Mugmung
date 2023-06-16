@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.itwill.spring2.repository.StoreRepository">
+
+    <insert id="insert">
+        insert into RESTAURANT (NAME, NAME_INFO, PHONE_NUM, FOOD_TYPE1, LOW_PRICE_RANGE, HIGH_PRICE_RANGE, BUSINESS_START_HOUR, BUSINESS_END_HOUR, LAST_ORDER, HOLIDAY, WEB_LINK, FOOD_MENU)
+        values (#{name}, #{name_info}, #{phone_num}, #{food_type1}, #{low_price_range}, #{high_price_range}, #{business_start_hour}, #{business_end_hour}, #{last_order}, #{holiday}, #{web_link}, #{food_menu})
+    </insert>
+    
+    <select id="selectOrderByIdDesc" resultType="com.itwill.spring2.domain.Store">
+        select * from RESTAURANT order by ID desc
+    </select>
+    
+    <select id="selectById" resultType="com.itwill.spring2.domain.Store">
+        select * from RESTAURANT where ID = #{id}
+    </select>
+</mapper>
+

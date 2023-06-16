@@ -35,7 +35,13 @@
 }
 </style>
 
-	<h2 style="font-family: 'EF_jejudoldam'";>예약페이지 </h2>
+	<br />
+	<br />
+	<br />
+	<h2 style="font-family: 'EF_jejudoldam'; text-align: center;" > 숙성도 젲 </h2>
+	<h6 style="font-family: 'SUITE-Regular'; text-align: center;">예약페이지</h6>
+	<br />
+	<br />
 
 	<div class="container">
 		<div class="row align-items-center">
@@ -178,7 +184,8 @@
 					<button type="button" class="btn-close" data-bs-dismiss="modal"
 						aria-label="Close"></button>
 				</div>
-				<div class="modal-body">예약확인 되었습니다.</div>
+				<div class="modal-body">예약확인 되었습니다.
+										예약내역은 마이페이지에서 확인해주세요.</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary"
 						data-bs-dismiss="modal">확인</button>
@@ -187,7 +194,11 @@
 			</div>
 		</div>
 	</div>
-
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
 
 	<!-- 자바스크립트 경로지정 -->
 	<script type="text/javascript" src="../static/js/calendar.js"></script>

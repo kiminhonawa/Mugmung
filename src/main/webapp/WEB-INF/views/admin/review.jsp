@@ -20,15 +20,16 @@
    <body>
    <main>
     <hr>
+    <br>
     <h1 align="center">리뷰 관리</h1>
+    <br>
     <div class="container">
         <div class="row">
             <div class="col-md-2" style="padding-left: 0; width: 150px;">
                 <div class="sidebar">
                     <ul class="nav flex-column">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">공지사항</a>
-                        </li>
+                        <c:url var="adminNoticePage" value="/admin/main/notice" />
+                        <li class="nav-item"><a href="${adminNoticePage}" class="nav-link">공지사항</a></li>
                         <li class="nav-item">
                             <a class="nav-link" href="/mugmung/admin/main">매장 정보</a>
                         </li>
@@ -41,19 +42,19 @@
                 </div>
             </div>
 
-            <div class="col-md-10">
+            <div class="col-md-10 ">
                 <table class="card-body table table-hover">
                     <thead>
                         <tr class="table-warning">
                           
-                            <th>내용</th>
+                            <th class="text-center">내용</th>
                             <th>작성자</th>
                         </tr>
                     </thead>
                     <tbody>
                         <c:forEach items="${ lists }" var="post">
                             <tr>                            
-                                <td>${ post.reply_text }</td>
+                                <td class="text-center">${ post.reply_text }</td>
                                 <td>${ post.writer }</td>
                             </tr>
                         </c:forEach>

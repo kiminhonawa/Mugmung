@@ -157,14 +157,14 @@
       <div class="my-2">
        <label for="price" style="font-family: 'EF_jejudoldam';">가격대</label>
        <input type="text" id="price"
-        value="${ detail.low_price_range }만원 - ${ detail.high_price_range }만원"
+        value="${ detail.low_price_range }원 ~ ${ detail.high_price_range }원"
         name="price" readonly class="no-border" style="width: 400px; pointer-events: none;"/>
       </div>
       <!-- 영업시작시간 ~ 영업종료시간 -->
       <div class="my-2">
        <label for="business_hour" style="font-family: 'EF_jejudoldam';">영업
         시간</label> <input type="text" id="business_hour"
-        value="${ detail.business_start_hour } - ${ detail.business_end_hour }"
+        value="${ detail.business_start_hour } : 00 ~ ${ detail.business_end_hour } : 00"
         name="business_hour" readonly class="no-border" style="width: 400px; pointer-events: none;" />
       </div>
       <div class="my-2">

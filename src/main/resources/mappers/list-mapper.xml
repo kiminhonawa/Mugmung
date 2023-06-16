@@ -35,4 +35,22 @@ from restaurant r, images i, address a, reviews v
 where r.id = i.RESTAURANT_ID and r.id = a.RESTAURANT_ID and r.id = v.RESTAURANT_ID 
 order by v.star_score desc
     </select> 
+    
+    <select id="getListWithPaging"
+        resultType="com.itwill.spring2.dto.IndexListDto">
+<![CDATA[
+        select * from
+(select /*+ INDEX_DESC */ rownum rn,
+    r.id
+    , r.name
+    , i.images_loc
+    , a.address1
+    , a.address2
+    , v.star_score
+from restaurant r, images i, address a, reviews v
+where r.id = i.RESTAURANT_ID and r.id = a.RESTAURANT_ID and r.id = v.RESTAURANT_ID and
+r.id >0 and a.address1 like '%' || #{id} || '%' and rownum <= (#{pageNum}*#{amount}))
+where rn > (#{pageNum}-1)*#{amount}
+]]>
+    </select> 
 </mapper>

@@ -42,21 +42,39 @@
 </head>
 
 
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <!-- 메인 컨텐츠 내용 -->
+    </div>
+  </div>
+</div>
+
+
+
 
 <body class="bg-light">
  <div class="container">
 
   <main>
    <br> <br>
+   <div class="row justify-content-center">
    <div class="col-md-7 col-lg-8">
     <h4 class="mb-4">입점/제휴 문의내용</h4>
     <hr>
     <form class="checkValidity" method="post">
+    
+    <div class="input_area col-md-6">
+        <label for="username" class="form-label">아이디</label> 
+        <input type="text" id="username" class="form-control mb-3"
+         readonly="" value="${sessionScope.username}" />
+       </div>
+
 
      <!-- 문의하기 -->
      <div class="form-group col-md-6">
-      <label for="inquiry" class="form-label">문의구분</label> <select
-       class="form-select mb-3" id="inquiry" name="inquiry"
+      <label for="partner_type" class="form-label">문의구분</label> <select
+       class="form-select mb-3" id="partner_type" name="partner_type"
        onchange="inquiryChang(this)" required>
        <option>선택하세요.</option>
        <option value="입점 문의">입점 문의</option>
@@ -66,24 +84,13 @@
       <div class="invalid-feedback">선택해주세요.</div>
      </div>
 
-     <div class="form-group col-md-6">
-      <label for="category" class="form-label">카테고리</label> <select
-       class="form-select mb-3" id="category" name="category" required>
-       <option>선택하세요.</option>
-      </select>
-      <div class="invalid-feedback">선택해주세요.</div>
-     </div>
-
      <div class="col-md-10">
       <label class="form-label" for="content">제휴 문의</label>
       <textarea style="resize: none;" class="form-control" id="content"
-       name="content" rows="10" placeholder="">
+       name="content" rows="10">
         </textarea>
-      <p class="text_bit">
-       (<span data-text-length>0</span>/1000자)
-      </p>
      </div>
-
+    <br>
      <dt>첨부파일</dt>
      <dd>
       <div class="iqr_file">
@@ -99,48 +106,16 @@
 
 
      <br> <br>
-     <div class="shop_info  col-md-10">
-      <h4 class="mb-4">업체정보</h4>
-      <hr>
-      <br>
-      <div class="input_area">
-       <label class="form-label" for="content">판매업체명</label> <input
-        type="text" class="form-control mb-3" maxlength="20"
-        data-role="companyNm" />
-      </div>
-      <div class="input_area">
-       <label class="est">담당자 이름</label> <input type="text"
-        class="form-control mb-3" data-role="managerNm" maxlength="20" />
-      </div>
-      <div class="input_area" data-input="cellphone">
-       <label class="est">담당자 휴대폰</label> <input type="text"
-        class="form-control mb-3" maxlength="13"
-        data-role="managerMobile" id="cellphone" placeholder="- 없이 입력" />
-      </div>
-      <div class="input_area" data-input="email">
-       <span class="est">담당자 이메일</span> <input type="text"
-        class="form-control mb-3" maxlength="30"
-        data-role="managerEmail" id="email"
-        placeholder="답변받을 이메일 주소를 입력" />
-      </div>
-
-      <div class="input_area">
-       <span class="est">홈페이지 주소</span> <input type="text"
-        class="form-control mb-3" data-role="homepageUrl"
-        maxlength="200" />
-      </div>
+     <div class="btn_area text-center">
+    <button class="form-control btn btn-primary" style="width: 200px;" type="submit"
+     value="작성 완료">문의하기</button>
      </div>
-    </form>
-    <div class="btn_area text-center">
-    <button class="btn btn-primary btn-lg" type="submit"
-     value="작성 완료" id="btnInquiry">문의하기</button>
+     </form>
      </div>
 
    </div>
-
-  </main>
- </div>
-
+</main>
+</div>
 </body>
 
 

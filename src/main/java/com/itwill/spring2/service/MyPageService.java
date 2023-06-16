@@ -5,13 +5,12 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.itwill.spring2.dto.CntDto;
 import com.itwill.spring2.dto.MyPageBookmarkedDto;
 import com.itwill.spring2.dto.MyPagePurchasedDto;
 import com.itwill.spring2.dto.MyPageReviewedDto;
 import com.itwill.spring2.dto.MyPageStarScoreDto;
 import com.itwill.spring2.repository.MyPageRepository;
-import com.itwill.spring2.repository.PostRepository;
-import com.itwill.spring2.repository.ReplyRepository;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -47,6 +46,18 @@ public class MyPageService {
 		log.info("readStarscoreByUsername(username={})",username);
 		
 		return myPageRepository.readStarscoreByUsername(username);
+	}
+
+	public String createMyPageImgLoc(String username) {
+		
+		log.info("createMyPageImgLoc(username={})",username);
+		
+		return myPageRepository.selectMyPageImgLoc(username);
+	}
+
+	public CntDto readCntDto(String username) {
+		
+		return myPageRepository.readCntDto(username);
 	}
 
 	

@@ -32,9 +32,7 @@
             </ul>
         </nav>
         
-        <main class="my-2">
-            <div class="card">
-            
+            <div class="card">            
                 <form method="post">
                     <div class="card-body">
                         <div class="my-2">
