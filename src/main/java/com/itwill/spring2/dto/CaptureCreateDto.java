@@ -13,8 +13,8 @@ import lombok.NoArgsConstructor;
 @Builder
 public class CaptureCreateDto {
 
-    private String reply_text;
-    private String capture_images_id;
+    private String content;
+    private String capture_image_id;
     private String writer;
     
    
@@ -22,8 +22,8 @@ public class CaptureCreateDto {
     public Capture toEntity() {
         
         return Capture.builder()
-                .reply_text(reply_text)
-                .capture_images_id(capture_images_id)
+                .content(content)
+                .capture_image_id(capture_image_id)
                 .writer(writer)
                 .build();
     }

@@ -45,10 +45,7 @@ public class HomeController {
         return "/main/index";
     }
     
-    
-    
-    
-    
+   
     
     
     @GetMapping("/test")

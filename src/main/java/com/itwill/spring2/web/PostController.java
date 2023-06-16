@@ -1,12 +1,16 @@
 package com.itwill.spring2.web;
 
+import java.io.File;
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.itwill.spring2.dto.PostCreateDto;
 import com.itwill.spring2.dto.PostDetailDto;
@@ -94,6 +98,23 @@ public class PostController {
         log.info("업데이트 결과 = {}", result);
         
         return "redirect:/post/list"; // "redirect:/post/detail?id=" + dto.getId();
+    }
+    
+    @PostMapping("/makgora")
+    public String makgora(@RequestParam("file") MultipartFile file) throws Exception {
+        String fileName = file.getOriginalFilename();
+    log.info("fileName = {}",fileName);
+    // Generate a random file name.
+    String randomFileName =UUID.randomUUID().toString() + "_" + fileName;
+    log.info("randomFileName = {}",randomFileName);
+    // Create a new file in the C:/mugmung/img/title path.
+    File newFile = new File(new File("C:\\workspace\\spring2\\src\\main\\webapp\\static\\img"), randomFileName);
+    log.info("newFile = {}",newFile);
+    // Write the file to the disk.
+    file.transferTo(newFile);
+    // Redirect the user back to the upload page.
+    return "/customer/makgora";
+
     }
     
 }

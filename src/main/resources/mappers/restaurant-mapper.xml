@@ -25,8 +25,8 @@ r.ID
 ,r.LOW_PRICE_RANGE                         
 ,r.HIGH_PRICE_RANGE                        
 ,r.MAX_MEMBERS
-,m.x
-,m.y
+,m.X
+,m.Y
 ,u.MENU1_NAME             
 ,u.MENU1_PRICE                       
 ,u.MENU2_NAME             
@@ -51,10 +51,18 @@ r.ID
 ,a.address1
 ,a.address2
 from restaurant r, maps m, menus u, address a
-where r.id = m.RESTAURANT_ID 
+where r.id = m.RESTAURANT_ID  
     and r.id = u.RESTAURANT_ID 
     and r.id = a.RESTAURANT_ID
 and r.id = #{id}
+</select>
+
+<select id="selectByPostId" resultType="com.itwill.spring2.domain.Review">
+    select r.Id, w.REPLY_TEXT, w.CREATED_TIME, w.MODIFIED_TIME, w.WRITER
+    from restaurant r, reviews w
+    where r.ID = w.RESTAURANT_ID
+    and r.ID = #{id}
+    
 </select>
 
 

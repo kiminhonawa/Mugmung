@@ -49,7 +49,9 @@
 
         <div class="container">
           <div class="carousel-caption text-start" >
-            <img src="./static/img/animal.jpeg" style="width: 100%; height: 100;"/>
+
+            <img src="./static/img/solo.jpg" sizes="32x35" style="margin-left: 200px"/>
+
           </div>
         </div>
       </div>
@@ -58,9 +60,8 @@
 
         <div class="container">
           <div class="carousel-caption">
-            <h1>Another example headline.</h1>
-            <p>Some representative placeholder content for the second slide of the carousel.</p>
-            <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p>
+            <img src="./static/img/solo.jpg" sizes="32x35"/>
+           
           </div>
         </div>
       </div>
@@ -96,7 +97,9 @@
     <!-- Three columns of text below the carousel -->
     <div class="row">
       <div class="col-lg-4">
-      	
+      	<img src="./static/assets/icons/one.png" width="100" />
+      	<br>
+      	<br>
         <img src="https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150901_127%2F1441034192301Mo3tr_JPEG%2FSUBMIT_1274792647700_13418405.jpg" class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"></svg>
 
         <h2 class="fw-normal" style="font-family: 'EF_jejudoldam';">우진 해장국</h2>
@@ -104,13 +107,18 @@
         <p><a class="btn btn-secondary" href="#">View details »</a></p>
       </div><!-- /.col-lg-4 -->
       <div class="col-lg-4">
-        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
-
+        <img src="./static/assets/icons/two.png" width="100" />
+      	<br>
+      	<br>
+      	<svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
         <h2 class="fw-normal">Heading</h2>
         <p>Another exciting bit of representative placeholder content. This time, we've moved on to the second column.</p>
         <p><a class="btn btn-secondary" href="#">View details »</a></p>
       </div><!-- /.col-lg-4 -->
       <div class="col-lg-4">
+       <img src="./static/assets/icons/three.png" width="100" />
+      	<br>
+      	<br>
         <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
 
         <h2 class="fw-normal">Heading</h2>
@@ -190,7 +198,7 @@
     </c:forEach>
     <c:if test="${pageMaker.next}">
     <li class="page-item">
-      <a class="page-link" href="${pageMaker.endPage +1}" aria-label="Next">
+      <a class="page-link" href="${pageMaker.cri.pageNum+1}" aria-label="Next">
         <span aria-hidden="true">&raquo;</span>
       </a>
     </li>
@@ -233,9 +241,10 @@ actionForm.submit();
 
 
 });
+$(document).ready(function(){
 
-
-
+	$(".page-link").focus();
+});
 
 });
 
