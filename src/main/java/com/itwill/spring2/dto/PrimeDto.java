@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 public class PrimeDto {
-	
+
 	private long id;
 	private String content;
 	private String name;

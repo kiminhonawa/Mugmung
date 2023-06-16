@@ -15,7 +15,7 @@
       <link rel="stylesheet" href="carousel">
       <c:url value="/static/css/carouselrtl.css" var="carouselrtl" />
       <link rel="stylesheet" href="carouselrtl">
-      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> 
    </head>
    <body>
    <main>

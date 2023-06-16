@@ -31,18 +31,18 @@
 				</div>
 				<div id="buttonContainer">
 				
-					<button class="btn1 cityBtn" id="강서구" name="hangyeong" type="button"></button>
-					<button class="btn2 cityBtn" id="관악구" name="hanlim" type="button"></button>
-					<button class="btn3 cityBtn" id="강남구" name="aewol" type="button"></button>	
-					<button class="btn4 cityBtn" id="4" name="jeju" type="button"></button>
-					<button class="btn5 cityBtn" id="5" name="jochun" type="button"></button>
-					<button class="btn6 cityBtn" id="6" name="gujwa" type="button"></button>
-					<button class="btn7 cityBtn" id="7" name="daejeong" type="button"></button>
-					<button class="btn8 cityBtn" id="8" name="anduck" type="button"></button>			
-					<button class="btn9 cityBtn" id="9" name="seogwipo" type="button"></button>
-					<button class="btn10 cityBtn" id="10" name="namwon" type="button"></button>
-					<button class="btn11 cityBtn" id="11" name="sungsan" type="button"></button>
-					<button class="btn12 cityBtn" id="12" name="sungsan" type="button"></button>		
+					<button class="btn1 cityBtn" id="한경면" name="hangyeong" type="button"></button>
+					<button class="btn2 cityBtn" id="한림읍" name="hanlim" type="button"></button>
+					<button class="btn3 cityBtn" id="애월읍" name="aewol" type="button"></button>	
+					<button class="btn4 cityBtn" id="길" name="jeju" type="button"></button>
+					<button class="btn5 cityBtn" id="조천읍" name="jochun" type="button"></button>
+					<button class="btn6 cityBtn" id="구좌읍" name="gujwa" type="button"></button>
+					<button class="btn7 cityBtn" id="대정읍" name="daejeong" type="button"></button>
+					<button class="btn8 cityBtn" id="안덕면" name="anduck" type="button"></button>			
+					<button class="btn9 cityBtn" id="서귀포시" name="seogwipo" type="button"></button>
+					<button class="btn10 cityBtn" id="남원읍" name="namwon" type="button"></button>
+					<button class="btn11 cityBtn" id="표선면" name="sungsan" type="button"></button>
+					<button class="btn12 cityBtn" id="성산읍" name="sungsan" type="button"></button>		
 				</div>
 			</div>
 		</div>
