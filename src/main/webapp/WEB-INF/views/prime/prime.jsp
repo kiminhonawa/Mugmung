@@ -105,10 +105,7 @@
       <div class="col-lg-6 col-md-8 mx-auto">
         <h1 class="fw-light" style="font-family: 'EF_jejudoldam';">유튜버가 사랑한 제주도 젶</h1>
         <p class="lead text-muted" >유튜버들이 뽑은 제주도 맛집을 알아보자!!!</p>
-        <p>
-          <a href="#" class="btn btn-primary my-2">Main call to action</a>
-          <a href="#" class="btn btn-secondary my-2">Secondary action</a>
-        </p>
+       
       </div>
     </div>
   </section>
