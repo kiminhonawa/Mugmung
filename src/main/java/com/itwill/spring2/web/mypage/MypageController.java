@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.itwill.spring2.dto.CntDto;
 import com.itwill.spring2.dto.MyPagePurchasedDto;
 import com.itwill.spring2.service.MyPageService;
 
@@ -36,9 +37,19 @@ public class MypageController extends HttpServlet{
 		
 		List<MyPagePurchasedDto> list = myPageService.readPurchaseByUsername(username);
 		
-		model.addAttribute("lists", list);
-		model.addAttribute("username", username);
+		CntDto cntDto = myPageService.readCntDto(username);
+		log.info("cntDto : "+cntDto);
 		
+		model.addAttribute("lists", list);
+		model.addAttribute("cntDto", cntDto);
+		
+		String img_loc = myPageService.createMyPageImgLoc(username); 
+		
+		log.info("img_loc : ", img_loc);
+		
+		model.addAttribute("img_loc", img_loc);
+		model.addAttribute("username",username);
+
 		log.info("list={}",list);
 		
 		return "/mypage/mypage";
@@ -61,15 +72,5 @@ public class MypageController extends HttpServlet{
 		return ResponseEntity.ok(list);
 		
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 }

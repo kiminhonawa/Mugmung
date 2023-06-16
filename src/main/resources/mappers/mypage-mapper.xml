@@ -39,4 +39,22 @@
 	order by r.id desc
 </select>
 
+
+<select id="readCntDto" resultType="com.itwill.spring2.dto.CntDto">
+	SELECT 
+    (SELECT COUNT(*) FROM restaurant r, reserve s WHERE r.id = s.restaurant_id AND s.username = #{username}) AS reserveCnt,
+    (SELECT COUNT(*) FROM restaurant r, bookmark b WHERE r.id = b.restaurant_id AND b.username = #{username}) AS bookmarkCnt,
+    (SELECT COUNT(*) FROM restaurant r, reviews v WHERE r.id = v.restaurant_id AND v.writer = #{username}) AS reviewCnt
+FROM dual 
+</select>
+
+
+<select id="selectMyPageImgLoc" resultType="String">
+	select user_image from users where username = #{username}
+</select>
+
+
+
+
+
 </mapper>

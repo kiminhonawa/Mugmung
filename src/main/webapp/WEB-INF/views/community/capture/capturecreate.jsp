@@ -9,7 +9,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <title>맛집은! 머그멍</title>
       <link  
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" 
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3-alpha3/dist/css/bootstrap.min.css" 
         rel="stylesheet" 
         integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" 
         crossorigin="anonymous">
@@ -38,27 +38,36 @@
             <div class="card">
                 <form method="post">
                     <div class="my-2">
-                        <div class="my-2">
+                        <!-- <div class="my-2">
                             <label class="form-label" for="title">제목</label>
                             <input class="form-control"
                                 type="text" id="title" name="title" required autofocus/>
-                        </div>
+                        </div> -->
                         <div class="my-2">
                             <label class="form-label" for="content">내용</label>
                             <textarea class="form-control" 
                                 id="content" name="content" required></textarea>
-                        </div>                   
+                        </div>  
+                        <div class="my-2">
+                            <label class="form-label" for="writer">작성자</label>
+                            <input class="form-control" 
+                                type="text" id="writer" name="writer" required autofocus/>
+                        </div>               
                     </div>
                     <div class="card-footer my-2">
                         <form action="${createPage }" method="post" enctype="multipart/form-data">
                             <input type="file" name="file" />
-                        <div class="d-flex justify-content-end my-10">
-                            <input class="form-control btn " type="submit">
-                            <buttun class="btn btn-grey navbar-btn find-btn1" id="btnComplete" >작성완료</buttun>
-                        </div>    
+                            
+                        <div style="width:200px" class="d-flex justify-content-end">
+                            <input class="form-control btn my-2 " type="submit" value="작성완료">
+                        </div>
+                        </form>  
+                        
                     </div>
+                    
                 </form>
             </div>
+            
         </main>
     
     

@@ -5,6 +5,19 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 	
+var path = document.querySelector('input#mymyImage').value; 
+var filename = path.split("\\").pop();
+
+console.log("pop"+filename);
+
+var myimgurl = '../static/img/'+filename;
+
+console.log('myimgurl : '+myimgurl);
+
+document.getElementById("myImgUrl").src = myimgurl;	
+	
+const settingInfoBtn = document.querySelector('buttton#settingInfoBtn');
+	
 const tableLists = document.querySelector('tbody#tableLists');
 
 const showDetail = (e) =>{

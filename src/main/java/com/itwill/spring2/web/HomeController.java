@@ -6,6 +6,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import com.itwill.spring2.domain.Criteria;
+import com.itwill.spring2.domain.PageDto;
 import com.itwill.spring2.dto.IndexListDto;
 import com.itwill.spring2.service.IndexService;
 
@@ -26,24 +28,24 @@ public class HomeController {
         return "/map/mugmap";
     }
     
-    @GetMapping("/main")
-    public String home(Model model) {
+	@GetMapping("/main")
+    public String home(Model model, Criteria cri, String id) {
         log.info("home()");
-            
-        List<IndexListDto> list = indexService.read();
+        log.info("id({})", id);
+          
+        List<IndexListDto> list = indexService.read(id);
         
         log.info("listaslkdfjalsdkf = {}",list);
         
         // 뷰에 보여줄 데이터를 Model에 저장.
-        model.addAttribute("indexLists", list);
+        cri.setId(id);
+        model.addAttribute("indexLists", list=indexService.read(cri));
+        model.addAttribute("pageMaker", new PageDto(cri, 10));
         
         return "/main/index";
     }
     
-    
-    
-    
-    
+   
     
     
     @GetMapping("/test")

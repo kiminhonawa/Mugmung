@@ -52,12 +52,15 @@ public class ReviewController {
     }
     
     @PostMapping("/save")
-    public String save(ReviewDto dto) {
+    public String save(PostReviewDto dto) {
         log.info("Review asdfasdf= {}", dto);
+        //아이디 넘기기 
         
-//        int result = reviewService.save(dto);
+        long id = dto.getId();
         
-        return "/mugmung/detail/detail";
+        int result = reviewService.save(dto);
+        
+        return "/mugmung";
     }
     /*
      * @PostMapping("/delete") public String delete(long id) {
