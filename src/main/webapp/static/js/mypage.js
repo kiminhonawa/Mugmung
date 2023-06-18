@@ -10,11 +10,22 @@ var filename = path.split("\\").pop();
 
 console.log("pop"+filename);
 
-var myimgurl = '../static/img/'+filename;
+if(filename == ""){
+	console.log("nullasdf"+filename);
+	var myimgurl = '../static/img/user_login_default_img.png';
 
 console.log('myimgurl : '+myimgurl);
 
 document.getElementById("myImgUrl").src = myimgurl;	
+} else {
+	console.log(filename);
+	var myimgurl = '../static/img/'+filename;
+
+console.log('myimgurl : '+myimgurl);
+
+document.getElementById("myImgUrl").src = myimgurl;	
+}
+
 	
 const settingInfoBtn = document.querySelector('buttton#settingInfoBtn');
 	
