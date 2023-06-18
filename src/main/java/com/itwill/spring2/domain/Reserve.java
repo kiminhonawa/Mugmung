@@ -1,6 +1,7 @@
 package com.itwill.spring2.domain;
 
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -15,10 +16,8 @@ public class Reserve {
 	
 	private long id;
 	private long restaurant_id;
-	private Timestamp reserve_date;
+	private LocalDateTime reserve_date;
 	private long members;
-	private Timestamp reserve_time;
-	
-	
+	private String username;
 	
 }
