@@ -73,4 +73,35 @@ public class MypageController extends HttpServlet{
 		
 	}
 	
+	@GetMapping("/set")
+	public String mypageSet(Model model, HttpServletRequest request) {
+		log.info("get mypageSet");
+		
+log.info("mypage");
+		
+		HttpSession session = ((HttpServletRequest) request).getSession();
+		
+		String username = (String) session.getAttribute("signedInUser");
+		log.info("username = {}",username);
+		
+		List<MyPagePurchasedDto> list = myPageService.readPurchaseByUsername(username);
+		
+		CntDto cntDto = myPageService.readCntDto(username);
+		log.info("cntDto : "+cntDto);
+		
+		model.addAttribute("lists", list);
+		model.addAttribute("cntDto", cntDto);
+		
+		String img_loc = myPageService.createMyPageImgLoc(username); 
+		
+		log.info("img_loc : ", img_loc);
+		
+		model.addAttribute("img_loc", img_loc);
+		model.addAttribute("username",username);
+
+		log.info("list={}",list);
+		
+		return "/mypage/set";
+	}
+	
 }

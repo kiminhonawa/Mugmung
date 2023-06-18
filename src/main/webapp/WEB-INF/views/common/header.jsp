@@ -86,8 +86,8 @@
 		           <c:url var="myPage" value="/mypage/mypage" />
 		            <li><a class="dropdown-item" href="${myPage }">마이 페이지</a></li>
 		            
-		            <c:url var="mainPage" value="/" />
-		            <li><a class="dropdown-item" href="#">설정</a></li>
+		            <c:url var="setPage" value="/mypage/set" />
+		            <li><a class="dropdown-item" href="${setPage }">설정</a></li>
 		            
 		            <c:url var="mainPage" value="/" />
 		            <li><a class="dropdown-item" href="#">프로필</a></li>
