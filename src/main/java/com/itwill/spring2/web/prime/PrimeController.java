@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.itwill.spring2.dto.PrimeDto;
 import com.itwill.spring2.service.PrimeService;
 
+
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
@@ -19,6 +20,7 @@ import lombok.extern.slf4j.Slf4j;
 @Controller
 public class PrimeController {
 	
+
 	private final PrimeService primeService;
 	
 	@GetMapping("/prime")
@@ -32,5 +34,5 @@ public class PrimeController {
         model.addAttribute("primeLists", list);
         
         return "/prime/prime";
-    }
+	}
 }

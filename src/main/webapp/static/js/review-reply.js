@@ -5,6 +5,7 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+    
     // 댓글 개수 표시 영역(span)
     const reviewCountSpan = document.querySelector('span#reviewCount');
     // 댓글 목록 표시 영역(div)
@@ -218,5 +219,9 @@ document.addEventListener('DOMContentLoaded', () => {
             }); // 에러 응답이 왔을 때 실행할 콜백 함수 등록
     };
     btnAddReply.addEventListener('click', createReply);
+    
+
+    
+    
     
 });

@@ -7,13 +7,17 @@
 
     <!-- 게시글 북마크 등록 -->
     <insert id="BookmarkOn">
-        insert into BOOKMARK (id, restaurant_id, username)
-        values (BOOKMARK_seq.nextval, #{restaurant_id}, #{username})
+        insert into BOOKMARK (restaurant_id, username)
+        select r.id, u.username
+        form restaurant r, users u
+        where r.id = #{restaurant_id} and u.username = #{username}
     </insert>
+
     
     <!-- 게시글 북마크 상태 -->
-    <select id="MyBookmark" resultType="com.itwill.spring2.dto.PostListDto">
-        select count(*) from BOOKMARK 
+    <select id="MyBookmark" resultType="com.itwill.spring2.dto.BookmarkDto">
+        select count(1) 
+        from BOOKMARK 
         where restaurant_id = #{restaurant_id} and username = #{username}
     </select> 
     
@@ -23,3 +27,24 @@
         where restaurant_id = #{restaurant_id} and username = #{username}
     </delete>
 </mapper>
+
+
+<!--  <select id="BookmarkOn">
+    select
+       r.ID, r.MENU_ID, r.ADDRESS_ID,
+       r.NAME, r.NAME_INFO, r.LOW_PRICE_RANGE ,r.HIGH_PRICE_RANGE, 
+       m.MENU_IMAGE_ID,
+       a.ADDRESS1, a.ADDRESS2
+       u.ID, u.USERNAME
+    from restaurant r, menus m, address a, users u
+    where r.id = m.restaurant_id
+          and r.id = a.restaurant_id
+          and r.id = #{id}
+          and u.id = #{id}
+    </select> -->
+
+    
+    
+    
+    
+      

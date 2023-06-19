@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.itwill.spring2.dto.MakgoraDto;
 import com.itwill.spring2.dto.MyPageBookmarkedDto;
 import com.itwill.spring2.dto.MyPagePurchasedDto;
 import com.itwill.spring2.dto.MyPageReviewedDto;
@@ -110,11 +111,18 @@ public class MypageApiController extends HttpServlet{
 		return ResponseEntity.ok(list);
 	}
 	@GetMapping("/makgora")
-	public String makgora(String id) {
-		log.info("get makgora");
-
-//		4. 10-(9)-내가 별점한 리스트
-		return "/mypage/mypage";
+	public ResponseEntity<List<MakgoraDto>> makgora(HttpServletRequest request) {
+		log.info("get MakgoraDto");
+		
+		HttpSession session = ((HttpServletRequest) request).getSession();
+		
+		String username = (String) session.getAttribute("signedInUser");
+		log.info("username = {}",username);
+		
+		List<MakgoraDto> list = myPageService.readMakgoraByUsername(username);
+        log.info("# of replies = {}", list.size());
+		
+		return ResponseEntity.ok(list);
 	}
 	
 }

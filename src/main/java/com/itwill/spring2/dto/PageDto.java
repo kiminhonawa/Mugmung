@@ -31,7 +31,7 @@ public class PageDto {
 		this.endPage = realEnd <= endPage? realEnd : endPage;
 		
 		this.next = this.endPage < realEnd;
-		
+
 		
 	}
 }

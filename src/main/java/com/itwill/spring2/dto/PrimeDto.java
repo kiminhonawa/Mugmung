@@ -10,10 +10,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 public class PrimeDto {
-	
+
 	private long id;
 	private String content;
 	private String name;
 	private String name_info;
 	private String web_url;
 }
+

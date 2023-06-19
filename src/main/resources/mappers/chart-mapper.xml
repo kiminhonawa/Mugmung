@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.itwill.spring2.repository.ChartRepository">
+
+	<!-- namespace의 값은 PostRepository 인터페이스가 있는 패키지 이름과 인터페이스 이름. -->
+
+	<select id="chartRead"
+		resultType="com.itwill.spring2.dto.ChartListDto">
+		SELECT age_group, COUNT(*) AS count
+		FROM (
+		SELECT birth_day,
+		CASE
+		WHEN EXTRACT(YEAR FROM birth_day) BETWEEN EXTRACT(YEAR FROM
+		TO_DATE('2023-01-01', 'YYYY-MM-DD')) - 19
+		AND EXTRACT(YEAR FROM TO_DATE('2023-01-01', 'YYYY-MM-DD')) - 10 THEN
+		'10대'
+		WHEN EXTRACT(YEAR FROM birth_day) BETWEEN EXTRACT(YEAR FROM
+		TO_DATE('2023-01-01', 'YYYY-MM-DD')) - 29
+		AND EXTRACT(YEAR FROM TO_DATE('2023-01-01', 'YYYY-MM-DD')) - 20 THEN
+		'20대'
+		WHEN EXTRACT(YEAR FROM birth_day) BETWEEN EXTRACT(YEAR FROM
+		TO_DATE('2023-01-01', 'YYYY-MM-DD')) - 39
+		AND EXTRACT(YEAR FROM TO_DATE('2023-01-01', 'YYYY-MM-DD')) - 30 THEN
+		'30대'
+		WHEN EXTRACT(YEAR FROM birth_day) BETWEEN EXTRACT(YEAR FROM
+		TO_DATE('2023-01-01', 'YYYY-MM-DD')) - 49
+		AND EXTRACT(YEAR FROM TO_DATE('2023-01-01', 'YYYY-MM-DD')) - 40 THEN
+		'40대'
+		END AS age_group
+		FROM users
+		) subquery
+		GROUP BY age_group
+
+	</select>
+
+</mapper>

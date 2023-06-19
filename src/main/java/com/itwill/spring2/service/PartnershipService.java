@@ -4,8 +4,7 @@ import org.springframework.stereotype.Service;
 
 import com.itwill.spring2.dto.PartnershipDto;
 import com.itwill.spring2.repository.PartnershipRepository;
-import com.itwill.spring2.repository.PostReviewRepository;
-import com.itwill.spring2.repository.RestaurantRepository;
+
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -15,12 +14,13 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class PartnershipService {
 
-    private final PartnershipRepository partnershiprepository;
+    private final PartnershipRepository partnershipRepository;
         
    public int create(PartnershipDto dto) {
-       log.info("create({})", dto);
+       log.info("PartnershipCreate({})", dto);
        
-       return partnershiprepository.insert(dto);
+       return partnershipRepository.insert(dto.toEntity());
+       
    }
     
 }
