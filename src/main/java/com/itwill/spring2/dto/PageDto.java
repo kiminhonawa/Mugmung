@@ -1,4 +1,6 @@
-package com.itwill.spring2.domain;
+package com.itwill.spring2.dto;
+
+import com.itwill.spring2.domain.Criteria;
 
 import lombok.Getter;
 import lombok.ToString;
@@ -12,6 +14,7 @@ public class PageDto {
 	
 	private int total;
 	private Criteria cri;
+	
 	
 	public PageDto(Criteria cri, int total) {
 		this.cri = cri;
@@ -28,6 +31,7 @@ public class PageDto {
 		this.endPage = realEnd <= endPage? realEnd : endPage;
 		
 		this.next = this.endPage < realEnd;
+		
 		
 		
 	}

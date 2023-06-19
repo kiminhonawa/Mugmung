@@ -112,26 +112,25 @@
 
 
 
-<c:forEach items="${primeLists}" var="lists">
-  <div class="album py-5 bg-light">
-    <div class="container">
-
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-        <div class="col">
-          <div class="card shadow-sm">
-            <iframe width="100%" height="225" src="${lists.web_url}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-
-            <div class="card-body">
-                  <p class="card-text" style="font-family: 'EF_jejudoldam'; font-size:20px;">${lists.name} / ${lists.name_info}</p>
-                  <p class="card-text" style="font-family: 'SUITE-Regular';">${lists.content}</p>
-                </div>
+<div class="album py-5 bg-light">
+  <div class="container">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+      <c:forEach items="${primeLists}" var="lists" varStatus="status">
+        
+          <div class="col">
+            <div class="card shadow-sm">
+              <iframe width="100%" height="225" src="${lists.web_url}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+              <div class="card-body">
+                <p class="card-text" style="font-family: 'EF_jejudoldam'; font-size:20px;">${lists.name} / ${lists.name_info}</p>
+                <p class="card-text" style="font-family: 'SUITE-Regular';">${lists.content}</p>
               </div>
             </div>
           </div>
+       
+      </c:forEach>
     </div>
   </div>
-
-</c:forEach>
+</div>
 
 </main>
 

@@ -9,12 +9,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class PrimeDto {
-
-	private long id;
-	private String content;
-	private String name;
-	private String name_info;
-	private String web_url;
+public class InnPlayListDto {
+		private long id;
+		private String name;
+		private String web_url;
+		private String address;
+		private String img_url;
+		private long price;
 }
-
