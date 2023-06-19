@@ -39,6 +39,20 @@ public class UserSignInController extends HttpServlet {
         
         return "/user/signin";
     }
+	@GetMapping("/findId")
+    public String findId() {
+        log.info("findId()");
+        
+        
+        
+        return "/user/findㅑd";
+    }
+	@GetMapping("/findPass")
+    public String findPass() {
+        log.info("findPass()");
+        
+        return "/user/findPass";
+    }
 	
 	
 	

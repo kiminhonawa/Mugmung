@@ -77,6 +77,7 @@ function generateCalendar() {
 					clearSelectedDates();
 					this.classList.add("selected");
 					console.log("You have selected:", formatDate(selectedDate));
+					document.querySelector('input#selectedDate').value = formatDate(selectedDate);
 				}
 			});
 		}
@@ -139,6 +140,11 @@ function clearSelection() {
 
 
 function reserve() {
+
+
+
+/*function reserve() {
+>>>>>>> branch 'main' of https://github.com/chklee1048/upload.git
 	console.log("reservein");
   // 예약 정보를 가져오는 코드
   var selectedDateElement = document.querySelector(".days .selected");
@@ -170,6 +176,7 @@ function reserve() {
       console.log(error); // 오류 메시지 출력 등
     }
   });
+<<<<<<< HEAD
   
   function formatDate(date) {
   var year = date.getFullYear();
@@ -179,3 +186,6 @@ function reserve() {
 }
   
 }
+=======
+}*/
+

@@ -21,6 +21,54 @@
     <main> 
 <!-- carousel 시작 -->
      <style>
+
+     .Menu_name {
+          display: inline-block;
+         margin-right: 10px;
+       }
+
+    .th, td {
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+     .menuItem {
+     
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    display: -webkit-box;
+    display: -webkit-flex;
+    -moz-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-direction: row;
+    -webkit-box-direction: normal;
+    -webkit-box-orient: horizontal;
+    border-bottom: 1px solid #e9e9e9;
+    margin-bottom: 5px;
+     margin-top: 10px;
+
+    
+}
+     
+     
+     @font-face {
+    font-family: 'SUITE-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/SUITE-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+}
+     
+     
+    .table {
+    border-collapse: separate;
+    border-spacing: 10px;
+    
+  }
+ 
          .no-border {
         border: none;
       }
@@ -97,25 +145,26 @@
        <h2>${detail.name}
 
         <!-- 예약하기, 리뷰, 즐겨찾기 버튼 -->
-        <button class="btn" id="btnReserve" type="button" onclick="location.href='/mugmung/reserve/booking'">
+        <button class="btn" id="btnReserve" type="button" onclick="location.href='/mugmung/reserve/booking'"
+        	style="border-left-width: 80px;">
          <img id="reserveBtn"
           src="../static/assets/icons/reserve.png"
           alt="reserve-Btn" width="50" /> <br>
-          <span class="review_button_text">예약하기</span>
+          <span class="review_button_text" >예약하기</span>
         </button>
 
 
-        <button class="btn" id="btnReview" type="button" onclick="location.href='/mugmung/review/review'">
+        <button class="btn" id="btnReview" type="button" onclick="location.href='/mugmung/review/review'" >
          <img id="reviewBtn" src="../static/assets/icons/reviewBtn.png"
-          alt="review-Btn" width="50" /> <br> <span
+          alt="review-Btn" width="50"/> <br> <span
           class="review_button_text">리뷰쓰기</span>
         </button>
 
-        <button class="btn" id="btnToggelBookmark">
-         <img id="bookmarkBtn"
+        <button class="btn" id="bookmarkBtn" >
+         <img id="btnToggelBookmark"
           src="../static/assets/icons/bookmarkOff.png"
-          alt="bookmark-off" width="50" /> <br> <span
-          class="review_button_text">북마크</span>
+          alt="bookmark-off" width="50" /> <br> 
+          <span class="review_button_text" >북마크</span>
         </button>
         </h2>       
 
@@ -125,86 +174,133 @@
 
 
 
+
+
       <!-- 가게 정보 불러오기 -->
+    <table class="menu_info my-5" style="font-family: 'SUITE-Regular';">
+        <tbody>
+            <tr class="only-desktop">
+                <th>가게 정보</th>
+                  <td>${ detail.name_info }</td>
+            </tr>
+            <tr class="only-desktop">
+                <th style="width: 100px;">주소</th>
+                  <td>${ detail.address1 }&nbsp;${ detail.address2 }</td>
+                  </tr>
+            <tr class="only-desktop">
+                <th>전화번호</th>
+                    <td>${ detail.phone_num }</td>
+            </tr> 
+            
+            <!-- 음식타입 3가지 --> 
+             <tr class="only-desktop">
+                <th>음식 종류</th>
+                    <td>${ detail.food_type1 } / ${ detail.food_type2 } / ${ detail.food_type3 }</td>
+            </tr> 
+            
+             <!-- 최소 ~ 최대 금액 -->
+             <tr class="only-desktop">
+                <th>가격대</th>
+                    <td>${ detail.low_price_range }원 ~ ${ detail.high_price_range }원</td>
+            </tr> 
+            
+            <!-- 영업시작시간 ~ 영업종료시간 -->
+             <tr class="only-desktop">
+                <th>영업 시간</th>
+                    <td>${ detail.business_start_hour } : 00 ~ ${ detail.business_end_hour } : 00</td>
+            </tr>   
+             <tr class="only-desktop">
+                <th>마지막 주문</th>
+                    <td>${ detail.last_order }  : 00</td>
+            </tr>
+             <tr class="only-desktop">
+                <th>휴일</th>
+                    <td>${ detail.holiday }</td>
+            </tr>  
+              <tr class="only-desktop">
+                <th>웹 사이트</th>
+                    <td><a href="${detail.web_link}" target="_blank">${detail.web_link}</a></td>
+            </tr>
+            
+            
+             <!-- 메뉴 id -->
+              <tr class="my-5">
+                <th>메뉴</th>
+                <td class="menu_td">
+                <ul class="menuList">
+                  <li class="menuItem">
+                    <span class="Menu_name">${ detail.menu1_name }</span>
+                    <span class="Menu_price"> ${ detail.menu1_price }</span>
+                  </li>
+                   
+                  <li class="menuItem">
+                    <span class="Menu_name">${ detail.menu2_name } </span>
+                    <span class="Menu_name">${ detail.menu2_price }</span>
+                  </li>
+                  <li class="menuItem">
+                     <span class="Menu_name">${ detail.menu3_name }</span> 
+                      <span class="Menu_name">${ detail.menu3_price }</span>
+                  </li>
+                  <%-- <li class="menuItem">
+                   <span class="Menu_name">${ detail.menu_id.menu4_name } </span>
+                    <span class="Menu_name">${ detail.menu_id.menu4_price }</span>
+                    </li>
+                    
+                  <li class="menuItem">
+                   <span class="Menu_name">${ detail.menu_id.menu5_name } </span>
+                    <span class="Menu_name">${ detail.menu_id.menu5_price }</span>
+                    </li>
+                    
+                  <li class="menuItem">
+					<span class="Menu_name">${ detail.menu_id.menu6_name } </span>
+					<span class="Menu_name">${ detail.menu_id.menu6_price }</span>
+				  </li>
+                  <li class="menuItem">
+					<span class="Menu_name">${ detail.menu_id.menu7_name } </span>
+					<span class="Menu_name">${ detail.menu_id.menu7_price }</span>
+				  </li>
+                  <li class="menuItem">
+					<span class="Menu_name">${ detail.menu_id.menu8_name } </span>
+					<span class="Menu_name">${ detail.menu_id.menu8_price }</span>
+				  </li>
+                  <li class="menuItem">
+					<span class="Menu_name">${ detail.menu_id.menu9_name } </span>
+					<span class="Menu_name">${ detail.menu_id.menu9_price }</span>
+				  </li>
+                  <li class="menuItem">
+					<span class="Menu_name">${ detail.menu_id.menu10_name } </span>
+					<span class="Menu_name">${ detail.menu_id.menu10_price }</span>
+				  </li> --%>
+                  </ul>
+                  </td>
+            </tr>
 
-    <section class="card">
-     <form class="card-body">
-      <div class="my-2">
-       <label for="name_info" style="font-family: 'EF_jejudoldam';">가게
-        정보</label> <input type="text" id="name_info"
-        value="${ detail.name_info }" name="name_info" readonly
-        class="no-border" style="width: 500px; pointer-events: none;" />
-      </div>
-      <div class="my-2">
-       <label for="address_id" style="font-family: 'EF_jejudoldam';">주소</label>
-       <input type="text" id="address_id" value="${ detail.address_id }"
-        name="address_id" readonly class="no-border" style="width: 400px; pointer-events: none;" />
-      </div>
-      <div class="my-2">
-       <label for="phone_num" style="font-family: 'EF_jejudoldam';">전화번호</label>
-       <input type="text" id="phone_num" value="${ detail.phone_num }"
-        name="phone_num" readonly class="no-border" style="width: 400px; pointer-events: none;" />
-      </div>
-      <!-- 음식타입3가지 -->
-      <div class="my-2">
-       <label for="food_type" style="font-family: 'EF_jejudoldam';">음식
-        종류</label> <input type="text" id="food_type"
-        value="${ detail.food_type1 } / ${ detail.food_type2 } / ${ detail.food_type3 }"
-        name="food_type" readonly class="no-border"
-        style="width: 400px; pointer-events: none;" />
-      </div>
-      <!-- 최소 ~ 최대 금액 -->
-      <div class="my-2">
-       <label for="price" style="font-family: 'EF_jejudoldam';">가격대</label>
-       <input type="text" id="price"
-        value="${ detail.low_price_range }원 ~ ${ detail.high_price_range }원"
-        name="price" readonly class="no-border" style="width: 400px; pointer-events: none;"/>
-      </div>
-      <!-- 영업시작시간 ~ 영업종료시간 -->
-      <div class="my-2">
-       <label for="business_hour" style="font-family: 'EF_jejudoldam';">영업
-        시간</label> <input type="text" id="business_hour"
-        value="${ detail.business_start_hour } : 00 ~ ${ detail.business_end_hour } : 00"
-        name="business_hour" readonly class="no-border" style="width: 400px; pointer-events: none;" />
-      </div>
-      <div class="my-2">
-       <label for="last_order" style="font-family: 'EF_jejudoldam';">마지막
-        주문</label> <input type="text" id="last_order"
-        value="${ detail.last_order }" name="last_order" readonly
-        class="no-border" style="width: 400px; pointer-events: none;"/>
-      </div>
-      <div class="my-2">
-       <label for="holiday" style="font-family: 'EF_jejudoldam';">휴일</label>
-       <input type="text" id="holiday" value="${ detail.holiday }"
-        name="holiday" readonly class="no-border" style="width: 400px; pointer-events: none;" />
-      </div>
-      <div class="my-2">
-       <label for="web_link" style="font-family: 'EF_jejudoldam';">웹 사이트</label>  
-        <a href="${detail.web_link}" target="_blank">${detail.web_link}</a>
-    </div>
-      
-      <!-- 메뉴 id -->
-      <div class="my-2">
-       <label for="menu_id" style="font-family: 'EF_jejudoldam';">메뉴</label>
-       <input type="text" id="menu_id" value="${ detail.menu_id }"
-        name="menu_id" readonly class="no-border" style="width: 400px; pointer-events: none;" />
-      </div>
-      </form>
-      </section>
-      <hr>
-   </div>
-
+                
     
-
-     <!-- 지도 위치 불러오기 -->
+      </tbody>
+      </table>
+      </div>
+    
+    
+    <!-- 지도 위치 불러오기 -->
      <div class="col-md-4 offset-md-1">
       <div class="h-90 p-5 bg-light border rounded-3 ">
-       <h2>지도</h2>
-       <input type="hidden" id="map_id" value="${ detail.map_id }"
-        name="map_id" readonly />
+       <label for="map_id" style="font-family: 'EF_jejudoldam';">지도</label>
+       <img src="${mapImageUrl}" alt="지도 위치 이미지">
+       
+       <%-- <input type="text" id="map_id" value="${ detail.map_id.x } ${ detail.map_id.y }"
+        name="map_id" readonly /> --%>
       </div>
      </div>
-    </div>
+    
+    
+    
+      <hr>
+      
+   </div>
+  
+
+
 
 
     <!-- 작성된 리뷰 불러오기 -->
@@ -213,29 +309,58 @@
      <div class="card align-self-stretch"
       style="min-width: 1260px; max-width: 1260px;">
       <div class="card-header fw-bold">
-
-       <span style="font-family: 'EF_jejudoldam';">리뷰</span> <span
-        id="replyCount">3</span>
+       <span style="font-family: 'EF_jejudoldam';">리뷰</span> 
+       <%-- <span id="reviewCount">(${review.reviewCount})</span>  --%>
       </div>
-
+      
+    <div class="card-body" id="replie">
       <div class="my-2 row">
-       <label class="form-label" for="replywText">나의 리뷰</label>
-       <div class="col-10">
-        <textarea class="form-control" id="replies"></textarea>
+       <label class="form-label" for="replyText"> 나의 리뷰</label>
+       
+      <!--  <div class="col-10">
+        <textarea class="form-control" id="replyText"></textarea>
         <input class="d-none" id="writer" value="admin" />
-       </div>
-      </div>
-
+       </div> -->
+      
       <!-- 리뷰 보여줄 영역 -->
-      <div class="my-2 row" id="replies"></div>
+      
+      <div class="my-2 row" id="replies">
+      <c:forEach items="${ review }" var="list">
+        <div class="card">
+                <div>
+                    <span class="d-none">${list.id}</span>
+                    <span class="fw-bold">${list.writer}</span>
+                    <span class="text-secondary">${list.modified_time}</span>
+                    
+                </div>
+                <div>
+                    ${list.reply_text}
+                </div>
+            </div>
+      </c:forEach>
+<%--       <span>${review.REPLY_TEXT}</span> 
+      <span>${review.MODIFIED_TIME}</span>  --%>
+      </div>
+     </div>
+     </div>
      </div>
     </section>
+    
+    
+    
+    
+
+   
+   
 
 
 
     <%@ include file="../../views/common/footer.jsp"%>
  </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-    <script src="../static/js/review-reply.js"></script>
-   </body>
+     <%-- <c:url value="/static/js/review-reply.js" var="review-reply"></c:url>
+     <script type="text/javascript" scr="${review-reply}"></script> --%>
+     <!-- <script src="../static/js/review-reply.js"></script>  -->
+    <script src="../static/js/bookmark.js"></script>
+</body>
 </html>

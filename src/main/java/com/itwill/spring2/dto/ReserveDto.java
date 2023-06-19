@@ -28,9 +28,8 @@ public class ReserveDto {
 		return Reserve.builder()
 				.id(id)
 				.restaurant_id(restaurant_id)
-				.reserve_date(reserve_date)
+				.reserve_date(reserve_date.toLocalDateTime())
 				.members(members)
-				.reserve_time(reserve_time)
 				.build();
 	}
 	

@@ -64,7 +64,7 @@ document.querySelector('.rating').addEventListener('click',function(e){
     reviewForm.append('star_score', star_score); //star_score.title-> star_score = item.value로 받으니까 
     const check = confirm('변경 내용을 저장할까요?');
     if(check){
-            reviewForm.action = './save';
+            reviewForm.action = './mugsave';
             reviewForm.method = 'post';
             reviewForm.submit();
         }

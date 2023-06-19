@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.itwill.spring2.dto.PostReviewDto;
+import com.itwill.spring2.dto.ReviewDto;
 import com.itwill.spring2.repository.PostRepository;
 import com.itwill.spring2.repository.ReplyRepository;
 import com.itwill.spring2.repository.ReviewRepository;
@@ -23,5 +24,11 @@ public class ReviewService {
         // TODO Auto-generated method stub
         return reviewRepository.insert(dto);
     }
+
+    public String readNameById(Long id) {
+        
+        return reviewRepository.readNameById(id);
+    }
+
  
 }

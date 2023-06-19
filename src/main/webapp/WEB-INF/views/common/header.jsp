@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" trimDirectiveWhitespaces="true" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>   
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %> 
 <!DOCTYPE html>
 <html>
    <head>
@@ -12,6 +12,7 @@
       <link href="./static/css/headers.css" rel="stylesheet" />
       <c:url value="/static/css/dropdowns.css" var="dropdown" /> 
       <link href="${dropdown }" rel="stylesheet" />
+
    </head>
    <style>
   @font-face {
@@ -25,11 +26,12 @@
    <body>
 <!-- 헤더 시작 -->   
    	<header class="p-3 mb-3 border-bottom" style="font-family: 'omyu_pretty'; font-size: 30px;">
+
 <!-- 헤더 컨테이너 -->   	
    <div class="container">
       <div class="d-flex flex-wrap align-items-center justify-content-lg-start">
 <!-- 헤더 좌측 영역 -->      
-      <c:url value="/main" var="mainPage"></c:url>
+      <c:url value="/" var="mainPage"></c:url>
         <a href="${mainPage }" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
           <c:url value="/static/img/mugmung.png" var="mugmung_logo" />
 					<img src="${ mugmung_logo }" alt="제주도 맛집! 머그멍" style="width:250px; height:100px;">
@@ -39,16 +41,24 @@
 <!-- 헤더 가운데 영역 -->
 		<ul class="logo-cen-ul nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
 			<li>
+
 				<%-- <c:url value="/main" var="mainPage"></c:url>
+
+				<c:url value="/" var="mainPage"></c:url>
 				<a href="${mainPage}">
+
 				<c:url value="/static/img/mugmung.png" var="mugmung_logo" />
 					<img src="${ mugmung_logo }" alt="제주도 맛집! 머그멍" style="width:250px; height:100px;">
 				</a> --%>
+				<c:url value="/static/img/test_logo.png" var="test_logo" />
+					<img src="${test_logo}" alt="제주도 맛집! 머그멍">
+				</a>
 			</li>
 		</ul>
 <!-- 헤더 가운데 영역 end-->
 
 <!-- 헤더 우측 영역 검색 -->
+
 <form class="search-form" role="search">
   <div class="search-container">
     <input type="search" class="form-control search-input text-right" placeholder="Search" aria-label="Search">
@@ -58,6 +68,7 @@
     </button>
   </div>
 </form>
+
 <!-- 헤더 우측 영역 검색 end-->        
         
 <!-- 로그인한 username이 있는 경우 -->
@@ -72,8 +83,8 @@
 		           <c:url var="myPage" value="/mypage/mypage" />
 		            <li><a class="dropdown-item" href="${myPage }" >마이 페이지</a></li>
 		            
-		            <c:url var="mainPage" value="/" />
-		            <li><a class="dropdown-item" href="#">설정</a></li>
+		            <c:url var="setPage" value="/mypage/set" />
+		            <li><a class="dropdown-item" href="${setPage }">설정</a></li>
 		            
 		            <c:url var="mainPage" value="/" />
 		            <li><a class="dropdown-item" href="#">프로필</a></li>
@@ -111,26 +122,26 @@
 <!-- map -->    		
 	   <c:url var="mugMapPage" value="/" />
 	   <li class="nav-item"><a href="${mugMapPage }" class="nav-link" aria-current="page">머그맵</a></li>
-<!-- map end-->	  
-	  
-	  
-<!-- 홈 -->    		
-	   <c:url var="mainPage" value="/main" />
-	   <li class="nav-item"><a href="${mainPage }" class="nav-link" aria-current="page">홈</a></li>
+<!-- map end-->	 
 <!-- 홈 end-->
 
-<!-- 머그멍 데이 -->        		
+<%-- <!-- 머그멍 데이 -->        		
 	   <li class="nav-item dropdown">
+<<<<<<< HEAD
 	    <a href="#" class=" d-block link-dark text-decoration-none dropdown-toggle nav-link" data-bs-toggle="dropdown" aria-expanded="false">머그멍 데이</a>
 	    <ul class="dropdown-menu text-large shadow" aria-labelledby="dropdownMenuLink2">
+=======
+	    <a href="#" class=" d-block link-dark text-decoration-none dropdown-toggle nav-link" data-bs-toggle="dropdown" aria-expanded="false">투데이</a>
+	    <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownMenuLink2">
+>>>>>>> branch 'main' of https://github.com/chklee1048/upload.git
 	      <c:url var="dayPage" value="/blog/day" />
 	      <li><a class="dropdown-item" href="${dayPage }">오늘 만이</a></li>
 	        			
 	      <c:url var="monthPage" value="/blog/month" />
 	      <li><a class="dropdown-item" href="${monthPage }">이달엔 꼭</a></li>
-	    </ul>
+	    </ul>	
 	   </li>
-<!-- 머그멍 데이 end-->  
+<!-- 머그멍 데이 end-->   --%>
 
 <!-- 머그멍 추천 -->       
        <li class="nav-item dropdown">
@@ -153,7 +164,7 @@
         <li class="nav-item"><a href="${bestPage }" class="nav-link">베스트</a></li>
         
         <c:url var="primePage" value="/prime/prime" />
-        <li class="nav-item"><a href="${primePage }" class="nav-link">프라임</a></li>
+        <li class="nav-item"><a href="${primePage }" class="nav-link">유튜버가 사랑한 제주도</a></li>
         
         <c:url var="couponPage" value="/coupon/coupon" />
         <li class="nav-item"><a href="${couponPage }" class="nav-link">쿠폰</a></li>
@@ -162,7 +173,7 @@
         <li class="nav-item"><a href="${specialPage }" class="nav-link">특전</a></li>
         
         <c:url var="innPage" value="/home/inn" />
-        <li class="nav-item"><a href="${innPage }" class="nav-link">집으로</a></li>
+        <li class="nav-item"><a href="${innPage }" class="nav-link">숙소</a></li>
         
         <c:url var="playPage" value="/play/play" />
         <li class="nav-item"><a href="${playPage }" class="nav-link">놀거리</a></li>

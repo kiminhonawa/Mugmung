@@ -2,6 +2,7 @@ package com.itwill.spring2.repository;
 
 import java.util.List;
 
+import com.itwill.spring2.dto.CntDto;
 import com.itwill.spring2.dto.MyPageBookmarkedDto;
 import com.itwill.spring2.dto.MyPagePurchasedDto;
 import com.itwill.spring2.dto.MyPageReviewedDto;
@@ -16,5 +17,9 @@ public interface MyPageRepository {
 	public List<MyPageBookmarkedDto> readBookmarkedByUsername(String username);
 
 	public List<MyPageStarScoreDto> readStarscoreByUsername(String username);
+
+	public String selectMyPageImgLoc(String username);
+
+	public CntDto readCntDto(String username);
 
 }

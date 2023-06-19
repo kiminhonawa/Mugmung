@@ -18,9 +18,9 @@ public class IndexService {
 
 	private final IndexRepository indexRepository;
 	
-	public List<IndexListDto> read() {
-		log.info("read()");
-		List<IndexListDto> list = indexRepository.indexListRead();
+	public List<IndexListDto> read(String id) {
+		log.info("read(id={})", id);
+		List<IndexListDto> list = indexRepository.indexListRead(id);
 		
 		
 		
@@ -30,7 +30,7 @@ public class IndexService {
 	}
 	
 	public List<IndexListDto> read(Criteria cri) {
-		log.info("read()");
+		log.info("read(cri={})", cri);
 		List<IndexListDto> list = indexRepository.getListWithPaging(cri);
 		
 		

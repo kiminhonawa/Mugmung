@@ -7,6 +7,41 @@ document.addEventListener('DOMContentLoaded', () => {
     // signup 버튼을 찾아서 이벤트 리스너를 등록.
     const btnSignup = document.querySelector('#btnSignup');
     
+    const signUploadForm = document.querySelector('#signUploadForm');
+    const btnUpload = document.querySelector('#btnUpload');
+    const fileInput = document.querySelector('#file');
+    
+    
+    btnUpload.addEventListener('click', (e) => {
+		e.preventDefault();
+		console.log('btnUpload in');
+		/*e.preventDefault();*/
+		const file = fileInput.files[0].name;
+        console.log("file : "+file);
+        const img_loc = document.querySelector('#user_image');
+        img_loc.value = file;
+        const img_loc_value = img_loc.value;
+		console.log('img_loc_value'+img_loc_value);
+			
+            /*signUploadForm.action = '/api/join/imgUpload'; // 폼 요청 주소
+            signUploadForm.method = 'post'; // 폼 요청 방식
+            signUploadForm.submit();*/
+        // 삭제 요청 URL
+        const data = { img_loc_value };
+        
+    var formData = new FormData();
+    formData.append('file', document.getElementById('file').files[0]);
+
+    axios.post('/mugmung/api/join/imgUpload', formData)
+        .then((response) => {
+            alert(`프로필 사진 업로드 성공(${response.data})`);
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+        
+    });
+    
     // form의 각 항목 select
     const usernameInput = document.querySelector('input#username')
     const username = document.querySelector('input#username').value; // input에 입력된 값.
@@ -87,16 +122,16 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
         // "admin" 단어 포함되는지 확인
-      if (username.includes('admin')) {
+      /*if (username.includes('admin')) {
         alert('id에 "admin"은 사용할 수 없습니다.');
         return;
-      }
+      }*/
 
       // 연속되는 숫자 확인
-      if (/(\d)\1/.test(username)) {
+      /*if (/(\d)\1/.test(username)) {
         alert('연속되는 숫자는 사용할 수 없습니다.');
         return;
-      }
+      }*/
 
       // 특수문자 확인
       if (/[!@#$%^&*(),.?":{}|<>]/.test(username)) {
@@ -109,14 +144,11 @@ document.addEventListener('DOMContentLoaded', () => {
         alert('공백은 사용할 수 없습니다.');
         return;
       } 
-        
-        const check = confirm('변경 내용을 저장할까요?');
+        const check = confirm('회원가입을 완료 하시겠습니까?');
         if (check) {
             signupForm.action = './signup'; // 폼 요청 주소
             signupForm.method = 'post'; // 폼 요청 방식
             signupForm.submit();
         }
-        
     });
-    
 });

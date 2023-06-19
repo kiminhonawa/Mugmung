@@ -18,9 +18,10 @@ import lombok.ToString;
 public class Capture {
 
     private long id;
-    private String reply_text;
-    private String capture_images_id;
+    private String content;
+    private String capture_image_id;
     private String writer;
     private LocalDateTime created_time;
     private LocalDateTime modified_time;
+    
 }

@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8" 
  pageEncoding="UTF-8" trimDirectiveWhitespaces="true"%>
  <%@ include file="../../views/common/header.jsp" %>
 <!DOCTYPE html>
@@ -8,7 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>review</title>
     <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3-alpha3/dist/css/bootstrap.min.css"
         rel="stylesheet"
         integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
         crossorigin="anonymous"/>
@@ -29,7 +29,7 @@
         <div class="card" >
             <form class="card-body" method="post" id="reviewForm">
                 <div class="my-2">
-                    <label class="form-label" for="id" style="font-family: 'EF_jejudoldam';">남부</label>
+                    <label class="form-label" for="id" style="font-family: 'EF_jejudoldam';">${name }</label>
                     <label class="form-label" for="id" style="font-family: 'EF_jejudoldam';">에 대한 솔직한 리뷰를 써주세요.</label>
                 </div>
                 
@@ -46,14 +46,14 @@
                         <label for="rating4"></label>
                     <input type="checkbox" name="rating" id="rating5" value="5" class="rate_radio" title="5점">
                         <label for="rating5"></label>
-               <div id='result'></div> 
+               <div id="result"></div> 
                 </div>
                 
                 
                 <div>
                     <textarea class="ReviewEditor my-2"  id="content" name="content" maxlength="10000"
                      style="width:100%;border-width;overflow:visible;text-overflow:ellipsis;" rows=10
-                    placeholder="아영님, 주문하신 메뉴는 어떠셨나요? 식당의 분위기와 서비스도 궁금해요!"></textarea>
+                    placeholder="${ username }, 주문하신 메뉴는 어떠셨나요? 식당의 분위기와 서비스도 궁금해요!"></textarea>
                 </div>
                 </form>
             </div>
@@ -108,7 +108,7 @@
 
 
     <script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3-alpha3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
     crossorigin="anonymous">
 		

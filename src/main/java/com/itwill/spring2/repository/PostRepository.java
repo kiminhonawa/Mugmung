@@ -3,6 +3,7 @@ package com.itwill.spring2.repository;
 import java.util.List;
 
 import com.itwill.spring2.domain.Post;
+import com.itwill.spring2.dto.CriDto;
 import com.itwill.spring2.dto.PostListDto;
 
 // application-context.xml에서 scan하는 패키지에 있기 때문에
@@ -18,5 +19,7 @@ public interface PostRepository {
     int updateTitleAndContent(Post post);
     int deleteById(long id);
     List<PostListDto> selectWithReplyCount();
+	int getTotalCount();
+	List<PostListDto> getRead(CriDto cri);
 
 }

@@ -21,6 +21,7 @@ public class User {
     private String email;
     private long point;
     private int gender;
+    private String user_image;
     private LocalDateTime birth_day;
     private LocalDateTime modified_time;
     private LocalDateTime created_time;
