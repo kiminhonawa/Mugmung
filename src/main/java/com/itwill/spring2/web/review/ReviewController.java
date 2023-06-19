@@ -1,10 +1,12 @@
 package com.itwill.spring2.web.review;
 
 import java.io.File;
+import java.util.List;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,6 +14,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.itwill.spring2.web.PostController;
+
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
+
 import com.itwill.spring2.dto.PostReviewDto;
 import com.itwill.spring2.dto.ReviewDto;
 import com.itwill.spring2.service.PostService;
@@ -30,8 +36,21 @@ public class ReviewController {
     private ReviewService reviewService;
     
     @GetMapping("/review") 
-    public void review() {
+    public void review(@RequestParam("id") Long id, Model model, HttpServletRequest request) {
         log.info("GET: review()");
+        
+        HttpSession session = ((HttpServletRequest) request).getSession();
+        
+        
+        // 레스토랑 테이블에서 레스토랑 이름
+        String name = reviewService.readNameById(id);
+        
+        String username = (String) session.getAttribute("signedInUser");
+        log.info("username = {}",username);
+        
+        model.addAttribute("username", username);
+        
+        model.addAttribute("name", name);
     }
     
     @PostMapping("/review")
@@ -52,15 +71,19 @@ public class ReviewController {
     }
     
     @PostMapping("/save")
-    public String save(PostReviewDto dto) {
+    public String save(@RequestParam List<Integer> rating, PostReviewDto dto) {
         log.info("Review asdfasdf= {}", dto);
         //아이디 넘기기 
+        
+        for(Integer i : rating) {
+            log.info("라디오 버튼 : i={}",i);
+        }
         
         long id = dto.getId();
         
         int result = reviewService.save(dto);
         
-        return "/mugmung";
+        return "/mugmung/detail/detail?id="+id;
     }
     /*
      * @PostMapping("/delete") public String delete(long id) {

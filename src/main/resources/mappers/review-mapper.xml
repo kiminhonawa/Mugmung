@@ -11,6 +11,19 @@
         values (#{restaurant_id}, #{star_score}, #{reply_text}, #{writer})
     </insert>
     
+    <select id="selectById" resultType="com.itwill.spring2.dto.ReviewDto">
+     select r.id 
+            ,u.username
+     from restaurant r, users u, reviews v
+     where r.id = v.restaurant_id
+        and u.users = v.writer
+        and r.id = #{id}
+    </select>
+    
+    <select id="readNameById" resultType="String">
+        select name from restaurant where id = #{id}
+    </select>
+    
     <!-- <select id="selectOrderByIdDesc" resultType="com.itwill.spring2.domain.Post">
         select * from POSTS order by ID desc
     </select>

@@ -23,4 +23,5 @@ public class Capture {
     private String writer;
     private LocalDateTime created_time;
     private LocalDateTime modified_time;
+    
 }

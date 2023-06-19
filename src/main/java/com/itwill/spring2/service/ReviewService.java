@@ -25,5 +25,10 @@ public class ReviewService {
         return reviewRepository.insert(dto);
     }
 
+    public String readNameById(Long id) {
+        
+        return reviewRepository.readNameById(id);
+    }
+
  
 }

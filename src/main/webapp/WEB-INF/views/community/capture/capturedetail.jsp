@@ -52,6 +52,11 @@
                             value="${capture.capture_image_id }" readonly/>
                     </div>
                     <div class="my-2">
+                        <label class="form-label" for="viewsCount">조회수</label>
+                        <input class="form-control" id="viewsCount" 
+                            value="" readonly/>
+                    </div>
+                    <div class="my-2">
                         <label class="form-label" for="createdTime">작성 시간</label>
                         <fmt:formatDate value="${ capture.createdTime }"
                             pattern="yyyy-MM-dd HH:mm:ss"  var="created" />
@@ -81,7 +86,7 @@
                     <%-- <span id="replyCount">${ capture.replyCount }</span>개 --%>
                     <button class="btn" id="btnToggleReply">
                         <img id="toggleBtnIcon" 
-                            src="../static/assets/icons/toggle-off.svg" 
+                            src="./static/assets/icons/toggle-off.svg" 
                             alt="toggle-off" width="32"/>
                     </button>
                 </div>

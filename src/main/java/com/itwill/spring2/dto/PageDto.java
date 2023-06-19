@@ -1,4 +1,6 @@
-package com.itwill.spring2.domain;
+package com.itwill.spring2.dto;
+
+import com.itwill.spring2.domain.Criteria;
 
 import lombok.Getter;
 import lombok.ToString;
@@ -17,6 +19,7 @@ public class PageDto {
 		this.cri = cri;
 		this.total = total;
 		
+		//페이지 숫자 보여지는 거 3개
 		this.endPage =(int)(Math.ceil(cri.getPageNum()/3.0)) * 3;
 		
 		this.startPage = endPage - 2;
