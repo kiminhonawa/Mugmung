@@ -38,7 +38,6 @@ public class HomeController {
         log.info("listaslkdfjalsdkf = {}",list);
         
         // 뷰에 보여줄 데이터를 Model에 저장.
-        cri.getId();
         
         log.info("cri={}", cri);
         
