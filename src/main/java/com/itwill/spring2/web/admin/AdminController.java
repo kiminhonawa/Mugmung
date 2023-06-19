@@ -2,6 +2,7 @@ package com.itwill.spring2.web.admin;
 
 
 import java.io.File;
+import java.util.List;
 import java.util.UUID;
 
 import org.springframework.stereotype.Controller;
@@ -12,7 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.itwill.spring2.dto.ChartListDto;
 import com.itwill.spring2.dto.StoreCreateDto;
+import com.itwill.spring2.service.ChartService;
 import com.itwill.spring2.service.StoreService;
 
 import jakarta.servlet.http.HttpServlet;
@@ -28,14 +31,16 @@ import lombok.extern.slf4j.Slf4j;
 @Controller // DispatcherServlet에게 컨트롤로 컴포넌트로 등록.
 public class AdminController extends HttpServlet{
     
+	private final ChartService chartService;
     private final StoreService storeService;
-    
     // 관리자 페이지 메인
     @GetMapping("/main")
-    public String map() {
+    public String map(Model model) {
 
         log.info("map()");
-
+    
+     List<ChartListDto> list = chartService.read();
+     model.addAttribute("chart", list);
         return "/admin/main";
     }
     @PostMapping("/imageupload")

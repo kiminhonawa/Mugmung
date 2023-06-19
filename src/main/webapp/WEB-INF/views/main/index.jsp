@@ -49,7 +49,9 @@
 
         <div class="container">
           <div class="carousel-caption text-start" >
+
             <img src="./static/img/solo.jpg" sizes="32x35" style="margin-left: 200px"/>
+
           </div>
         </div>
       </div>
