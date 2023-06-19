@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -71,19 +72,36 @@ public class ReviewController {
     }
     
     @PostMapping("/save")
-    public String save(@RequestParam List<Integer> rating, PostReviewDto dto) {
-        log.info("Review asdfasdf= {}", dto);
-        //아이디 넘기기 
+    public String save(HttpServletRequest request
+    		, @RequestParam(value = "rating", required = false) List<Integer> ratings
+    		, @RequestParam("content") String content
+    		, @RequestParam("restaurant_id") long restaurant_id
+    		) {
         
-        for(Integer i : rating) {
-            log.info("라디오 버튼 : i={}",i);
+        if (ratings != null) {
+            for (Integer rating : ratings) {
+                log.info("별점: {}", rating);
+            }
         }
+        log.info("rating : {}", ratings.get(ratings.size()-1));
+        log.info("content : {}", content);
+        log.info("restaurant_id : {}", restaurant_id);
         
-        long id = dto.getId();
+        HttpSession session = ((HttpServletRequest) request).getSession();
         
-        int result = reviewService.save(dto);
+        String username = (String) session.getAttribute("signedInUser");
         
-        return "/mugmung/detail/detail?id="+id;
+        PostReviewDto dto = PostReviewDto.builder()
+        							.restaurant_id(restaurant_id)
+        							.star_score(ratings.get(ratings.size()-1))
+        							.reply_text(content)
+        							.writer(username)
+        							.build();
+        
+        int result =  reviewService.save(dto);
+        
+        
+        return "redirect:/detail/detail?id=21";
     }
     /*
      * @PostMapping("/delete") public String delete(long id) {
