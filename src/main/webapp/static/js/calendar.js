@@ -77,6 +77,7 @@ function generateCalendar() {
 					clearSelectedDates();
 					this.classList.add("selected");
 					console.log("You have selected:", formatDate(selectedDate));
+					document.querySelector('input#selectedDate').value = formatDate(selectedDate);
 				}
 			});
 		}
@@ -141,7 +142,7 @@ function clearSelection() {
 
 
 
-function reserve() {
+/*function reserve() {
 	console.log("reservein");
   // 예약 정보를 가져오는 코드
   var selectedDateElement = document.querySelector(".days .selected");
@@ -174,5 +175,5 @@ function reserve() {
       console.log(error); // 오류 메시지 출력 등
     }
   });
-}
+}*/
 

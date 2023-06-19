@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" trimDirectiveWhitespaces="true"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ include file="../../views/common/header.jsp" %>
 <!DOCTYPE html>
 <html>
@@ -106,10 +108,7 @@
       <div class="col-lg-6 col-md-8 mx-auto">
         <h1 class="fw-light" style="font-family: 'EF_jejudoldam';">제주도 숙소줗</h1>
         <p class="lead text-muted" >잘 곳 많겠지 관광지 인데, 호텔 이런데 말고<br> 정말 사람 냄새 나는 쉴 수 있는곳을 알아보자!!!</p>
-        <p>
-          <a href="#" class="btn btn-primary my-2">Main call to action</a>
-          <a href="#" class="btn btn-secondary my-2">Secondary action</a>
-        </p>
+        
       </div>
     </div>
   </section>
@@ -122,15 +121,15 @@
             <h4 class="my-0 fw-normal" style="font-family: 'EF_jejudoldam';">가성비 숙소</h4>
           </div>
           <div class="card-body">
-            <img src="https://search.pstatic.net/common/?src=https%3A%2F%2Fpup-review-phinf.pstatic.net%2FMjAyMzA1MDZfMTM4%2FMDAxNjgzMzQ0ODM5NzA2.oXr_ahNQO11ZZ6rXG6WVVra0jWpWcKGkGXaYaOMrOmsg.c5nN7Lu00KB33qOI1KesXSvA4_WGPpVOd65fCyWhFnAg.JPEG%2F907FE62D-76BD-44A0-8E29-99CC17AD6340.jpeg" width="350" height="200"/>
-            <h1 class="card-title pricing-card-title">공공연<small class="text-muted fw-light"></small></h1>
-            <h1 class="card-title pricing-card-title">30,000₩<small class="text-muted fw-light">/1박</small></h1>
+            <img src="https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20180318_10%2F152136692271990THu_JPEG%2FfK5ouQXc9qP47DX0PyD5b0Qw.jpg" width="350" height="200"/>
+            <h1 class="card-title pricing-card-title">소목식탁<small class="text-muted fw-light"></small></h1>
+            <h1 class="card-title pricing-card-title">130,000₩<small class="text-muted fw-light">/1박</small></h1>
             <ul class="list-unstyled mt-3 mb-4">
-              <li>제주시 한경면 용수리 4304-3</li>
+              <li>제주시 구좌읍 종달리 739</li>
               
             </ul>
             <button type="button" class="w-100 btn btn-lg btn-outline-primary">
-            	<a href="https://map.naver.com/v5/entry/place/1052105000?lng=126.1684113&lat=33.3230025&placePath=%2Froom%3Fac=0%26adm_lat=37.4954841%26adm_long=127.0333574%26bizId=1052105000%26debug=0%26deviceType=pc%26lgl_lat=37.4954841%26lgl_long=127.0333574%26lgl_rcode=09680101%26ngn_country=KR%26nlu_query=%7B%22pension%22:%7B%22source%22:%22placesearch%22,%22sid%22:%221052105000%22,%22q%22:%22%EA%B3%B5%EA%B3%B5%EC%97%B0%22%7D,%22nluQuery%22:%22%EA%B3%B5%EA%B3%B5%EC%97%B0%22%7D%26nqx_theme=%7B%22theme%22:%7B%22main%22:%7B%22name%22:%22accommodation%22%7D%7D%7D%26r1=%EC%84%9C%EC%9A%B8%ED%8A%B9%EB%B3%84%EC%8B%9C%26r2=%EA%B0%95%EB%82%A8%EA%B5%AC%26r3=%EC%97%AD%EC%82%BC1%EB%8F%99%26rcode=09680640%26rev=44%26sm=top_hty%26spq=0%26ssc=tab.nx.all%26target=pc%26where=nexearch%26x=127.0333574%26y=37.4954841&entry=plt&c=15,0,0,0,dh">
+            	<a href="https://blog.naver.com/somoktable">
             	예약하기
             	</a>
             </button>
@@ -143,14 +142,17 @@
             <h4 class="my-0 fw-normal" style="font-family: 'EF_jejudoldam';">뷰 맛집 숙소</h4>
           </div>
           <div class="card-body">
-            <h1 class="card-title pricing-card-title">$15<small class="text-muted fw-light">/mo</small></h1>
+              <img src="https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20221110_257%2F16680878774832QGQR_JPEG%2FKakaoTalk_20221110_222814953_19.jpg" width="350" height="200"/>
+            <h1 class="card-title pricing-card-title">귤한가<small class="text-muted fw-light"></small></h1>
+            <h1 class="card-title pricing-card-title">180,000₩<small class="text-muted fw-light">/1박</small></h1>
             <ul class="list-unstyled mt-3 mb-4">
-              <li>20 users included</li>
-              <li>10 GB of storage</li>
-              <li>Priority email support</li>
-              <li>Help center access</li>
+              <li>제주 제주시 한림읍 명월성로 234-1</li>
+              
             </ul>
-            <button type="button" class="w-100 btn btn-lg btn-primary">Get started</button>
+            <button type="button" class="w-100 btn btn-lg btn-outline-primary">
+            	<a href="https://gulhanga.com/">
+            	예약하기
+            	</a>
           </div>
         </div>
       </div>
@@ -160,14 +162,18 @@
             <h4 class="my-0 fw-normal" style="font-family: 'EF_jejudoldam';">광란의 파티 숙소</h4>
           </div>
           <div class="card-body">
-            <h1 class="card-title pricing-card-title">$29<small class="text-muted fw-light">/mo</small></h1>
+              <img src="https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20230430_76%2F1682843147838uf1dO_JPEG%2F%25C7%25C86.jpg" width="350" height="200"/>
+            <h1 class="card-title pricing-card-title">스테이블<small class="text-muted fw-light"></small></h1>
+            <h1 class="card-title pricing-card-title">55,000₩<small class="text-muted fw-light">/1박</small></h1>
             <ul class="list-unstyled mt-3 mb-4">
-              <li>30 users included</li>
-              <li>15 GB of storage</li>
-              <li>Phone and email support</li>
-              <li>Help center access</li>
+              <li>제주 서귀포시 안덕면 사계북로 109 1층, 2층, 3층</li>
+              
             </ul>
-            <button type="button" class="w-100 btn btn-lg btn-primary">Contact us</button>
+            <button type="button" class="w-100 btn btn-lg btn-outline-primary">
+            	<a href="https://stable.modoo.at/">
+            	예약하기
+            	</a>
+            	</button>
           </div>
         </div>
       </div>
@@ -176,6 +182,7 @@
     <h2 class="display-6 text-center mb-4" style="font-family: 'EF_jejudoldam';">제주도 숙소 리스트</h2>
 
     <div class="table-responsive">
+   
       <table class="table text-center">
         <thead>
           <tr>
@@ -185,75 +192,27 @@
             <th style="width: 22%;">예약</th>
           </tr>
         </thead>
+         <c:forEach items="${innLists}" var="inn">
         <tbody>
           <tr>
-            <th scope="row" class="text-start">오늘도 제주</th>
+            <th scope="row" class="text-start">${inn.name}</th>
             <td><svg class="bi" width="24" height="24">
-            	<p>15만원</p>
+            	<p>${inn.price}</p>
             </svg></td>
             <td><svg class="bi" width="24" height="24">
-            	<p>제주시 한경면 볼그믓로 228</p>
+            	<p>${inn.address}</p>
             </svg></td>
             <td><svg class="bi" width="24" height="24">
             	<p>
-         		 <a href="http://www.oje4114.com/html/index.html" class="btn btn-primary my-2">예약하기</a>
+         		 <a href="${inn.web_url}" class="btn btn-primary my-2">예약하기</a>
        		    </p>
             </svg></td>
           </tr>
-          <tr>
-            <th scope="row" class="text-start">소공원 스테이</th>
-            <td></td>
-            <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
-            <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
-          </tr>
-        </tbody>
-
-        <tbody>
-          <tr>
-            <th scope="row" class="text-start">귤한가</th>
-            <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
-            <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
-            <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
-          </tr>
-          <tr>
-            <th scope="row" class="text-start">봉성집</th>
-            <td></td>
-            <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
-            <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
-          </tr>
-          <tr>
-            <th scope="row" class="text-start">토투가</th>
-            <td></td>
-            <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
-            <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
-          </tr>
-          <tr>
-            <th scope="row" class="text-start">애월담아</th>
-            <td></td>
-            <td></td>
-            <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
-          </tr>
-          <tr>
-            <th scope="row" class="text-start">월림차경</th>
-            <td></td>
-            <td></td>
-            <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
-          </tr>
-          <tr>
-            <th scope="row" class="text-start">정취한가</th>
-            <td></td>
-            <td></td>
-            <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
-          </tr>
-          <tr>
-            <th scope="row" class="text-start">고산별곡</th>
-            <td></td>
-            <td></td>
-            <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
-          </tr>
-        </tbody>
+          </tbody>
+            </c:forEach>
       </table>
     </div>
+  
   </main>
 
  

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.itwill.spring2.dto.CntDto;
+import com.itwill.spring2.dto.MakgoraDto;
 import com.itwill.spring2.dto.MyPageBookmarkedDto;
 import com.itwill.spring2.dto.MyPagePurchasedDto;
 import com.itwill.spring2.dto.MyPageReviewedDto;
@@ -58,6 +59,11 @@ public class MyPageService {
 	public CntDto readCntDto(String username) {
 		
 		return myPageRepository.readCntDto(username);
+	}
+
+	public List<MakgoraDto> readMakgoraByUsername(String username) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	

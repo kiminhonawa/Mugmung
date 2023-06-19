@@ -122,16 +122,16 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
         // "admin" 단어 포함되는지 확인
-      if (username.includes('admin')) {
+      /*if (username.includes('admin')) {
         alert('id에 "admin"은 사용할 수 없습니다.');
         return;
-      }
+      }*/
 
       // 연속되는 숫자 확인
-      if (/(\d)\1/.test(username)) {
+      /*if (/(\d)\1/.test(username)) {
         alert('연속되는 숫자는 사용할 수 없습니다.');
         return;
-      }
+      }*/
 
       // 특수문자 확인
       if (/[!@#$%^&*(),.?":{}|<>]/.test(username)) {

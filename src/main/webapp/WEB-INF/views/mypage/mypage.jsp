@@ -46,37 +46,6 @@
    </head>
    <body>
    
-   <script>
-    // 이미지 요청 함수
-    function requestImage() {
-        // XMLHttpRequest 객체 생성
-        var xhr = new XMLHttpRequest();
-        
-        // GET 요청 설정
-        xhr.open('GET', '/mugmung/mypage/your-image-url', true);
-        
-        // 응답 처리
-        xhr.onload = function() {
-            if (xhr.status === 200) {
-                // 응답을 이미지로 설정
-                var blob = xhr.response;
-                var url = URL.createObjectURL(blob);
-                document.getElementById('myImage').src = url;
-            }
-        };
-        
-        // 요청 전송
-        xhr.send();
-    }
-</script>
-
-<!-- 이미지 표시 -->
-<img id="myImage" src="" alt="이미지">
-
-<!-- 버튼 클릭 시 이미지 요청 -->
-<button onclick="requestImage()">이미지 요청</button>
-   
-   
 	<main>
 		<input type="hidden" id="mymyImage" name="mymyImage" value="${img_loc}">
 		<div>
@@ -100,7 +69,7 @@
       <label for="reviewCnt">리뷰 수 : ${cntDto.reviewCnt }</label>
       </div>
       <div >
-      <label for="reviewCnt">예약자 수 : ${cntDto.reserveCnt }</label>
+      <label for="reviewCnt">예약 수 : ${cntDto.reserveCnt }</label>
       </div>
     
     
@@ -124,7 +93,7 @@
       	<c:url value="/mypage/purchased" var="purchasedPage" />
       	
         <li class="nav-item">
-        	<a id="purchased" class="nav-link active" aria-current="page" >구매한 상품</a>
+        	<a id="purchased" class="nav-link active" aria-current="page" >예약한 상품</a>
         </li>
         
         <c:url value="/mypage/reviewed" var="reviewedPage" />
@@ -137,27 +106,50 @@
         <li class="nav-item"><a id="starscore" class="nav-link">별점보기</a></li>
         
         <c:url value="/mypage/makgora" var="makgoraPage" />
-        <li class="nav-item"><a href="${ makgoraPage}?id=makgora" id="makgora" class="nav-link">문의한 내용</a></li>
+        <li class="nav-item"><a href="${ makgoraPage}" id="makgora" class="nav-link">문의한 내용</a></li>
+        
+       	<%-- <c:url value="/mypage/setImg" var="setImg" />
+        <li class="nav-item">
+        	<a href="${ setImg}" id="setImg" class="nav-link">프로필 변경</a>
+       	</li>
+       	
+       	<c:url value="/mypage/setEmail" var="setEmail" />
+        <li class="nav-item">
+        	<a href="${ setEmail}" id="setEmail" class="nav-link">이메일 변경</a>
+       	</li>
+       	
+       	<c:url value="/mypage/setPw" var="setPw" />
+        <li class="nav-item">
+        	<a href="${ setPw}" id="setPw" class="nav-link">비밀번호 변경</a>
+       	</li> --%>
         
       </ul>
     </header>
   </div>
       <div class="card">
                 <table class="card-body table table-hover" >
-                    <thead>
+                    <thead id="tableHead">
                         <tr style="border: 1px black " >
                             <th>상호명</th>
                             <th rowspan="2">가게 정보</th>
-                            <th >-</th>
+                            <th >맛집 이동</th>
                         </tr>
                     </thead>
                     <tbody id="tableLists">
                     
-                    <tr>
-                    	<td>1</td>
-                    	<td>2</td>
-                    	<td>3</td>
-                    </tr>
+                    	<c:forEach items="${lists }" var="list">
+                    	<tr>
+                    		<td>${list.name}</td>
+			                <td>
+			                    ${list.name_info}
+			                </td>
+			                <td>
+			                   <button class="btnModify btnDetail btn btn-outline-success" data-id="${list.id}">
+			                        맛집 이동
+			                    </button> 
+			                </td>
+			            </tr>
+                    	</c:forEach>
                     
                     </tbody>
                 </table>

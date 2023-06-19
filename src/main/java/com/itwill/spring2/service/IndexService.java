@@ -30,7 +30,7 @@ public class IndexService {
 	}
 	
 	public List<IndexListDto> read(Criteria cri) {
-		log.info("read()");
+		log.info("read(cri={})", cri);
 		List<IndexListDto> list = indexRepository.getListWithPaging(cri);
 		
 		

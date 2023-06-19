@@ -19,7 +19,7 @@
 <link href="https://getbootstrap.com/docs/5.2/assets/css/docs.css"
 	rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="../static/css/reserve.css">
-
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
 </head>
 <body class="p-3 m-0 border-0 bd-example bd-example-row">
@@ -38,7 +38,7 @@
 	<br />
 	<br />
 	<br />
-	<h2 style="font-family: 'EF_jejudoldam'; text-align: center;" > 숙성도 젲 </h2>
+	<h2 style="font-family: 'EF_jejudoldam'; text-align: center;" > ${name} 젲 </h2>
 	<h6 style="font-family: 'SUITE-Regular'; text-align: center;">예약페이지</h6>
 	<br />
 	<br />
@@ -46,9 +46,9 @@
 	<div class="container">
 		<div class="row align-items-center">
 			<div class="container text-center">
+			<c:url value="/reserve/booking" var="reservePage"/>
+			<form action="${reservePage }" method="post">
 				<div class="row justify-content-md-center">
-					
-
 					<div class="col-md-auto">
 						<dt>날짜</dt>
 						<br />
@@ -79,76 +79,57 @@
 							<!-- 날짜요일 구분 -->
 							<hr />
 							<ul class="days"></ul>
-
-
 						</div>
 					</div>
-
-
 					<div class="col col-lg-2">
 						<dl>
-							<dt>인원</dt>
+							<dt>인&nbsp;원</dt>
 						</dl>
 						<br />
+						<%
+						  int maxMember = (int) request.getAttribute("maxMember"); // 컨트롤러에서 maxMember 값을 가져온다고 가정
+						  for (int i = 1; i <= maxMember; i++) {
+						%>
 						<div>
-							<input class="form-check-input" type="radio" name="radioNoLabel"
-								id="radioNoLabel1" value="2" aria-label="..." onclick="selectNumberOfPeople(2)"> 2명
+							<input class="form-check-input" type="radio" name="numberOfPeople"
+								id="numberOfPeople<%=i %>" value="<%=i %>" aria-label="..." >
+							<label class="form-check-label" for="numberOfPeople<%=i %>">
+								<%=i %>&nbsp;명
+						  </label>	 
 						</div>
-						<div>
-							<input class="form-check-input" type="radio" name="radioNoLabel"
-								id="radioNoLabel1" value="3" aria-label="..." onclick="selectNumberOfPeople(3)"> 3명
-						</div>
-						<div>
-							<input class="form-check-input" type="radio" name="radioNoLabel"
-								id="radioNoLabel1" value="4" aria-label="..." onclick="selectNumberOfPeople(4)"> 4명
-						</div>
-						<div>
-							<input class="form-check-input" type="radio" name="radioNoLabel"
-								id="radioNoLabel1" value="5" aria-label="..." onclick="selectNumberOfPeople(5)"> 5명
-						</div>
-						<div>
-							<input class="form-check-input" type="radio" name="radioNoLabel"
-								id="radioNoLabel1" value="6" aria-label="..." onclick="selectNumberOfPeople(6)"> 6명
-						</div>
-						<div>
-							<input class="form-check-input" type="radio" name="radioNoLabel"
-								id="radioNoLabel1" value="7" aria-label="..." onclick="selectNumberOfPeople(7)"> 7명
-						</div>
-						<div>
-							<input class="form-check-input" type="radio" name="radioNoLabel"
-								id="radioNoLabel1" value="8" aria-label="..." onclick="selectNumberOfPeople(8)"> 8명
-						</div>
-						<div>
-							<input class="form-check-input" type="radio" name="radioNoLabel"
-								id="radioNoLabel1" value="9" aria-label="..." onclick="selectNumberOfPeople(9)"> 9명
-						</div>
-						<div>
-							<input class="form-check-input" type="radio" name="radioNoLabel"
-								id="radioNoLabel1" value="10" aria-label="..." onclick="selectNumberOfPeople(10)"> 10명
-						</div>
+						<%} %>
+						
 					</div>
 
+					
 
 					<div class="col col-lg-2">
 						<dl>
-							<dt>시간</dt>
-							<br />
-								 <ul class="timebtn-list">
-								      <li><button type="button" class="timebtn" onclick="toggleTime('10:00')" id="button-10:00" >10:00</button></li>
-								      <li><button type="button" class="timebtn" onclick="toggleTime('11:00')" id="button-11:00">11:00</button></li>
-								      <li><button type="button" class="timebtn" onclick="toggleTime('12:00')" id="button-12:00">12:00</button></li>
-								      <li><button type="button" class="timebtn" onclick="toggleTime('13:00')" id="button-13:00">13:00</button></li>
-								      <li><button type="button" class="timebtn" onclick="toggleTime('14:00')" id="button-14:00">14:00</button></li>
-								      <li><button type="button" class="timebtn" onclick="toggleTime('15:00')" id="button-15:00">15:00</button></li>
-								      <li><button type="button" class="timebtn" onclick="toggleTime('16:00')" id="button-16:00">16:00</button></li>
-								      <li><button type="button" class="timebtn" onclick="toggleTime('17:00')" id="button-17:00">17:00</button></li>
-								      <li><button type="button" class="timebtn" onclick="toggleTime('18:00')" id="button-18:00">18:00</button></li>
-								    </ul>
-
+							<dt>시&nbsp;간</dt>
 						</dl>
+							<br />
+								 <%
+								 	int startHour= (int) request.getAttribute("startHour");
+					                int endHour= (int) request.getAttribute("endHour");
+						  			for (int i = startHour; i <= endHour; i++) {
+								%>	
+								 <div>
+							<input class="form-check-input" type="radio" name="reserveTime"
+								id="reserveTime<%=i %>" value="<%=i %>" aria-label="..." >
+							<label class="form-check-label" for="reserveTime<%=i %>">
+								<%=i %>&nbsp;:&nbsp;00
+						  </label>	 
+						</div>
+						<%} %>
 					</div>
-
 				</div>
+				<input type="text" id="selectedDate" name="selectedDate" value="" />
+				<input type="text" id="restaurant_id" name="restaurant_id" value="${param.id}" />
+				<div class="card-footer my-2">
+                        <input id="btnReserve" class="form-control btn btn btn-outline-warning " 
+                            data-bs-toggle="modal" data-bs-target="#staticBackdrop" type="submit" value="예약하기" />
+                    </div>
+				</form> 
 			</div>
 
 		</div>
@@ -158,16 +139,16 @@
 	<br />
 	
 
-	<div>
+	<!-- <div>
 		<nav class="text-center">
 			<ul>
-				<!-- Button trigger modal -->
+				Button trigger modal
 				<button type="button" class="btn btn-outline-warning"
 					data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="reserve()">예약하기</button>
 				<button type="button" class="btn btn-outline-success">취소하기</button>
 			</ul>
 		</nav>
-	</div>
+	</div> -->
 
 	
 	<div id="warning" style="display: none;">Please select all the required fields.</div>

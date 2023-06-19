@@ -7,8 +7,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import com.itwill.spring2.domain.Criteria;
-import com.itwill.spring2.domain.PageDto;
 import com.itwill.spring2.dto.IndexListDto;
+import com.itwill.spring2.dto.PageDto;
 import com.itwill.spring2.service.IndexService;
 
 import lombok.RequiredArgsConstructor;
@@ -38,7 +38,9 @@ public class HomeController {
         log.info("listaslkdfjalsdkf = {}",list);
         
         // 뷰에 보여줄 데이터를 Model에 저장.
-        cri.setId(id);
+        
+        log.info("cri={}", cri);
+        
         model.addAttribute("indexLists", list=indexService.read(cri));
         model.addAttribute("pageMaker", new PageDto(cri, 10));
         
