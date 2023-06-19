@@ -28,13 +28,12 @@
        }
 
     .th, td {
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-left: 5px;
+  padding-right: 5px;
   padding-top: 5px;
   padding-bottom: 5px;
 }
 
-     
      .menuItem {
      
     display: -moz-flex;
@@ -69,8 +68,6 @@
     border-spacing: 10px;
     
   }
- 
-
  
          .no-border {
         border: none;
@@ -149,7 +146,7 @@
 
         <!-- 예약하기, 리뷰, 즐겨찾기 버튼 -->
         <button class="btn" id="btnReserve" type="button" onclick="location.href='/mugmung/reserve/booking'"
-        	style="border-left-width: 100px;">
+        	style="border-left-width: 80px;">
          <img id="reserveBtn"
           src="../static/assets/icons/reserve.png"
           alt="reserve-Btn" width="50" /> <br>
@@ -163,8 +160,8 @@
           class="review_button_text">리뷰쓰기</span>
         </button>
 
-        <button class="btn" id="btnToggelBookmark" >
-         <img id="bookmarkBtn"
+        <button class="btn" id="bookmarkBtn" >
+         <img id="btnToggelBookmark"
           src="../static/assets/icons/bookmarkOff.png"
           alt="bookmark-off" width="50" /> <br> 
           <span class="review_button_text" >북마크</span>
@@ -177,6 +174,8 @@
 
 
 
+
+
       <!-- 가게 정보 불러오기 -->
     <table class="menu_info my-5" style="font-family: 'SUITE-Regular';">
         <tbody>
@@ -185,8 +184,8 @@
                   <td>${ detail.name_info }</td>
             </tr>
             <tr class="only-desktop">
-                <th>주소</th>
-                  <td>${ detail.address_id.address1 }&nbsp;${ detail.address_id.address2 }</td>
+                <th style="width: 100px;">주소</th>
+                  <td>${ detail.address1 }&nbsp;${ detail.address2 }</td>
                   </tr>
             <tr class="only-desktop">
                 <th>전화번호</th>
@@ -212,13 +211,13 @@
             </tr>   
              <tr class="only-desktop">
                 <th>마지막 주문</th>
-                    <td>${ detail.last_order }</td>
-            </tr class="only-desktop">
-             <tr>
+                    <td>${ detail.last_order }  : 00</td>
+            </tr>
+             <tr class="only-desktop">
                 <th>휴일</th>
                     <td>${ detail.holiday }</td>
-            </tr class="only-desktop">  
-              <tr>
+            </tr>  
+              <tr class="only-desktop">
                 <th>웹 사이트</th>
                     <td><a href="${detail.web_link}" target="_blank">${detail.web_link}</a></td>
             </tr>
@@ -230,19 +229,19 @@
                 <td class="menu_td">
                 <ul class="menuList">
                   <li class="menuItem">
-                    <span class="Menu_name">${ detail.menu_id.menu1_name }</span>
-                    <span class="Menu_price"> ${ detail.menu_id.menu1_price }</span>
+                    <span class="Menu_name">${ detail.menu1_name }</span>
+                    <span class="Menu_price"> ${ detail.menu1_price }</span>
                   </li>
                    
                   <li class="menuItem">
-                    <span class="Menu_name">${ detail.menu_id.menu2_name } </span>
-                    <span class="Menu_name">${ detail.menu_id.menu2_price }</span>
+                    <span class="Menu_name">${ detail.menu2_name } </span>
+                    <span class="Menu_name">${ detail.menu2_price }</span>
                   </li>
                   <li class="menuItem">
-                     <span class="Menu_name">${ detail.menu_id.menu3_name }</span> 
-                      <span class="Menu_name">${ detail.menu_id.menu3_price }</span>
+                     <span class="Menu_name">${ detail.menu3_name }</span> 
+                      <span class="Menu_name">${ detail.menu3_price }</span>
                   </li>
-                  <li class="menuItem">
+                  <%-- <li class="menuItem">
                    <span class="Menu_name">${ detail.menu_id.menu4_name } </span>
                     <span class="Menu_name">${ detail.menu_id.menu4_price }</span>
                     </li>
@@ -271,7 +270,7 @@
                   <li class="menuItem">
 					<span class="Menu_name">${ detail.menu_id.menu10_name } </span>
 					<span class="Menu_name">${ detail.menu_id.menu10_price }</span>
-				  </li>
+				  </li> --%>
                   </ul>
                   </td>
             </tr>

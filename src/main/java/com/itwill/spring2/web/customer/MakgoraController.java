@@ -30,23 +30,23 @@ public class MakgoraController extends HttpServlet {
         
     }
 	
-	@PostMapping("/makgora")
-	public String create(MakgoraDto dto, Model model, HttpServletRequest request) {
-		log.info("POST: create({})", dto);
-		
-		HttpSession session = ((HttpServletRequest) request).getSession();
-		
-		String username = (String) session.getAttribute("signedInUser");
-		log.info("username = {}",username);
-		
-		model.addAttribute("username", username);
-		
-		dto.setWriter(username);
-		dto.setMakgora_image_id(username);
-		
-		int result = makgoraService.create(dto);
-		log.info("1:1문의 결과={}", result);
-		return "redirect:/mugmung/main";
-
-	}
+//	@PostMapping("/makgora")
+//	public String create(MakgoraDto dto, Model model, HttpServletRequest request) {
+//		log.info("POST: create({})", dto);
+//		
+//		HttpSession session = ((HttpServletRequest) request).getSession();
+//		
+//		String username = (String) session.getAttribute("signedInUser");
+//		log.info("username = {}",username);
+//		
+//		model.addAttribute("username", username);
+//		
+//		dto.setWriter(username);
+//		dto.setMakgora_image_id(username);
+//		
+//		int result = makgoraService.create(dto);
+//		log.info("1:1문의 결과={}", result);
+//		return "redirect:/mugmung/main";
+//
+//	}
 }
