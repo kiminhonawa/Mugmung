@@ -53,6 +53,10 @@ FROM dual
 	select user_image from users where username = #{username}
 </select>
 
+<select id="readMakgoraByUsername" resultType="com.itwill.spring2.dto.MakgoraDto">
+	select title, content, makgora_type from makgora where writer = #{username}
+</select>
+
 
 
 

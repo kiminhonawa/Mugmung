@@ -106,7 +106,7 @@
         <li class="nav-item"><a id="starscore" class="nav-link">별점보기</a></li>
         
         <c:url value="/mypage/makgora" var="makgoraPage" />
-        <li class="nav-item"><a href="${ makgoraPage}" id="makgora" class="nav-link">문의한 내용</a></li>
+        <li class="nav-item"><a id="makgora" class="nav-link">문의한 내용</a></li>
         
        	<%-- <c:url value="/mypage/setImg" var="setImg" />
         <li class="nav-item">
