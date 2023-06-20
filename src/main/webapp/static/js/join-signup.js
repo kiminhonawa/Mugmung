@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
         .then((response) => {
             alert(`프로필 사진 업로드 성공(${response.data})`);
         })
-        .catch((error) => {
+        .catch((error) => {s
             console.log(error);
         });
         

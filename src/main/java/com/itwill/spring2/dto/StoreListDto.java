@@ -39,7 +39,6 @@ public class StoreListDto {
                 .last_order(entity.getLast_order())
                 .holiday(entity.getHoliday())
                 .web_link(entity.getWeb_link())
-                .food_menu(entity.getFood_menu())
                 .name_info(entity.getName_info())
                 .build();
         
