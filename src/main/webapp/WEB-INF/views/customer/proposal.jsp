@@ -10,7 +10,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>맛집은!머그멍</title>
 <link
- href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+ href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3-alpha3/dist/css/bootstrap.min.css"
  rel="stylesheet"
  integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
  crossorigin="anonymous">
@@ -51,14 +51,7 @@
              value="${username}" />
            </div></td>
          </tr>
-         <tr>
-          <th><label for="email" class="form-label">이메일</label></th>
-          <td><div class="input_area">
-            <input type="text" id="email"
-             class="form-control mb-3" readonly=""
-             value="${email}" />
-           </div></td>
-         </tr>
+         
 
          <tr>
           <th><label for="proposal_type" class="form-label">제안구분</label></th>
@@ -98,15 +91,14 @@
          <tr>
           <th>파일첨부(선택)</th>
           <td><div class="ipt_file_area">
-            <br> <label for="ipt_file" class="btn_sys mid_d"><span>파일첨부</span></label><input
+            <br><br> <label for="ipt_file" class="btn_sys mid_d"><span>파일첨부</span></label><input
              type="file" id="ipt_file" class="blind" />
             <ul class="file_list"></ul>
            </div>
            <ul class="list_type">
             <li>최대용량 2MB, 첨부 가능 파일: <!-- -->PNG, JPG, JPEG, GIF,
-             XLS, XLSX, PDF
-            </li>
-            <li>제안하기 등록 시 개인정보는 기재/첨부되지 않도록 주의 바랍니다.</li>
+             XLS, XLSX, PDF</li>
+           <li>제안하기 등록 시 개인정보는 기재/첨부되지 않도록 주의 바랍니다.</li>
            </ul></td>
          </tr>
         </tbody>

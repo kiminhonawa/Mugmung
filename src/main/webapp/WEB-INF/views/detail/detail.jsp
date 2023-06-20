@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" trimDirectiveWhitespaces="true"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ include file="../../views/common/header.jsp" %>
 
 
@@ -28,13 +29,12 @@
        }
 
     .th, td {
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-left: 5px;
+  padding-right: 5px;
   padding-top: 5px;
   padding-bottom: 5px;
 }
 
-     
      .menuItem {
      
     display: -moz-flex;
@@ -69,8 +69,6 @@
     border-spacing: 10px;
     
   }
- 
-
  
          .no-border {
         border: none;
@@ -149,7 +147,7 @@
 
         <!-- 예약하기, 리뷰, 즐겨찾기 버튼 -->
         <button class="btn" id="btnReserve" type="button" onclick="location.href='/mugmung/reserve/booking'"
-        	style="border-left-width: 100px;">
+        	style="border-left-width: 80px;">
          <img id="reserveBtn"
           src="../static/assets/icons/reserve.png"
           alt="reserve-Btn" width="50" /> <br>
@@ -163,16 +161,36 @@
           class="review_button_text">리뷰쓰기</span>
         </button>
 
-        <button class="btn" id="btnToggelBookmark" >
-         <img id="bookmarkBtn"
+        <button class="btn" id="bookmarkBtn" >
+        <input type="text" id="restaurant_id" name="restaurant_id" value="${param.id}" />
+        <input type="text" id="username" name="username" value="${username}" />
+        
+        <c:choose>
+		<c:when test="${existFlag == 0}">
+		<!-- 처리할 내용 -->
+		<img id="btnToggleBookmark"
+		          src="../static/assets/icons/bookmarkOff.png"
+		          alt="bookmark-off" width="50" />
+		</c:when>
+		<c:when test="${existFlag == 1}">
+		<!-- 처리할 내용 -->
+		<img id="btnToggleBookmark"
+		          src="../static/assets/icons/bookmarkOn.png"
+		          alt="bookmark-off" width="50" />
+		</c:when>
+		</c:choose>
+         <!-- <img id="btnToggleBookmark"
           src="../static/assets/icons/bookmarkOff.png"
-          alt="bookmark-off" width="50" /> <br> 
+          alt="bookmark-off" width="50" />  -->
+          
+          <br> 
           <span class="review_button_text" >북마크</span>
         </button>
-        </h2>       
-
+        </h2>
        <hr>
       </div>
+
+
 
 
 
@@ -185,8 +203,8 @@
                   <td>${ detail.name_info }</td>
             </tr>
             <tr class="only-desktop">
-                <th>주소</th>
-                  <td>${ detail.address_id.address1 }&nbsp;${ detail.address_id.address2 }</td>
+                <th style="width: 100px;">주소</th>
+                  <td>${ detail.address1 }&nbsp;${ detail.address2 }</td>
                   </tr>
             <tr class="only-desktop">
                 <th>전화번호</th>
@@ -212,13 +230,13 @@
             </tr>   
              <tr class="only-desktop">
                 <th>마지막 주문</th>
-                    <td>${ detail.last_order }</td>
-            </tr class="only-desktop">
-             <tr>
+                    <td>${ detail.last_order }  : 00</td>
+            </tr>
+             <tr class="only-desktop">
                 <th>휴일</th>
                     <td>${ detail.holiday }</td>
-            </tr class="only-desktop">  
-              <tr>
+            </tr>  
+              <tr class="only-desktop">
                 <th>웹 사이트</th>
                     <td><a href="${detail.web_link}" target="_blank">${detail.web_link}</a></td>
             </tr>
@@ -230,19 +248,19 @@
                 <td class="menu_td">
                 <ul class="menuList">
                   <li class="menuItem">
-                    <span class="Menu_name">${ detail.menu_id.menu1_name }</span>
-                    <span class="Menu_price"> ${ detail.menu_id.menu1_price }</span>
+                    <span class="Menu_name">${ detail.menu1_name }</span>
+                    <span class="Menu_price"> ${ detail.menu1_price }</span>
                   </li>
                    
                   <li class="menuItem">
-                    <span class="Menu_name">${ detail.menu_id.menu2_name } </span>
-                    <span class="Menu_name">${ detail.menu_id.menu2_price }</span>
+                    <span class="Menu_name">${ detail.menu2_name } </span>
+                    <span class="Menu_name">${ detail.menu2_price }</span>
                   </li>
                   <li class="menuItem">
-                     <span class="Menu_name">${ detail.menu_id.menu3_name }</span> 
-                      <span class="Menu_name">${ detail.menu_id.menu3_price }</span>
+                     <span class="Menu_name">${ detail.menu3_name }</span> 
+                      <span class="Menu_name">${ detail.menu3_price }</span>
                   </li>
-                  <li class="menuItem">
+                  <%-- <li class="menuItem">
                    <span class="Menu_name">${ detail.menu_id.menu4_name } </span>
                     <span class="Menu_name">${ detail.menu_id.menu4_price }</span>
                     </li>
@@ -271,12 +289,11 @@
                   <li class="menuItem">
 					<span class="Menu_name">${ detail.menu_id.menu10_name } </span>
 					<span class="Menu_name">${ detail.menu_id.menu10_price }</span>
-				  </li>
+				  </li> --%>
                   </ul>
                   </td>
             </tr>
 
-                
     
       </tbody>
       </table>
@@ -303,65 +320,56 @@
 
 
 
-
+	
     <!-- 작성된 리뷰 불러오기 -->
     <section
      class="my-2 d-flex justify-content-center align-items-center">
-     <div class="card align-self-stretch"
-      style="min-width: 1260px; max-width: 1260px;">
-      <div class="card-header fw-bold">
-       <span style="font-family: 'EF_jejudoldam';">리뷰</span> 
-       <%-- <span id="reviewCount">(${review.reviewCount})</span>  --%>
-      </div>
-      
+   <div class="card align-self-stretch"
+    style="min-width: 1260px; max-width: 1260px;">
+    <div class="card-header fw-bold">
+     <span style="font-family: 'EF_jejudoldam';">리뷰</span>
+     <%-- <span id="reviewCount">(${review.reviewCount})</span>  --%>
+    </div>
+
     <div class="card-body" id="replie">
-      <div class="my-2 row">
-       <label class="form-label" for="replyText"> 나의 리뷰</label>
-       
+     <div class="my-2 row">
+      <label class="form-label" for="replyText" style="font-family: 'SUITE-Regular';"> 나의 리뷰</label>
+
       <!--  <div class="col-10">
         <textarea class="form-control" id="replyText"></textarea>
         <input class="d-none" id="writer" value="admin" />
        </div> -->
-      
+
       <!-- 리뷰 보여줄 영역 -->
-      
-      <div class="my-2 row" id="replies">
-      <c:forEach items="${ review }" var="list">
+
+      <div class="my-2 row" id="replies" style="font-family: 'SUITE-Regular';">
+       <c:forEach items="${ review }" var="list">
         <div class="card">
-                <div>
-                    <span class="d-none">${list.id}</span>
-                    <span class="fw-bold">${list.writer}</span>
-                    <span class="text-secondary">${list.modified_time}</span>
-                    
-                </div>
-                <div>
-                    ${list.reply_text}
-                </div>
-            </div>
-      </c:forEach>
+         <div>
+          <span class="d-none">${list.id}</span> 
+          <span class="fw-bold">${list.writer}</span>
+          <span class="text-secondary">
+          <small><fmt:formatDate  value="${list.modified_time}"
+            pattern="yyyy-MM-dd" /></small> </span>
+
+         </div>
+         <div>${list.reply_text}</div>
+        </div>
+       </c:forEach>
+
 <%--       <span>${review.REPLY_TEXT}</span> 
       <span>${review.MODIFIED_TIME}</span>  --%>
-      </div>
-     </div>
-     </div>
-     </div>
-    </section>
-    
-    
-    
-    
+    </div>
+   </div>
 
-   
-   
-
-
+  </section>
+    
 
     <%@ include file="../../views/common/footer.jsp"%>
+    
  </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-     <%-- <c:url value="/static/js/review-reply.js" var="review-reply"></c:url>
-     <script type="text/javascript" scr="${review-reply}"></script> --%>
-     <!-- <script src="../static/js/review-reply.js"></script>  -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="../static/js/bookmark.js"></script>
 </body>
 </html>

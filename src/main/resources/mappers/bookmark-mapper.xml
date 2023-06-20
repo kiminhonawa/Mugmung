@@ -7,19 +7,59 @@
 
     <!-- 게시글 북마크 등록 -->
     <insert id="BookmarkOn">
-        insert into BOOKMARK (id, restaurant_id, username)
-        values (BOOKMARK_seq.nextval, #{restaurant_id}, #{username})
+        insert into BOOKMARK (restaurant_id, username)
+        select r.id, u.username
+        from restaurant r, users u
+        where r.id = #{RESTAURANT_ID} and u.username = #{USERNAME}
     </insert>
+
     
     <!-- 게시글 북마크 상태 -->
-    <select id="MyBookmark" resultType="com.itwill.spring2.dto.PostListDto">
-        select count(*) from BOOKMARK 
-        where restaurant_id = #{restaurant_id} and username = #{username}
+    <select id="MyBookmark" resultType="com.itwill.spring2.dto.BookmarkDto">
+        select count(1) 
+        from BOOKMARK 
+        where restaurant_id = #{RESTAURANT_ID} and username = #{USERNAME}
     </select> 
+    
+	<insert id="insert">
+		insert into bookmark(restaurant_id, username) values(#{restaurant_id}, #{username})
+	</insert>
+	<insert id="delete">
+		delete from BOOKMARK 
+        where restaurant_id = #{restaurant_id} and username = #{username}
+	</insert>    
     
     <!-- 게시글 북마크 취소 -->
     <delete id="BookmarkOff">
         delete from BOOKMARK 
-        where restaurant_id = #{restaurant_id} and username = #{username}
+        where restaurant_id = #{RESTAURANT_ID} and username = #{USERNAME}
     </delete>
+    
+    <select id="selectbyName" resultType="String">
+    	select username from bookmark where username = #{username}
+    </select>
+    
 </mapper>
+
+	
+
+
+<!--  <select id="BookmarkOn">
+    select
+       r.ID, r.MENU_ID, r.ADDRESS_ID,
+       r.NAME, r.NAME_INFO, r.LOW_PRICE_RANGE ,r.HIGH_PRICE_RANGE, 
+       m.MENU_IMAGE_ID,
+       a.ADDRESS1, a.ADDRESS2
+       u.ID, u.USERNAME
+    from restaurant r, menus m, address a, users u
+    where r.id = m.restaurant_id
+          and r.id = a.restaurant_id
+          and r.id = #{id}
+          and u.id = #{id}
+    </select> -->
+
+    
+    
+    
+    
+      

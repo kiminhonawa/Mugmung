@@ -39,8 +39,11 @@
       <label>
       </label>
     </div>
-
-    <button typ class="w-100 btn btn-lg btn-primary" type="submit">로그인</button>
+    <c:url value="/user/findId" var="findId"></c:url>
+	<a class="findId" href="${findId }">아이디 찾기</a>
+	<c:url value="/user/findPass" var="findPass"></c:url>
+	<a class="findPass" href="${findPass }">비밀번호 찾기</a>
+    <button class="w-100 btn btn-lg btn-primary" type="submit">로그인</button>
     <p class="mt-5 mb-3 text-muted">© mugmung</p>
   </form>
 </main>
@@ -51,5 +54,8 @@
 
 </body>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+	<c:url value="/static/js/signin.js" var="signin" />
+	<script type="text/javascript" src="${signin }"></script>
+	
    </body>
 </html>

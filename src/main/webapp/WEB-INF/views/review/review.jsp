@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8" 
  pageEncoding="UTF-8" trimDirectiveWhitespaces="true"%>
  <%@ include file="../../views/common/header.jsp" %>
 <!DOCTYPE html>
@@ -29,11 +29,13 @@
         <div class="card" >
             <form class="card-body" method="post" id="reviewForm">
                 <div class="my-2">
-                    <label class="form-label" for="id" style="font-family: 'EF_jejudoldam';">남부</label>
+                    <label class="form-label" for="id" style="font-family: 'EF_jejudoldam';">${name }</label>
+                    <input type="hidden" id="restaurant_id" name="restaurant_id" value="${ param.id }">
                     <label class="form-label" for="id" style="font-family: 'EF_jejudoldam';">에 대한 솔직한 리뷰를 써주세요.</label>
                 </div>
                 
-            
+            	
+            	
                 <div class="rating">
                     <!-- 해당 별점을 클릭하면 해당 별과 그 왼쪽의 모든 별의 체크박스에 checked 적용 -->
                     <input type="checkbox" name="rating" id="rating1" value="1" class="rate_radio" title="1점" >
@@ -46,14 +48,14 @@
                         <label for="rating4"></label>
                     <input type="checkbox" name="rating" id="rating5" value="5" class="rate_radio" title="5점">
                         <label for="rating5"></label>
-               <div id='result'></div> 
+               <div id="result"></div> 
                 </div>
                 
                 
                 <div>
                     <textarea class="ReviewEditor my-2"  id="content" name="content" maxlength="10000"
                      style="width:100%;border-width;overflow:visible;text-overflow:ellipsis;" rows=10
-                    placeholder="아영님, 주문하신 메뉴는 어떠셨나요? 식당의 분위기와 서비스도 궁금해요!"></textarea>
+                    placeholder="${ username }, 주문하신 메뉴는 어떠셨나요? 식당의 분위기와 서비스도 궁금해요!"></textarea>
                 </div>
                 </form>
             </div>
@@ -67,15 +69,14 @@
     </div>
     
     
-        <%-- <div>
+        <div>
             <c:url value="/review/review" var="reviewPage"></c:url>
-            서블릿에 요청해 파일을 업로드 함
             <form action="${reviewPage }" method="post" enctype="multipart/form-data">
                 <input type="file" name="file" />
                 <img id="preview" src="#" width=200 height=150 alt="선택된 이미지가 없습니다" style="align-content: flex-end; ">
                 <input type="submit" value="Upload" />
             </form>
-        </div> --%>
+        </div> 
     
     
     <div class="ReviewWritingPage">
@@ -108,7 +109,7 @@
 
 
     <script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3-alpha3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
     crossorigin="anonymous">
 		

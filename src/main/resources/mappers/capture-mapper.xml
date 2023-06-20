@@ -15,8 +15,8 @@
     </select>
     
     <insert id="insert">
-        insert into CAPTURE (CONTENT, CAPTURE_IMAGE_ID, WRITER, CREATED_TIME, MODIFIED_TIME)
-        values (#{content},#{capture_image_id} ,#{writer}, systimestamp, systimestamp)
+        insert into CAPTURE (CONTENT, CREATED_TIME, MODIFIED_TIME)
+        values (#{content}, systimestamp, systimestamp)
     </insert>
     
     <select id="selectById" 
@@ -24,8 +24,40 @@
         select * from CAPTURE where ID = #{id}
     </select>
     
-    
+    <!-- 업데이트 -->
+    <update id="updateContent">
+        update CAPTURE 
+        set CONTENT = #{content}, MODIFIED_TIME = systimestamp
+        where ID = #{id}
+    </update>
+    <!-- 삭제 -->
     <delete id="deleteById">
         delete from CAPTURE where ID = #{id}
     </delete>
+    
+    <!-- 검색 -->
+    <select id="selectByKeyword" resultType="com.itwill.spring2.dto.CaptureListDto">
+        SELECT * 
+        FROM capture
+        WHERE content LIKE '%' || #{keyword} || '%'
+    </select>
+    
+    <!-- 페이징 -->
+    <select id="captureListRead" resultType="com.itwill.spring2.dto.CaptureListDto">
+    <![CDATA[
+    SELECT *
+    FROM (
+        SELECT /*+INDEX_DESC */ rownum rn,
+            c.id,
+            c.content,
+            c.capture_image_id,
+            c.writer,
+            c.created_time
+        FROM capture c
+        WHERE c.id > 0
+        AND rownum <= (#{pageNum} * #{amount})
+    )
+    WHERE rn > ((#{pageNum} - 1) * #{amount})
+    ]]>
+    </select>
 </mapper>
