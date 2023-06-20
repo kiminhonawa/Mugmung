@@ -1,15 +1,10 @@
 package com.itwill.spring2.service;
 
-import java.util.ArrayList;
-import java.util.List;
 
 import org.springframework.stereotype.Service;
 
 
-import com.itwill.spring2.dto.BookmarkDto;
-import com.itwill.spring2.dto.RestaurantDto;
 import com.itwill.spring2.repository.BookmarkRepository;
-import com.itwill.spring2.repository.PostRepository;
 import com.itwill.spring2.repository.UserRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -21,30 +16,25 @@ import lombok.extern.slf4j.Slf4j;
 public class BookmarkService {
 
     private final BookmarkRepository bookmarkRepository;
-    private final UserRepository userRepository;
     
     
     
     // 게시글 북마크 등록
-    public List<RestaurantDto> bookmarkOn(long id, String username) {
-        log.info("bookmarkOn(id={}, username={})", id, username);
+    public void bookmarkOn(long restaurant_id, String username) {
+        log.info("bookmarkOn(id={}, username={})", restaurant_id, username);
         
-        // 북마크 등록
-        bookmarkRepository.BookmarkOn(id, username);
         
         // 북마크 상태 조회
-        long bookmarkStatus = bookmarkRepository.MyBookmark(id, username); 
+        long bookmarkStatus = bookmarkRepository.MyBookmark(restaurant_id, username); 
         
-        List<RestaurantDto> list = new ArrayList<>();
         
         
         if(bookmarkStatus > 0) {
-            bookmarkRepository.BookmarkOff(id, username); // 북마크 취소
+            bookmarkRepository.BookmarkOff(restaurant_id, username); // 북마크 취소
         } else {
-            list = bookmarkRepository.BookmarkOn(id, username); // 북마크 등록 후 목록 조회
+            bookmarkRepository.BookmarkOn(restaurant_id, username); // 북마크 등록 
         }
-                
-        return list;
+ 
     }
     
     
