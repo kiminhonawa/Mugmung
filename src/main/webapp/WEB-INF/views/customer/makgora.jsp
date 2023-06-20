@@ -86,18 +86,7 @@
 				</div>
 
 
-				<div class="row mb-3">
-					<label class="col-sm-2 col-form-label">파일첨부</label>
-					<div class="col-sm-6">
-						<div class="form-group uploadDiv">
-							<input type="file" name="uploadFile" id="uploadFile"
-								style="width: 300px; padding-right: 600px;" multiple />
-						</div>
-						<div class="uploadResult">
-							<ul></ul>
-						</div>
-					</div>
-				</div>
+				
 				<div class="row">
 					<div class="col-sm-2"></div>
 					<div class="col-sm-6">
