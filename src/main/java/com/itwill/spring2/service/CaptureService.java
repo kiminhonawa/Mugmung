@@ -64,19 +64,22 @@ public class CaptureService {
     }
     
    
-
-    public void increaseViews(long id) {
-        log.info("increaseViews(id = {})", id);
-        captureRepository.increaseViews(id);
-        
-    }
-
+    //조회수
+    /*
+     * public void increaseViews(long id) { log.info("increaseViews(id = {})", id);
+     * captureRepository.increaseViews(id);
+     * 
+     * }
+     */
+    
+    //검색
     public List<CaptureListDto> searchLists(String keyword) {
         log.info("searchLists(keyword = {})", keyword);
         
         return captureRepository.selectByKeyword(keyword);
     }
-
+    
+    //페이징
     public List<CaptureListDto> read(Criteria cri) {
         log.info("read(cri=()}",cri);
         

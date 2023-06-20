@@ -35,15 +35,17 @@ public class CaptureController {
     private final CaptureService captureService;
 
     @GetMapping("/capture/capturelist")
-    public void list(Criteria cri, Model model) {
+    public String list(Criteria cri, Model model) {
         log.info("list()");
 
         
-        List<CaptureListDto> list = captureService.read();
+        List<CaptureListDto> list = captureService.read(cri);
+        
 
         model.addAttribute("captures", list);
-//        model.addAttribute("list", list = captureService.read(cri));
-//        model.addAttribute("pageMaker", new PageDto(cri, 123));
+        model.addAttribute("list", list = captureService.read(cri));
+        model.addAttribute("pageMaker", new PageDto(cri, 120));
+        return "/capture/capturelist"; // 페이지네이션을 표시할 view의 경로를 반환
         
     }
 
