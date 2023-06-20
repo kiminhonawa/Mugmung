@@ -2,25 +2,19 @@ package com.itwill.spring2.web.detail;
 
 import java.util.List;
 
-import org.springframework.http.ResponseEntity;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
 
-import com.itwill.spring2.dto.AddressDto;
-import com.itwill.spring2.dto.MapDto;
-import com.itwill.spring2.dto.MenuDto;
 import com.itwill.spring2.dto.PostReviewDto;
-
 import com.itwill.spring2.dto.RestaurantDto;
 import com.itwill.spring2.service.AddressService;
+import com.itwill.spring2.service.BookmarkService;
 import com.itwill.spring2.service.MapService;
 import com.itwill.spring2.service.MenuService;
-import com.itwill.spring2.service.PostReviewService;
 import com.itwill.spring2.service.RestaurantService;
 
 import jakarta.servlet.http.HttpServlet;
@@ -40,6 +34,9 @@ public class DetailController extends HttpServlet{
     private final MapService mapService;
     private final MenuService menuService;
     
+    @Autowired
+    private BookmarkService bookmarkService;
+    
    
     
     // 페이지 클릭 시, 상세보기 페이지
@@ -55,6 +52,14 @@ public class DetailController extends HttpServlet{
             RestaurantDto restaurantdto = restaurantService.read(id);
             log.info("restaurant={}", restaurantdto);
             
+            String name = bookmarkService.selectbyName(username);
+            
+            int existFlag = 0;
+            
+            if (username.equals(name)) {
+            	existFlag = 1;
+			}
+            
 //            AddressDto addressDto = addressService.read(id);
 //            MapDto mapDto = mapService.read(id);
 //            MenuDto menuDto = menuService.read(id);
@@ -63,7 +68,9 @@ public class DetailController extends HttpServlet{
 //            restaurantdto.setMap_id(mapDto);
 //            restaurantdto.setMenu_id(menuDto);
             
-            model.addAttribute("detail", restaurantdto); 
+            model.addAttribute("detail", restaurantdto);
+            model.addAttribute("username", username);
+            model.addAttribute("existFlag",existFlag);
             
             // --
             // 리뷰 불러오기

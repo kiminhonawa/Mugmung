@@ -21,12 +21,27 @@
         where restaurant_id = #{restaurant_id} and username = #{username}
     </select> 
     
+	<insert id="insert">
+		insert into bookmark(restaurant_id, username) values(#{restaurant_id}, #{username})
+	</insert>
+	<insert id="delete">
+		delete from BOOKMARK 
+        where restaurant_id = #{restaurant_id} and username = #{username}
+	</insert>    
+    
     <!-- 게시글 북마크 취소 -->
     <delete id="BookmarkOff">
         delete from BOOKMARK 
         where restaurant_id = #{restaurant_id} and username = #{username}
     </delete>
+    
+    <select id="selectbyName" resultType="String">
+    	select username from bookmark where username = #{username}
+    </select>
+    
 </mapper>
+
+	
 
 
 <!--  <select id="BookmarkOn">
