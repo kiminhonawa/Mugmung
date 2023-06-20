@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (confirm("문의하시겠습니까?") == true) {
             //true는 확인버튼을 눌렀을 때 코드 작성
             alert("완료되었습니다.");
-            location.href = '/mugmung/main';
+            location.href = '/mugmung';
         } else {
             // false는 취소버튼을 눌렀을 때, 취소됨
              alert("취소되었습니다.");

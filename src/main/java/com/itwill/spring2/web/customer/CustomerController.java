@@ -81,7 +81,7 @@ public class CustomerController extends HttpServlet {
 	    int result = partnershipService.create(dto);
 	    log.info("제휴하기 등록 결과 = {}", result);
 	    
-	    return "redirect:/main";
+	    return "redirect:/";
 	}
 	
 	
@@ -111,6 +111,6 @@ public class CustomerController extends HttpServlet {
 	    log.info("POST:proposalPost()");
 	    
 	    int result = proposalService.create(dto);
-	    return "redirect:/main";
+	    return "redirect:/";
 	}
 }
