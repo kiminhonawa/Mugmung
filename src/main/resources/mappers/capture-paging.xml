@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itwill.spring2.repository.CaptureRepository">
+    <select id="captureListRead" resultType="com.itwill.spring2.dto.CaptureListDto">
+   <![CDATA[
+    SELECT *
+    FROM (
+        SELECT /*+INDEX_DESC */ rownum rn,
+            c.id,
+            c.content,
+            c.capture_image_id,
+            c.writer,
+            c.created_time
+        FROM capture c
+        WHERE c.id > 0
+        AND rownum <= (#{pageNum} * #{amount})
+    )
+    WHERE rn > ((#{pageNum} - 1) * #{amount})
+    ]]>
+    </select>
+</mapper>

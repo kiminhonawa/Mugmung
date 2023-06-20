@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.itwill.spring2.domain.Criteria;
-import com.itwill.spring2.domain.PageDto;
+import com.itwill.spring2.dto.PageDto;
 import com.itwill.spring2.dto.CriDto;
 import com.itwill.spring2.dto.PaginationDto;
 import com.itwill.spring2.dto.PostCreateDto;

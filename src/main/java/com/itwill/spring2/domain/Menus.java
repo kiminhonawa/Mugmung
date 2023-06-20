@@ -1,7 +1,5 @@
 package com.itwill.spring2.domain;
 
-import java.time.LocalDateTime;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -15,13 +13,13 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class Capture {
-
-    private long id;
-    private String content;
-    private String capture_image_id;
-    private String writer;
-    private LocalDateTime created_time;
-    private LocalDateTime modified_time;
-    
+public class Menus {
+   private long id;
+   private long restaurant_id;
+   private String menu1_name;
+   private long menu1_price;
+   private String menu2_name;
+   private long menu2_price;
+   private String menu3_name;
+   private long menu3_price;
 }

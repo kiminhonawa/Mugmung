@@ -6,10 +6,38 @@
   box-shadow: 0 0 0 .25rem rgba(255, 255, 255, .25);
 }
 
-.text-small {
-  font-size: 85%;
+.text-large {
+  font-size: 130%;
 }
 
 .dropdown-toggle {
   outline: 0;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  width: 500px; /* 원하는 너비로 조정하세요 */
+}
+
+.search-input-wrapper {
+  margin-left: 10px; /* Adjust the value as per your preference */
+}
+
+.form-control.search-input {
+  width: 200px; /* Adjust the width as per your preference */
+}
+
+.search-input {
+  flex: 1;
+  border: 2px solid orange;
+  border-radius: 20px;
+  padding: 5px 10px;
+  width: 90%; /* .search-container의 너비와 동일하게 조정됩니다 */
+}
+
+.search-button {
+  border: none;
+  background-color: transparent;
+  padding: 5px;
 }

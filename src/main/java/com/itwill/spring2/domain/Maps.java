@@ -1,7 +1,5 @@
 package com.itwill.spring2.domain;
 
-import java.time.LocalDateTime;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -15,13 +13,10 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class Capture {
-
+public class Maps {
     private long id;
-    private String content;
-    private String capture_image_id;
-    private String writer;
-    private LocalDateTime created_time;
-    private LocalDateTime modified_time;
-    
+    private long restaurant_id;
+    private float x;
+    private float y;
+
 }

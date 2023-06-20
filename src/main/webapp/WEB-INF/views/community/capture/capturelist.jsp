@@ -86,8 +86,8 @@
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <ul class="navbar-nav bg-light">
                 <li class="nav-item">
-                    <c:url var="mainPage" value="/main" />
-                    <a class="nav-link" href="${ mainPage }">메인 페이지</a>
+                    <c:url var="captureListPage" value="/community/capture/capturelist" />
+                    <a class="nav-link" href="${ captureListPage }">글 목록</a>
                 </li>
                 <li class="nav-item">
                     <c:url var="captureCreatePage" value="/community/capture/capturecreate" />
@@ -98,31 +98,21 @@
         
         <main class="my-2">
             <div id="board" class="clearfix">
-                    <form name="search" id="search" action="">
-                    <fieldset>
-                        <legend>게시물 검색</legend>
-                        <input type="hidden" name="key" id="key_search" value="">
-                        <input type="hidden" name="bbsNo" id="bbsNo_search" value="">
-                        <input type="hidden" name="integerDeptCode" id="integerDeptCode_search" value="">
-                        <input type="hidden" name="searchCtgry" id="searchCtgry_search" value="">
-                   </fieldset>
-                   </form>
+                    <form name="search" id="search" action="/mugmung/community/capture/search" method="get">
                     <div class="card">
                         <div class="p-form-group">
-                        <label class="skip" for="searchCnd_search"></label>
-                        <select name="searchCnd" id="searchCnd_search" title="검색항목선택" class="p-input">
-                            <option value="SJ">제목</option>
-                            <option value="CN">내용</option>
+                        <select name="searchCnd_search" id="searchCnd_search" title="검색항목선택" class="p-input">
+                            <option value="content">내용</option>
                         </select>
-                        <label for="searchKrwd_search" class="skip"></label>
-                        <input name="searchKrwd" id="searchKrwd_search" type="text" title="검색 단어 입력" />
-                        <button type="submit" class="p-button black">검색</button>
+                        <input name="search" id="search" type="text" placeholder="검색어를 입력하세요" />
+                        <button type="submit" id="searchBtn" class="p-button black">검색</button>
                         </div>
-                    </div>        
+                    </div>
+                    </form>        
                 </div>
-
-    
-  </head>
+        </main>
+    </body>
+ 
   <body>
     
 
@@ -130,164 +120,114 @@
 <main>
 
   <div class="album py-5 bg-light">
-    <div class="container">
-        
-    <c:forEach items="${captures }" var="capture">
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-        <div class="col">
-          <div class="card shadow-sm">
-            <c:url value="/static/img/gogi.jpg" var="gogi"></c:url>
-            <img class="bd-placeholder-img card-img-top" src="${ gogi }" alt="고기 이미지" width="100%" height="225" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice"></img>
-            <div class="card-body">
-              
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                <c:url var="cpatureDetail" value="/community/capture/capturedetail">
-                        <c:param name="id" value="${capture.id }" />
-                    </c:url>
-                    <a href="${cpatureDetail }">${capture.content}</a>
-                  
+    <div class="container">   
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            <c:forEach items="${captures}" var="capture">
+                <div class="col">
+                    <div class="card shadow-sm">
+                        <c:url value="/static/img/gogi.jpg" var="gogi"></c:url>
+                        <img class="bd-placeholder-img card-img-top" src="${gogi}" alt="고기 이미지" width="100%" height="225" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice"></img>
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <c:url var="captureDetail" value="/community/capture/capturedetail">
+                                        <c:param name="id" value="${capture.id}" />
+                                    </c:url>
+                                    <a href="${captureDetail}">${capture.content}</a>
+                                </div>
+                                <div>
+                                    <span id="viewsCount">
+                                      <c:url value="/static/img/views.png" var="views" ></c:url>
+                                      <img alt="조회수" src="${views }" width="20" height="20">
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
-            </div>
-          </div>
+            </c:forEach>
         </div>
-    </c:forEach>        
-        </div>
-        </div>
+    </div>
 
-        <div class="col">
-          <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
 
-            <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                </div>
-                <small class="text-muted">9 mins</small>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
 
-            <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                </div>
-                <small class="text-muted">9 mins</small>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
 
-            <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                </div>
-                <small class="text-muted">9 mins</small>
-              </div>
-            </div>
-          </div>
-        </div>
 
-        <div class="col">
-          <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
 
-            <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                </div>
-                <small class="text-muted">9 mins</small>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-
-            <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                </div>
-                <small class="text-muted">9 mins</small>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-
-            <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                </div>
-                <small class="text-muted">9 mins</small>
-              </div>
-            </div>
-          </div>
-        </div>
-
-</main>
-</body>
-</main>
-       
+<!-- 페이징 -->
+    <div id="pagination">
     <nav aria-label="Page navigation example">
-        <ul class="pagination justify-content-center">
+        <ul class="pagination justify-content-center my-5" id="pages">
+        <c:if test="${pageMaker.prev}">
             <li class="page-item">
-                <a class="page-link" href="#" aria-label="Previous">
+                <a class="page-link" href="${ pageMaker.cri.pageNum > 1 ? pageMaker.cri.pageNum-1 : 1 }" aria-label="Previous">
                 <span aria-hidden="true">&laquo;</span>
                 </a>
-                
             </li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            </c:if>
+            <c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="num">
+            <li class="page-item ${pageMaker.cri.pageNum == num? "active" :"" }" ><a class="page-link" href="${num}">${num}</a></li>
+            </c:forEach>
+            <c:if test="${pageMaker.next}">
             <li class="page-item">
-                <a class="page-link" href="#" aria-label="Next">
+                <a class="page-link" href="${pageMaker.cri.pageNum+1}" aria-label="Next">
                 <span aria-hidden="true">&raquo;</span>
                 </a>
             </li>
+            </c:if>
         </ul>
     </nav>
-             
+    <form id='actionForm' action="/mugmung/community/capture/capturelist" method='get'>
+    <input type='hidden' name='pageNum' value ='${pageMaker.cri.pageNum}'>
+    <input type='hidden' name='amount' value='${pageMaker.cri.amount}'>
+</form>
+    </div>
+        
+</div>        
              
       <%@ include file="../../common/footer.jsp" %>   
              
-      
+      </main> 
         <script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3-alpha3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
     crossorigin="anonymous">
+        </script>
         
-    </script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script type="text/javascript">
+        $(document).ready(function() {
 
+        	var actionForm = $("#actionForm");
+
+
+        	$(".page-link").on("click", function(e){
+
+        	e.preventDefault();
+
+
+        	var targetPage = $(this).attr("href");
+
+        	console.log(targetPage);
+
+
+        	actionForm.find("input[name='pageNum']").val(targetPage);
+
+        	actionForm.submit();
+
+
+        	});
+        	$(document).ready(function(){
+
+        	    $(".page-link").focus();
+        	});
+
+        	});
+
+        </script>
+        
+        
+    
     <c:url value="/static/js/capture.js" var="capture" />
     <script type="text/javascript" src="${capture }"></script>
 
