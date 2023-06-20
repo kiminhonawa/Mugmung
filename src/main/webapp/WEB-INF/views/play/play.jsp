@@ -143,14 +143,18 @@
             <h4 class="my-0 fw-normal" style="font-family: 'EF_jejudoldam';">연인과 함께</h4>
           </div>
           <div class="card-body">
-            <h1 class="card-title pricing-card-title">$15<small class="text-muted fw-light">/mo</small></h1>
+            <img src="https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20230214_93%2F16763596187677bIsD_JPEG%2FRACE-981-%25285%2529.jpg" width="350" height="200"/>
+            <h1 class="card-title pricing-card-title">9.81 파크 제주<small class="text-muted fw-light"></small></h1>
+            <h1 class="card-title pricing-card-title">39,500₩<small class="text-muted fw-light">/3회</small></h1>
             <ul class="list-unstyled mt-3 mb-4">
-              <li>20 users included</li>
-              <li>10 GB of storage</li>
-              <li>Priority email support</li>
-              <li>Help center access</li>
+              <li>제주 제주시 애월읍 천덕로 880-24</li>
+              
             </ul>
-            <button type="button" class="w-100 btn btn-lg btn-primary">Get started</button>
+            <button type="button" class="w-100 btn btn-lg btn-outline-primary">
+            	<a href="https://www.981park.com/">
+            	예약하기
+            	</a>
+            </button>
           </div>
         </div>
       </div>
@@ -160,14 +164,18 @@
             <h4 class="my-0 fw-normal" style="font-family: 'EF_jejudoldam';">단체 놀거리</h4>
           </div>
           <div class="card-body">
-            <h1 class="card-title pricing-card-title">$29<small class="text-muted fw-light">/mo</small></h1>
+            <img src="https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220927_62%2F1664258034848uTFlM_JPEG%2F%25BA%25F1%25BA%25F1%25C5%25BA%25BC%25AD%25B9%25D9%25C0%25CC%25B9%25FA2.jpg" width="350" height="200"/>
+            <h1 class="card-title pricing-card-title">윈드1947 테마파크<small class="text-muted fw-light"></small></h1>
+            <h1 class="card-title pricing-card-title">14,000₩<small class="text-muted fw-light">/1시간</small></h1>
             <ul class="list-unstyled mt-3 mb-4">
-              <li>30 users included</li>
-              <li>15 GB of storage</li>
-              <li>Phone and email support</li>
-              <li>Help center access</li>
+              <li>제주 서귀포시 토평공단로 78-27</li>
+              
             </ul>
-            <button type="button" class="w-100 btn btn-lg btn-primary">Contact us</button>
+            <button type="button" class="w-100 btn btn-lg btn-outline-primary">
+            	<a href="https://sklec.com/index.php">
+            	예약하기
+            	</a>
+            </button>
           </div>
         </div>
       </div>

@@ -6,7 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Spring2</title>
+<title>가게 등록 페이지</title>
+
 <link
     href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
     rel="stylesheet"
@@ -17,12 +18,11 @@
 <body>
     <header>
         <h1>식당 가게 등록</h1>
-        <c:url value="/admin/imageupload" var="imageuploadPage"></c:url>
-        <%-- 서블릿에 요청해 파일을 업로드 함 --%>
-        <form action="${imageuploadPage }" method="post"
+        <c:url value="/upload/imgUpload" var="upload"></c:url>
+        <form id="signUploadForm" action="${upload}" method="post"
             enctype="multipart/form-data">
-            <input type="file" name="file" /> <input type="submit"
-                value="Upload" />
+            <input type="file" class="myfile" id="file" name="file" />
+            <input type="button" id="btnUpload" value="Upload" />
         </form>
     </header>
     <div class="card">
@@ -30,16 +30,17 @@
         <form method="post">
             <div class="card-body">
                 <main class="my-2">
+                
                     <input type="text" id="sample4_postcode"
                         placeholder="우편번호"> <input type="button"
                         onclick="sample4_execDaumPostcode()"
                         value="우편번호 찾기"><br> <input
-                        type="text" id="sample4_roadAddress"
+                        type="text" id="address1" name="address1"
                         placeholder="도로명주소" size="60"><br>
                     <input type="hidden" id="sample4_jibunAddress"
                         placeholder="지번주소" size="60"> <span
                         id="guide" style="color: #999; display: none"></span>
-                    <input type="text" id="sample4_detailAddress"
+                    <input type="text" id="address2" name="address2"
                         placeholder="상세주소" size="60"><br> <input
                         type="hidden" id="sample4_extraAddress"
                         placeholder="참고항목" size="60"> <input
@@ -88,7 +89,7 @@
 																										document
 																												.getElementById('sample4_postcode').value = data.zonecode;
 																										document
-																												.getElementById("sample4_roadAddress").value = roadAddr;
+																												.getElementById("address1").value = roadAddr;
 																										document
 																												.getElementById("sample4_jibunAddress").value = data.jibunAddress;
 
@@ -130,6 +131,7 @@
 																								.open();
 																					}
 																				</script>
+                    <input type="text" id="images_loc" name="images_loc">
 
                     <div class="my-2">
                         <label class="form-label" for="name">식당
@@ -142,11 +144,31 @@
                             id="phone_num" name="phone_num" required
                             autofocus />
                     </div>
-                    <div class="my-2">
-                        <label class="form-label" for="food_type1">음식
-                            종류</label> <input class="form-control" type="text"
-                            id="food_type1" name="food_type1" required
-                            autofocus />
+                    <div class="my-2 d-flex align-items-center">
+                        <div>
+                            <label class="form-label"
+                                for="food_type1"> 음식 종류1</label> <input
+                                class="form-control" type="text"
+                                id="food_type1"
+                                name="food_type1" required
+                                autofocus />
+                        </div>
+                        <span class="mx-2">_</span>
+                        <div>
+                            <label class="form-label"
+                                for="food_type2"> 음식 종류2</label> <input
+                                class="form-control" type="text"
+                                id="food_type2"
+                                name="food_type2" required />
+                        </div>
+                        <span class="mx-2">_</span>
+                        <div>
+                            <label class="form-label"
+                                for="food_type3"> 음식 종류3</label> <input
+                                class="form-control" type="text"
+                                id="food_type3"
+                                name="food_type3" required />
+                        </div>
                     </div>
                     <div class="my-2 d-flex align-items-center">
                         <div>
@@ -203,15 +225,79 @@
                             autofocus />
                     </div>
                     <div class="my-2">
-                        <label class="form-label" for="food_menu">음식
-                            메뉴</label> <input class="form-control" type="text"
-                            id="food_menu" name="food_menu" required
-                            autofocus />
-                    </div>
-                    <div class="my-2">
                         <label class="form-label" for="name_info">식당
                             정보</label> <input class="form-control" type="text"
                             id="name_info" name="name_info" required
+                            autofocus />
+                            <div class="my-2">
+                        <label class="form-label" for="x">x
+                            정보</label> <input class="form-control" type="text"
+                            id="x" name="x" required
+                            autofocus />
+                            <div class="my-2">
+                        <label class="form-label" for="y">y
+                            정보</label> <input class="form-control" type="text"
+                            id="y" name="y" required
+                            autofocus />
+                    </div>
+                    <div class="my-2 d-flex align-items-center">
+                        <div>
+                            <label class="form-label"
+                                for="menu1_name"> 메뉴 이름1</label> <input
+                                class="form-control" type="text"
+                                id="menu1_name"
+                                name="menu1_name" required
+                                autofocus />
+                        </div>
+                        <span class="mx-2">_</span>
+                        <div>
+                            <label class="form-label"
+                                for="menu1_price"> 메뉴 가격1</label> <input
+                                class="form-control" type="text"
+                                id="menu1_price"
+                                name="menu1_price" required />
+                        </div>
+                    </div>
+                    <div class="my-2 d-flex align-items-center">
+                        <div>
+                            <label class="form-label"
+                                for="menu2_name"> 메뉴 이름2</label> <input
+                                class="form-control" type="text"
+                                id="menu2_name"
+                                name="menu2_name" required
+                                autofocus />
+                        </div>
+                        <span class="mx-2">_</span>
+                        <div>
+                            <label class="form-label"
+                                for="menu2_price"> 메뉴 가격2</label> <input
+                                class="form-control" type="text"
+                                id="menu2_price"
+                                name="menu2_price" required />
+                        </div>
+                    </div>
+                    <div class="my-2 d-flex align-items-center">
+                        <div>
+                            <label class="form-label"
+                                for="menu3_name"> 메뉴 이름3</label> <input
+                                class="form-control" type="text"
+                                id="menu3_name"
+                                name="menu3_name" required
+                                autofocus />
+                        </div>
+                        <span class="mx-2">_</span>
+                        <div>
+                            <label class="form-label"
+                                for="menu3_price"> 메뉴 가격3</label> <input
+                                class="form-control" type="text"
+                                id="menu3_price"
+                                name="menu3_price" required />
+                        </div>
+                    </div>
+                    <div class="my-2">
+                        <label class="form-label" for="max_members">인원수
+                            </label> <input class="form-control" type="text"
+                            id="max_members" name="max_members" required
                             autofocus />
                     </div>
                     <div class="card-footer my-2">
@@ -226,8 +312,10 @@
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
             crossorigin="anonymous">
-									
 								</script>
+                                <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+                                <c:url value="/static/js/storecreate.js" var="storecreate"></c:url>
+    <script type="text/javascript" src="${ storecreate }"></script>
     </div>
 </body>
 </html>
