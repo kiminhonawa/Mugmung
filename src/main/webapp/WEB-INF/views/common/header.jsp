@@ -8,10 +8,37 @@
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <title>맛집은! 머그멍</title>
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
       <link href="./static/css/headers.css" rel="stylesheet" />
       <c:url value="/static/css/dropdowns.css" var="dropdown" /> 
       <link href="${dropdown }" rel="stylesheet" />
+      <link 
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" 
+      rel="stylesheet" 
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" 
+      crossorigin="anonymous" />
+      <style>
+      
+    .search-container {
+      display: flex;
+      align-items: center;
+    }
+
+    .search-input {
+      flex: 1;
+      margin-right: 10px;
+    }
+
+    .search-button {
+      display: inline-block;
+      padding: 0;
+      border: none;
+      background: none;
+    }
+    
+    .container {
+    	text-align: center;
+    }
+  </style>
 
    </head>
    <style>
@@ -125,23 +152,6 @@
 <!-- map end-->	 
 <!-- 홈 end-->
 
-<%-- <!-- 머그멍 데이 -->        		
-	   <li class="nav-item dropdown">
-<<<<<<< HEAD
-	    <a href="#" class=" d-block link-dark text-decoration-none dropdown-toggle nav-link" data-bs-toggle="dropdown" aria-expanded="false">머그멍 데이</a>
-	    <ul class="dropdown-menu text-large shadow" aria-labelledby="dropdownMenuLink2">
-=======
-	    <a href="#" class=" d-block link-dark text-decoration-none dropdown-toggle nav-link" data-bs-toggle="dropdown" aria-expanded="false">투데이</a>
-	    <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownMenuLink2">
->>>>>>> branch 'main' of https://github.com/chklee1048/upload.git
-	      <c:url var="dayPage" value="/blog/day" />
-	      <li><a class="dropdown-item" href="${dayPage }">오늘 만이</a></li>
-	        			
-	      <c:url var="monthPage" value="/blog/month" />
-	      <li><a class="dropdown-item" href="${monthPage }">이달엔 꼭</a></li>
-	    </ul>	
-	   </li>
-<!-- 머그멍 데이 end-->   --%>
 
 <!-- 머그멍 추천 -->       
        <li class="nav-item dropdown">
@@ -227,8 +237,11 @@
   </div>
 <!-- 네비게이션바 끝 -->         
       </main>
-     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
      <c:url value="/static/js/headerb.js" var="headerb" />
+     <script 
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" 
+    crossorigin="anonymous"></script>
      <script type="text/javascript" src="${headerb }"></script> 
    </body>
 </html>
