@@ -30,10 +30,12 @@
             <form class="card-body" method="post" id="reviewForm">
                 <div class="my-2">
                     <label class="form-label" for="id" style="font-family: 'EF_jejudoldam';">${name }</label>
+                    <input type="hidden" id="restaurant_id" name="restaurant_id" value="${ param.id }">
                     <label class="form-label" for="id" style="font-family: 'EF_jejudoldam';">에 대한 솔직한 리뷰를 써주세요.</label>
                 </div>
                 
-            
+            	
+            	
                 <div class="rating">
                     <!-- 해당 별점을 클릭하면 해당 별과 그 왼쪽의 모든 별의 체크박스에 checked 적용 -->
                     <input type="checkbox" name="rating" id="rating1" value="1" class="rate_radio" title="1점" >

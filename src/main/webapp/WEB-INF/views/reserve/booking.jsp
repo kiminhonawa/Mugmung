@@ -8,7 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Spring2</title>
+<title>맛집은!머그멍</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -38,6 +38,11 @@
 	<br />
 	<br />
 	<br />
+	<div>
+		<%--  <label class="form-label" for="id">가게명</label>
+		 <label class="form-label" id="id" value="${ post.id }" readonly /> --%>
+        
+	</div>
 	<h2 style="font-family: 'EF_jejudoldam'; text-align: center;" > ${name} 젲 </h2>
 	<h6 style="font-family: 'SUITE-Regular'; text-align: center;">예약페이지</h6>
 	<br />
@@ -139,16 +144,19 @@
 	<br />
 	
 
-	<!-- <div>
+	<div>
 		<nav class="text-center">
 			<ul>
+				<!-- Button trigger modal -->
+				<button type="button" class="btn btn-warning"
 				Button trigger modal
 				<button type="button" class="btn btn-outline-warning"
 					data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="reserve()">예약하기</button>
-				<button type="button" class="btn btn-outline-success">취소하기</button>
+				<c:url var="mainPage" value="/main" />
+                    <a class="btn btn-light" href="${ mainPage }">취소하기</a>
 			</ul>
 		</nav>
-	</div> -->
+	</div>
 
 	
 	<div id="warning" style="display: none;">Please select all the required fields.</div>
@@ -165,12 +173,13 @@
 					<button type="button" class="btn-close" data-bs-dismiss="modal"
 						aria-label="Close"></button>
 				</div>
-				<div class="modal-body">예약확인 되었습니다.
+				<div class="modal-body">예약되었습니다.
 										예약내역은 마이페이지에서 확인해주세요.</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary"
-						data-bs-dismiss="modal">확인</button>
-					<button type="button" class="btn btn-primary">마이페이지</button>
+					<c:url var="mainPage" value="/main" />
+                    	<a class="btn btn-light" data-bs-dismiss="modal" href="${ mainPage }">확인</a>
+					<c:url var="myPage" value="/mypage/mypage" />
+                    	<a class="btn btn-light" href="${ myPage }">마이페이지</a>
 				</div>
 			</div>
 		</div>
@@ -183,7 +192,7 @@
 
 	<!-- 자바스크립트 경로지정 -->
 	<script type="text/javascript" src="../static/js/calendar.js"></script>
-
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<%@ include file="../../views/common/footer.jsp"%>
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
