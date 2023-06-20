@@ -19,6 +19,7 @@ public class PostReviewDto {
         private long star_score;
         private String reply_text;
         private String writer;
+        private Timestamp modified_time;
         
         private long reviewCount;
         
@@ -30,6 +31,7 @@ public class PostReviewDto {
                     .star_score(entity.getStar_score())
                     .reply_text(entity.getReply_text())
                     .writer(entity.getWriter())
+                    .modified_time(Timestamp.valueOf(entity.getModified_time()) )
                     .build();
         }
     
