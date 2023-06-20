@@ -3,7 +3,9 @@ package com.itwill.spring2.service;
 
 import org.springframework.stereotype.Service;
 
-
+import com.itwill.spring2.dto.BookmarkDto;
+import com.itwill.spring2.dto.DetailCreateDto;
+import com.itwill.spring2.dto.RestaurantDto;
 import com.itwill.spring2.repository.BookmarkRepository;
 import com.itwill.spring2.repository.UserRepository;
 
@@ -36,6 +38,27 @@ public class BookmarkService {
         }
  
     }
+
+
+
+	public int insert(DetailCreateDto dto) {
+		log.info("insert(dto={})",dto);
+		return bookmarkRepository.insert(dto);
+	}
+
+
+
+	public int delete(DetailCreateDto dto) {
+		log.info("delete(dto={})",dto);
+		return bookmarkRepository.delete(dto);
+	}
+
+
+
+	public String selectbyName(String username) {
+		log.info("selectbyName(username={})",username);
+		return bookmarkRepository.selectbyName(username);
+	}
     
     
     
