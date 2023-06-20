@@ -29,16 +29,16 @@ public class BookmarkController {
     
     private final BookmarkRepository bookmarkRepository;
     
-    @PostMapping("/add")
-    public ResponseEntity<String> addBookmakr(@RequestParam("restaurant_id") long restaurant_id,
+    @GetMapping("/bookmarkAdd")
+    public ResponseEntity<String> addBookmark(@RequestParam("restaurant_id") long restaurant_id,
             @RequestParam("username") String username) {
-        
+        log.info("addBookmark={}",restaurant_id);
         bookmarkRepository.BookmarkOn(restaurant_id, username);
         return ResponseEntity.ok("Bookmark added successfully");
     }
     
     @PostMapping("/remove")
-    public ResponseEntity<String> removeBookmakr(@RequestParam ("restaurant_id") long restaurant_id,
+    public ResponseEntity<String> removeBookmarkvccccccc(@RequestParam ("restaurant_id") long restaurant_id,
     @RequestParam("username") String username) {
         
         bookmarkRepository.BookmarkOff(restaurant_id, username);

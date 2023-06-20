@@ -9,7 +9,7 @@
     <insert id="BookmarkOn">
         insert into BOOKMARK (restaurant_id, username)
         select r.id, u.username
-        form restaurant r, users u
+        from restaurant r, users u
         where r.id = #{restaurant_id} and u.username = #{username}
     </insert>
 

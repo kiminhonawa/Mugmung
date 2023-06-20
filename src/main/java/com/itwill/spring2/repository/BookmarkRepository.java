@@ -11,10 +11,10 @@ import com.itwill.spring2.dto.RestaurantDto;
 public interface BookmarkRepository {
 
     // 게시글 북마크 등록
-    List<RestaurantDto> BookmarkOn(long id, String username);
+    List<RestaurantDto> BookmarkOn(long restaurant_id, String username);
     
     // 게시글 북마크 상태
-    long MyBookmark(long id, String username);
+    long MyBookmark(long restaurant_id, String username);
     
     // 게시글 북마크 취소
     int BookmarkOff(long restaurant_id, String username);

@@ -161,7 +161,8 @@
         </button>
 
         <button class="btn" id="bookmarkBtn" >
-         <img id="btnToggelBookmark"
+        <input type="text" id="restaurant_id" name="restaurant_id" value="${param.id}" />
+         <img id="btnToggleBookmark"
           src="../static/assets/icons/bookmarkOff.png"
           alt="bookmark-off" width="50" /> <br> 
           <span class="review_button_text" >북마크</span>
@@ -358,9 +359,7 @@
     <%@ include file="../../views/common/footer.jsp"%>
  </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-     <%-- <c:url value="/static/js/review-reply.js" var="review-reply"></c:url>
-     <script type="text/javascript" scr="${review-reply}"></script> --%>
-     <!-- <script src="../static/js/review-reply.js"></script>  -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="../static/js/bookmark.js"></script>
 </body>
 </html>
