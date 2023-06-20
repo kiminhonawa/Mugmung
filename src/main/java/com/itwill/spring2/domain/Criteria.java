@@ -10,7 +10,8 @@ public class Criteria {
 	private String id;
 	
 	public Criteria() {
-		this(1,3);
+		this.pageNum = 1;
+		this.amount = 3;
 	}
 	
 	public Criteria(int pageNum, int amount) {

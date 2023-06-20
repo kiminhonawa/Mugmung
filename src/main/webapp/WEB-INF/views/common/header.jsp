@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" trimDirectiveWhitespaces="true" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>   
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %> 
 <!DOCTYPE html>
 <html>
    <head>
@@ -12,49 +12,44 @@
       <link href="./static/css/headers.css" rel="stylesheet" />
       <c:url value="/static/css/dropdowns.css" var="dropdown" /> 
       <link href="${dropdown }" rel="stylesheet" />
-      <style>
-      
-    .search-container {
-      display: flex;
-      align-items: center;
-    }
 
-    .search-input {
-      flex: 1;
-      margin-right: 10px;
-    }
-
-    .search-button {
-      display: inline-block;
-      padding: 0;
-      border: none;
-      background: none;
-    }
-    
-    .container {
-    	text-align: center;
-    }
-  </style>
    </head>
+   <style>
+  @font-face {
+    font-family: 'omyu_pretty';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/omyu_pretty.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+   </style>
+   
    <body>
 <!-- 헤더 시작 -->   
-   <header class="p-3 mb-3 border-bottom" style="text-align: center;">
+   	<header class="p-3 mb-3 border-bottom" style="font-family: 'omyu_pretty'; font-size: 30px;">
+
 <!-- 헤더 컨테이너 -->   	
    <div class="container">
-      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+      <div class="d-flex flex-wrap align-items-center justify-content-lg-start">
 <!-- 헤더 좌측 영역 -->      
       <c:url value="/" var="mainPage"></c:url>
         <a href="${mainPage }" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
-          <c:url value="/static/img/test_logo.png" var="test_logo" />
-				<img src="${test_logo }" alt="제주도 맛집! 머그멍">
+          <c:url value="/static/img/mugmung.png" var="mugmung_logo" />
+					<img src="${ mugmung_logo }" alt="제주도 맛집! 머그멍" style="width:250px; height:100px;">
         </a>
 <!-- 헤더 좌측 영역 end-->
 
 <!-- 헤더 가운데 영역 -->
 		<ul class="logo-cen-ul nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
 			<li>
+
+				<%-- <c:url value="/main" var="mainPage"></c:url>
+
 				<c:url value="/" var="mainPage"></c:url>
 				<a href="${mainPage}">
+
+				<c:url value="/static/img/mugmung.png" var="mugmung_logo" />
+					<img src="${ mugmung_logo }" alt="제주도 맛집! 머그멍" style="width:250px; height:100px;">
+				</a> --%>
 				<c:url value="/static/img/test_logo.png" var="test_logo" />
 					<img src="${test_logo}" alt="제주도 맛집! 머그멍">
 				</a>
@@ -63,15 +58,17 @@
 <!-- 헤더 가운데 영역 end-->
 
 <!-- 헤더 우측 영역 검색 -->
-        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-	        <div class="search-container">
-	    		<input type="search" class="form-control search-input" placeholder="Search..." aria-label="Search">
-	    			<button type="submit" value="검색" class="search-button">
-	    				<c:url value="/static/assets/icons/search-heart.svg" var="searchIcon" />
-	      				<img src="${searchIcon}" alt="검색">
-	    			</button>
-	  		</div>
-        </form>
+
+<form class="search-form" role="search">
+  <div class="search-container">
+    <input type="search" class="form-control search-input text-right" placeholder="Search" aria-label="Search">
+    <button type="submit" value="검색" class="search-button">
+      <c:url value="/static/assets/icons/search-heart.svg" var="searchIcon" />
+      <img src="${searchIcon}" alt="검색">
+    </button>
+  </div>
+</form>
+
 <!-- 헤더 우측 영역 검색 end-->        
         
 <!-- 로그인한 username이 있는 경우 -->
@@ -82,12 +79,12 @@
           			<c:url value="/static/img/user_login_default_img.png" var="loginImg"></c:url>
             		<img src="${loginImg }" alt="mdo" width="32" height="32" class="rounded-circle" style=" margin-left: 30px;  ">
           		</a>
-	          	<ul class="dropdown-menu text-small shadow">
+	          	<ul class="dropdown-menu text-large shadow">
 		           <c:url var="myPage" value="/mypage/mypage" />
-		            <li><a class="dropdown-item" href="${myPage }">마이 페이지</a></li>
+		            <li><a class="dropdown-item" href="${myPage }" >마이 페이지</a></li>
 		            
-		            <c:url var="mainPage" value="/" />
-		            <li><a class="dropdown-item" href="#">설정</a></li>
+		            <c:url var="setPage" value="/mypage/set" />
+		            <li><a class="dropdown-item" href="${setPage }">설정</a></li>
 		            
 		            <c:url var="mainPage" value="/" />
 		            <li><a class="dropdown-item" href="#">프로필</a></li>
@@ -106,8 +103,8 @@
 <!-- 로그인한 username이 없는 경우 -->         
          <c:if test="${ empty signedInUser }">
           <div class="col-md-3 text-end">
-       		<button type="button" id="loginBtn" class="btn btn-outline-primary me-2">로그인</button>
-        	<button type="button" id="signUpBtn" class="btn btn-primary">회원가입</button>
+       		<button type="button" id="loginBtn" class="btn btn-warning me-2">로그인</button>
+        	<button type="button" id="signUpBtn" class="btn btn-light">회원가입</button>
       	  </div>
       	</c:if>
 <!-- 로그인한 username이 없는 경우 end-->            
@@ -118,10 +115,10 @@
 <!-- 헤더 끝 -->
 
   
-	<main>
+	<main style="font-family: 'omyu_pretty'; font-size: 25px;">
 <!-- 네비게이션 바 시작 -->	
 	 <div class="container" style="padding-bottom: 15px;">
-	  <ul class="nav nav-pills">
+	  <ul class="nav nav-pills justify-content-center">
 <!-- map -->    		
 	   <c:url var="mugMapPage" value="/" />
 	   <li class="nav-item"><a href="${mugMapPage }" class="nav-link" aria-current="page">머그맵</a></li>
@@ -130,8 +127,13 @@
 
 <%-- <!-- 머그멍 데이 -->        		
 	   <li class="nav-item dropdown">
+<<<<<<< HEAD
+	    <a href="#" class=" d-block link-dark text-decoration-none dropdown-toggle nav-link" data-bs-toggle="dropdown" aria-expanded="false">머그멍 데이</a>
+	    <ul class="dropdown-menu text-large shadow" aria-labelledby="dropdownMenuLink2">
+=======
 	    <a href="#" class=" d-block link-dark text-decoration-none dropdown-toggle nav-link" data-bs-toggle="dropdown" aria-expanded="false">투데이</a>
 	    <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownMenuLink2">
+>>>>>>> branch 'main' of https://github.com/chklee1048/upload.git
 	      <c:url var="dayPage" value="/blog/day" />
 	      <li><a class="dropdown-item" href="${dayPage }">오늘 만이</a></li>
 	        			

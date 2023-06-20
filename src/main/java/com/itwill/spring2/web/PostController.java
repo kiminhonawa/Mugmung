@@ -12,6 +12,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.itwill.spring2.domain.Criteria;
+import com.itwill.spring2.dto.PageDto;
+import com.itwill.spring2.dto.CriDto;
+import com.itwill.spring2.dto.PaginationDto;
 import com.itwill.spring2.dto.PostCreateDto;
 import com.itwill.spring2.dto.PostDetailDto;
 import com.itwill.spring2.dto.PostListDto;
@@ -31,14 +35,32 @@ public class PostController {
     private final PostService postService; // 생성자에 의한 의존성 주입.
     
     @GetMapping("/list") // GET 방식의 /post/list 요청 주소를 처리하는 메서드.
-    public void list(Model model) {
-        log.info("list()");
+    public void list(Model model, CriDto cri) {
+        log.info("list(cri={}),",cri);
+        
         
         // 컨트롤러는 서비스 계층의 메서드를 호출해서 서비스 기능을 수행.
+        // 글 전체 리스트
         List<PostListDto> list = postService.read();
         
+        // 요청한 페이지 번호, 페이지당 글 개수
+        List<PostListDto> boardList = postService.getRead(cri);
+        
+        
+        // 전체 글 개수
+        int totalCount = postService.getTotalCount(); 
+        
+        PaginationDto pageDto = new PaginationDto(cri, totalCount);
+        
         // 뷰에 보여줄 데이터를 Model에 저장.
-        model.addAttribute("posts", list);
+//        model.addAttribute("posts", list);
+        
+        
+        log.info("boardList={}",boardList);
+        log.info("pageMaker={}",pageDto);
+        
+        model.addAttribute("boardList", boardList);
+        model.addAttribute("pageMaker", pageDto);
         
         // 리턴 값이 없는 경우 뷰의 이름은 요청 주소와 같음.
         // /WEB-INF/views/post/list.jsp

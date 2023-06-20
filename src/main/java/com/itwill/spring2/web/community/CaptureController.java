@@ -3,15 +3,19 @@ package com.itwill.spring2.web.community;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import com.itwill.spring2.domain.Criteria;
 import com.itwill.spring2.dto.CaptureCreateDto;
 import com.itwill.spring2.dto.CaptureDetailDto;
 import com.itwill.spring2.dto.CaptureListDto;
 import com.itwill.spring2.dto.CaptureUpdateDto;
+import com.itwill.spring2.dto.PageDto;
 import com.itwill.spring2.dto.PostDetailDto;
 import com.itwill.spring2.service.CaptureService;
 
@@ -31,13 +35,15 @@ public class CaptureController {
     private final CaptureService captureService;
 
     @GetMapping("/capture/capturelist")
-    public void list(Model model) {
+    public void list(Criteria cri, Model model) {
         log.info("list()");
 
         
         List<CaptureListDto> list = captureService.read();
 
         model.addAttribute("captures", list);
+//        model.addAttribute("list", list = captureService.read(cri));
+//        model.addAttribute("pageMaker", new PageDto(cri, 123));
         
     }
 
@@ -101,5 +107,18 @@ public class CaptureController {
         
         return "redirect:/community/capture/capturelist";
     }
+    
+    //검색
+    @GetMapping("/capture/search")
+    public String search(@RequestParam(value = "search") String search, Model model ) {
+        log.info("검색 = {}", search);
+        List<CaptureListDto> list = captureService.searchLists(search);
+
+        model.addAttribute("captures", list);
+        
+        return "/community/capture/capturelist";
+    }
+    
+    
 }
 

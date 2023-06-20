@@ -17,3 +17,4 @@ public class PrimeDto {
 	private String name_info;
 	private String web_url;
 }
+

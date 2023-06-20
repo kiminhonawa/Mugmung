@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.itwill.spring2.domain.Post;
+import com.itwill.spring2.dto.CriDto;
 import com.itwill.spring2.dto.PostCreateDto;
 import com.itwill.spring2.dto.PostDetailDto;
 import com.itwill.spring2.dto.PostListDto;
@@ -91,6 +92,15 @@ public class PostService {
         
         return postRepository.deleteById(id);
     }
+
+	public int getTotalCount() {
+		return postRepository.getTotalCount();
+	}
+
+	public List<PostListDto> getRead(CriDto cri) {
+		// TODO Auto-generated method stub
+		return postRepository.getRead(cri);
+	}
     
 
 }

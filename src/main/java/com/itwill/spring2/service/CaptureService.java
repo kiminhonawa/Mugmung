@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.itwill.spring2.domain.Capture;
+import com.itwill.spring2.domain.Criteria;
 import com.itwill.spring2.dto.CaptureCreateDto;
 import com.itwill.spring2.dto.CaptureDetailDto;
 import com.itwill.spring2.dto.CaptureListDto;
@@ -62,6 +63,31 @@ public class CaptureService {
         return captureRepository.updateContent(capture.toEntity());
     }
     
-    
-    
+   
+
+    public void increaseViews(long id) {
+        log.info("increaseViews(id = {})", id);
+        captureRepository.increaseViews(id);
+        
+    }
+
+    public List<CaptureListDto> searchLists(String keyword) {
+        log.info("searchLists(keyword = {})", keyword);
+        
+        return captureRepository.selectByKeyword(keyword);
+    }
+
+    public List<CaptureListDto> read(Criteria cri) {
+        log.info("read(cri=()}",cri);
+        
+        List<CaptureListDto> list = captureRepository.captureListRead(cri);
+        
+        log.info("list={}", list);
+        return list;
+    }
+        
 }
+    
+    
+    
+

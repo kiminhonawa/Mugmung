@@ -53,13 +53,15 @@ public class DetailController extends HttpServlet{
             log.info("username = {}",username);
         
             RestaurantDto restaurantdto = restaurantService.read(id);
-            AddressDto addressDto = addressService.read(id);
-            MapDto mapDto = mapService.read(id);
-            MenuDto menuDto = menuService.read(id);
+            log.info("restaurant={}", restaurantdto);
             
-            restaurantdto.setAddress_id(addressDto);
-            restaurantdto.setMap_id(mapDto);
-            restaurantdto.setMenu_id(menuDto);
+//            AddressDto addressDto = addressService.read(id);
+//            MapDto mapDto = mapService.read(id);
+//            MenuDto menuDto = menuService.read(id);
+            
+//            restaurantdto.setAddress_id(addressDto);
+//            restaurantdto.setMap_id(mapDto);
+//            restaurantdto.setMenu_id(menuDto);
             
             model.addAttribute("detail", restaurantdto); 
             
@@ -75,16 +77,7 @@ public class DetailController extends HttpServlet{
              model.addAttribute("review", list);
     }   
         
-    // 작성된 리뷰 불러오기
-//    @GetMapping("/review/{restaurant_id}")
-//    public ResponseEntity<List<PostReviewDto>> read(@PathVariable long restaurant_id){
-//        log.info("read(restaurant_id={})", restaurant_id);
-//        
-//        List<PostReviewDto> list = postReviewService.read(restaurant_id);
-//        log.info("# of replies={}", list.size());
-//        
-//        return ResponseEntity.ok(list);
-//    }
+    
     
     // 지도 불러오기
     
