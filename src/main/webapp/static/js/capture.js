@@ -57,19 +57,32 @@ document.addEventListener('DOMContentLoaded', function(){
            
        }); 
         
+      
+        const searchInput = document.getElementById('input#search');
+        const searchBtn = document.getElementById('button#searchBtn');
         
-    });
-    
-    
+        searchBtn.addEventListener('click', (e) => {
+           e.preventDefault();
+           const val = searchInput.value;
+           console.lag(val);
+           showList("content",val);
+       });
+        
+        function showList(searchCnd, keyword) {
+        // 여기에 디테일 정보를 검색하고 표시하는 로직을 작성하세요.
+        // searchCnd는 검색 항목, keyword는 검색어입니다.
 
- 
- 
- 
- 
- 
- 
- 
- 
- 
+        // 예시: 검색 항목이 "content"이고, 검색어가 "keyword"인 경우
+        // 실제로는 데이터를 가져와서 검색 결과를 표시해야 합니다.
+        // 여기서는 간단히 콘솔에 검색 결과를 출력하는 예시입니다.
+        console.log('Search Condition:', searchCnd);
+        console.log('Keyword:', keyword);
+
+    
+    }
+    
+    });
+        
+    
  
  

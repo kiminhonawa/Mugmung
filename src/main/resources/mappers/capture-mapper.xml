@@ -28,4 +28,11 @@
     <delete id="deleteById">
         delete from CAPTURE where ID = #{id}
     </delete>
+    
+    <select id="selectByKeyword" resultType="com.itwill.spring2.dto.CaptureListDto">
+        SELECT * 
+        FROM capture
+        WHERE content LIKE '%' || #{keyword} || '%'
+    </select>
+    
 </mapper>
