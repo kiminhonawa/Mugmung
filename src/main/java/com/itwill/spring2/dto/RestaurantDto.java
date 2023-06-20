@@ -39,9 +39,6 @@ public class RestaurantDto {
     
     
     
-//    private MenuDto menu_id;
-//    private MapDto map_id;
-//    private AddressDto address_id; 
     private long business_start_hour;
     private long business_end_hour;
     private long low_price_range;
@@ -56,8 +53,6 @@ public class RestaurantDto {
     private String last_order;
     private String holiday;
     private String web_link;
-    private String images_type;
-    
     
     public RestaurantDto toEntity() {
         return RestaurantDto.builder()
@@ -65,11 +60,6 @@ public class RestaurantDto {
                 .images_loc(images_loc)
                 .address1(address1)
                 .address2(address2)
-                .business_start_hour(business_start_hour)
-                .business_end_hour(business_end_hour)
-                .low_price_range(low_price_range)
-                .high_price_range(high_price_range)
-                .max_members(max_members)
                 .name(name)
                 .phone_num(phone_num)
                 .food_type1(food_type1)
@@ -92,8 +82,6 @@ public class RestaurantDto {
                 .menu3_name(menu3_name)
                 .menu3_price(menu3_price)
                 .max_members(max_members)
-                .images_loc(images_loc)
-                .images_type(images_type)
                 .build();
         
     }
