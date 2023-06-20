@@ -1,6 +1,7 @@
 /**
  * capturemodify.jsp
  * 수정하기 완료/ 삭제
+ * 검색
  */
 document.addEventListener('DOMContentLoaded', function(){
     
@@ -57,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function(){
            
        }); 
         
-      
+      //검색
         const searchInput = document.getElementById('input#search');
         const searchBtn = document.getElementById('button#searchBtn');
         

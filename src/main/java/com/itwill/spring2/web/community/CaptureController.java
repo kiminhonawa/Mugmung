@@ -30,30 +30,37 @@ import lombok.extern.slf4j.Slf4j;
 @RequestMapping("/community")
 @Controller // DispatcherServlet에게 컨트롤로 컴포넌트로 등록.
 
-public class CaptureController {
+public class CaptureController extends HttpServlet {
 
     private final CaptureService captureService;
 
     @GetMapping("/capture/capturelist")
     public String list(Criteria cri, Model model) {
         log.info("list()");
-
         
         List<CaptureListDto> list = captureService.read(cri);
         
+        log.info("list asd={}", list);
 
+        
         model.addAttribute("captures", list);
         model.addAttribute("list", list = captureService.read(cri));
-        model.addAttribute("pageMaker", new PageDto(cri, 120));
-        return "/capture/capturelist"; // 페이지네이션을 표시할 view의 경로를 반환
+        model.addAttribute("pageMaker", new PageDto(cri, 10));
+        return "/community/capture/capturelist"; // 페이지네이션을 표시할 view의 경로를 반환
         
     }
 
     @GetMapping("/capture/capturecreate")
-    public void create() {
-
+    public void create(Model model, HttpServletRequest request) {
         log.info("GET: create()");
 
+       //user불러오기
+        HttpSession session = ((HttpServletRequest) request).getSession();
+        String username = (String) session.getAttribute("signedInUser");
+        
+        log.info("username = {}", username);
+        
+        model.addAttribute("username", username);
     }
 
     @PostMapping("/capture/capturecreate") //DB까지 가야

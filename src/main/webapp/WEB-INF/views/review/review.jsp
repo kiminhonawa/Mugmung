@@ -69,15 +69,14 @@
     </div>
     
     
-        <%-- <div>
+        <div>
             <c:url value="/review/review" var="reviewPage"></c:url>
-            서블릿에 요청해 파일을 업로드 함
             <form action="${reviewPage }" method="post" enctype="multipart/form-data">
                 <input type="file" name="file" />
                 <img id="preview" src="#" width=200 height=150 alt="선택된 이미지가 없습니다" style="align-content: flex-end; ">
                 <input type="submit" value="Upload" />
             </form>
-        </div> --%>
+        </div> 
     
     
     <div class="ReviewWritingPage">
