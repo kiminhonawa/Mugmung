@@ -56,36 +56,11 @@ public class BookmarkController {
         
     }
     
-    
-//    HashMap<String, Object> data = new HashMap<>();
-//    
-//    @Autowired
-//    BookmarkService bookmarkService;
-//    
-//    // 게시글 북마크 등록
-//    @PostMapping("/bookmark/mypage")
-//    public HashMap<String, Object> bookmarkOn(BookmarkDto param, HttpSession session){
-//        User sessionUser = (User) session.getAttribute("sessionUser");
-//        if(sessionUser == null) {
-//            data.put("result", "error");
-//            data.put("reason","로그인이 필요합니다.");
-//            return data;
-//        }
-//       
-//        String user_id = sessionUser.getUsername();
-//        param.setUsername(user_id);
-//        
-//        int mybookmark = bookmarkService.MyBookmark(param);
-//        
-//        if (mybookmark > 0) {
-//            data.put("status", "bookMark");
-//            data.put("result", "success");
-//        } else {
-//            data.put("status", "unBookMark");
-//            data.put("result", "failed");
-//        }
-//        
-//        
-//        return data;
-//    }
+    @PostMapping("/mugmung/user/signin")
+    public String signIn() {
+        log.info("POST:signIn()");
+        
+        return "signin";
+    }
+
 }
