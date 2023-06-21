@@ -5,8 +5,10 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.itwill.spring2.domain.CaptureReply;
+import com.itwill.spring2.domain.Reply;
 import com.itwill.spring2.dto.CaptureReplyCreateDto;
 import com.itwill.spring2.dto.CaptureReplyReadDto;
+import com.itwill.spring2.dto.CaptureReplyUpdateDto;
 import com.itwill.spring2.repository.CaptureReplyRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -31,11 +33,32 @@ public class CaptureReplyService {
         return list.stream().map(CaptureReplyReadDto::fromEntity).toList();
     }
 
-    public CaptureReplyReadDto readById(long id) {
-        log.info("readById(id={}", id);
+    public CaptureReplyReadDto readById(long capture_id) {
+        log.info("readById(id={}", capture_id);
         
-        CaptureReply entity = captureReplyRepository.selectById(id);
+        CaptureReply entity = captureReplyRepository.selectById(capture_id);
         
         return CaptureReplyReadDto.fromEntity(entity);
     }
+
+    
+      public int update(long capture_id, CaptureReplyUpdateDto dto) {
+      log.info("update(id={}, dto={}", capture_id, dto);
+      
+      CaptureReply entity = CaptureReply.builder() 
+              .capture_id(capture_id) 
+              .reply_text(dto.getReplyText())
+              .build(); 
+      log.info("entity={}", entity);
+              
+      return captureReplyRepository.update(entity); 
+      }
+      
+      
+      public int delete(long id) { 
+          log.info("delete(id={})", id);
+      
+      return captureReplyRepository.delete(id); 
+      }
+     
 }

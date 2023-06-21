@@ -69,7 +69,7 @@ document.querySelector('.rating').addEventListener('click',function(e){
 
     
 });
-    
+    //임시저장
     const btnSaveTemp = document.querySelector('#btnTemp'); //임시저장 버튼 선택
     
     btnSaveTemp.addEventListener('click', ()=> {
@@ -78,12 +78,14 @@ document.querySelector('.rating').addEventListener('click',function(e){
         /*// 별점 데이터 추가
         const starScore = document.querySelector('input[name="rating"]:checked').value;
         formData.append('star_score', starScore);
-        console.log('star_score', starScore);*/
-        
+        console.log('star_score', starScore);
+        */
         //내용 데이터 추가
         const content = document.querySelector('textarea#content').value;
         formData.append('content', content);
         console.log('Content', content);
+        
+        
     
     //  Ajax 요청으로 임시저장 데이터 전송
     fetch('/temp_save',{
