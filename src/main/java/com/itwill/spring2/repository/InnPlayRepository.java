@@ -6,4 +6,6 @@ import com.itwill.spring2.dto.InnPlayListDto;
 
 public interface InnPlayRepository {
 	List<InnPlayListDto> innListRead();
+	
+	List<InnPlayListDto> playListRead();
 }

@@ -2,18 +2,14 @@
     pageEncoding="UTF-8" trimDirectiveWhitespaces="true"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ include file="../../views/common/header.jsp" %>
+
 <!DOCTYPE html>
 <html>
    <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <title>맛집은!머그멍</title>
-      <link  
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" 
-        rel="stylesheet" 
-        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" 
-        crossorigin="anonymous">
+      
       <c:url value="/static/css/coupon.css" var="coupon" />
       <link rel="stylesheet" href="${coupon }">
       
@@ -33,6 +29,7 @@
    </style>
    
    <body>
+   <%@ include file="../../views/common/header.jsp" %>
       <div>
         <section class="py-5 text-center container">
     <div class="row py-lg-5" >
@@ -88,61 +85,30 @@
 	<div class="tab-content" id="myTabContent">
 		<div class="tab-pane fade show active" id="한경" role="tabpanel"
 			aria-labelledby="한경-tab">
-		
-					
-							<div class="card-container" style= "margin-left: 100px; margin-right: 100px;">
-    <div class="card mx-auto " style="width: 18rem;">
-  <img src="https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150901_127%2F1441034192301Mo3tr_JPEG%2FSUBMIT_1274792647700_13418405.jpg" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div>
-</div>
-</div>
+			<br>
+				<div style="position: relative; display: inline-block;">
+  					<img src="../static/img/cupon.png" width="200" height="100" alt="이미지">
+  					<span style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 20px; color: black; padding-right: 50px; width:150px;">제주 광해<br>10%</span>
+				</div>
+
+							
+		</div>
+	</div>
+
 							
 						
 		
 		<div class="tab-pane fade" id="애월" role="tabpanel"
 			aria-labelledby="애월-tab">
-			<div class="card-container" style= "margin-left: 100px; margin-right: 100px;">
-    <div class="card mx-auto " style="width: 18rem;">
-  <img src="https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150901_127%2F1441034192301Mo3tr_JPEG%2FSUBMIT_1274792647700_13418405.jpg" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-  
-
-    <div class="card mx-auto " style="width: 18rem;">
-  <img src="https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150901_127%2F1441034192301Mo3tr_JPEG%2FSUBMIT_1274792647700_13418405.jpg" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div>
-
-    <div class="card mx-auto " style="width: 18rem;">
-  <img src="https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150901_127%2F1441034192301Mo3tr_JPEG%2FSUBMIT_1274792647700_13418405.jpg" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div>
-</div>
+			
 							
 							
 							
-						</div>
-					</div>
-				</div>
+						
+		</div>			
+	</div>		
 				
-				
-</div>
+
 </form>
 
 
@@ -156,13 +122,10 @@
 
 
 
-          <%@ include file="../../views/common/footer.jsp" %>
          
-         <script 
-           src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" 
-           integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" 
-           crossorigin="anonymous">
-           </script>
+         
+        
       </div>
+       <%@ include file="../../views/common/footer.jsp" %>
    </body>
 </html>

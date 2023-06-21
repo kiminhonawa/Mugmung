@@ -24,36 +24,60 @@ where r.id = i.RESTAURANT_ID and r.id = a.RESTAURANT_ID and r.id = v.RESTAURANT_
 
 	<select id="bestListRead"
         resultType="com.itwill.spring2.dto.IndexListDto">
-        select 
-    r.id
-    , r.name
-    , i.images_loc
-    , a.address1
-    , a.address2
-    , v.star_score
-from restaurant r, images i, address a, reviews v
-where r.id = i.RESTAURANT_ID and r.id = a.RESTAURANT_ID and r.id = v.RESTAURANT_ID 
-order by v.star_score desc
+       SELECT
+    r.id,
+    r.name,
+    i.images_loc,
+    a.address1,
+    a.address2,
+    NVL((SELECT AVG(star_score) FROM reviews WHERE r.id = restaurant_id), 0) AS avg_star_score
+FROM
+    restaurant r
+LEFT JOIN
+    images i ON r.id = i.restaurant_id
+LEFT JOIN
+    address a ON r.id = a.restaurant_id
+ORDER BY
+    avg_star_score DESC
     </select> 
     
     <select id="getListWithPaging"
         resultType="com.itwill.spring2.dto.IndexListDto">
 <![CDATA[
         select * from
-(select /*+ INDEX_DESC */ rownum rn,
+(select /*+ INDEX_DESC */rownum rn,
     r.id
     , r.name
     , i.images_loc
     , a.address1
     , a.address2
-    , nvl(v.star_score, 0) as star_score
+    , NVL((SELECT AVG(star_score) FROM reviews WHERE RESTAURANT_ID = r.id), 0) as star_score
 from restaurant r
 LEFT JOIN images i ON r.id = i.RESTAURANT_ID
 LEFT JOIN address a ON r.id = a.RESTAURANT_ID
-LEFT JOIN reviews v ON r.id = v.RESTAURANT_ID 
 where
 r.id >0 and a.address1 like '%' || #{id} || '%' and rownum <= (#{pageNum}*#{amount}))
 where rn > (#{pageNum}-1)*#{amount}
 ]]>
     </select> 
+    
+    <select id="mainbestListRead"
+    	resultType="com.itwill.spring2.dto.IndexListDto">
+    	  SELECT
+    r.id,
+    r.name,
+    i.images_loc,
+    a.address1,
+    a.address2,
+    NVL((SELECT AVG(star_score) FROM reviews WHERE r.id = restaurant_id), 0) AS avg_star_score
+FROM
+    restaurant r
+LEFT JOIN
+    images i ON r.id = i.restaurant_id
+LEFT JOIN
+    address a ON r.id = a.restaurant_id
+    where a.address1 like '%' || #{id} || '%'
+ORDER BY
+    avg_star_score DESC
+    	</select>
 </mapper>
