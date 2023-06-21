@@ -7,5 +7,6 @@ public interface ReviewRepository {
     int insert(PostReviewDto dto);
 
     String readNameById(Long id);
+
     
 }

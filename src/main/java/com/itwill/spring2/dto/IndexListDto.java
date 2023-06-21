@@ -23,7 +23,7 @@ public class IndexListDto {
 	private String images_loc;
 	private String address1;
 	private String address2;
-	private long star_score;
+	private double star_score;
 
 	
 }

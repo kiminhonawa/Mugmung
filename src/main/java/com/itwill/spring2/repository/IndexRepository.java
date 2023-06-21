@@ -11,4 +11,6 @@ public interface IndexRepository {
 	List<IndexListDto> bestListRead();
 	
 	List<IndexListDto> getListWithPaging(Criteria cri);
+	
+	List<IndexListDto> mainbestListRead(String id);
 }
