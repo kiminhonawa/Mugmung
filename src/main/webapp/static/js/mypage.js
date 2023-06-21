@@ -37,6 +37,51 @@ const showDetail = (e) =>{
 	location.href = '/mugmung/detail/detail?id='+id;
 }; 
 
+const makeMakgoraElements = (data) => {
+        // 댓글 개수 업데이트
+        /*replyCountSpan.innerHTML = data.length; // 배열 길이(원소 개수)*/
+        console.log('aaaaaaaaaa');
+        tableLists.innerHTML = ''; // <div>의 컨텐트를 지움.
+        tableHead.innerHTML = '';
+        let headStr = '';
+        let htmlStr = '';
+        
+        headStr = `
+        	<tr style="border: 1px black " >
+                            <th>제 목</th>
+                            <th rowspan="2">문의 내용</th>
+                            <th >문의 유형</th>
+                        </tr>
+        `;
+        
+        // for (let i = 0; i < data.length; i++) {}
+        // for (let x in data) {} -> 인덱스 iteration
+        for (let reply of data) {
+            console.log('asdf : '+reply.id);
+            
+            // Timestamp 타입 값을 날짜/시간 타입 문자열로 변환:
+            const modified = new Date(reply.modifiedTime).toLocaleString();
+            
+            // 댓글 1개를 표시할 HTML 코드:
+            htmlStr += `
+                 <tr>
+                <td>${reply.title}</td>
+                <td>
+                    ${reply.content} 
+                </td>
+                <td>
+                   ${reply.makgora_type}
+                </td>
+            </tr>
+            `;
+            
+        }
+        tableLists.innerHTML = htmlStr;
+            tableHead.innerHTML = headStr;
+        
+};
+
+
 const makeSetImgElements = (data) => {
         // 댓글 개수 업데이트
         /*replyCountSpan.innerHTML = data.length; // 배열 길이(원소 개수)*/
@@ -66,9 +111,10 @@ const makeSetImgElements = (data) => {
     <input type="button" id="btnUpload" value="Upload" />
 </form> 
             `;
-            tableLists.innerHTML = htmlStr;
-            tableHead.innerHTML = headStr;
+            
         }
+        tableLists.innerHTML = htmlStr;
+            tableHead.innerHTML = headStr;
         
 };
 const makeStarscoreElements = (data) => {
@@ -108,9 +154,10 @@ const makeStarscoreElements = (data) => {
                 </td>
             </tr>
             `;
-            tableLists.innerHTML = htmlStr;
-            tableHead.innerHTML = headStr;
+            
         }
+        tableLists.innerHTML = htmlStr;
+            tableHead.innerHTML = headStr;
         
 };
 // 댓글 목록 HTML을 작성하고 replies 영역에 추가하는 함수.
@@ -159,7 +206,12 @@ const makeStarscoreElements = (data) => {
             `;
         }
             tableHead.innerHTML = headStr;
-tableLists.innerHTML = htmlStr;
+			tableLists.innerHTML = htmlStr;
+
+	const detailButtons = document.querySelectorAll('button.btnDetail');
+        for (let btn of detailButtons) {
+            btn.addEventListener('click', showDetail);
+        }
         
 };
 
@@ -277,13 +329,18 @@ tableLists.innerHTML = htmlStr;
         tableLists.innerHTML = htmlStr;
         tableHead.innerHTML = headStr;
         
-/*        // 모든 삭제 버튼들을 찾아서 클릭 이벤트 리스너를 등록:
-        const deleteButtons = document.querySelectorAll('button.btnDelete');
-        for (let btn of deleteButtons) {
-            btn.addEventListener('click', deleteReply);
+        const detailButtons = document.querySelectorAll('button.btnDetail');
+        for (let btn of detailButtons) {
+            btn.addEventListener('click', showDetail);
         }
         
-        // 모든 수정 버튼들을 찾아서 클릭 이벤트 리스너를 등록:
+       // 모든 삭제 버튼들을 찾아서 클릭 이벤트 리스너를 등록:
+        /*const deleteButtons = document.querySelectorAll('button.btnDelete');
+        for (let btn of deleteButtons) {
+            btn.addEventListener('click', deleteReply);
+        }*/
+        
+        /*// 모든 수정 버튼들을 찾아서 클릭 이벤트 리스너를 등록:
         const modifyButtons = document.querySelectorAll('button.btnModify');
         for (let btn of modifyButtons) {
             btn.addEventListener('click', showUpdateModal);
@@ -401,6 +458,22 @@ bookmarked.addEventListener('click', (e) => {
      
 });
 
+const getMakgora = async () => {	    
+	      
+        const reqUrl = `/mugmung/mypage/api/makgora`;
+        console.log('reqUrl : '+reqUrl);
+        // Ajax 요청을 보내고 응답을 기다림.
+        try {
+            const response = await axios.get(reqUrl);
+            console.log(response);
+            // 댓글 개수 업데이트 & 댓글 목록 보여주기
+            makeMakgoraElements(response.data);
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
+
 const getStarscore = async () => {	    
 	      
         const reqUrl = `/mugmung/mypage/api/starscore`;
@@ -451,7 +524,7 @@ starscore.addEventListener('click', (e) => {
 });
 
 
-const setImg = document.querySelector('a#setImg');
+/*const setImg = document.querySelector('a#setImg');
 setImg.addEventListener('click', (e) => {
 	e.preventDefault();
         
@@ -468,7 +541,32 @@ setImg.addEventListener('click', (e) => {
     
     getSetImg();
      
+});*/
+
+
+
+
+const makgora = document.querySelector('a#makgora');
+
+makgora.addEventListener('click', (e) => {
+	e.preventDefault();
+        
+        console.log('makgora in');
+     // 기존에 활성화된 링크의 'active' 클래스를 제거합니다.
+    const activeLink = document.querySelector('.nav-item a.active');
+    if (activeLink) {
+      activeLink.classList.remove('active');
+      activeLink.removeAttribute('aria-current');
+    }
+     
+    // 클릭한 링크에 'active' 클래스를 추가하고, aria-current="page" 속성을 적용합니다.
+    makgora.classList.add('active');
+    makgora.setAttribute('aria-current', 'page'); 
+    
+    getMakgora();
+     
 });
+
 
     
 });

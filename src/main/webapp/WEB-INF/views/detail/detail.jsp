@@ -23,6 +23,15 @@
 <!-- carousel 시작 -->
      <style>
 
+    .btn-container {
+    text-align: right;
+   
+  } 
+    .nametext {
+     text-align: left;
+    }
+
+
      .Menu_name {
           display: inline-block;
          margin-right: 10px;
@@ -140,30 +149,38 @@
 
  
     <!-- 가게 title -->
+    
     <div class="row align-items-md-stretch">
      <div class="col-md-5 offset-md-1 h-100 p-5 text-bg-white rounded-3">
+     
+     
       <div id="title" class="mb-4" style="font-family: 'EF_jejudoldam';">
-       <h2>${detail.name}
-
+       <h1>${detail.name}
         <!-- 예약하기, 리뷰, 즐겨찾기 버튼 -->
-        <button class="btn" id="btnReserve" type="button" onclick="location.href='/mugmung/reserve/booking'"
-        	style="border-left-width: 80px;">
-         <img id="reserveBtn"
-          src="../static/assets/icons/reserve.png"
-          alt="reserve-Btn" width="50" /> <br>
-          <span class="review_button_text" >예약하기</span>
+        <div class="btn-container " style="font-family: 'SUITE-Regular';">
+        <button class="btn" id="btnReserve" >
+        <c:url var="reservePage" value="/reserve/booking">
+            <c:param name="id" value="${ detail.id }"></c:param>
+         </c:url>
+         <a href="${reservePage}"><img id="reserveBtn" src="../static/assets/icons/reserve.png"
+          alt="reserve-Btn" width="50" onclick="location.href='${reservePage}'" /></a> <br>
+          <span class="reserve_button_text" onclick="location.href='${reservePage}'">예약하기</span>
         </button>
+       
 
 
-        <button class="btn" id="btnReview" type="button" onclick="location.href='/mugmung/review/review'" >
-         <img id="reviewBtn" src="../static/assets/icons/reviewBtn.png"
-          alt="review-Btn" width="50"/> <br> <span
-          class="review_button_text">리뷰쓰기</span>
+        <button class="btn" id="btnReview">
+         <c:url var="reviewPage" value="/review/review">
+            <c:param name="id" value="${ detail.id }"></c:param>
+         </c:url>
+         <a href="${reviewPage}"><img id="reviewBtn" src="../static/assets/icons/reviewBtn.png"
+          alt="review-Btn" width="50"/></a> <br> 
+          <span class="review_button_text" onclick="location.href='${reviewPage}'">리뷰쓰기</span>
         </button>
 
         <button class="btn" id="bookmarkBtn" >
-        <input type="text" id="restaurant_id" name="restaurant_id" value="${param.id}" />
-        <input type="text" id="username" name="username" value="${username}" />
+        <input  type="hidden" id="restaurant_id" name="restaurant_id" value="${param.id}" />
+        <input  type="hidden" id="username" name="username" value="${username}" />
         
         <c:choose>
 		<c:when test="${existFlag == 0}">
@@ -176,20 +193,19 @@
 		<!-- 처리할 내용 -->
 		<img id="btnToggleBookmark"
 		          src="../static/assets/icons/bookmarkOn.png"
-		          alt="bookmark-off" width="50" />
+		          alt="bookmark-on" width="50" />
 		</c:when>
 		</c:choose>
          <!-- <img id="btnToggleBookmark"
           src="../static/assets/icons/bookmarkOff.png"
           alt="bookmark-off" width="50" />  -->
-          
           <br> 
           <span class="review_button_text" >북마크</span>
         </button>
-        </h2>
+        </div>
+        </h1>
        <hr>
-      </div>
-
+      </div>    
 
 
 
@@ -294,9 +310,10 @@
                   </td>
             </tr>
 
-    
+       
       </tbody>
       </table>
+       <hr>
       </div>
     
     
@@ -310,11 +327,7 @@
         name="map_id" readonly /> --%>
       </div>
      </div>
-    
-    
-    
-      <hr>
-      
+ 
    </div>
   
 
@@ -333,7 +346,7 @@
 
     <div class="card-body" id="replie">
      <div class="my-2 row">
-      <label class="form-label" for="replyText" style="font-family: 'SUITE-Regular';"> 나의 리뷰</label>
+     <!--  <label class="form-label" for="replyText" style="font-family: 'SUITE-Regular';"> 나의 리뷰</label> -->
 
       <!--  <div class="col-10">
         <textarea class="form-control" id="replyText"></textarea>
@@ -344,16 +357,19 @@
 
       <div class="my-2 row" id="replies" style="font-family: 'SUITE-Regular';">
        <c:forEach items="${ review }" var="list">
-        <div class="card">
+        <div class="comment-item mb-3" style="border-bottom: 1px solid #ccc;">
          <div>
           <span class="d-none">${list.id}</span> 
-          <span class="fw-bold">${list.writer}</span>
-          <span class="text-secondary">
-          <small><fmt:formatDate  value="${list.modified_time}"
-            pattern="yyyy-MM-dd" /></small> </span>
+          <span class="fw-bold" style="font-size: 20px;">${list.writer}</span>
+          <span class="text-secondary" style="font-size: 13px;">
+          <fmt:formatDate  value="${list.modified_time}"
+            pattern="yyyy-MM-dd" /></span>
 
          </div>
+         <br>
          <div>${list.reply_text}</div>
+         <br>
+
         </div>
        </c:forEach>
 
@@ -361,7 +377,8 @@
       <span>${review.MODIFIED_TIME}</span>  --%>
     </div>
    </div>
-
+</div>
+</div>
   </section>
     
 

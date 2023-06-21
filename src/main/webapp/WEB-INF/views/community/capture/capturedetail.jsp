@@ -25,10 +25,6 @@
          <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <ul class="navbar-nav bg-light">
                 <li class="nav-item">
-                    <c:url var="mainPage" value="/main" />
-                    <a class="nav-link" href="${ mainPage }">메인 페이지</a>
-                </li>
-                <li class="nav-item">
                     <c:url var="captureListPage" value="/community/capture/capturelist" />
                     <a class="nav-link" href="${ captureListPage }">글 목록</a>
                 </li>
