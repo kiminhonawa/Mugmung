@@ -108,7 +108,7 @@
 
         <div class="container">
           <div class="carousel-caption text-end">
-            <img src="../static/img/9.jpg" >
+            <img src="${ }" >
           </div>
         </div>
       </div>
@@ -231,7 +231,7 @@
               <tr class="my-5">
                 <th>메뉴</th>
                 <td class="menu_td">
-                <ul class="menuList">
+                <ul class="menuList" style="padding-left: 0px;">
                   <li class="menuItem">
                     <span class="Menu_name">${ detail.menu1_name }</span>
                     <span class="Menu_price"> ${ detail.menu1_price }</span>

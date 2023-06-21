@@ -64,24 +64,25 @@
    <div class="col-md-7 col-lg-8">
     <h4 class="mb-4"> 입점/제휴 문의내용</h4>
     <hr>
-    <form class="checkValidity" method="post" >
+    <c:url value="/customer/partnership" var="partnership"></c:url>
+    <form class="checkValidity" method="post" action="${ partnership }">
     <table>
      <colgroup>
          <col width="163" />
          <col width="*" />
         </colgroup>
     <tbody>
-    <tr>
+   <%--  <tr>
     
       <th><label for="username" class="form-label" >아이디</label></th> 
       <td><div class="input_area col-md-6">
-         <input type="text" id="username" class="form-control mb-3"
+         <input type="text" id="username" name="username" class="form-control mb-3"
           readonly="" value="${username}" />
         </div></td>
-    </tr>
+    </tr> --%>
     <tr>   
       
-     <th><label for="title" class="form-label" >가게명 / 회사명</label></th> 
+     <th><label for="title" class="form-label" >가게명 / 회사명 ${username}</label></th> 
      <td><div class="input_area col-md-6">
         <input style="resize: none;" id="title" class="form-control mb-3" name="title" ></input>
        </div></td>
