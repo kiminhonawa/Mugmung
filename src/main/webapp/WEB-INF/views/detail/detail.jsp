@@ -23,6 +23,11 @@
     <main> 
 <!-- carousel 시작 -->
      <style>
+     
+      .image-container {
+        display: flex;
+        justify-content: center;
+    }
 
     .btn-container {
     text-align: right;
@@ -104,11 +109,11 @@
     
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <svg class="bd-placeholder-img" width="100%" height="100%" ><rect width="100%" height="100%" fill="#777"></rect></svg>
+        <!-- <svg class="bd-placeholder-img" width="100%" height="100%" ><rect width="100%" height="100%" fill="#777"></rect></svg> -->
 
-        <div class="container">
+        <div class="image-container">
           <div class="carousel-caption text-end">
-            <img src="${ }" >
+            <img src=".${detail.images_loc}" width="600" height="425" style="margin-right: 700px; margin-left: -70px;" >
           </div>
         </div>
       </div>
@@ -119,7 +124,7 @@
  
     <!-- 가게 title -->
     
-    <div class="row align-items-md-stretch">
+    <div class="row align-items-md-stretch" style="margin-top: -50px">
      <div class="col-md-5 offset-md-1 h-100 p-5 text-bg-white rounded-3">
      
      
