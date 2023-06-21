@@ -44,6 +44,7 @@
     </div>
   </div>
   
+  <a class="btn btn-primary bg-warning text-dark" href="/mugmung/special/specialPost" role="button" style="margin-left: 1100px;"><strong>작성하기</a>
    
   <div class="my-3 p-3 bg-body rounded shadow-sm">
     <div class="accordion" id="accordionPanelsStayOpenExample">
@@ -298,6 +299,7 @@
   </div>
   </div>
   </div>
+
 
 
 </main> 
