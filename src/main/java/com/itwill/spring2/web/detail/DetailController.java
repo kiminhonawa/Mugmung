@@ -45,13 +45,19 @@ public class DetailController extends HttpServlet{
             RestaurantDto restaurantdto = restaurantService.read(id);
             log.info("restaurant={}", restaurantdto);
             
-            String name = bookmarkService.selectbyName(username);
+            
             
             int existFlag = 0;
             
-            if (username.equals(name)) {
-            	existFlag = 1;
-			}
+            if (username != null) {
+                String name = bookmarkService.selectbyName(username);
+                if (username.equals(name)) {
+                    existFlag = 1;
+                }
+            }
+            
+            
+           
             
 //            AddressDto addressDto = addressService.read(id);
 //            MapDto mapDto = mapService.read(id);

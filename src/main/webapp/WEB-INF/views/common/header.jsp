@@ -77,9 +77,7 @@
 				<c:url value="/static/img/mugmung.png" var="mugmung_logo" />
 					<img src="${ mugmung_logo }" alt="제주도 맛집! 머그멍" style="width:250px; height:100px;">
 				</a> --%>
-				<c:url value="/static/img/test_logo.png" var="test_logo" />
-					<img src="${test_logo}" alt="제주도 맛집! 머그멍">
-				</a>
+				
 			</li>
 		</ul>
 <!-- 헤더 가운데 영역 end-->
@@ -153,22 +151,7 @@
 <!-- 홈 end-->
 
 
-<!-- 머그멍 추천 -->       
-       <li class="nav-item dropdown">
-       	<a href="#" class=" d-block link-dark text-decoration-none dropdown-toggle nav-link" data-bs-toggle="dropdown" aria-expanded="false">머그멍 추천</a>
-        	<ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownMenuLink2">
-        	<c:url var="wordcupPage" value="/recommend/wordcup" />
-        		<li><a class="dropdown-item" href="${wordcupPage }">맛상형 월드컵</a></li>
-        		
-       		<c:url var="goldenbellPage" value="/recommend/goldenbell" />
-        		<li><a class="dropdown-item" href="${goldenbellPage }">맛집 골든벨</a></li>
-        		
-       		<c:url var="analysisPage" value="/recommend/analysis" />
-        		<li><a class="dropdown-item" href="${analysisPage }">취향 OX</a></li>
-        		
-      		</ul>
-       </li>
-<!-- 머그멍 추천 끝-->
+
 
         <c:url var="bestPage" value="/best/best" />
         <li class="nav-item"><a href="${bestPage }" class="nav-link">베스트</a></li>
