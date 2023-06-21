@@ -100,14 +100,32 @@ public class ReviewController {
 
     
       //취소버튼
-      
       @PostMapping("/cancel") 
       public String cancel (){ 
           log.info("cancel");
       
-      return "redirect:/"; }
+      return "redirect:/"; 
+      }
      
 
     // 임시저장
-
+      @PostMapping("/temp_save")
+      public String tempSave(HttpServletRequest request,
+              @RequestParam(value = "rating", required = false) List<Integer> ratings,
+              @RequestParam("content") String content,
+              @RequestParam("restaurant_id") long restaurant_id) {
+                  
+          HttpSession session = ((HttpServletRequest) request).getSession();
+          String username = (String) session.getAttribute("signedInUser");
+          
+          System.out.println("Username: " + username);
+          System.out.println("Content: " + content);
+          System.out.println("Restaurant ID: " + restaurant_id);
+          if (ratings != null) {
+              System.out.println("Ratings: " + ratings);
+          }
+          
+          return "redirect:/detail/detail?id=" + restaurant_id;
+      
+      }
 }

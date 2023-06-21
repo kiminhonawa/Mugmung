@@ -8,7 +8,7 @@
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <title>맛집은! 머그멍</title>
-      <link href="./static/css/headers.css" rel="stylesheet" />
+      <link href="/mugmung/static/css/headers.css" rel="stylesheet" />
       <c:url value="/static/css/dropdowns.css" var="dropdown" /> 
       <link href="${dropdown }" rel="stylesheet" />
       <link 
