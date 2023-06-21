@@ -206,7 +206,12 @@ const makeStarscoreElements = (data) => {
             `;
         }
             tableHead.innerHTML = headStr;
-tableLists.innerHTML = htmlStr;
+			tableLists.innerHTML = htmlStr;
+
+	const detailButtons = document.querySelectorAll('button.btnDetail');
+        for (let btn of detailButtons) {
+            btn.addEventListener('click', showDetail);
+        }
         
 };
 
@@ -324,13 +329,18 @@ tableLists.innerHTML = htmlStr;
         tableLists.innerHTML = htmlStr;
         tableHead.innerHTML = headStr;
         
-/*        // 모든 삭제 버튼들을 찾아서 클릭 이벤트 리스너를 등록:
-        const deleteButtons = document.querySelectorAll('button.btnDelete');
-        for (let btn of deleteButtons) {
-            btn.addEventListener('click', deleteReply);
+        const detailButtons = document.querySelectorAll('button.btnDetail');
+        for (let btn of detailButtons) {
+            btn.addEventListener('click', showDetail);
         }
         
-        // 모든 수정 버튼들을 찾아서 클릭 이벤트 리스너를 등록:
+       // 모든 삭제 버튼들을 찾아서 클릭 이벤트 리스너를 등록:
+        /*const deleteButtons = document.querySelectorAll('button.btnDelete');
+        for (let btn of deleteButtons) {
+            btn.addEventListener('click', deleteReply);
+        }*/
+        
+        /*// 모든 수정 버튼들을 찾아서 클릭 이벤트 리스너를 등록:
         const modifyButtons = document.querySelectorAll('button.btnModify');
         for (let btn of modifyButtons) {
             btn.addEventListener('click', showUpdateModal);
@@ -556,20 +566,6 @@ makgora.addEventListener('click', (e) => {
     getMakgora();
      
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     
