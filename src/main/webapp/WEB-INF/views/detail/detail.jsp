@@ -2,7 +2,7 @@
     pageEncoding="UTF-8" trimDirectiveWhitespaces="true"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ include file="../../views/common/header.jsp" %>
+
 
 
 <!DOCTYPE html>
@@ -19,9 +19,15 @@
    </head>
    
    <body>
+   <%@ include file="../../views/common/header.jsp" %>
     <main> 
 <!-- carousel 시작 -->
      <style>
+     
+      .image-container {
+        display: flex;
+        justify-content: center;
+    }
 
     .btn-container {
     text-align: right;
@@ -99,58 +105,26 @@
 
 
   <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-indicators">
-      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2" class=""></button>
-      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3" class="active" aria-current="true"></button>
-    </div>
+    
+    
     <div class="carousel-inner">
-      <div class="carousel-item">
-        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"></rect></svg>
-
-        <div class="container">
-          <div class="carousel-caption text-start">
-            <h1>이미지 넣어라1</h1>
-            <p>어쩌구저쩌구 사진만 넣자</p>
-          </div>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"></rect></svg>
-
-        <div class="container">
-          <div class="carousel-caption">
-            <h1>이미지 넣어라2</h1>
-            <p>어쩌구저쩌구 사진만 넣자</p>
-          </div>
-        </div>
-      </div>
       <div class="carousel-item active">
-        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"></rect></svg>
+        <!-- <svg class="bd-placeholder-img" width="100%" height="100%" ><rect width="100%" height="100%" fill="#777"></rect></svg> -->
 
-        <div class="container">
+        <div class="image-container">
           <div class="carousel-caption text-end">
-            <h1>이미지 넣어라3</h1>
-            <p>어쩌구저쩌구 사진만 넣자</p>
-            
+            <img src=".${detail.images_loc}" width="600" height="425" style="margin-right: 700px; margin-left: -70px;" >
           </div>
         </div>
       </div>
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
+  
   </div>
 
  
     <!-- 가게 title -->
     
-    <div class="row align-items-md-stretch">
+    <div class="row align-items-md-stretch" style="margin-top: -50px">
      <div class="col-md-5 offset-md-1 h-100 p-5 text-bg-white rounded-3">
      
      
@@ -262,7 +236,7 @@
               <tr class="my-5">
                 <th>메뉴</th>
                 <td class="menu_td">
-                <ul class="menuList">
+                <ul class="menuList" style="padding-left: 0px;">
                   <li class="menuItem">
                     <span class="Menu_name">${ detail.menu1_name }</span>
                     <span class="Menu_price"> ${ detail.menu1_price }</span>
@@ -385,8 +359,7 @@
     <%@ include file="../../views/common/footer.jsp"%>
     
  </main>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="../static/js/bookmark.js"></script>
+    <script src="/mugmung/static/js/bookmark.js"></script>
 </body>
 </html>

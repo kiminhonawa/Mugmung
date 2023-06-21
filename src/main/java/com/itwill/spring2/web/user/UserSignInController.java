@@ -45,7 +45,7 @@ public class UserSignInController extends HttpServlet {
         
         
         
-        return "/user/findㅑd";
+        return "/user/findId";
     }
 	@GetMapping("/findPass")
     public String findPass() {

@@ -24,7 +24,9 @@ import org.slf4j.LoggerFactory;
         filterName = "authenticationFilter",
         urlPatterns = {
 //                "/customer/makgora", "/customer/proposal"
-                ""
+                "/api/detail", "/review/review", "/reserve/booking", "/customer/partnership", "/customer/proposal",
+                "/capture/capturecreate", "/coupon/coupon", "/special/special", "/customer/makgora"
+                
         } // 로그인이 필요한 기능(요청 주소)들.
 )
 // urlPatterns에 설정된 요청 주소들에 대해서,

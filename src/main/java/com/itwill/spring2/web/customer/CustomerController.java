@@ -29,26 +29,26 @@ import lombok.extern.slf4j.Slf4j;
 
 public class CustomerController extends HttpServlet {
 	
-	@PostMapping("/makgora")
-    public String makgora(@RequestParam("file") MultipartFile file) throws Exception {
-        log.info("post makgora()");
-        
-     // Get the file name.
-        String fileName = file.getOriginalFilename();
-        log.info("fileName = {}",fileName);
-        // Generate a random file name.
-        String randomFileName = UUID.randomUUID().toString() + "_" + fileName;
-        log.info("randomFileName = {}",randomFileName);
-        // Create a new file in the C:/mugmung/img/title path.
-        File newFile = new File(new File("C:\\workspace\\spring2\\src\\main\\webapp\\static\\img\\"), randomFileName);
-        log.info("newFile = {}",newFile);
-        // Write the file to the disk.
-        file.transferTo(newFile);
-
-        // Redirect the user back to the upload page.
-        
-        return "redirect:/main";
-    }
+//	@PostMapping("/makgora")
+//    public String makgora(@RequestParam("file") MultipartFile file) throws Exception {
+//        log.info("post makgora()");
+//        
+//     // Get the file name.
+//        String fileName = file.getOriginalFilename();
+//        log.info("fileName = {}",fileName);
+//        // Generate a random file name.
+//        String randomFileName = UUID.randomUUID().toString() + "_" + fileName;
+//        log.info("randomFileName = {}",randomFileName);
+//        // Create a new file in the C:/mugmung/img/title path.
+//        File newFile = new File(new File("C:\\workspace\\spring2\\src\\main\\webapp\\static\\img\\"), randomFileName);
+//        log.info("newFile = {}",newFile);
+//        // Write the file to the disk.
+//        file.transferTo(newFile);
+//
+//        // Redirect the user back to the upload page.
+//        
+//        return "redirect:/main";
+//    }
 	
 	@GetMapping("/faqs")
     public String faqs() {
@@ -63,20 +63,21 @@ public class CustomerController extends HttpServlet {
 
 	
 	@GetMapping("/partnership")
-    public void partnership(Model model, HttpServletRequest request) {
+    public void partnership() {
         log.info("GET: partnership()");
-        HttpSession session = ((HttpServletRequest) request).getSession();
-
-        String username = (String) session.getAttribute("signedInUser");
-        log.info("username = {}", username);
-
-        model.addAttribute("username", username);
         
     }
 	
 	@PostMapping("/partnership")
-	public String partnership(PartnershipDto dto) {
+	public String partnership(PartnershipDto dto, Model model, HttpServletRequest request) {
 	    log.info("POST: partnershipPost({})", dto);
+	    HttpSession session = ((HttpServletRequest) request).getSession();
+	    
+	    String username = (String) session.getAttribute("signedInUser");
+        log.info("username = {}", username);
+        
+        model.addAttribute("username", username);
+        dto.setWriter(username);
 	    
 	    int result = partnershipService.create(dto);
 	    log.info("제휴하기 등록 결과 = {}", result);
@@ -90,10 +91,17 @@ public class CustomerController extends HttpServlet {
 	private final ProposalService proposalService;
 	
 	@GetMapping("/proposal")
-    public void proposal(Model model, HttpServletRequest request) {
+    public void proposal() {
         log.info("GET: proposal()");
         
-        HttpSession session = ((HttpServletRequest) request).getSession();
+    
+    }
+	
+	@PostMapping("/proposal")
+	public String proposal(ProposalDto dto, Model model, HttpServletRequest request) {
+	    log.info("POST:proposalPost()");
+	    
+	    HttpSession session = ((HttpServletRequest) request).getSession();
 
         String username = (String) session.getAttribute("signedInUser");
         String email = (String) session.getAttribute("signedInEmail");
@@ -102,13 +110,7 @@ public class CustomerController extends HttpServlet {
         model.addAttribute("username", username);
         model.addAttribute("email", email);
         
-    
-     
-    }
-	
-	@PostMapping("/proposal")
-	public String proposal(ProposalDto dto) {
-	    log.info("POST:proposalPost()");
+        dto.setWriter(username);
 	    
 	    int result = proposalService.create(dto);
 	    return "redirect:/";

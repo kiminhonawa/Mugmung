@@ -14,14 +14,26 @@
         order by MODIFIED_TIME desc
     </select>
     
+    <select id="selectById"
+        resultType="com.itwill.spring2.domain.CaptureReply">
+        select * from CAPTURE_REPLY where ID = #{id}
+    </select>
+    
     <insert id="insert">
         insert into CAPTURE_REPLY (CAPTURE_ID, REPLY_TEXT, WRITER, CREATED_TIME, MODIFIED_TIME)
         values (#{capture_id},#{reply_text} ,#{writer}, systimestamp, systimestamp)
     </insert>
     
-    <select id="selectById" 
-        resultType="com.itwill.spring2.domain.CaptureReply">
-        select * from CAPTURE_REPLY where ID = #{id}
-    </select>
+    <update id="update">
+        update CAPTURE_REPLY
+        set REPLY_TEXT = #{reply_text}, MODIFIED_TIME = systimestamp
+        where ID = #{capture_id}
+    </update>
+    
+    <delete id="delete">
+        delete from CAPTURE_REPLY
+        where ID = #{id}
+    </delete>
+    
 </mapper>
 
