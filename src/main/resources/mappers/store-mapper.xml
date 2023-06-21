@@ -6,10 +6,35 @@
 
 <mapper namespace="com.itwill.spring2.repository.StoreRepository">
 
-    <insert id="insert">
-        insert into RESTAURANT (NAME, NAME_INFO, PHONE_NUM, FOOD_TYPE1, LOW_PRICE_RANGE, HIGH_PRICE_RANGE, BUSINESS_START_HOUR, BUSINESS_END_HOUR, LAST_ORDER, HOLIDAY, WEB_LINK, FOOD_MENU)
-        values (#{name}, #{name_info}, #{phone_num}, #{food_type1}, #{low_price_range}, #{high_price_range}, #{business_start_hour}, #{business_end_hour}, #{last_order}, #{holiday}, #{web_link}, #{food_menu})
+    <insert id="createRes">
+        insert into RESTAURANT (NAME, NAME_INFO, PHONE_NUM, FOOD_TYPE1, FOOD_TYPE2, FOOD_TYPE3, BUSINESS_START_HOUR, BUSINESS_END_HOUR, LAST_ORDER, HOLIDAY, WEB_LINK, LOW_PRICE_RANGE, HIGH_PRICE_RANGE, MAX_MEMBERS)
+        values (#{name}, #{name_info}, #{phone_num}, #{food_type1}, #{food_type2}, #{food_type3}, #{business_start_hour}, #{business_end_hour}, #{last_order}, #{holiday}, #{web_link}, #{low_price_range}, #{high_price_range}, #{max_members})
     </insert>
+    
+    <insert id="createMenu">
+        insert into MENUS (RESTAURANT_ID, MENU1_NAME, MENU1_PRICE, MENU2_NAME, MENU2_PRICE, MENU3_NAME, MENU3_PRICE)
+        values (#{restaurant_id}, #{menu1_name}, #{menu1_price}, #{menu2_name}, #{menu2_price}, #{menu3_name}, #{menu3_price})
+    </insert>
+    
+    <insert id="createImg">
+        insert into IMAGES (RESTAURANT_ID, IMAGES_LOC)
+        values (#{restaurant_id}, #{images_loc})
+    </insert>
+        
+    <insert id="createAdd">
+        insert into ADDRESS (RESTAURANT_ID, ADDRESS1, ADDRESS2)
+        values (#{restaurant_id}, #{address1}, #{address2})
+    </insert>
+    
+    <insert id="createMap">
+        insert into MAPS (RESTAURANT_ID, X, Y)
+        values (#{restaurant_id}, #{x}, #{y})
+    </insert>
+    
+    <select id="selectByName">
+        select id from RESTAURANT where name = #{name}
+    </select>
+    
     
     <select id="selectOrderByIdDesc" resultType="com.itwill.spring2.domain.Store">
         select * from RESTAURANT order by ID desc
@@ -18,5 +43,9 @@
     <select id="selectById" resultType="com.itwill.spring2.domain.Store">
         select * from RESTAURANT where ID = #{id}
     </select>
+    
+    <update id="updateAdmin">
+        update admin set restaurant_id = #{restaurant_id} where username = #{username}
+    </update>
 </mapper>
 

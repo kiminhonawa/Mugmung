@@ -46,9 +46,12 @@ order by v.star_score desc
     , i.images_loc
     , a.address1
     , a.address2
-    , v.star_score
-from restaurant r, images i, address a, reviews v
-where r.id = i.RESTAURANT_ID and r.id = a.RESTAURANT_ID and r.id = v.RESTAURANT_ID and
+    , nvl(v.star_score, 0) as star_score
+from restaurant r
+LEFT JOIN images i ON r.id = i.RESTAURANT_ID
+LEFT JOIN address a ON r.id = a.RESTAURANT_ID
+LEFT JOIN reviews v ON r.id = v.RESTAURANT_ID 
+where
 r.id >0 and a.address1 like '%' || #{id} || '%' and rownum <= (#{pageNum}*#{amount}))
 where rn > (#{pageNum}-1)*#{amount}
 ]]>

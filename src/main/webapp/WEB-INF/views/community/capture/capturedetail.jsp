@@ -19,15 +19,11 @@
    <body>
       <div class="container-fluid">
         <header class="my-3 p-3 text-center">
-            <h1>새 글 상세보기</h1>
+            <h1>상세보기</h1>
         </header>
          
          <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <ul class="navbar-nav bg-light">
-                <li class="nav-item">
-                    <c:url var="mainPage" value="/main" />
-                    <a class="nav-link" href="${ mainPage }">메인 페이지</a>
-                </li>
                 <li class="nav-item">
                     <c:url var="captureListPage" value="/community/capture/capturelist" />
                     <a class="nav-link" href="${ captureListPage }">글 목록</a>
@@ -54,7 +50,7 @@
                     <div class="my-2">
                         <label class="form-label" for="viewsCount">조회수</label>
                         <input class="form-control" id="viewsCount" 
-                            value="" readonly/>
+                            value="12" readonly/>
                     </div>
                     <div class="my-2">
                         <label class="form-label" for="createdTime">작성 시간</label>

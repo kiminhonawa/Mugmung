@@ -144,20 +144,24 @@
 <c:forEach items="${indexLists}" var="list" varStatus="loop">
   <div class="row featurette">
     <c:if test="${loop.index % 2 == 0}">
+    
       <div class="col-md-7">
+      <c:url value="/detail/detail?id=${list.id}" var="detailPage"></c:url>
+      <a href="${detailPage}">
         <h2 class="featurette-heading fw-normal lh-1" style="font-family: 'EF_jejudoldam'; text-align:right; margin-right: 100px">${list.name}<span class="text-muted"></span></h2>
         <p class="lead" style="margin-left: 100px; margin-right: 100px; text-align:right;">
-          <c:url value="/detail/detail?id=${list.id}" var="detailPage"></c:url>
-          <a href="${detailPage}">${list.address1} ${list.address2}</a><br>
-          <a>${list.star_score}</a>
+          ${list.address1} ${list.address2}<br>
+          ${list.star_score}
         </p>
+        </a>
       </div>
       <div class="col-md-5">
-        <img src="${list.images_loc }" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false">
+        <img src="${list.images_loc}" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false">
           <title>Placeholder</title>
           <rect width="100%" height="100%" fill="#eee"></rect>
-          <text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text>
+          <text x="50%" y="50%" fill="#aaa" dy=".3em"></text>
         </svg>
+        </a>
       </div>
     </c:if>
     <c:if test="${loop.index % 2 != 0}">
@@ -244,7 +248,7 @@ actionForm.submit();
 });
 $(document).ready(function(){
 
-	$(".page-link").focus();
+	$(".container my-3").focus();
 });
 
 });

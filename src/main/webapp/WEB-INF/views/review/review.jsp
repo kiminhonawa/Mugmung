@@ -30,10 +30,12 @@
             <form class="card-body" method="post" id="reviewForm">
                 <div class="my-2">
                     <label class="form-label" for="id" style="font-family: 'EF_jejudoldam';">${name }</label>
+                    <input type="hidden" id="restaurant_id" name="restaurant_id" value="${ param.id }">
                     <label class="form-label" for="id" style="font-family: 'EF_jejudoldam';">에 대한 솔직한 리뷰를 써주세요.</label>
                 </div>
                 
-            
+            	
+            	
                 <div class="rating">
                     <!-- 해당 별점을 클릭하면 해당 별과 그 왼쪽의 모든 별의 체크박스에 checked 적용 -->
                     <input type="checkbox" name="rating" id="rating1" value="1" class="rate_radio" title="1점" >
@@ -51,53 +53,49 @@
                 
                 
                 <div>
-                    <textarea class="ReviewEditor my-2"  id="content" name="content" maxlength="10000"
+                    <textarea class="ReviewEditor my-2"  id="content" name="content" maxlength="1000"
                      style="width:100%;border-width;overflow:visible;text-overflow:ellipsis;" rows=10
-                    placeholder="${ username }, 주문하신 메뉴는 어떠셨나요? 식당의 분위기와 서비스도 궁금해요!"></textarea>
+                    placeholder="${ username }, 주문하신 메뉴는 어떠셨나요? 식당의 분위기와 서비스도 궁금해요!" oninput="updateTextLength()">${content}</textarea>
                 </div>
                 </form>
             </div>
     
     <div class="ReviewEditor">
      <p class="ReviewEditor__TextLengthStateBox">
-      <span class="ReviewEditor__CurrentTextLength">0</span> <span
+      <span class="ReviewEditor__CurrentTextLength">${content}</span> <span
        class="ReviewEditor__TextLengthStateDivider">/</span> <span
        class="ReviewEditor__MaxTextLength">1000</span>
      </p>
     </div>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        
+    <script>
+  function updateTextLength() {
+    const textarea = document.getElementById('content');
+    const currentLength = textarea.value.length;
+    const currentTextLengthElement = document.querySelector('.ReviewEditor__CurrentTextLength');
+    currentTextLengthElement.textContent = currentLength;
+  }
+</script>
     
     
-        <%-- <div>
+        <div>
             <c:url value="/review/review" var="reviewPage"></c:url>
-            서블릿에 요청해 파일을 업로드 함
             <form action="${reviewPage }" method="post" enctype="multipart/form-data">
                 <input type="file" name="file" />
                 <img id="preview" src="#" width=200 height=150 alt="선택된 이미지가 없습니다" style="align-content: flex-end; ">
                 <input type="submit" value="Upload" />
             </form>
-        </div> --%>
+        </div> 
     
     
-    <div class="ReviewWritingPage">
-        <div class="ReviewWritingPage__PictureWrap">
-        <div class="ReviewPictureCounter"
-            style="top: 93px; left: 89px; display: block;">
-            <span class="ReviewPictureCounter__CurrentLength">0</span> <span
-                class="ReviewPictureCounter__Divider">/</span> 
-            <span class="ReviewPictureCounter__MaxLength">20</span>
-        </div>
-        </div>
-        
-    
-    </div>
-    
-    <div class="card-footer">
+    <div class="card-footer my-5">
         <div class="d-flex justify-content-center">
             <button class="btn btn-navy navbar-btn find-btn1" id="btnTemp"
                 style="font-family: 'EF_jejudoldam';">임시저장</button>
             <button class="btn btn-navy navbar-btn find-btn1" id="btnSave"
                 style="font-family: 'EF_jejudoldam';">저장</button>
-            <button class="btn btn-grey navbar-btn find-btn1" id="btnDelete"
+            <button class="btn btn-grey navbar-btn find-btn1" id="btnCancel"
                 style="font-family: 'EF_jejudoldam';">취소</button>
         </div>
     </div>
