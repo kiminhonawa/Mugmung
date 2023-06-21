@@ -75,11 +75,11 @@ document.querySelector('.rating').addEventListener('click',function(e){
     btnSaveTemp.addEventListener('click', ()=> {
         const formData = new FormData(); // 폼 데이터 객체 생성
         
-        /*// 별점 데이터 추가
+        // 별점 데이터 추가
         const starScore = document.querySelector('input[name="rating"]:checked').value;
         formData.append('star_score', starScore);
         console.log('star_score', starScore);
-        */
+        
         //내용 데이터 추가
         const content = document.querySelector('textarea#content').value;
         formData.append('content', content);
@@ -87,22 +87,19 @@ document.querySelector('.rating').addEventListener('click',function(e){
         
         
     
-    //  Ajax 요청으로 임시저장 데이터 전송
-    fetch('/temp_save',{
-        method: 'POST',
-        body: formData
+    // Axios를 사용하여 임시저장 데이터 전송
+  axios.post('/temp_save', formData)
+    .then(response => {
+      if (response.status === 200) {
+        alert('임시저장이 완료되었습니다.');
+      } else {
+        alert('임시저장에 실패했습니다.');
+      }
     })
-        .then(response => {
-            if(response.ok){
-                alert('임시저장이 완료되었습니다.');
-            }else{
-                alert('임시저장에 실패했습니다.')
-            }
-        })
-        .catch(error =>{
-            console.error('Error:',error);
-        });
+    .catch(error => {
+      console.error('Error:', error);
     });
+});
         
 //별점 데이터 value
     function getCheckboxValue(){

@@ -83,8 +83,8 @@
             <c:url value="/review/review" var="reviewPage"></c:url>
             <form action="${reviewPage }" method="post" enctype="multipart/form-data">
                 <input type="file" name="file" />
-                <img id="preview" src="#" width=200 height=150 alt="선택된 이미지가 없습니다" style="align-content: flex-end; ">
-                <input type="submit" value="Upload" />
+                <!-- <img id="preview" src="#" width=200 height=150 alt="선택된 이미지가 없습니다" style="align-content: flex-end; ">
+                <input type="submit" value="Upload" /> -->
             </form>
         </div> 
     

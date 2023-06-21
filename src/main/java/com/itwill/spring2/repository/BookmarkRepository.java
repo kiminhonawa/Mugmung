@@ -1,6 +1,7 @@
 package com.itwill.spring2.repository;
 
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import com.itwill.spring2.dto.BookmarkDto;
@@ -23,7 +24,7 @@ public interface BookmarkRepository {
 
 	int delete(DetailCreateDto dto);
 
-	String selectbyName(String username);
+	String selectbyName(@Param("username")String username, @Param("id")long id);
 
     
 }

@@ -36,7 +36,7 @@
     </delete>
     
     <select id="selectbyName" resultType="String">
-    	select username from bookmark where username = #{username}
+    	select username from bookmark where username = #{username} and restaurant_id = #{id}
     </select>
     
 </mapper>

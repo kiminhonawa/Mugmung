@@ -51,6 +51,12 @@ public class ReviewController {
         model.addAttribute("username", username);
 
         model.addAttribute("name", name);
+        
+        //1.리뷰즈 테이블에서 id로 review를 가져오기
+        //2.가져온 username = 현재 로그인한 사람 username = savetable 의 리뷰 가져오기(star score, content)
+        //3.jsp writer = username -> jsp textarea에 content 뿌려주기
+        
+        //model.addAttribute()
     }
 
     // 사진업로드
