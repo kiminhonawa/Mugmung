@@ -69,6 +69,7 @@
         <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"></rect></svg>
 
         <div class="container">
+        
           <div class="carousel-caption text-end">
             <h1>One more for good measure.</h1>
             <p>Some representative placeholder content for the third slide of this carousel.</p>
@@ -115,8 +116,8 @@
         <img src="${bestlist.images_loc}" class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"></svg>
         <h2 class="fw-normal" style="font-family: 'EF_jejudoldam';">${bestlist.name}</h2>
         <p>${bestlist.address1}${bestlist.address2}</p>
-        <c:url value="/detail/detail?id=${list.id}" var="detailPage"></c:url>
-        <p><a class="btn btn-secondary" href="${detailPage}">View details »</a></p>
+        <c:url value="/detail/detail?id=${bestlist.id}" var="detailPage"></c:url>
+        <p><a class="btn btn-secondary" href="${detailPage}">맛집 들어가기</a></p>
       </div><!-- /.col-lg-4 -->
     </c:if>
   </c:forEach>
@@ -126,17 +127,7 @@
 
     <hr class="featurette-divider">
     <div class="container my-3">
-    <div class="row justify-content-between my-3">
-    <div class="col-2">
-    	<select class="form-control">
-    		<option value="recent">최신순</option>
-    		<option value="old">오래된순</option>
-    		<option value="popular">인기순</option>
-    	</select>
-    	
-    </div>
-    
-    </div>
+  
     <input type="text" style="width: 1px; height: 1px; margin-left: 280px;" class="focus"/>
 <c:forEach items="${indexLists}" var="list" varStatus="loop">
   <div class="row featurette">
@@ -145,10 +136,14 @@
       <div class="col-md-7">
       <c:url value="/detail/detail?id=${list.id}" var="detailPage"></c:url>
       <a href="${detailPage}">
-        <h2 class="featurette-heading fw-normal lh-1" style="font-family: 'EF_jejudoldam'; text-align:right; margin-right: 100px">${list.name}<span class="text-muted"></span></h2>
+        <h2 class="featurette-heading fw-normal lh-1" style="font-family: 'EF_jejudoldam'; text-align:right; margin-right: 100px">${list.name}
+       
+  <img src="./static/img/starrate.png" class="bg-warning" width="40px;" height="40px;">
+  <span class="text-muted" style="font-size: 30px; margin-left: -20px;">${list.star_score}점</span>
+</h2>
+        <span class="text-muted"></span></h2>
         <p class="lead" style="margin-left: 100px; margin-right: 100px; text-align:right;">
           ${list.address1} ${list.address2}<br>
-          ${list.star_score}
         </p>
         </a>
       </div>
@@ -172,10 +167,14 @@
       <div class="col-md-7 order-md-2">
       <c:url value="/detail/detail?id=${list.id}" var="detailPage"></c:url>
       <a href="${detailPage}">
-        <h2 class="featurette-heading fw-normal lh-1" style="font-family: 'EF_jejudoldam'; text-align: left; margin-left: 100px; ">${list.name}<span class="text-muted"></span></h2>
+        <h2 class="featurette-heading fw-normal lh-1" style="font-family: 'EF_jejudoldam'; text-align: left; margin-left: 100px;">
+  ${list.name} 
+  <img src="./static/img/starrate.png" class="bg-warning" width="40px;" height="40px;">
+  <span class="text-muted" style="font-size: 30px; margin-left: -20px;">${list.star_score}점</span>
+</h2>
+
         <p class="lead" style="margin-left: 100px; margin-right: 100px; text-align: left;">
        ${list.address1} ${list.address2}<br>
-          ${list.star_score}
           </p>
       </div>
     </c:if>
