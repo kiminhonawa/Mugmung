@@ -7,7 +7,7 @@
      btnSuggest.addEventListener('click', () => {
          if(confirm("제안하시겠습니까?") == true) {
              alert("완료되었습니다.");
-             location.href = '/mugmung/main';
+             location.href = '/mugmung';
          } else {
              
          }
@@ -17,7 +17,7 @@
      btnCancel.addEventListener('click', () => {
        if(confirm("취소하시면 메인페이지로 넘어갑니다. 취소하시겠습니까?") == true) {
            alert("취소되었습니다.");
-           location.href = '/mugmung/main';
+           location.href = '/mugmung' 
        } else {
            
        } 

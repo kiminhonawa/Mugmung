@@ -33,12 +33,13 @@ public class BookmarkController {
     public ResponseEntity<String> addBookmark(@RequestParam("restaurant_id") long restaurant_id,
             @RequestParam("username") String username) {
         log.info("addBookmark={}",restaurant_id);
+        
         bookmarkRepository.BookmarkOn(restaurant_id, username);
         return ResponseEntity.ok("Bookmark added successfully");
     }
     
     @PostMapping("/remove")
-    public ResponseEntity<String> removeBookmarkvccccccc(@RequestParam ("restaurant_id") long restaurant_id,
+    public ResponseEntity<String> removeBookmark(@RequestParam ("restaurant_id") long restaurant_id,
     @RequestParam("username") String username) {
         
         bookmarkRepository.BookmarkOff(restaurant_id, username);
@@ -50,40 +51,16 @@ public class BookmarkController {
             @RequestParam("username") String username) {
         long bookmarkStatus = bookmarkRepository.MyBookmark(restaurant_id, username);
         boolean isBookmarked = bookmarkStatus > 0;
+        
         return ResponseEntity.ok(isBookmarked);
         
     }
     
-    
-//    HashMap<String, Object> data = new HashMap<>();
-//    
-//    @Autowired
-//    BookmarkService bookmarkService;
-//    
-//    // 게시글 북마크 등록
-//    @PostMapping("/bookmark/mypage")
-//    public HashMap<String, Object> bookmarkOn(BookmarkDto param, HttpSession session){
-//        User sessionUser = (User) session.getAttribute("sessionUser");
-//        if(sessionUser == null) {
-//            data.put("result", "error");
-//            data.put("reason","로그인이 필요합니다.");
-//            return data;
-//        }
-//       
-//        String user_id = sessionUser.getUsername();
-//        param.setUsername(user_id);
-//        
-//        int mybookmark = bookmarkService.MyBookmark(param);
-//        
-//        if (mybookmark > 0) {
-//            data.put("status", "bookMark");
-//            data.put("result", "success");
-//        } else {
-//            data.put("status", "unBookMark");
-//            data.put("result", "failed");
-//        }
-//        
-//        
-//        return data;
-//    }
+    @PostMapping("/mugmung/user/signin")
+    public String signIn() {
+        log.info("POST:signIn()");
+        
+        return "signin";
+    }
+
 }

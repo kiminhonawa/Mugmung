@@ -86,8 +86,8 @@
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <ul class="navbar-nav bg-light">
                 <li class="nav-item">
-                    <c:url var="mainPage" value="/main" />
-                    <a class="nav-link" href="${ mainPage }">메인 페이지</a>
+                    <c:url var="captureListPage" value="/community/capture/capturelist" />
+                    <a class="nav-link" href="${ captureListPage }">글 목록</a>
                 </li>
                 <li class="nav-item">
                     <c:url var="captureCreatePage" value="/community/capture/capturecreate" />
@@ -110,9 +110,9 @@
                     </div>
                     </form>        
                 </div>
-
-    
-  </head>
+        </main>
+    </body>
+ 
   <body>
     
 
@@ -136,7 +136,10 @@
                                     <a href="${captureDetail}">${capture.content}</a>
                                 </div>
                                 <div>
-                                    <span id="viewsCount">조회수</span>
+                                    <span id="viewsCount">
+                                      <c:url value="/static/img/views.png" var="views" ></c:url>
+                                      <img alt="조회수" src="${views }" width="20" height="20">
+                                    </span>
                                 </div>
                             </div>
                         </div>
@@ -145,44 +148,86 @@
             </c:forEach>
         </div>
     </div>
-</div>
 
 
 
-</main>
-</body>
-</main>
-       
+
+
+
+<!-- 페이징 -->
+    <div id="pagination">
     <nav aria-label="Page navigation example">
-        <ul class="pagination justify-content-center">
+        <ul class="pagination justify-content-center my-5" id="pages">
+        <c:if test="${pageMaker.prev}">
             <li class="page-item">
-                <a class="page-link" href="#" aria-label="Previous">
+                <a class="page-link" href="${ pageMaker.cri.pageNum > 1 ? pageMaker.cri.pageNum-1 : 1 }" aria-label="Previous">
                 <span aria-hidden="true">&laquo;</span>
                 </a>
-                
             </li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            </c:if>
+            <c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="num">
+            <li class="page-item ${pageMaker.cri.pageNum == num? "active" :"" }" ><a class="page-link" href="${num}">${num}</a></li>
+            </c:forEach>
+            <c:if test="${pageMaker.next}">
             <li class="page-item">
-                <a class="page-link" href="#" aria-label="Next">
+                <a class="page-link" href="${pageMaker.cri.pageNum+1}" aria-label="Next">
                 <span aria-hidden="true">&raquo;</span>
                 </a>
             </li>
+            </c:if>
         </ul>
     </nav>
-             
+    <form id='actionForm' action="/mugmung/community/capture/capturelist" method='get'>
+    <input type='hidden' name='pageNum' value ='${pageMaker.cri.pageNum}'>
+    <input type='hidden' name='amount' value='${pageMaker.cri.amount}'>
+</form>
+    </div>
+        
+</div>        
              
       <%@ include file="../../common/footer.jsp" %>   
              
-      
+      </main> 
         <script
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3-alpha3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
     crossorigin="anonymous">
+        </script>
         
-    </script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script type="text/javascript">
+        $(document).ready(function() {
 
+        	var actionForm = $("#actionForm");
+
+
+        	$(".page-link").on("click", function(e){
+
+        	e.preventDefault();
+
+
+        	var targetPage = $(this).attr("href");
+
+        	console.log(targetPage);
+
+
+        	actionForm.find("input[name='pageNum']").val(targetPage);
+
+        	actionForm.submit();
+
+
+        	});
+        	$(document).ready(function(){
+
+        	    $(".page-link").focus();
+        	});
+
+        	});
+
+        </script>
+        
+        
+    
     <c:url value="/static/js/capture.js" var="capture" />
     <script type="text/javascript" src="${capture }"></script>
 

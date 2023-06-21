@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" trimDirectiveWhitespaces="true"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ include file="../../views/common/header.jsp" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 
 
 <!DOCTYPE html>
@@ -18,9 +19,19 @@
    </head>
    
    <body>
+   <%@ include file="../../views/common/header.jsp" %>
     <main> 
 <!-- carousel 시작 -->
      <style>
+
+    .btn-container {
+    text-align: right;
+   
+  } 
+    .nametext {
+     text-align: left;
+    }
+
 
      .Menu_name {
           display: inline-block;
@@ -89,89 +100,81 @@
 
 
   <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-indicators">
-      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2" class=""></button>
-      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3" class="active" aria-current="true"></button>
-    </div>
+    
+    
     <div class="carousel-inner">
-      <div class="carousel-item">
-        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"></rect></svg>
-
-        <div class="container">
-          <div class="carousel-caption text-start">
-            <h1>이미지 넣어라1</h1>
-            <p>어쩌구저쩌구 사진만 넣자</p>
-          </div>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"></rect></svg>
-
-        <div class="container">
-          <div class="carousel-caption">
-            <h1>이미지 넣어라2</h1>
-            <p>어쩌구저쩌구 사진만 넣자</p>
-          </div>
-        </div>
-      </div>
       <div class="carousel-item active">
-        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"></rect></svg>
+        <svg class="bd-placeholder-img" width="100%" height="100%" ><rect width="100%" height="100%" fill="#777"></rect></svg>
 
         <div class="container">
           <div class="carousel-caption text-end">
-            <h1>이미지 넣어라3</h1>
-            <p>어쩌구저쩌구 사진만 넣자</p>
-            
+            <img src="../static/img/9.jpg" >
           </div>
         </div>
       </div>
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
+  
   </div>
 
  
     <!-- 가게 title -->
+    
     <div class="row align-items-md-stretch">
      <div class="col-md-5 offset-md-1 h-100 p-5 text-bg-white rounded-3">
+     
+     
       <div id="title" class="mb-4" style="font-family: 'EF_jejudoldam';">
-       <h2>${detail.name}
-
+       <h1>${detail.name}
         <!-- 예약하기, 리뷰, 즐겨찾기 버튼 -->
-        <button class="btn" id="btnReserve" type="button" onclick="location.href='/mugmung/reserve/booking'"
-        	style="border-left-width: 80px;">
-         <img id="reserveBtn"
-          src="../static/assets/icons/reserve.png"
-          alt="reserve-Btn" width="50" /> <br>
-          <span class="review_button_text" >예약하기</span>
+        <div class="btn-container " style="font-family: 'SUITE-Regular';">
+        <button class="btn" id="btnReserve" >
+        <c:url var="reservePage" value="/reserve/booking">
+            <c:param name="id" value="${ detail.id }"></c:param>
+         </c:url>
+         <a href="${reservePage}"><img id="reserveBtn" src="../static/assets/icons/reserve.png"
+          alt="reserve-Btn" width="50" onclick="location.href='${reservePage}'" /></a> <br>
+          <span class="reserve_button_text" onclick="location.href='${reservePage}'">예약하기</span>
         </button>
+       
 
 
-        <button class="btn" id="btnReview" type="button" onclick="location.href='/mugmung/review/review'" >
-         <img id="reviewBtn" src="../static/assets/icons/reviewBtn.png"
-          alt="review-Btn" width="50"/> <br> <span
-          class="review_button_text">리뷰쓰기</span>
+        <button class="btn" id="btnReview">
+         <c:url var="reviewPage" value="/review/review">
+            <c:param name="id" value="${ detail.id }"></c:param>
+         </c:url>
+         <a href="${reviewPage}"><img id="reviewBtn" src="../static/assets/icons/reviewBtn.png"
+          alt="review-Btn" width="50"/></a> <br> 
+          <span class="review_button_text" onclick="location.href='${reviewPage}'">리뷰쓰기</span>
         </button>
 
         <button class="btn" id="bookmarkBtn" >
-        <input type="text" id="restaurant_id" name="restaurant_id" value="${param.id}" />
-         <img id="btnToggleBookmark"
+        <input  type="hidden" id="restaurant_id" name="restaurant_id" value="${param.id}" />
+        <input  type="hidden" id="username" name="username" value="${username}" />
+        
+        <c:choose>
+		<c:when test="${existFlag == 0}">
+		<!-- 처리할 내용 -->
+		<img id="btnToggleBookmark"
+		          src="../static/assets/icons/bookmarkOff.png"
+		          alt="bookmark-off" width="50" />
+		</c:when>
+		<c:when test="${existFlag == 1}">
+		<!-- 처리할 내용 -->
+		<img id="btnToggleBookmark"
+		          src="../static/assets/icons/bookmarkOn.png"
+		          alt="bookmark-on" width="50" />
+		</c:when>
+		</c:choose>
+         <!-- <img id="btnToggleBookmark"
           src="../static/assets/icons/bookmarkOff.png"
-          alt="bookmark-off" width="50" /> <br> 
+          alt="bookmark-off" width="50" />  -->
+          <br> 
           <span class="review_button_text" >북마크</span>
         </button>
-        </h2>       
-
+        </div>
+        </h1>
        <hr>
-      </div>
-
+      </div>    
 
 
 
@@ -276,10 +279,10 @@
                   </td>
             </tr>
 
-                
-    
+       
       </tbody>
       </table>
+       <hr>
       </div>
     
     
@@ -293,73 +296,65 @@
         name="map_id" readonly /> --%>
       </div>
      </div>
-    
-    
-    
-      <hr>
-      
+ 
    </div>
   
 
 
 
-
+	
     <!-- 작성된 리뷰 불러오기 -->
     <section
      class="my-2 d-flex justify-content-center align-items-center">
-     <div class="card align-self-stretch"
-      style="min-width: 1260px; max-width: 1260px;">
-      <div class="card-header fw-bold">
-       <span style="font-family: 'EF_jejudoldam';">리뷰</span> 
-       <%-- <span id="reviewCount">(${review.reviewCount})</span>  --%>
-      </div>
-      
+   <div class="card align-self-stretch"
+    style="min-width: 1260px; max-width: 1260px;">
+    <div class="card-header fw-bold">
+     <span style="font-family: 'EF_jejudoldam';">리뷰</span>
+     <%-- <span id="reviewCount">(${review.reviewCount})</span>  --%>
+    </div>
+
     <div class="card-body" id="replie">
-      <div class="my-2 row">
-       <label class="form-label" for="replyText"> 나의 리뷰</label>
-       
+     <div class="my-2 row">
+     <!--  <label class="form-label" for="replyText" style="font-family: 'SUITE-Regular';"> 나의 리뷰</label> -->
+
       <!--  <div class="col-10">
         <textarea class="form-control" id="replyText"></textarea>
         <input class="d-none" id="writer" value="admin" />
        </div> -->
-      
+
       <!-- 리뷰 보여줄 영역 -->
-      
-      <div class="my-2 row" id="replies">
-      <c:forEach items="${ review }" var="list">
-        <div class="card">
-                <div>
-                    <span class="d-none">${list.id}</span>
-                    <span class="fw-bold">${list.writer}</span>
-                    <span class="text-secondary">${list.modified_time}</span>
-                    
-                </div>
-                <div>
-                    ${list.reply_text}
-                </div>
-            </div>
-      </c:forEach>
+
+      <div class="my-2 row" id="replies" style="font-family: 'SUITE-Regular';">
+       <c:forEach items="${ review }" var="list">
+        <div class="comment-item mb-3" style="border-bottom: 1px solid #ccc;">
+         <div>
+          <span class="d-none">${list.id}</span> 
+          <span class="fw-bold" style="font-size: 20px;">${list.writer}</span>
+          <span class="text-secondary" style="font-size: 13px;">
+          <fmt:formatDate  value="${list.modified_time}"
+            pattern="yyyy-MM-dd" /></span>
+
+         </div>
+         <br>
+         <div>${list.reply_text}</div>
+         <br>
+
+        </div>
+       </c:forEach>
+
 <%--       <span>${review.REPLY_TEXT}</span> 
       <span>${review.MODIFIED_TIME}</span>  --%>
-      </div>
-     </div>
-     </div>
-     </div>
-    </section>
+    </div>
+   </div>
+</div>
+</div>
+  </section>
     
-    
-    
-    
-
-   
-   
-
-
 
     <%@ include file="../../views/common/footer.jsp"%>
+    
  </main>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="../static/js/bookmark.js"></script>
+    <script src="/mugmung/static/js/bookmark.js"></script>
 </body>
 </html>

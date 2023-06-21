@@ -18,4 +18,11 @@ public class SpecialController {
 	        
 	        return "/special/special";
 	    }
+	 
+	 @GetMapping("/specialPost")
+	 	public String specialPost() {
+		 log.info("special()");
+		 
+		 return "/special/specialPost";
+	 }
 }

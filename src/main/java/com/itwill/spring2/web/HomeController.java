@@ -10,6 +10,7 @@ import com.itwill.spring2.domain.Criteria;
 import com.itwill.spring2.dto.IndexListDto;
 import com.itwill.spring2.dto.PageDto;
 import com.itwill.spring2.service.IndexService;
+import com.itwill.spring2.service.MainBestService;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -20,6 +21,8 @@ import lombok.extern.slf4j.Slf4j;
 public class HomeController {
     
     private final IndexService indexService;
+    
+    private final MainBestService mainBestService;
     
     @GetMapping("/")
     public String map() {
@@ -33,6 +36,7 @@ public class HomeController {
         log.info("home()");
         log.info("id({})", id);
           
+        
         List<IndexListDto> list = indexService.read(id);
         
         log.info("listaslkdfjalsdkf = {}",list);
@@ -41,6 +45,7 @@ public class HomeController {
         
         log.info("cri={}", cri);
         
+        model.addAttribute("mainBest", mainBestService.read(id));
         model.addAttribute("indexLists", list=indexService.read(cri));
         model.addAttribute("pageMaker", new PageDto(cri, 10));
         

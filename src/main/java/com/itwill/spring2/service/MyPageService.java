@@ -62,8 +62,8 @@ public class MyPageService {
 	}
 
 	public List<MakgoraDto> readMakgoraByUsername(String username) {
-		// TODO Auto-generated method stub
-		return null;
+
+		return myPageRepository.readMakgoraByUsername(username);
 	}
 
 	
