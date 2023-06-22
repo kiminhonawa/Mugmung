@@ -58,7 +58,7 @@
       <p>${username } </p>님 안녕하세요.
     </div>
     
-    <button id="settingInfoBtn" name="settingInfoBtn" class="settingInfoBtn">설정</button>
+    <!-- <button id="settingInfoBtn" name="settingInfoBtn" class="settingInfoBtn">설정</button> -->
     <br/>
     <div>
       <label for="bookmarkCnt">북마크 수 : ${cntDto.bookmarkCnt }</label>
@@ -148,15 +148,11 @@
 			                </td>
 			            </tr>
                     	</c:forEach>
-                    
                     </tbody>
                 </table>
             </div>
-    </div>
-      
-      
-      
-</div>
+    	</div>
+	</div>
 		</div>
 		<%@ include file="../../views/common/footer.jsp" %>
 	</main>
