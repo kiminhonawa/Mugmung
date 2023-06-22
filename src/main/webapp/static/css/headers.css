@@ -17,7 +17,7 @@
 .search-container {
   display: flex;
   align-items: center;
-  width: 500px; /* 원하는 너비로 조정하세요 */
+   /* 원하는 너비로 조정하세요 */
 }
 
 .search-input-wrapper {
