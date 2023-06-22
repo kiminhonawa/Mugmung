@@ -180,9 +180,9 @@
 	        	<c:url var="announcelistPage" value="/community/announce/announcelist" />
 	        		<li><a class="dropdown-item" href="${ announcelistPage}">공지사항</a></li>
 	        		
-        		<c:url var="reviewlistPage" value="/community/review/reviewlist" />
+        		<%-- <c:url var="reviewlistPage" value="/community/review/reviewlist" />
 	        		<li><a class="dropdown-item" href="${ reviewlistPage}">리뷰게시판</a></li>
-	        		
+	        		 --%>
         		<c:url var="capturelistPage" value="/community/capture/capturelist" />
 	        		<li><a class="dropdown-item" href="${ capturelistPage}">사진게시판</a></li>
 	        		
