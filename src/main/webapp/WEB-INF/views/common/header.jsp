@@ -165,7 +165,7 @@
         <li class="nav-item"><a href="${couponPage }" class="nav-link">쿠폰</a></li>
         
         <c:url var="specialPage" value="/special/special" />
-        <li class="nav-item"><a href="${specialPage }" class="nav-link">특전</a></li>
+        <li class="nav-item"><a href="${specialPage }" class="nav-link">맛집메이트</a></li>
         
         <c:url var="innPage" value="/home/inn" />
         <li class="nav-item"><a href="${innPage }" class="nav-link">숙소</a></li>
