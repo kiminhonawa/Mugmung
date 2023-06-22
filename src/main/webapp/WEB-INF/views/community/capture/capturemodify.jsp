@@ -1,27 +1,38 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" trimDirectiveWhitespaces="true"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
-<%@ include file="../../common/header.jsp" %>
 <!DOCTYPE html>
 <html>
    <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <title>맛집은! 머그멍</title>
-      <link  
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3-alpha3/dist/css/bootstrap.min.css" 
-        rel="stylesheet" 
-        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" 
-        crossorigin="anonymous">
+     
       
    </head>
    <body>
+    <%@ include file="../../common/header.jsp" %>
+     <style> 
+     @font-face {
+    font-family: 'EF_jejudoldam';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-EF@1.0/EF_jejudoldam.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;} 
+    
+    @font-face {
+    font-family: 'SUITE-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/SUITE-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+}
+    
+    </style> 
       <div class="container-fluid">
-        <header class="my-3 p-3 text-center">
+        <header class="my-3 p-3 text-center" style="font-family: 'EF_jejudoldam';">
             <h1>수정하기</h1>
         </header>
         
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary" style="font-family: 'SUITE-Regular';">
             <ul class="navbar-nav bg-light">
                 <li class="nav-item">
                     <c:url var="captureListPage" value="/community/capture/capturelist" />
@@ -36,7 +47,7 @@
             </ul>
         </nav>
          
-         <main class="my-2">
+         <main class="my-2" style="font-family: 'SUITE-Regular';">
             <div class="card">
                 <form class="card-body" id=modifyForm>
                     <div class="my-2">
@@ -49,10 +60,7 @@
                         <textarea class="form-control" name="content" id="content" >${ capture.content }</textarea>
                     </div>
 
-                    <div class="my-2">
-                        <label class="form-label" for="writer">작성자</label>
-                        <input class="form-control" id="writer" value="${ capture.writer }" readonly />
-                    </div>
+                    
                     </form>
                     <div class="card-footer">
                     <div class="d-flex justify-content-end">
@@ -66,11 +74,6 @@
          
          
          <%@ include file="../../common/footer.jsp" %>
-         <script 
-           src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3-alpha3/dist/js/bootstrap.bundle.min.js" 
-           integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" 
-           crossorigin="anonymous">
-           </script>
       </div>
         <c:url value="/static/js/capture.js" var="capture" />
         <script type="text/javascript" src="${capture }"></script>

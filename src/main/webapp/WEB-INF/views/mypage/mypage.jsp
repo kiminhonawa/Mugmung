@@ -38,6 +38,32 @@
     }
     
     
+table {
+  width: 100%; /* 테이블 전체 넓이 */
+  border-collapse: collapse;
+}
+
+table th, table td {
+  padding: 8px; /* 셀 내부 여백 */
+  text-align: center; /* 셀 텍스트 정렬 */
+}
+
+/* 컬럼 넓이 조정 */
+table th:nth-child(1),
+table td:nth-child(1) {
+  width: 30%; /* 첫 번째 컬럼 넓이 */
+}
+
+table th:nth-child(2),
+table td:nth-child(2) {
+  width: 50%; /* 두 번째 컬럼 넓이 */
+}
+
+table th:nth-child(3),
+table td:nth-child(3) {
+  width: 20%; /* 세 번째 컬럼 넓이 */
+}
+
   </style>
       
    </head>
@@ -127,10 +153,10 @@
       <div class="card">
                 <table class="card-body table table-hover" >
                     <thead id="tableHead">
-                        <tr style="border: 1px black " >
-                            <th style="width: 140px;">상호명</th>
+                        <tr>
+                            <th>상호명</th>
                             <th rowspan="2">가게 정보</th>
-                            <th style="width: 116px;">맛집 이동</th>
+                            <th >맛집 이동</th>
                         </tr>
                     </thead>
                     <tbody id="tableLists">
@@ -152,7 +178,7 @@
                 </table>
             </div>
         </div>
-    </div>
+    </div>  
         </div>
         <%@ include file="../../views/common/footer.jsp" %>
     </main>

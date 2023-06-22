@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     axios.post('/mugmung/api/storecreate/imgUpload', formData)
         .then((response) => {
-            alert(`프로필 사진 업로드 성공(${response.data})`);
+            alert(`매장 이미지 등록 성공(${response.data})`);
         })
         .catch((error) => {
             console.log(error);

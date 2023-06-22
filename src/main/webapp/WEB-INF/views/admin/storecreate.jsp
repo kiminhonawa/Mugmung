@@ -21,7 +21,7 @@
     <header>
         <div class="card" style="width: 50%; margin: 0 auto; text-align: center;">
         
-        <h1 class="fw-bold">식당 등록</h1>
+        <h1 class="fw-bold">매장 등록</h1>
         <c:url value="/upload/imgUpload" var="upload"></c:url>
         <form id="signUploadForm" action="${upload}" method="post"
             enctype="multipart/form-data">
@@ -232,7 +232,7 @@
                             autofocus />
                     </div>
                     <div class="my-2">
-                        <label class="form-label" for="name_info">식당
+                        <label class="form-label" for="name_info">가게
                             정보</label> <input class="form-control" type="text"
                             id="name_info" name="name_info" required
                             autofocus />
