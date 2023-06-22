@@ -165,7 +165,7 @@
         <li class="nav-item"><a href="${couponPage }" class="nav-link">쿠폰</a></li>
         
         <c:url var="specialPage" value="/special/special" />
-        <li class="nav-item"><a href="${specialPage }" class="nav-link">특전</a></li>
+        <li class="nav-item"><a href="${specialPage }" class="nav-link">맛집메이트</a></li>
         
         <c:url var="innPage" value="/home/inn" />
         <li class="nav-item"><a href="${innPage }" class="nav-link">숙소</a></li>
@@ -180,9 +180,9 @@
 	        	<c:url var="announcelistPage" value="/community/announce/announcelist" />
 	        		<li><a class="dropdown-item" href="${ announcelistPage}">공지사항</a></li>
 	        		
-        		<c:url var="reviewlistPage" value="/community/review/reviewlist" />
+        		<%-- <c:url var="reviewlistPage" value="/community/review/reviewlist" />
 	        		<li><a class="dropdown-item" href="${ reviewlistPage}">리뷰게시판</a></li>
-	        		
+	        		 --%>
         		<c:url var="capturelistPage" value="/community/capture/capturelist" />
 	        		<li><a class="dropdown-item" href="${ capturelistPage}">사진게시판</a></li>
 	        		
