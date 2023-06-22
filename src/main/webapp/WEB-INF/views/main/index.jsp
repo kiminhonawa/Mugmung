@@ -26,6 +26,23 @@
     font-weight: normal;
     font-style: normal;
 }
+	.container1 {
+	margin-left:400px;
+	height: 500px;
+	width: 800px;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	}
+	  .centered-img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .carousel-video {
+    width: auto;
+    height: auto;
+    margin-top: -150px;
+  }
    </style>
    </head>
    <body>
@@ -36,44 +53,74 @@
 
 		<div>
 <!-- carousel 시작 -->
-
+<div class="container1">
   <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-indicators">
       <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="" aria-label="Slide 1"></button>
       <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2" class=""></button>
-      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3" class="active" aria-current="true"></button>
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3" class=""></button>
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="3" aria-label="Slide 4" class=""></button>
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="4" aria-label="Slide 5" class=""></button>
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="5" aria-label="Slide 6" class="active" aria-current="true"></button>
     </div>
     <div class="carousel-inner">
       <div class="carousel-item">
-        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"></rect></svg>
-
+        <div class="d-flex justify-content-center">
+          <video src="./static/video/js.mp4" controls autoplay muted class="carousel-video" style="width: 500px; height: 800px; margin-top: -170px;"></video>
+        </div>
         <div class="container">
-          <div class="carousel-caption text-start" >
-
-            <img src="./static/img/solo.jpg" sizes="32x35" style="margin-left: 200px"/>
-
+          <div class="carousel-caption text-start">
+            <!-- Caption content for Slide 1 -->
           </div>
         </div>
       </div>
       <div class="carousel-item">
-        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"></rect></svg>
-
+        <div class="d-flex justify-content-center">
+          <img src="./static/img/solo.jpg" alt="Slide 2" class="centered-img" />
+        </div>
         <div class="container">
           <div class="carousel-caption">
-            <img src="./static/img/solo.jpg" sizes="32x35"/>
-           
+            <!-- Caption content for Slide 2 -->
           </div>
         </div>
       </div>
-      <div class="carousel-item active">
-        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"></rect></svg>
-
+      <div class="carousel-item ">
+        <div class="d-flex justify-content-center">
+          <a href="http://localhost:8081/mugmung/coupon/coupon" style="text-decoration: none; color: black;">
+            <img src="./static/img/couponimg.jpg" alt="Slide 3" class="centered-img" style="width: 500px; height: 500px;" />
+          </a>
+        </div>
         <div class="container">
-        
+          <div class="carousel-caption">
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item ">
+        <div class="d-flex justify-content-center">
+            <img src="./static/img/ay.jpg" alt="Slide 4" class="centered-img" style="width: 800px; height: 500px;" />
+        </div>
+        <div class="container">
+          <div class="carousel-caption">
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="d-flex justify-content-center">
+          <img src="./static/img/je.jpg" alt="Slide 5" class="centered-img" />
+        </div>
+        <div class="container">
+          <div class="carousel-caption">
+            <!-- Caption content for Slide 2 -->
+          </div>
+        </div>
+      </div>
+      <!-- Add a new carousel item with a single image -->
+      <div class="carousel-item active">
+        <div class="d-flex justify-content-center">
+          <img src="./static/img/ck.jpg" alt="Slide 6" class="centered-img" style="width: 800px; height: 500px;" />
+        </div>
+        <div class="container">
           <div class="carousel-caption text-end">
-            <h1>One more for good measure.</h1>
-            <p>Some representative placeholder content for the third slide of this carousel.</p>
-            <p><a class="btn btn-lg btn-primary" href="#">Browse gallery</a></p>
           </div>
         </div>
       </div>
@@ -87,6 +134,11 @@
       <span class="visually-hidden">Next</span>
     </button>
   </div>
+</div>
+
+
+
+
 
 
   <!-- Marketing messaging and featurettes
@@ -135,9 +187,9 @@
     
       <div class="col-md-7">
       <c:url value="/detail/detail?id=${list.id}" var="detailPage"></c:url>
-      <a href="${detailPage}">
+      <a href="${detailPage}" style="text-decoration: none; color: black;">
         <h2 class="featurette-heading fw-normal lh-1" style="font-family: 'EF_jejudoldam'; text-align:right; margin-right: 100px">${list.name}
-       
+       &nbsp
   <img src="./static/img/starrate.png" class="bg-warning" width="40px;" height="40px;">
   <span class="text-muted" style="font-size: 30px; margin-left: -20px;">${list.star_score}점</span>
 </h2>
@@ -166,9 +218,10 @@
       </div>
       <div class="col-md-7 order-md-2">
       <c:url value="/detail/detail?id=${list.id}" var="detailPage"></c:url>
-      <a href="${detailPage}">
+      <a href="${detailPage}" style="text-decoration: none; color: black;">
         <h2 class="featurette-heading fw-normal lh-1" style="font-family: 'EF_jejudoldam'; text-align: left; margin-left: 100px;">
   ${list.name} 
+  &nbsp
   <img src="./static/img/starrate.png" class="bg-warning" width="40px;" height="40px;">
   <span class="text-muted" style="font-size: 30px; margin-left: -20px;">${list.star_score}점</span>
 </h2>
