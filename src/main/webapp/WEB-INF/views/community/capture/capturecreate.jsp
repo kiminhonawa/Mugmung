@@ -56,6 +56,7 @@
                         <label class="form-label" for="capture_image_id">사진</label>
                         <input class="form-control" id="capture_image_id" 
                             value="${capture.capture_image_id }" readonly/>
+                        <input type="file" name="file" />
                         </div>  
                         <div class="my-2">
                             <label class="form-label" for="writer">작성자</label>
