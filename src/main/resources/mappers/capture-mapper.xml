@@ -39,7 +39,7 @@
         , i.images_type
         
         from capture c, images i 
-        where c.capture_image_id = i.images_loc and ID = #{id}
+        where c.capture_image_id = i.restaurant_id and i.restaurant_id = #{id}
     </select>
     
     <!-- 업데이트 -->
@@ -73,9 +73,8 @@
             c.created_time,
             i.images_loc,
                 i.images_type
-        FROM capture c, IMAGES i
-        WHERE  
-        c.capture_image_id = i.restaurant_id and
+        FROM capture c
+LEFT JOIN IMAGES i ON c.capture_image_id = i.restaurant_id and
         c.id > 0
         AND rownum <= (#{pageNum} * #{amount})
     )
