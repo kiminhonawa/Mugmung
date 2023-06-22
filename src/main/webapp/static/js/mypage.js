@@ -65,7 +65,7 @@ const makeMakgoraElements = (data) => {
             // 댓글 1개를 표시할 HTML 코드:
             htmlStr += `
                  <tr>
-                <td>${reply.title}</td>
+                <td >${reply.title}</td>
                 <td>
                     ${reply.content} 
                 </td>
@@ -228,10 +228,10 @@ const makeStarscoreElements = (data) => {
         
         headStr =`
         	<tr style="border: 1px black " >
-                <th>상호명</th>
-                    <th rowspan="2">가게 정보</th>
-                    <th >맛집 이동</th>
-                </tr>
+            	<th>상호명</th>
+                <th rowspan="2">가게 정보</th>
+                <th >맛집 이동</th>
+            </tr>
         `;
         
         // for (let i = 0; i < data.length; i++) {}
@@ -245,7 +245,7 @@ const makeStarscoreElements = (data) => {
             // 댓글 1개를 표시할 HTML 코드:
             htmlStr += `
                  <tr>
-                <td>${reply.name}</td>
+                <td maxlength="200" >${reply.name}</td>
                 <td>
                     ${reply.name_info}
                 </td>
