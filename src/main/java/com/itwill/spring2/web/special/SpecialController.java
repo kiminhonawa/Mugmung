@@ -12,6 +12,9 @@ import com.itwill.spring2.dto.SpecialPostDto;
 import com.itwill.spring2.service.SpecialPostService;
 import com.itwill.spring2.web.blog.BlogController;
 
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
@@ -19,7 +22,7 @@ import lombok.extern.slf4j.Slf4j;
 @RequiredArgsConstructor
 @RequestMapping("/special")
 @Controller
-public class SpecialController {
+public class SpecialController extends HttpServlet {
 	
 	private final SpecialPostService specialPostService;
 	
@@ -31,9 +34,15 @@ public class SpecialController {
 	    }
 	 
 	 @GetMapping("/specialPost")
-	 	public String specialPost() {
+	 	public String specialPost(HttpServletRequest request, Model model) {
 		 log.info("special()");
-		
+		 HttpSession session = ((HttpServletRequest) request).getSession();
+			
+			String username = (String) session.getAttribute("signedInUser");
+			log.info("username = {}",username);
+		 
+			model.addAttribute("username",username);
+		 
 		 return "/special/specialPost";
 	 }
 	 
@@ -42,6 +51,6 @@ public class SpecialController {
 		 
 		 int result = specialPostService.create(dto);
 		 
-		 return "/special/specialPost";
+		 return "redirect:/special/special";
 	 }
 }

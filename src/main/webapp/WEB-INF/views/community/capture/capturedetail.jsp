@@ -62,7 +62,7 @@
                     <div class="my-2">
                         <label class="form-label" for="viewsCount">조회수</label>
                         <input class="form-control" id="viewsCount" 
-                            value="${capture.viewsCount}" readonly/>
+                            value="3" readonly/>
                     </div>
                     <div class="my-2">
                         <label class="form-label" for="created_Time">작성 시간</label>
