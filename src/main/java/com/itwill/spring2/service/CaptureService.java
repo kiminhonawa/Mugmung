@@ -37,6 +37,7 @@ public class CaptureService {
         
         //DB capture 테이블에서 검색
         Capture entity = captureRepository.selectById(id);
+        log.info("entity : ",entity);
         
         //검색한 내용을 DTO로 변환
         CaptureDetailDto dto = CaptureDetailDto.fromEntity(entity);
