@@ -23,6 +23,8 @@ public class CaptureDetailDto {
     private long replyCount;
     private long viewsCount;
     
+    private String images_loc;
+    
     //capture 타입의 객체를 captureListDto 타입의 객체로 변화해서 리턴하는 메서드(fromEntity() 메서드는 엔티티 객체를 DTO 객체로 변환)
     public static CaptureDetailDto fromEntity (Capture entity) {
         return CaptureDetailDto.builder()

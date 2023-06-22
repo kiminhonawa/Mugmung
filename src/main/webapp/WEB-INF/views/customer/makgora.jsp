@@ -11,9 +11,8 @@
 
 
 </head>
-<body>
-<%@ include file="../../views/common/header.jsp"%>
-	<style>
+
+<style>
 @font-face {
 	font-family: 'SUITE-Regular';
 	src:
@@ -34,7 +33,8 @@
 }
 </style>
 
-
+<body>
+<%@ include file="../../views/common/header.jsp"%>
 	<main>
 		<br />
 		<br />
@@ -87,7 +87,7 @@
 					<div class="col-sm-2"></div>
 					<div class="col-sm-6">
 						<input class="btn btn-warning" type="submit" value="등록하기" /> 
-						<c:url var="mainPage" value="/main" />
+						<c:url var="mainPage" value="/" />
                     	<a class="btn btn-light" href="${ mainPage }">취소하기</a>
 					</div>
 				</div>
@@ -100,6 +100,7 @@
 		<br />
 		<br />
 
+	
 		
 
 	</main>
