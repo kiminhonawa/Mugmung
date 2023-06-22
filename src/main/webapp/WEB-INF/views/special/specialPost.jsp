@@ -37,21 +37,21 @@
                     <form method="post">
                         <div class="card-body" >
                             <div>
-                                <label class="form-label my-2" for="location">지역</label>
-                                <input class="form-control" type="text" id="location" name="location" required autofocus />
+                                <label class="form-label my-2" for="location" >지역</label>
+                                <input class="form-control" type="text" id="location" name="location" required autofocus placeholder="ex) 한립읍, 표선면"/>
                             </div>
                             <div>
-                                <label class="form-label my-2" for="content">내용</label>
-                                <textarea class="form-control" id="content" name="content" required></textarea>
+                                <label class="form-label my-2" for="content" >내용</label>
+                                <textarea class="form-control" id="content" name="content" required placeholder="ex) 표선어촌식당에서 2023년 6월 22일 13시에 같이 먹을 사람 구해요~"></textarea>
                             </div>
                             <div>
                                 <label class="form-label my-2" for="users">작성자(아이디)</label>
-                                <input class="form-control" type="text" id="users" name="users" required />
+                                <input class="form-control" type="text" id="users" name="users" required value="${username }"/>
                            </div>
                         </div>    
                             <div class="card-footer my-2">
                                 <input class="form-control btn btn-outline-primary"
-                                type="submit" value="작성 완료" />
+                                type="submit" id="btnAddReply" value="작성 완료" />
                             </div>
                     </form>
                 </div>
@@ -59,6 +59,7 @@
          
          
       </div>
+      <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
       <%@ include file="../../views/common/footer.jsp"%>
    </body>
 </html>

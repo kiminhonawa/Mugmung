@@ -51,7 +51,7 @@
     <div class="accordion" id="accordionPanelsStayOpenExample">
   <div class="accordion-item">
     <h2 class="accordion-header" id="panelsStayOpen-headingOne">
-      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="false" aria-controls="panelsStayOpen-collapseOne">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="false" aria-controls="panelsStayOpen-collapseOne" id="aco1" name="aco1" value="한경면">
         한경면
       </button>
     </h2>
@@ -59,10 +59,9 @@
       <div class="accordion-body">
          <div class="d-flex text-muted pt-3">
       <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="true"><title>Placeholder</title><rect width="100%" height="100%" fill="#007bff"></rect><text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text></svg>
-      <p class="pb-3 mb-0 small lh-sm border-bottom">
-        <strong class="d-block text-gray-dark">@username</strong>
-        Some representative placeholder content, with some information about this user. Imagine this being some sort of status update, perhaps?
-      </p>
+      <p class="pb-3 mb-0 small lh-sm border-bottom" id="cityMsg">
+        <strong class="d-block text-gray-dark"></strong>
+        
     </div>
     
     
@@ -82,8 +81,8 @@
          <div class="d-flex text-muted pt-3">
       <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="true"><title>Placeholder</title><rect width="100%" height="100%" fill="#007bff"></rect><text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text></svg>
       <p class="pb-3 mb-0 small lh-sm border-bottom">
-        <strong class="d-block text-gray-dark">@username</strong>
-        Some representative placeholder content, with some information about this user. Imagine this being some sort of status update, perhaps?
+        <strong class="d-block text-gray-dark"></strong>
+        
       </p>
     </div>
       </div>
@@ -102,8 +101,8 @@
       <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="true"><title>Placeholder</title><rect width="100%" height="100%" fill="#007bff"></rect><text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text></svg>
 
       <p class="pb-3 mb-0 small lh-sm border-bottom">
-        <strong class="d-block text-gray-dark">@username</strong>
-        Some representative placeholder content, with some information about this user. Imagine this being some sort of status update, perhaps?
+        <strong class="d-block text-gray-dark"></strong>
+        
       </p>
     </div>
       </div>
@@ -123,8 +122,8 @@
       <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="true"><title>Placeholder</title><rect width="100%" height="100%" fill="#007bff"></rect><text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text></svg>
 
       <p class="pb-3 mb-0 small lh-sm border-bottom">
-        <strong class="d-block text-gray-dark">@username</strong>
-        Some representative placeholder content, with some information about this user. Imagine this being some sort of status update, perhaps?
+        <strong class="d-block text-gray-dark"></strong>
+        
       </p>
     </div>
       </div>
@@ -144,8 +143,8 @@
       <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="true"><title>Placeholder</title><rect width="100%" height="100%" fill="#007bff"></rect><text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text></svg>
 
       <p class="pb-3 mb-0 small lh-sm border-bottom">
-        <strong class="d-block text-gray-dark">@username</strong>
-        Some representative placeholder content, with some information about this user. Imagine this being some sort of status update, perhaps?
+        <strong class="d-block text-gray-dark"></strong>
+        
       </p>
     </div>
       </div>
@@ -165,8 +164,8 @@
       <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="true"><title>Placeholder</title><rect width="100%" height="100%" fill="#007bff"></rect><text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text></svg>
 
       <p class="pb-3 mb-0 small lh-sm border-bottom">
-        <strong class="d-block text-gray-dark">@username</strong>
-        Some representative placeholder content, with some information about this user. Imagine this being some sort of status update, perhaps?
+        <strong class="d-block text-gray-dark"></strong>
+        
       </p>
     </div>
       </div>
@@ -185,9 +184,9 @@
          <div class="d-flex text-muted pt-3">
       <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="true"><title>Placeholder</title><rect width="100%" height="100%" fill="#007bff"></rect><text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text></svg>
 
-      <p class="pb-3 mb-0 small lh-sm border-bottom">
-        <strong class="d-block text-gray-dark">@username</strong>
-        Some representative placeholder content, with some information about this user. Imagine this being some sort of status update, perhaps?
+      <p class="pb-3 mb-0 small lh-sm border-bottom" id="cityMsgDea">
+        <strong class="d-block text-gray-dark"></strong>
+        
       </p>
     </div>
       </div>
@@ -207,14 +206,14 @@
       <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="true"><title>Placeholder</title><rect width="100%" height="100%" fill="#007bff"></rect><text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text></svg>
 
       <p class="pb-3 mb-0 small lh-sm border-bottom">
-        <strong class="d-block text-gray-dark">@username</strong>
-        Some representative placeholder content, with some information about this user. Imagine this being some sort of status update, perhaps?
+        <strong class="d-block text-gray-dark"></strong>
+        
       </p>
     </div>
       </div>
     </div>
   </div>
- 
+
   
   <div class="accordion-item">
     <h2 class="accordion-header" id="panelsStayOpen-headingNine">
@@ -228,8 +227,8 @@
       <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="true"><title>Placeholder</title><rect width="100%" height="100%" fill="#007bff"></rect><text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text></svg>
 
       <p class="pb-3 mb-0 small lh-sm border-bottom">
-        <strong class="d-block text-gray-dark">@username</strong>
-        Some representative placeholder content, with some information about this user. Imagine this being some sort of status update, perhaps?
+        <strong class="d-block text-gray-dark"></strong>
+        
       </p>
     </div>
       </div>
@@ -249,8 +248,8 @@
       <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="true"><title>Placeholder</title><rect width="100%" height="100%" fill="#007bff"></rect><text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text></svg>
 
       <p class="pb-3 mb-0 small lh-sm border-bottom">
-        <strong class="d-block text-gray-dark">@username</strong>
-        Some representative placeholder content, with some information about this user. Imagine this being some sort of status update, perhaps?
+        <strong class="d-block text-gray-dark"></strong>
+        
       </p>
     </div>
       </div>
@@ -270,8 +269,8 @@
       <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="true"><title>Placeholder</title><rect width="100%" height="100%" fill="#007bff"></rect><text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text></svg>
 
       <p class="pb-3 mb-0 small lh-sm border-bottom">
-        <strong class="d-block text-gray-dark">@username</strong>
-        Some representative placeholder content, with some information about this user. Imagine this being some sort of status update, perhaps?
+        <strong class="d-block text-gray-dark"></strong>
+        
       </p>
     </div>
       </div>
@@ -291,8 +290,8 @@
       <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="true"><title>Placeholder</title><rect width="100%" height="100%" fill="#007bff"></rect><text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text></svg>
 
       <p class="pb-3 mb-0 small lh-sm border-bottom">
-        <strong class="d-block text-gray-dark">@username</strong>
-        Some representative placeholder content, with some information about this user. Imagine this being some sort of status update, perhaps?
+        <strong class="d-block text-gray-dark"></strong>
+       
       </p>
     </div>
       </div>
@@ -308,6 +307,8 @@
     <%@ include file="../../views/common/footer.jsp"%>
     
     <!-- Bootstrap JS  -->
-    
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <c:url value="/static/js/special.js" var="special"></c:url>
+    <script type="text/javascript" src="${special }"></script>
    </body>
 </html>

@@ -113,51 +113,37 @@
 
 <c:set var="counter" value="0" />
 <c:forEach items="${bestLists}" var="list">
+<c:if test="${counter < 10}">
   <c:if test="${counter % 2 == 0}">
+  
     <div class="row mb-2">
-      <div class="col-md-6">
-        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-         
-          <div class="col p-4 d-flex flex-column position-static">
-            <h3 class="mb-0" style="font-family: 'EF_jejudoldam';">${list.name}</h3>
-            <br>
-            <p class="card-text mb-auto">${list.address1} ${list.address2}</p>
-            <h2 class="featurette-heading fw-normal lh-1" style="text-align: left; margin-left: 100px;">
+  </c:if>
+  <div class="col-md-6">
+    <c:url value="/detail/detail?id=${list.id}" var="detailPage"></c:url>
+    <a href="${detailPage}" style="text-decoration: none; color: black;">
+      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+          <h3 class="mb-0" style="font-family: 'EF_jejudoldam';">${list.name}</h3>
+          <br>
+          <p class="card-text mb-auto">${list.address1} ${list.address2}</p>
+          <h2 class="featurette-heading fw-normal lh-1" style="text-align: left; margin-left: 100px;">
             <img src="../static/img/starrate.png" class="bg-warning" width="40px;" height="40px;" style="margin-bottom: 10px">
-  <span class="text-muted" style="font-size: 30px; font-family: 'SUITE-Regular';">${list.star_score}점</span>
-  			</h2>
-          </div>
-          <div class="col-auto d-none d-lg-block">
-            <img src=".${list.images_loc}" class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em"></text></svg>
-          </div>
-          
+            <span class="text-muted" style="font-size: 30px; font-family: 'SUITE-Regular';">${list.star_score}점</span>
+          </h2>
+        </div>
+        <div class="col-auto d-none d-lg-block">
+          <img src=".${list.images_loc}" class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em"></text></svg>
         </div>
       </div>
+    </a>
+  </div>
   </c:if>
   <c:if test="${counter % 2 != 0}">
-  
-      <div class="col-md-6">
-        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-          <div class="col p-4 d-flex flex-column position-static">
-           
-            <h3 class="mb-0" style="font-family: 'EF_jejudoldam';">${list.name}</h3>
-            <br>
-            <p class="mb-auto">${list.address1} ${list.address2}</p>
-            <h2 class="featurette-heading fw-normal lh-1" style="text-align: left; margin-left: 100px;">
-            <img src="../static/img/starrate.png" class="bg-warning" width="40px;" height="40px;" style="margin-bottom: 10px; margin-left:10px;">
-  <span class="text-muted" style="font-size: 30px; font-family: 'SUITE-Regular';">${list.star_score}점</span>
-  			</h2>
-          </div>
-          <div class="col-auto d-none d-lg-block">
-            <img src=".${list.images_loc}" class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em"></text></svg>
-          </div>
-          
-        </div>
-      </div>
     </div>
   </c:if>
   <c:set var="counter" value="${counter + 1}" />
 </c:forEach>
+
 
 		
   
