@@ -126,7 +126,7 @@
             </ul>
             <button type="button" class="w-100 btn btn-lg btn-outline-primary">
             	<a href="https://blog.naver.com/somoktable">
-            	예약하기
+            	바로가기
             	</a>
             </button>
           </div>
@@ -147,7 +147,7 @@
             </ul>
             <button type="button" class="w-100 btn btn-lg btn-outline-primary">
             	<a href="https://gulhanga.com/">
-            	예약하기
+            	바로가기
             	</a>
           </div>
         </div>
@@ -167,7 +167,7 @@
             </ul>
             <button type="button" class="w-100 btn btn-lg btn-outline-primary">
             	<a href="https://stable.modoo.at/">
-            	예약하기
+            	바로가기
             	</a>
             	</button>
           </div>
@@ -200,7 +200,7 @@
             </svg></td>
             <td><svg class="bi" width="24" height="24">
             	<p>
-         		 <a href="${inn.web_url}" class="btn btn-primary my-2">예약하기</a>
+         		 <a href="${inn.web_url}" class="btn btn-primary my-2">바로가기</a>
        		    </p>
             </svg></td>
           </tr>

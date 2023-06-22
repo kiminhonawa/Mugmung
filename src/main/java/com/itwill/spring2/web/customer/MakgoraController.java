@@ -45,7 +45,6 @@ public class MakgoraController extends HttpServlet {
 		
 		int result = makgoraService.create(dto);
 		log.info("1:1문의 결과={}", result);
-		return "redirect:/customer/makgora";
-
+		return "redirect:/";
 	}
 }
