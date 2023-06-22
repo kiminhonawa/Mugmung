@@ -137,7 +137,7 @@
                                                                                                 .open();
                                                                                     }
                                                                                 </script>
-                    <input type="text" id="images_loc" name="images_loc">
+                    <input type="hidden" id="images_loc" name="images_loc">
 
                     <div class="my-2">
                         <label class="form-label" for="name">식당

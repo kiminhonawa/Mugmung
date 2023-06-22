@@ -74,7 +74,7 @@
 						  </label>
 						</div>
 						
-						<input type="text" id="user_image" name="user_image">
+						<input type="hidden" id="user_image" name="user_image">
 						
 				        </div>
                         <div class="my-2">
