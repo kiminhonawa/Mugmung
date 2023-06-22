@@ -2,18 +2,13 @@
     pageEncoding="UTF-8" trimDirectiveWhitespaces="true" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ include file="../../common/header.jsp" %>
+
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>맛집은! 머그멍</title>
-        <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3-alpha3/dist/css/bootstrap.min.css"
-        rel="stylesheet"
-        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
-        crossorigin="anonymous" />
 
 <link href="/docs/5.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 
@@ -83,6 +78,8 @@
     </head>
     <body>
         
+        <%@ include file="../../common/header.jsp" %>
+        
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <ul class="navbar-nav bg-light">
                 <li class="nav-item">
@@ -125,8 +122,12 @@
             <c:forEach items="${captures}" var="capture">
                 <div class="col">
                     <div class="card shadow-sm">
-                        <c:url value="/static/img/gogi.jpg" var="gogi"></c:url>
-                        <img class="bd-placeholder-img card-img-top" src="${gogi}" alt="고기 이미지" width="100%" height="225" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice"></img>
+                        <%-- <c:url value="/static/img/gogi.jpg" var="gogi"></c:url> --%>
+                        <img class="bd-placeholder-img card-img-top"
+                          src=".${capture.images_loc}"
+                          alt="고기 이미지" width="100%" height="225" 
+                          aria-label="Placeholder: Thumbnail" 
+                          preserveAspectRatio="xMidYMid slice" />
                         <div class="card-body">
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
@@ -188,11 +189,6 @@
       <%@ include file="../../common/footer.jsp" %>   
              
       </main> 
-        <script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3-alpha3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
-    crossorigin="anonymous">
-        </script>
         
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script type="text/javascript">

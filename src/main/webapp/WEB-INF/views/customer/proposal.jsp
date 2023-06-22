@@ -33,21 +33,22 @@
      <div class="proposal_write_tbl">
       <h4 class="proposal_write_tit mb-4">제안하기</h4>
       <hr>
-      <form method="post" >
+      <c:url value="/customer/proposal" var="proposal"></c:url>
+      <form class="my-form" method="post" action="${ proposal }" >
        <table class="table_info">
         <colgroup>
          <col width="163" />
          <col width="*" />
         </colgroup>
         <tbody>
-         <tr>
+        <%--  <tr>
           <th><label for="userId" class="form-label">아이디</label></th>
           <td><div class="input_area">
-            <input type="text" id="userId"
+            <input type="text" id="username" name="username"
              class="form-control mb-3" readonly=""
              value="${username}" />
            </div></td>
-         </tr>
+         </tr> --%>
          
 
          <tr>
@@ -67,7 +68,7 @@
 
 
          <tr>
-          <th><label for="title" class="lb_tit">제목</label></th>
+          <th><label for="title" class="lb_tit">제목 ${username}</label></th>
           <td><div class="input_area ipt_tit_area">
             <input type="text" id="title"
              class="inpt_default form-control mb-3" name="title"

@@ -8,6 +8,8 @@
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <title>맛집은! 머그멍</title>
+
+      <link href="/mugmung/static/css/headers.css" rel="stylesheet" />
       <c:url value="/static/css/dropdowns.css" var="dropdown" /> 
       <link href="${dropdown }" rel="stylesheet" />
       <link 
@@ -151,22 +153,7 @@
 <!-- 홈 end-->
 
 
-<!-- 머그멍 추천 -->       
-       <li class="nav-item dropdown">
-       	<a href="#" class=" d-block link-dark text-decoration-none dropdown-toggle nav-link" data-bs-toggle="dropdown" aria-expanded="false">머그멍 추천</a>
-        	<ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownMenuLink2">
-        	<c:url var="wordcupPage" value="/recommend/wordcup" />
-        		<li><a class="dropdown-item" href="${wordcupPage }">맛상형 월드컵</a></li>
-        		
-       		<c:url var="goldenbellPage" value="/recommend/goldenbell" />
-        		<li><a class="dropdown-item" href="${goldenbellPage }">맛집 골든벨</a></li>
-        		
-       		<c:url var="analysisPage" value="/recommend/analysis" />
-        		<li><a class="dropdown-item" href="${analysisPage }">취향 OX</a></li>
-        		
-      		</ul>
-       </li>
-<!-- 머그멍 추천 끝-->
+
 
         <c:url var="bestPage" value="/best/best" />
         <li class="nav-item"><a href="${bestPage }" class="nav-link">베스트</a></li>

@@ -72,7 +72,7 @@ public class StoreService {
             return storeRepository.createImg(Images
                 .builder()
                 .restaurant_id(dto.getId())
-                .images_loc("C:\\Users\\MG\\git\\upload\\src\\main\\webapp\\static\\img\\"+dto.getImages_loc())
+                .images_loc(".\\static\\img\\"+dto.getImages_loc())
                 .images_type("1")
                 .build()
                 );

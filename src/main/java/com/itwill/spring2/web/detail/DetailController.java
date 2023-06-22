@@ -48,15 +48,15 @@ public class DetailController extends HttpServlet{
             
             
             int existFlag = 0;
-            
+            String name = "";
             if (username != null) {
-                String name = bookmarkService.selectbyName(username);
+                name = bookmarkService.selectbyName(username, id);
                 if (username.equals(name)) {
                     existFlag = 1;
                 }
             }
-            
-            
+            log.info("existFlag={}",existFlag);
+            log.info("name={}",name);
            
             
 //            AddressDto addressDto = addressService.read(id);

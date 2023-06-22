@@ -44,7 +44,7 @@ public class CaptureController extends HttpServlet {
 
         
         model.addAttribute("captures", list);
-        model.addAttribute("list", list = captureService.read(cri));
+//        model.addAttribute("list", list = captureService.read(cri));
         model.addAttribute("pageMaker", new PageDto(cri, 10));
         return "/community/capture/capturelist"; // 페이지네이션을 표시할 view의 경로를 반환
         
@@ -76,14 +76,19 @@ public class CaptureController extends HttpServlet {
 
     
     @GetMapping("/capture/capturedetail") 
-    public void detail(long id, Model model) {
+    public void detail(long id, Model model, HttpServletRequest request) {
         log.info("detail(id={})", id);
+        
+      //user불러오기
+        HttpSession session = ((HttpServletRequest) request).getSession();
+        String username = (String) session.getAttribute("signedInUser");
         
         //서비스 계층의 메서드를 호출해서 화면에 보여줄 captureDetailDto를 가져옴
         CaptureDetailDto dto = captureService.read(id);
         
         log.info("dto={}",dto);
         
+        model.addAttribute("username", username);
         //뷰에서 CaptureDetailDto를 전달
         model.addAttribute("capture", dto);
         
@@ -102,7 +107,7 @@ public class CaptureController extends HttpServlet {
         log.info("delete(id={})", id);
         
         int result = captureService.delete(id);
-        log.info("포스트 삭제 결과 = {}", result);
+        log.info("글 삭제 결과 = {}", result);
         
         return "redirect:/community/capture/capturelist";
     }

@@ -55,9 +55,9 @@ public class BookmarkService {
 
 
 
-	public String selectbyName(String username) {
-		log.info("selectbyName(username={})",username);
-		return bookmarkRepository.selectbyName(username);
+	public String selectbyName(String username, long id) {
+		log.info("selectbyName(username={}, id={})", username, id);
+		return bookmarkRepository.selectbyName(username, id);
 	}
     
     

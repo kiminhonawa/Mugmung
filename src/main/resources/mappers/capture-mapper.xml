@@ -8,10 +8,16 @@
 
 <!-- id의 값은 Repository 인터페이스에서 선언하는 메서드 이름. -->
 
+    <!-- 목록 -->
     <select id="selectWithReplyCount" 
         resultType="com.itwill.spring2.dto.CaptureListDto">
-        select c.id, c.content, c.capture_image_id, c.writer, c.created_time
-        from capture c
+        select c.id, c.content, c.capture_image_id, c.writer, c.created_time, 
+                i.images_loc,
+                i.images_type
+                
+        from capture c, IMAGES i
+        where 
+             c.capture_image_id = i.restaurant_id
     </select>
     
     <insert id="insert">
@@ -19,9 +25,21 @@
         values (#{content}, systimestamp, systimestamp)
     </insert>
     
+    <!-- 디테일 -->
     <select id="selectById" 
         resultType="com.itwill.spring2.domain.Capture">
-        select * from CAPTURE where ID = #{id}
+        select 
+        c.id
+        , c.content
+        , c.capture_image_id
+        , c.writer
+        , c.created_time
+        , c.modified_time
+        , i.images_loc
+        , i.images_type
+        
+        from capture c, images i 
+        where c.capture_image_id = i.images_loc and ID = #{id}
     </select>
     
     <!-- 업데이트 -->
@@ -52,9 +70,13 @@
             c.content,
             c.capture_image_id,
             c.writer,
-            c.created_time
-        FROM capture c
-        WHERE c.id > 0
+            c.created_time,
+            i.images_loc,
+                i.images_type
+        FROM capture c, IMAGES i
+        WHERE  
+        c.capture_image_id = i.restaurant_id and
+        c.id > 0
         AND rownum <= (#{pageNum} * #{amount})
     )
     WHERE rn > ((#{pageNum} - 1) * #{amount})

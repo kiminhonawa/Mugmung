@@ -6,8 +6,8 @@
 <mapper namespace="com.itwill.spring2.repository.ProposalRepository">
 
     <insert id="insert">
-        INSERT INTO proposal(TITLE, CONTENT, PROPOSAL_TYPE, CREATED_TIME, MODIFIED_TIME)
-        VALUES (#{title}, #{content}, #{proposal_type}, systimestamp, systimestamp)
+        INSERT INTO proposal(TITLE, CONTENT, WRITER, PROPOSAL_TYPE, CREATED_TIME, MODIFIED_TIME)
+        VALUES (#{title}, #{content}, #{writer}, #{proposal_type}, systimestamp, systimestamp)
     </insert>
 
 </mapper>   

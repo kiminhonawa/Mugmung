@@ -7,6 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>맛집은!머그멍</title>
 
+<link href="./static/css/headers.css" rel="stylesheet" />
 <link href="/mugmung/static/css/dropdowns.css" rel="stylesheet" />
 <style>
 @font-face {
@@ -54,6 +55,8 @@
 
 </style>
 </head>
+
+
 
 <body>
 <%@ include file="../../views/common/header.jsp"%>
@@ -278,7 +281,10 @@
 <br />
 
 
-	<%@ include file="../../views/common/footer.jsp"%>
 	
+	
+	
+	<script type="text/javascript" src="/mugmung/static/js/headerb.js"></script>
+<%@ include file="../../views/common/footer.jsp"%>
 </body>
 </html>
