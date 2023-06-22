@@ -11,6 +11,8 @@ import com.itwill.spring2.dto.MyPageBookmarkedDto;
 import com.itwill.spring2.dto.MyPagePurchasedDto;
 import com.itwill.spring2.dto.MyPageReviewedDto;
 import com.itwill.spring2.dto.MyPageStarScoreDto;
+import com.itwill.spring2.dto.PartnershipDto;
+import com.itwill.spring2.dto.ProposalDto;
 import com.itwill.spring2.repository.MyPageRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -64,6 +66,16 @@ public class MyPageService {
 	public List<MakgoraDto> readMakgoraByUsername(String username) {
 
 		return myPageRepository.readMakgoraByUsername(username);
+	}
+
+	public List<PartnershipDto> readPartnerShipByUsername(String username) {
+		log.info("readPartnerShipByUsername(username={})", username);
+		return myPageRepository.readPartnerShipByUsername(username);
+	}
+
+	public List<ProposalDto> readProposalByUsername(String username) {
+		log.info("readProposalByUsername(username={})", username);
+		return myPageRepository.readProposalByUsername(username);
 	}
 
 	

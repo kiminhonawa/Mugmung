@@ -15,6 +15,8 @@ import com.itwill.spring2.dto.MyPageBookmarkedDto;
 import com.itwill.spring2.dto.MyPagePurchasedDto;
 import com.itwill.spring2.dto.MyPageReviewedDto;
 import com.itwill.spring2.dto.MyPageStarScoreDto;
+import com.itwill.spring2.dto.PartnershipDto;
+import com.itwill.spring2.dto.ProposalDto;
 import com.itwill.spring2.dto.ReplyReadDto;
 import com.itwill.spring2.service.MyPageService;
 import com.itwill.spring2.service.PostService;
@@ -124,5 +126,55 @@ public class MypageApiController extends HttpServlet{
 		
 		return ResponseEntity.ok(list);
 	}
+	
+	
+	@GetMapping("/partnerShip")
+	public ResponseEntity<List<PartnershipDto>> partnerShip(HttpServletRequest request) {
+		log.info("get partnerShip");
+		
+		HttpSession session = ((HttpServletRequest) request).getSession();
+		
+		String username = (String) session.getAttribute("signedInUser");
+		log.info("username = {}",username);
+		
+		List<PartnershipDto> list = myPageService.readPartnerShipByUsername(username);
+		
+
+        log.info("# of replies = {}", list.size());
+		
+		return ResponseEntity.ok(list);
+	}
+	
+	
+	
+	
+	@GetMapping("/proposal")
+	public ResponseEntity<List<ProposalDto>> proposal(HttpServletRequest request) {
+		log.info("get ProposalDto");
+		
+		HttpSession session = ((HttpServletRequest) request).getSession();
+		
+		String username = (String) session.getAttribute("signedInUser");
+		log.info("username = {}",username);
+		
+		List<ProposalDto> list = myPageService.readProposalByUsername(username);
+        log.info("# of replies = {}", list.size());
+		
+		return ResponseEntity.ok(list);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 }

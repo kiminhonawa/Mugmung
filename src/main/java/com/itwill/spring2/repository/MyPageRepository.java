@@ -8,6 +8,8 @@ import com.itwill.spring2.dto.MyPageBookmarkedDto;
 import com.itwill.spring2.dto.MyPagePurchasedDto;
 import com.itwill.spring2.dto.MyPageReviewedDto;
 import com.itwill.spring2.dto.MyPageStarScoreDto;
+import com.itwill.spring2.dto.PartnershipDto;
+import com.itwill.spring2.dto.ProposalDto;
 
 public interface MyPageRepository {
 
@@ -24,5 +26,9 @@ public interface MyPageRepository {
 	public CntDto readCntDto(String username);
 
 	public List<MakgoraDto> readMakgoraByUsername(String username);
+
+	public List<PartnershipDto> readPartnerShipByUsername(String username);
+
+	public List<ProposalDto> readProposalByUsername(String username);
 
 }

@@ -106,6 +106,12 @@
         <c:url value="/mypage/makgora" var="makgoraPage" />
         <li class="nav-item"><a id="makgora" class="nav-link">문의한 내용</a></li>
         
+        <c:url value="/mypage/partnership" var="partnership" />
+        <li class="nav-item"><a id="partnership" class="nav-link">제휴 문의</a></li>
+        
+        <c:url value="/mypage/proposal" var="proposal" />
+        <li class="nav-item"><a id=proposal class="nav-link">제안 하기</a></li>
+        
         <%-- <c:url value="/mypage/setImg" var="setImg" />
         <li class="nav-item">
             <a href="${ setImg}" id="setImg" class="nav-link">프로필 변경</a>

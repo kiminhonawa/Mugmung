@@ -81,6 +81,93 @@ const makeMakgoraElements = (data) => {
         
 };
 
+const makePartnershipElements = (data) => {
+        // 댓글 개수 업데이트
+        /*replyCountSpan.innerHTML = data.length; // 배열 길이(원소 개수)*/
+        tableLists.innerHTML = ''; // <div>의 컨텐트를 지움.
+        tableHead.innerHTML = '';
+        let headStr = '';
+        let htmlStr = '';
+        
+        headStr = `
+        	<tr style="border: 1px black " >
+                            <th>제 목</th>
+                            <th rowspan="2">제휴 내용</th>
+                            <th >제휴 유형</th>
+                        </tr>
+        `;
+        
+        // for (let i = 0; i < data.length; i++) {}
+        // for (let x in data) {} -> 인덱스 iteration
+        for (let reply of data) {
+            console.log('asdf : '+reply.id);
+            
+            // Timestamp 타입 값을 날짜/시간 타입 문자열로 변환:
+            const modified = new Date(reply.modifiedTime).toLocaleString();
+            
+            // 댓글 1개를 표시할 HTML 코드:
+            htmlStr += `
+                 <tr>
+                <td >${reply.title}</td>
+                <td>
+                    ${reply.content} 
+                </td>
+                <td>
+                   ${reply.partner_type}
+                </td>
+            </tr>
+            `;
+            
+        }
+        tableLists.innerHTML = htmlStr;
+            tableHead.innerHTML = headStr;
+        
+};
+
+
+const makeProposalElements = (data) => {
+        // 댓글 개수 업데이트
+        /*replyCountSpan.innerHTML = data.length; // 배열 길이(원소 개수)*/
+        tableLists.innerHTML = ''; // <div>의 컨텐트를 지움.
+        tableHead.innerHTML = '';
+        let headStr = '';
+        let htmlStr = '';
+        
+        headStr = `
+        	<tr style="border: 1px black " >
+                            <th>제 목</th>
+                            <th rowspan="2">제휴 내용</th>
+                            <th >제휴 유형</th>
+                        </tr>
+        `;
+        
+        // for (let i = 0; i < data.length; i++) {}
+        // for (let x in data) {} -> 인덱스 iteration
+        for (let reply of data) {
+            console.log('asdf : '+reply.id);
+            
+            // Timestamp 타입 값을 날짜/시간 타입 문자열로 변환:
+            const modified = new Date(reply.modifiedTime).toLocaleString();
+            
+            // 댓글 1개를 표시할 HTML 코드:
+            htmlStr += `
+                 <tr>
+                <td >${reply.title}</td>
+                <td>
+                    ${reply.content} 
+                </td>
+                <td>
+                   ${reply.proposal_type}
+                </td>
+            </tr>
+            `;
+            
+        }
+        tableLists.innerHTML = htmlStr;
+            tableHead.innerHTML = headStr;
+        
+};
+
 
 const makeSetImgElements = (data) => {
         // 댓글 개수 업데이트
@@ -473,7 +560,36 @@ const getMakgora = async () => {
         }
     };
 
+const getPartnership = async () => {	    
+	      
+        const reqUrl = `/mugmung/mypage/api/partnerShip`;
+        console.log('reqUrl : '+reqUrl);
+        // Ajax 요청을 보내고 응답을 기다림.
+        try {
+            const response = await axios.get(reqUrl);
+            console.log(response);
+            // 댓글 개수 업데이트 & 댓글 목록 보여주기
+            makePartnershipElements(response.data);
+        } catch (error) {
+            console.log(error);
+        }
+    };
 
+const getProposal = async () => {	    
+	      
+        const reqUrl = `/mugmung/mypage/api/proposal`;
+        console.log('reqUrl : '+reqUrl);
+        // Ajax 요청을 보내고 응답을 기다림.
+        try {
+            const response = await axios.get(reqUrl);
+            console.log(response);
+            // 댓글 개수 업데이트 & 댓글 목록 보여주기
+            makeProposalElements(response.data);
+        } catch (error) {
+            console.log(error);
+        }
+    };
+    
 const getStarscore = async () => {	    
 	      
         const reqUrl = `/mugmung/mypage/api/starscore`;
@@ -567,6 +683,48 @@ makgora.addEventListener('click', (e) => {
      
 });
 
+
+const partnership = document.querySelector('a#partnership');
+
+partnership.addEventListener('click', (e) => {
+	e.preventDefault();
+        
+        console.log('partnership in');
+     // 기존에 활성화된 링크의 'active' 클래스를 제거합니다.
+    const activeLink = document.querySelector('.nav-item a.active');
+    if (activeLink) {
+      activeLink.classList.remove('active');
+      activeLink.removeAttribute('aria-current');
+    }
+     
+    // 클릭한 링크에 'active' 클래스를 추가하고, aria-current="page" 속성을 적용합니다.
+    partnership.classList.add('active');
+    partnership.setAttribute('aria-current', 'page'); 
+    
+    getPartnership();
+     
+});
+
+const proposal = document.querySelector('a#proposal');
+
+proposal.addEventListener('click', (e) => {
+	e.preventDefault();
+        
+        console.log('partnership in');
+     // 기존에 활성화된 링크의 'active' 클래스를 제거합니다.
+    const activeLink = document.querySelector('.nav-item a.active');
+    if (activeLink) {
+      activeLink.classList.remove('active');
+      activeLink.removeAttribute('aria-current');
+    }
+     
+    // 클릭한 링크에 'active' 클래스를 추가하고, aria-current="page" 속성을 적용합니다.
+    proposal.classList.add('active');
+    proposal.setAttribute('aria-current', 'page'); 
+    
+    getProposal();
+     
+});
 
     
 });

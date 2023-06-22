@@ -35,7 +35,7 @@
 	select r.id, r.name, r.name_info, v.reply_text, v.star_score
 	from restaurant r, reviews v
 	where r.id=v.restaurant_id
-	and v.writer = 'chklee1'
+	and v.writer = #{username}
 	order by r.id desc
 </select>
 
@@ -56,6 +56,22 @@ FROM dual
 <select id="readMakgoraByUsername" resultType="com.itwill.spring2.dto.MakgoraDto">
 	select title, content, makgora_type from makgora where writer = #{username}
 </select>
+
+
+<select id="readPartnerShipByUsername" resultType="com.itwill.spring2.dto.PartnerShipMyDto">
+	select title, content, partner_type
+	 from partnership
+	where writer = #{username}
+</select>
+
+
+<select id="readProposalByUsername" resultType="com.itwill.spring2.dto.ProposalMyDto">
+	select title, content, proposal_type
+	 from proposal
+	where writer = #{username}
+</select>
+
+
 
 
 
