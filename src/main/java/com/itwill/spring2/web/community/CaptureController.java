@@ -44,7 +44,7 @@ public class CaptureController extends HttpServlet {
 
         
         model.addAttribute("captures", list);
-        model.addAttribute("list", list = captureService.read(cri));
+//        model.addAttribute("list", list = captureService.read(cri));
         model.addAttribute("pageMaker", new PageDto(cri, 10));
         return "/community/capture/capturelist"; // 페이지네이션을 표시할 view의 경로를 반환
         

@@ -122,8 +122,12 @@
             <c:forEach items="${captures}" var="capture">
                 <div class="col">
                     <div class="card shadow-sm">
-                        <c:url value="/static/img/gogi.jpg" var="gogi"></c:url>
-                        <img class="bd-placeholder-img card-img-top" src="${gogi}" alt="고기 이미지" width="100%" height="225" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice"></img>
+                        <%-- <c:url value="/static/img/gogi.jpg" var="gogi"></c:url> --%>
+                        <img class="bd-placeholder-img card-img-top"
+                          src=".${capture.images_loc}"
+                          alt="고기 이미지" width="100%" height="225" 
+                          aria-label="Placeholder: Thumbnail" 
+                          preserveAspectRatio="xMidYMid slice" />
                         <div class="card-body">
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
