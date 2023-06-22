@@ -2,7 +2,7 @@
     pageEncoding="UTF-8" trimDirectiveWhitespaces="true" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ include file="../../views/common/header.jsp" %>
+
    
 <!DOCTYPE html>
 <html>
@@ -10,7 +10,7 @@
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <title>맛집은! 머그멍</title>
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+      
       <c:url value="/static/css/carousel.css" var="carousel" />
       <link rel="stylesheet" href="${carousel }">
       <c:url value="/static/css/carousel.rtl.css" var="carouselrtl" />
@@ -29,7 +29,7 @@
    </style>
    </head>
    <body>
-	
+	<%@ include file="../../views/common/header.jsp" %>
 	
    
 	<main>
@@ -69,6 +69,7 @@
         <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"></rect></svg>
 
         <div class="container">
+        
           <div class="carousel-caption text-end">
             <h1>One more for good measure.</h1>
             <p>Some representative placeholder content for the third slide of this carousel.</p>
@@ -96,51 +97,38 @@
 
     <!-- Three columns of text below the carousel -->
     <div class="row">
+  <c:forEach items="${mainBest}" var="bestlist" varStatus="loop">
+    <c:if test="${loop.index < 3}">
       <div class="col-lg-4">
-      	<img src="./static/assets/icons/one.png" width="100" />
-      	<br>
-      	<br>
-        <img src="https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150901_127%2F1441034192301Mo3tr_JPEG%2FSUBMIT_1274792647700_13418405.jpg" class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"></svg>
+        <c:choose>
+          <c:when test="${loop.index % 3 == 0}">
+            <img src="./static/assets/icons/one.png" width="100" />
+          </c:when>
+          <c:when test="${loop.index % 3 == 1}">
+            <img src="./static/assets/icons/two.png" width="100" />
+          </c:when>
+          <c:otherwise>
+            <img src="./static/assets/icons/three.png" width="100" />
+          </c:otherwise>
+        </c:choose>
+        <br>
+        <br>
+        <img src="${bestlist.images_loc}" class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"></svg>
+        <h2 class="fw-normal" style="font-family: 'EF_jejudoldam';">${bestlist.name}</h2>
+        <p>${bestlist.address1}${bestlist.address2}</p>
+        <c:url value="/detail/detail?id=${bestlist.id}" var="detailPage"></c:url>
+        <p><a class="btn btn-secondary" href="${detailPage}">맛집 들어가기</a></p>
+      </div><!-- /.col-lg-4 -->
+    </c:if>
+  </c:forEach>
+</div><!-- /.row -->
 
-        <h2 class="fw-normal" style="font-family: 'EF_jejudoldam';">우진 해장국</h2>
-        <p>제주 제주시 서사로 11</p>
-        <p><a class="btn btn-secondary" href="#">View details »</a></p>
-      </div><!-- /.col-lg-4 -->
-      <div class="col-lg-4">
-        <img src="./static/assets/icons/two.png" width="100" />
-      	<br>
-      	<br>
-      	<svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
-        <h2 class="fw-normal">Heading</h2>
-        <p>Another exciting bit of representative placeholder content. This time, we've moved on to the second column.</p>
-        <p><a class="btn btn-secondary" href="#">View details »</a></p>
-      </div><!-- /.col-lg-4 -->
-      <div class="col-lg-4">
-       <img src="./static/assets/icons/three.png" width="100" />
-      	<br>
-      	<br>
-        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
-
-        <h2 class="fw-normal">Heading</h2>
-        <p>And lastly this, the third column of representative placeholder content.</p>
-        <p><a class="btn btn-secondary" href="#">View details »</a></p>
-      </div><!-- /.col-lg-4 -->
-    </div><!-- /.row -->
-    
     <!-- START THE FEATURETTES -->
 
     <hr class="featurette-divider">
     <div class="container my-3">
-    <div class="row justify-content-between my-3">
-    <div class="col-2">
-    	<select class="form-control so">
-    		<option value="recent">최신순</option>
-    		<option value="old">오래된순</option>
-    		<option value="popular">인기순</option>
-    	</select>
-    	
-    </div>
-    </div>
+  
+    <input type="text" style="width: 1px; height: 1px; margin-left: 280px;" class="focus"/>
 <c:forEach items="${indexLists}" var="list" varStatus="loop">
   <div class="row featurette">
     <c:if test="${loop.index % 2 == 0}">
@@ -148,15 +136,19 @@
       <div class="col-md-7">
       <c:url value="/detail/detail?id=${list.id}" var="detailPage"></c:url>
       <a href="${detailPage}">
-        <h2 class="featurette-heading fw-normal lh-1" style="font-family: 'EF_jejudoldam'; text-align:right; margin-right: 100px">${list.name}<span class="text-muted"></span></h2>
+        <h2 class="featurette-heading fw-normal lh-1" style="font-family: 'EF_jejudoldam'; text-align:right; margin-right: 100px">${list.name}
+       
+  <img src="./static/img/starrate.png" class="bg-warning" width="40px;" height="40px;">
+  <span class="text-muted" style="font-size: 30px; margin-left: -20px;">${list.star_score}점</span>
+</h2>
+        <span class="text-muted"></span></h2>
         <p class="lead" style="margin-left: 100px; margin-right: 100px; text-align:right;">
           ${list.address1} ${list.address2}<br>
-          ${list.star_score}
         </p>
         </a>
       </div>
       <div class="col-md-5">
-        <img src="${list.images_loc}" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false">
+        <img src="${list.images_loc}" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="400" height="400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false">
           <title>Placeholder</title>
           <rect width="100%" height="100%" fill="#eee"></rect>
           <text x="50%" y="50%" fill="#aaa" dy=".3em"></text>
@@ -166,15 +158,24 @@
     </c:if>
     <c:if test="${loop.index % 2 != 0}">
       <div class="col-md-5 order-md-1">
-        <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false">
+        <img src="${list.images_loc}"  class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="400" height="400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false">
           <title>Placeholder</title>
           <rect width="100%" height="100%" fill="#eee"></rect>
-          <text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text>
+          <text x="50%" y="50%" fill="#aaa" dy=".3em"></text>
         </svg>
       </div>
       <div class="col-md-7 order-md-2">
-        <h2 class="featurette-heading fw-normal lh-1" style="font-family: 'EF_jejudoldam'; margin-left: 100px;">${list.name}<span class="text-muted"></span></h2>
-        <p class="lead" style="margin-left: 100px; margin-right: 100px;">Another featurette? Of course. More placeholder content here to give you an idea of how this layout would work with some actual real-world content in place.</p>
+      <c:url value="/detail/detail?id=${list.id}" var="detailPage"></c:url>
+      <a href="${detailPage}">
+        <h2 class="featurette-heading fw-normal lh-1" style="font-family: 'EF_jejudoldam'; text-align: left; margin-left: 100px;">
+  ${list.name} 
+  <img src="./static/img/starrate.png" class="bg-warning" width="40px;" height="40px;">
+  <span class="text-muted" style="font-size: 30px; margin-left: -20px;">${list.star_score}점</span>
+</h2>
+
+        <p class="lead" style="margin-left: 100px; margin-right: 100px; text-align: left;">
+       ${list.address1} ${list.address2}<br>
+          </p>
       </div>
     </c:if>
   </div>
@@ -218,9 +219,9 @@
 		
 		</div>
 		</div>
-		<%@ include file="../../views/common/footer.jsp" %>
+		
 	</main>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+	
     <script src="../static/js/main.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script type="text/javascript">
@@ -248,12 +249,13 @@ actionForm.submit();
 });
 $(document).ready(function(){
 
-	$(".container my-3").focus();
+	$(".focus").focus();
 });
 
 });
 
 
 </script>
+<%@ include file="../../views/common/footer.jsp" %>
    </body>
 </html>

@@ -11,4 +11,10 @@
         resultType="com.itwill.spring2.dto.InnPlayListDto">
         select * from home
     </select> 
+    
+    <select id="playListRead"
+        resultType="com.itwill.spring2.dto.InnPlayListDto">
+        select * from play
+    </select> 
+    
     </mapper> 

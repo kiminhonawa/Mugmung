@@ -3,6 +3,7 @@ package com.itwill.spring2.repository;
 import java.util.List;
 
 import com.itwill.spring2.dto.CntDto;
+import com.itwill.spring2.dto.MakgoraDto;
 import com.itwill.spring2.dto.MyPageBookmarkedDto;
 import com.itwill.spring2.dto.MyPagePurchasedDto;
 import com.itwill.spring2.dto.MyPageReviewedDto;
@@ -21,5 +22,7 @@ public interface MyPageRepository {
 	public String selectMyPageImgLoc(String username);
 
 	public CntDto readCntDto(String username);
+
+	public List<MakgoraDto> readMakgoraByUsername(String username);
 
 }

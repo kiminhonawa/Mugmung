@@ -35,82 +35,103 @@ public class ReviewController {
 
     @Autowired
     private ReviewService reviewService;
-    
-    @GetMapping("/review") 
+
+    @GetMapping("/review")
     public void review(@RequestParam("id") Long id, Model model, HttpServletRequest request) {
         log.info("GET: review()");
-        
+
         HttpSession session = ((HttpServletRequest) request).getSession();
-        
-        
+
         // 레스토랑 테이블에서 레스토랑 이름
         String name = reviewService.readNameById(id);
-        
+
         String username = (String) session.getAttribute("signedInUser");
-        log.info("username = {}",username);
-        
+        log.info("username = {}", username);
+
         model.addAttribute("username", username);
-        
+
         model.addAttribute("name", name);
+        
+        //1.리뷰즈 테이블에서 id로 review를 가져오기
+        //2.가져온 username = 현재 로그인한 사람 username = savetable 의 리뷰 가져오기(star score, content)
+        //3.jsp writer = username -> jsp textarea에 content 뿌려주기
+        
+        //model.addAttribute()
     }
-    
+
+    // 사진업로드
     @PostMapping("/review")
     public String makgora(@RequestParam("file") MultipartFile file) throws Exception {
         String fileName = file.getOriginalFilename();
-    log.info("fileName = {}",fileName);
-    // Generate a random file name.
-    String randomFileName =UUID.randomUUID().toString() + "_" + fileName;
-    log.info("randomFileName = {}",randomFileName);
-    // Create a new file in the C:/mugmung/img/title path.
-    File newFile = new File(new File("C:/upload/temp"), randomFileName);
-    log.info("newFile = {}",newFile);
-    // Write the file to the disk.
-    file.transferTo(newFile);
-    // Redirect the user back to the upload page.
-    return "/review/review";
+        log.info("fileName = {}", fileName);
+        // Generate a random file name.
+        String randomFileName = UUID.randomUUID().toString() + "_" + fileName;
+        log.info("randomFileName = {}", randomFileName);
+        // Create a new file in the C:/mugmung/img/title path.
+        File newFile = new File(new File("C:/upload/temp"), randomFileName);
+        log.info("newFile = {}", newFile);
+        // Write the file to the disk.
+        file.transferTo(newFile);
+        // Redirect the user back to the upload page.
+        return "/review/review";
 
     }
-    
+
+    // 저장버튼
     @PostMapping("/save")
-    public String save(HttpServletRequest request
-    		, @RequestParam(value = "rating", required = false) List<Integer> ratings
-    		, @RequestParam("content") String content
-    		, @RequestParam("restaurant_id") long restaurant_id
-    		) {
-        
+    public String save(HttpServletRequest request,
+            @RequestParam(value = "rating", required = false) List<Integer> ratings,
+            @RequestParam("content") String content, @RequestParam("restaurant_id") long restaurant_id) {
+
         if (ratings != null) {
             for (Integer rating : ratings) {
                 log.info("별점: {}", rating);
             }
         }
-        log.info("rating : {}", ratings.get(ratings.size()-1));
+        log.info("rating : {}", ratings.get(ratings.size() - 1));
         log.info("content : {}", content);
         log.info("restaurant_id : {}", restaurant_id);
-        
+
         HttpSession session = ((HttpServletRequest) request).getSession();
-        
+
         String username = (String) session.getAttribute("signedInUser");
-        
-        PostReviewDto dto = PostReviewDto.builder()
-        							.restaurant_id(restaurant_id)
-        							.star_score(ratings.get(ratings.size()-1))
-        							.reply_text(content)
-        							.writer(username)
-        							.build();
-        
-        int result =  reviewService.save(dto);
-        
-        
-        return "redirect:/detail/detail?id=21";
+
+        PostReviewDto dto = PostReviewDto.builder().restaurant_id(restaurant_id)
+                .star_score(ratings.get(ratings.size() - 1)).reply_text(content).writer(username).build();
+
+        int result = reviewService.save(dto);
+
+        return "redirect:/detail/detail?id=" + restaurant_id;
     }
-    /*
-     * @PostMapping("/delete") public String delete(long id) {
-     * log.info("delete(id={}", id);
-     * 
-     * int result = PostService log.info("삭제 결과 = {}", result);
-     * 
-     * return "redirect:/review/review"; }
-     */
+
     
-    
+      //취소버튼
+      @PostMapping("/cancel") 
+      public String cancel (){ 
+          log.info("cancel");
+      
+      return "redirect:/"; 
+      }
+     
+
+    // 임시저장
+      @PostMapping("/temp_save")
+      public String tempSave(HttpServletRequest request,
+              @RequestParam(value = "rating", required = false) List<Integer> ratings,
+              @RequestParam("content") String content,
+              @RequestParam("restaurant_id") long restaurant_id) {
+                  
+          HttpSession session = ((HttpServletRequest) request).getSession();
+          String username = (String) session.getAttribute("signedInUser");
+          
+          System.out.println("Username: " + username);
+          System.out.println("Content: " + content);
+          System.out.println("Restaurant ID: " + restaurant_id);
+          if (ratings != null) {
+              System.out.println("Ratings: " + ratings);
+          }
+          
+          return "redirect:/detail/detail?id=" + restaurant_id;
+      
+      }
 }

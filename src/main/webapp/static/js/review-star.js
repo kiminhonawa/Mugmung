@@ -39,13 +39,11 @@ document.querySelector('.rating').addEventListener('click',function(e){
     const reviewForm = document.querySelector('#reviewForm');
     
     // 삭제 버튼을 찾아서 이벤트 리스너를 등록.
-    const btnDelete = document.querySelector('#btnDelete');
-    btnDelete.addEventListener('click',()=>{
-        const check = confirm('정말 취소할까요?');
+    const btnCancel = document.querySelector('#btnCancel');
+    btnCancel.addEventListener('click',()=>{
+        const check = confirm('취소하시면 메인페이지로 넘어갑니다. 취소하시겠습니까?');
         if(check){
-            reviewForm.action = './review';
-            reviewForm.method = 'post';
-            reviewForm.submit();
+           location.href = '/mugmung/';
         }
     });
     
@@ -71,38 +69,37 @@ document.querySelector('.rating').addEventListener('click',function(e){
 
     
 });
-    
+    //임시저장
     const btnSaveTemp = document.querySelector('#btnTemp'); //임시저장 버튼 선택
     
     btnSaveTemp.addEventListener('click', ()=> {
         const formData = new FormData(); // 폼 데이터 객체 생성
         
-        /*// 별점 데이터 추가
+        // 별점 데이터 추가
         const starScore = document.querySelector('input[name="rating"]:checked').value;
         formData.append('star_score', starScore);
-        console.log('star_score', starScore);*/
+        console.log('star_score', starScore);
         
         //내용 데이터 추가
         const content = document.querySelector('textarea#content').value;
         formData.append('content', content);
         console.log('Content', content);
+        
+        
     
-    //  Ajax 요청으로 임시저장 데이터 전송
-    fetch('/temp_save',{
-        method: 'POST',
-        body: formData
+    // Axios를 사용하여 임시저장 데이터 전송
+  axios.post('/temp_save', formData)
+    .then(response => {
+      if (response.status === 200) {
+        alert('임시저장이 완료되었습니다.');
+      } else {
+        alert('임시저장에 실패했습니다.');
+      }
     })
-        .then(response => {
-            if(response.ok){
-                alert('임시저장이 완료되었습니다.');
-            }else{
-                alert('임시저장에 실패했습니다.')
-            }
-        })
-        .catch(error =>{
-            console.error('Error:',error);
-        });
+    .catch(error => {
+      console.error('Error:', error);
     });
+});
         
 //별점 데이터 value
     function getCheckboxValue(){
@@ -120,27 +117,17 @@ document.querySelector('.rating').addEventListener('click',function(e){
     }
 });
 
-// 체크박스 값 선택
 
-//별점 선택한 만큼 나오기 덧셈
-
-//텍스트에어리어값
-
-//사진이미지
-
-//저장버튼 눌렀을때 사진이름만 가져오기 콘솔로그 해보기
-
-
-/*//상품평 작성 글자수 초과 체크 이벤트 리스너
-    document.querySelector('.review_textarea').addEventListener('keydown',function(){
-        //리뷰 400자 초과 안되게 자동 자름
-        let review = document.querySelector('.review_textarea');
-        let lengthCheckEx = /^.{10000,}$/;
+//상품평 작성 글자수 초과 체크 이벤트 리스너
+    document.querySelector('.ReviewEditor textarea').addEventListener('keydown',function(){
+        //리뷰 1000자 초과 안되게 자동 자름
+        let review = document.querySelector('.ReviewEditor textarea');
+        let lengthCheckEx = /^.{1000,}$/;
         if(lengthCheckEx.test(review.value)){
-            //10,000자 초과 컷
-            review.value = review.value.substr(0,10000);
+            //1000자 초과 컷
+            review.value = review.value.substr(0,1000);
         }
-    });*/
+    });
  
 /*//저장 전송전 필드 체크 이벤트 리스너
     document.querySelector('#btnSave').addEventListener('click', function(e){

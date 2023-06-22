@@ -1,21 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" trimDirectiveWhitespaces="true"%>
-<%@ include file="../../views/common/header.jsp" %>
+
 <!DOCTYPE html>
 <html>
    <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <title>맛집은!머그멍</title>
-      <link  
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" 
-        rel="stylesheet" 
-        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" 
-        crossorigin="anonymous">
       
    </head>
    <body>
-
+<%@ include file="../../views/common/header.jsp" %>
 <!-- Favicons -->
 <link rel="apple-touch-icon" href="/docs/5.2/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
 <link rel="icon" href="/docs/5.2/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
@@ -106,10 +101,7 @@
       <div class="col-lg-6 col-md-8 mx-auto">
         <h1 class="fw-light" style="font-family: 'EF_jejudoldam';">제주도 놀거리줗</h1>
         <p class="lead text-muted" >금강산도 식후경!!!</p>
-        <p>
-          <a href="#" class="btn btn-primary my-2">Main call to action</a>
-          <a href="#" class="btn btn-secondary my-2">Secondary action</a>
-        </p>
+        
       </div>
     </div>
   </section>
@@ -181,9 +173,10 @@
       </div>
     </div>
 
-    <h2 class="display-6 text-center mb-4" style="font-family: 'EF_jejudoldam';">제주도 놀거리 리스트</h2>
+    <h2 class="display-6 text-center mb-4" style="font-family: 'EF_jejudoldam';">제주도 숙소 리스트</h2>
 
     <div class="table-responsive">
+   
       <table class="table text-center">
         <thead>
           <tr>
@@ -193,73 +186,24 @@
             <th style="width: 22%;">예약</th>
           </tr>
         </thead>
+         <c:forEach items="${playLists}" var="play">
         <tbody>
           <tr>
-            <th scope="row" class="text-start">오늘도 제주</th>
+            <th scope="row" class="text-start">${play.name}</th>
             <td><svg class="bi" width="24" height="24">
-            	<p>15만원</p>
+            	<p>${play.price}</p>
             </svg></td>
             <td><svg class="bi" width="24" height="24">
-            	<p>제주시 한경면 볼그믓로 228</p>
+            	<p>${play.address}</p>
             </svg></td>
             <td><svg class="bi" width="24" height="24">
             	<p>
-         		 <a href="http://www.oje4114.com/html/index.html" class="btn btn-primary my-2">예약하기</a>
+         		 <a href="${play.web_url}" class="btn btn-primary my-2">예약하기</a>
        		    </p>
             </svg></td>
           </tr>
-          <tr>
-            <th scope="row" class="text-start">소공원 스테이</th>
-            <td></td>
-            <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
-            <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
-          </tr>
-        </tbody>
-
-        <tbody>
-          <tr>
-            <th scope="row" class="text-start">귤한가</th>
-            <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
-            <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
-            <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
-          </tr>
-          <tr>
-            <th scope="row" class="text-start">봉성집</th>
-            <td></td>
-            <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
-            <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
-          </tr>
-          <tr>
-            <th scope="row" class="text-start">토투가</th>
-            <td></td>
-            <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
-            <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
-          </tr>
-          <tr>
-            <th scope="row" class="text-start">애월담아</th>
-            <td></td>
-            <td></td>
-            <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
-          </tr>
-          <tr>
-            <th scope="row" class="text-start">월림차경</th>
-            <td></td>
-            <td></td>
-            <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
-          </tr>
-          <tr>
-            <th scope="row" class="text-start">정취한가</th>
-            <td></td>
-            <td></td>
-            <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
-          </tr>
-          <tr>
-            <th scope="row" class="text-start">고산별곡</th>
-            <td></td>
-            <td></td>
-            <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
-          </tr>
-        </tbody>
+          </tbody>
+            </c:forEach>
       </table>
     </div>
   </main>
@@ -271,13 +215,10 @@
   
   </body>
 </html>
-        <%@ include file="../../views/common/footer.jsp" %> 
+        
          
-         <script 
-           src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" 
-           integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" 
-           crossorigin="anonymous">
-           </script>
+
       </div>
+      <%@ include file="../../views/common/footer.jsp" %> 
    </body>
 </html>

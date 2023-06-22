@@ -6,8 +6,8 @@
 <mapper namespace="com.itwill.spring2.repository.PartnershipRepository">
 
     <insert id="insert">
-        INSERT INTO partnership(TITLE, CONTENT, PARTNER_TYPE, CREATED_TIME, MODIFIED_TIME)
-        VALUES (#{title}, #{content}, #{partner_type}, systimestamp, systimestamp)
+        INSERT INTO partnership(TITLE, CONTENT, WRITER, PARTNER_TYPE, CREATED_TIME, MODIFIED_TIME)
+        VALUES (#{title}, #{content}, #{writer}, #{partner_type}, systimestamp, systimestamp)
     </insert>
 
 </mapper>   

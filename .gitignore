@@ -1,3 +1,10 @@
 /target/
 /pom.xml
 /bin/
+.classpath
+.project
+<<<<<<< HEAD
+.settings
+=======
+.settings
+>>>>>>> branch 'main' of https://github.com/chklee1048/upload.git
