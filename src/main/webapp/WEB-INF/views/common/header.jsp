@@ -8,7 +8,8 @@
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <title>맛집은! 머그멍</title>
-      <link href="./static/css/headers.css" rel="stylesheet" />
+
+      <link href="/mugmung/static/css/headers.css" rel="stylesheet" />
       <c:url value="/static/css/dropdowns.css" var="dropdown" /> 
       <link href="${dropdown }" rel="stylesheet" />
       <link 
@@ -21,6 +22,7 @@
     .search-container {
       display: flex;
       align-items: center;
+      width: 500px;
     }
 
     .search-input {
@@ -38,6 +40,10 @@
     .container {
     	text-align: center;
     }
+    .form-control.search-input {
+    border: 2px solid orange;
+    }
+    
   </style>
 
    </head>
@@ -56,9 +62,9 @@
 
 <!-- 헤더 컨테이너 -->   	
    <div class="container">
-      <div class="d-flex flex-wrap align-items-center justify-content-lg-start">
+     <div class="d-flex flex-wrap align-items-center justify-content-lg-start">
 <!-- 헤더 좌측 영역 -->      
-      <c:url value="/" var="mainPage"></c:url>
+       <c:url value="/" var="mainPage"></c:url>
         <a href="${mainPage }" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
           <c:url value="/static/img/mugmung.png" var="mugmung_logo" />
 					<img src="${ mugmung_logo }" alt="제주도 맛집! 머그멍" style="width:250px; height:100px;">
@@ -67,26 +73,20 @@
 
 <!-- 헤더 가운데 영역 -->
 		<ul class="logo-cen-ul nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-			<li>
-
-				<%-- <c:url value="/main" var="mainPage"></c:url>
+		<%-- 	<li>
 
 				<c:url value="/" var="mainPage"></c:url>
-				<a href="${mainPage}">
-
-				<c:url value="/static/img/mugmung.png" var="mugmung_logo" />
+        <a href="${mainPage }" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
+          <c:url value="/static/img/mugmung.png" var="mugmung_logo" />
 					<img src="${ mugmung_logo }" alt="제주도 맛집! 머그멍" style="width:250px; height:100px;">
-				</a> --%>
-				<c:url value="/static/img/test_logo.png" var="test_logo" />
-					<img src="${test_logo}" alt="제주도 맛집! 머그멍">
-				</a>
-			</li>
+        </a>
+			</li> --%>
 		</ul>
 <!-- 헤더 가운데 영역 end-->
 
 <!-- 헤더 우측 영역 검색 -->
 
-<form class="search-form" role="search">
+ <form class="search-form" role="search">
   <div class="search-container">
     <input type="search" class="form-control search-input text-right" placeholder="Search" aria-label="Search">
     <button type="submit" value="검색" class="search-button">
@@ -94,7 +94,7 @@
       <img src="${searchIcon}" alt="검색">
     </button>
   </div>
-</form>
+</form> 
 
 <!-- 헤더 우측 영역 검색 end-->        
         
@@ -153,22 +153,7 @@
 <!-- 홈 end-->
 
 
-<!-- 머그멍 추천 -->       
-       <li class="nav-item dropdown">
-       	<a href="#" class=" d-block link-dark text-decoration-none dropdown-toggle nav-link" data-bs-toggle="dropdown" aria-expanded="false">머그멍 추천</a>
-        	<ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownMenuLink2">
-        	<c:url var="wordcupPage" value="/recommend/wordcup" />
-        		<li><a class="dropdown-item" href="${wordcupPage }">맛상형 월드컵</a></li>
-        		
-       		<c:url var="goldenbellPage" value="/recommend/goldenbell" />
-        		<li><a class="dropdown-item" href="${goldenbellPage }">맛집 골든벨</a></li>
-        		
-       		<c:url var="analysisPage" value="/recommend/analysis" />
-        		<li><a class="dropdown-item" href="${analysisPage }">취향 OX</a></li>
-        		
-      		</ul>
-       </li>
-<!-- 머그멍 추천 끝-->
+
 
         <c:url var="bestPage" value="/best/best" />
         <li class="nav-item"><a href="${bestPage }" class="nav-link">베스트</a></li>

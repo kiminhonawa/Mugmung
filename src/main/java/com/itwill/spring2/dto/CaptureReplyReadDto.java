@@ -23,7 +23,7 @@ public class CaptureReplyReadDto {
     private long capture_id;
     private String replyText;
     private String writer;
-    private Timestamp modifiedTime;
+    private Timestamp modified_time;
 
  // DB에서 select한 Reply 타입 객체를 ReplyReadDto 타입 객체로 변환해서 리턴.
     public static CaptureReplyReadDto fromEntity(CaptureReply entity) {
@@ -32,7 +32,7 @@ public class CaptureReplyReadDto {
                 .capture_id(entity.getCapture_id())
                 .replyText(entity.getReply_text())
                 .writer(entity.getWriter())
-                .modifiedTime(Timestamp.valueOf(entity.getModified_time()))
+                .modified_time(Timestamp.valueOf(entity.getModified_time()))
                 .build();
     }
     

@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
  pageEncoding="UTF-8" trimDirectiveWhitespaces="true"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ include file="../../views/common/header.jsp" %>
+
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -17,9 +17,7 @@
   <link rel="canonical"
    href="https://getbootstrap.kr/docs/5.2.3/examples/checkout/">
 
-<link href="/docs/5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
- integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
- crossorigin="anonymous">
+
 
 <!-- Favicons -->
 <link rel="apple-touch-icon"
@@ -57,6 +55,7 @@
 
 
 <body class="bg-light">
+<%@ include file="../../views/common/header.jsp" %>
  <div class="container mb-3">
 
   <main>
@@ -65,24 +64,25 @@
    <div class="col-md-7 col-lg-8">
     <h4 class="mb-4"> 입점/제휴 문의내용</h4>
     <hr>
-    <form class="checkValidity" method="post" >
+    <c:url value="/customer/partnership" var="partnership"></c:url>
+    <form class="checkValidity" method="post" action="${ partnership }">
     <table>
      <colgroup>
          <col width="163" />
          <col width="*" />
         </colgroup>
     <tbody>
-    <tr>
+   <%--  <tr>
     
       <th><label for="username" class="form-label" >아이디</label></th> 
       <td><div class="input_area col-md-6">
-         <input type="text" id="username" class="form-control mb-3"
+         <input type="text" id="username" name="username" class="form-control mb-3"
           readonly="" value="${username}" />
         </div></td>
-    </tr>
+    </tr> --%>
     <tr>   
       
-     <th><label for="title" class="form-label" >가게명 / 회사명</label></th> 
+     <th><label for="title" class="form-label" >가게명 / 회사명 ${username}</label></th> 
      <td><div class="input_area col-md-6">
         <input style="resize: none;" id="title" class="form-control mb-3" name="title" ></input>
        </div></td>
@@ -156,9 +156,6 @@
 
 
 <%@ include file="../../views/common/footer.jsp"%>
- <script src="/docs/5.2/dist/js/bootstrap.bundle.min.js"
-  integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-  crossorigin="anonymous"></script>
- <script src="../static/js/partnership.js"></script>
+ <script src="/mugmung/static/js/partnership.js"></script>
 
 </html>
