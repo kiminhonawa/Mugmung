@@ -123,7 +123,7 @@
             </ul>
             <button type="button" class="w-100 btn btn-lg btn-outline-primary">
             	<a href="https://smartstore.naver.com/sgpij/search?q=%EC%87%A0%EC%86%8C%EA%B9%8D%20%EC%B9%B4%EC%95%BD">
-            	예약하기
+            	바로가기
             	</a>
             </button>
           </div>
@@ -144,7 +144,7 @@
             </ul>
             <button type="button" class="w-100 btn btn-lg btn-outline-primary">
             	<a href="https://www.981park.com/">
-            	예약하기
+            	바로가기
             	</a>
             </button>
           </div>
@@ -165,7 +165,7 @@
             </ul>
             <button type="button" class="w-100 btn btn-lg btn-outline-primary">
             	<a href="https://sklec.com/index.php">
-            	예약하기
+            	바로가기
             	</a>
             </button>
           </div>
@@ -173,7 +173,7 @@
       </div>
     </div>
 
-    <h2 class="display-6 text-center mb-4" style="font-family: 'EF_jejudoldam';">제주도 숙소 리스트</h2>
+    <h2 class="display-6 text-center mb-4" style="font-family: 'EF_jejudoldam';">제주도 놀거리 리스트</h2>
 
     <div class="table-responsive">
    
@@ -198,7 +198,7 @@
             </svg></td>
             <td><svg class="bi" width="24" height="24">
             	<p>
-         		 <a href="${play.web_url}" class="btn btn-primary my-2">예약하기</a>
+         		 <a href="${play.web_url}" class="btn btn-primary my-2">바로가기</a>
        		    </p>
             </svg></td>
           </tr>

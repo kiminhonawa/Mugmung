@@ -88,7 +88,7 @@
 			<br>
 				<div style="position: relative; display: inline-block;">
   					<img src="../static/img/cupon.png" width="200" height="100" alt="이미지">
-  					<a href="http://localhost:8081/mugmung/detail/detail?id=60" style="text-decoration: none; color: black;">
+  					<a href="/mugmung/detail/detail?id=60" style="text-decoration: none; color: black;">
   					<span style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 20px; color: black; padding-right: 50px; width:150px;" >산노루<br>10%</span>
 					</a>
 				</div>
@@ -108,13 +108,13 @@
 				<div style="display: flex; margin-left: 250px;">
   <div style="position: relative; display: inline-block; margin-right: 20px;">
     <img src="../static/img/cupon.png" width="200" height="100" alt="이미지">
-    <a href="http://localhost:8081/mugmung/detail/detail?id=64" style="text-decoration: none; color: black;">
+    <a href="/mugmung/detail/detail?id=64" style="text-decoration: none; color: black;">
       <span style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 20px; color: black; padding-right: 50px; width: 150px;">호커센터<br>10%</span>
     </a>
   </div>
   <div style="position: relative; display: inline-block;">
     <img src="../static/img/cupon.png" width="200" height="100" alt="이미지">
-    <a href="http://localhost:8081/mugmung/detail/detail?id=66" style="text-decoration: none; color: black;">
+    <a href="/mugmung/detail/detail?id=66" style="text-decoration: none; color: black;">
       <span style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 20px; color: black; padding-right: 50px; width: 150px;">피즈<br>5%</span>
     </a>
   </div>

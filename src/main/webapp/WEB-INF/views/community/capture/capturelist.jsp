@@ -79,8 +79,23 @@
     <body>
         
         <%@ include file="../../common/header.jsp" %>
+         <style> 
+     @font-face {
+    font-family: 'EF_jejudoldam';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-EF@1.0/EF_jejudoldam.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;} 
+    
+    @font-face {
+    font-family: 'SUITE-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/SUITE-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+}
+    
+    </style> 
         
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary" style="font-family: 'SUITE-Regular';">
             <ul class="navbar-nav bg-light">
                 <li class="nav-item">
                     <c:url var="captureListPage" value="/community/capture/capturelist" />
@@ -93,7 +108,7 @@
             </ul>
         </nav>
         
-        <main class="my-2">
+        <main class="my-2" style="font-family: 'SUITE-Regular';">
             <div id="board" class="clearfix">
                     <form name="search" id="search" action="/mugmung/community/capture/search" method="get">
                     <div class="card">
@@ -193,31 +208,31 @@
         <script type="text/javascript">
         $(document).ready(function() {
 
-        	var actionForm = $("#actionForm");
+            var actionForm = $("#actionForm");
 
 
-        	$(".page-link").on("click", function(e){
+            $(".page-link").on("click", function(e){
 
-        	e.preventDefault();
-
-
-        	var targetPage = $(this).attr("href");
-
-        	console.log(targetPage);
+            e.preventDefault();
 
 
-        	actionForm.find("input[name='pageNum']").val(targetPage);
+            var targetPage = $(this).attr("href");
 
-        	actionForm.submit();
+            console.log(targetPage);
 
 
-        	});
-        	$(document).ready(function(){
+            actionForm.find("input[name='pageNum']").val(targetPage);
 
-        	    $(".page-link").focus();
-        	});
+            actionForm.submit();
 
-        	});
+
+            });
+            $(document).ready(function(){
+
+                $(".page-link").focus();
+            });
+
+            });
 
         </script>
         
